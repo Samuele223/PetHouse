@@ -6,7 +6,7 @@ use doctrine\ORM\Mapping as ORM;
 #[ORM\Table('post')]
 class Mpost
 {
-#[ORM\Column, ORM\GeneratedValue]
+#[ORM\Column, ORM\GeneratedValue , ORM\Id]
 private int $Id;
 
 #[ORM\Column('Id_Seller')]

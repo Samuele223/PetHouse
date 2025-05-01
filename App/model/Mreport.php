@@ -6,7 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table('report')]
 class Mreport
 {
+
 #[ORM\Column, ORM\GeneratedValue]
+#[ORM\Id]
 private int $Id;
 #[ORM\Column('Id_Reporter')]
 private int $IdReporter;

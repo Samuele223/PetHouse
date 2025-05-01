@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Madmin
 {
-    #[ORM\Column,ORM\GeneratedValue]
+    #[ORM\Column, ORM\GeneratedValue, ORM\Id]
     private int $Id;
 
     #[ORM\Column]
