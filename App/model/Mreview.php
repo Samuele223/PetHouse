@@ -11,7 +11,7 @@ class Mreview
 #[ORM\Column, ORM\GeneratedValue, ORM\Id]
 private int $Id; 
 
-#[ORM\Column('Id_Reviewer')]
+#[ORM\Column('Id_Reviewer')]//da mappare bene con nullable= false
 private int $IdReviewer;
 
 #[ORM\Column('Id_Reviewed')]
@@ -21,6 +21,13 @@ private int $IdReviewed;
 private string $Description;
 
 #[ORM\Column(enumType: rating::class)] 
-private rating $rating;
+private rating $Rating;
+
+#[ORM\ManyToOne(inversedBy:'MeToReview')]
+private Muser $Reviewer;
+
+#[ORM\ManyToOne(inversedBy:'ReviewToMe')]
+private Muser $eviewed;
+
 }
 ?>
