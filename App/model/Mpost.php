@@ -40,10 +40,10 @@ private DateTime $DateIn;
 #[ORM\Column('Date_out')]
 private DateTime $Dateout;
 
-#[ManyToOne]
+#[ORM\ManyToOne]
 private Muser $Cosutumer;
 
-#[ManyToOne]
+#[ORM\ManyToOne]
 private Muser $Seller;
 
 }
