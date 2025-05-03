@@ -19,8 +19,8 @@ private string $Description;
 #[ORM\Column('Accepted_Pet')]
 private string $AcceptedPet;
 
-#[ORM\Column]
-private float $price;
+#[ORM\Column(type: 'decimal', precision:10, scale:8)]
+private float $Price;
 
 #[ORM\Column]
 private string $title;
@@ -40,10 +40,10 @@ private DateTime $DateIn;
 #[ORM\Column('Date_out')]
 private DateTime $Dateout;
 
-#[ORM\ManyToOne]
-private Muser $Cosutumer;
+#[ORM\ManyToOne(inversedBy:'AcceptedPost')]
+private Muser $Costumer;
 
-#[ORM\ManyToOne]
+#[ORM\ManyToOne(inversedBy:'MyPost')]
 private Muser $Seller;
 
 }

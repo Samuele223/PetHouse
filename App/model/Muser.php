@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 require_once 'rating.php';
+
+
 #[ORM\Entity]
 #[Table('user')]
 class Muser
@@ -16,7 +18,7 @@ class Muser
 private int $Id;
 
 #[ORM\Column]
-private string $name;
+private string $Name;
 
 //private foto $foto; non so ancora come si fa
 
@@ -32,18 +34,18 @@ private bool $Verified;
 private rating $Rating;
 
 #[ORM\Column]
-private int $tel;
+private int $Tel;
 
 #[ORM\Column(type: 'decimal', precision:11, scale:8)]
-private float $longitude;
+private float $Longitude;
 
 #[ORM\Column(type: 'decimal', precision:10, scale:8)]
-private float $latitude;
+private float $Latitude;
 
-#[OneToMany(targetEntity:Mpost::class)]
+#[OneToMany(targetEntity:Mpost::class, mappedBy:'Costumer')]
 private Collection $AcceptedPost;
 
-#[OneToMany(targetEntity:Mpost::class)]
+#[OneToMany(targetEntity:Mpost::class, mappedBy:'Seller')]
 private Collection $MyPost;
 
 public function __construct()
@@ -51,6 +53,13 @@ public function __construct()
     $this->MyPost = new ArrayCollection(); //da rivedere il costruttore
     $this->AcceptedPost = new ArrayCollection();
 }
+
+#[ORM\OneToMany(targetEntity:Mreview::class,mappedBy:'Reviewed')]
+private Collection $ReviewToMe; // recenzioni che mi hanno fatto
+
+#[ORM\OneToMany(targetEntity:Mreview::class,mappedBy:'Reviewer')]
+private Collection $MeToReview; //recensioni fatte da me
+
 }
 
 ?>

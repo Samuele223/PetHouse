@@ -15,7 +15,7 @@ private int $IdReporter;
 #[ORM\Column('Id_Reported')]
 private int $IdReported;
 #[ORM\Column]
-private string $description;
+private string $Description;
 
 }
 ?>
