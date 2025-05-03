@@ -1,7 +1,7 @@
 <?php
 
-use Doctrine\DBAL\Types\IntegerType;
 use Doctrine\ORM\Mapping as ORM;
+
 require_once 'rating.php';
 
 #[ORM\Entity]
@@ -20,7 +20,7 @@ private int $IdReviewed;
 #[ORM\Column]
 private string $Description;
 
-#[ORM\Column] //non so se è giusto INT
+#[ORM\Column(enumType: rating::class)] 
 private rating $rating;
 }
 ?>

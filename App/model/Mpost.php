@@ -9,12 +9,6 @@ class Mpost
 #[ORM\Column, ORM\GeneratedValue , ORM\Id]
 private int $Id;
 
-#[ORM\Column('Id_Seller')]
-private int $IdSeller;
-
-#[ORM\Column('Id_Costumer')]
-private int $IdCostumer;
-
 #[ORM\Column('Num_Report')]
 private int $NumReport;
 
@@ -34,6 +28,23 @@ private string $title;
 #[ORM\Column('More_Info')]
 private string $MoreInfo;
 
+#[ORM\Column(type: 'decimal', precision:11, scale:8)]
+private string $longitude;
+
+#[ORM\Column(type: 'decimal', precision:10,scale:8)]
+private string $latitude;
+
+#[ORM\Column('Date_in')]
+private DateTime $DateIn;
+
+#[ORM\Column('Date_out')]
+private DateTime $Dateout;
+
+#[ManyToOne]
+private Muser $Cosutumer;
+
+#[ManyToOne]
+private Muser $Seller;
 
 }
 ?>
