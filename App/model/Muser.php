@@ -2,64 +2,60 @@
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\OneToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
 require_once 'rating.php';
 
-
 #[ORM\Entity]
-#[Table('user')]
+#[ORM\Table(name: 'user')]
 class Muser
 {
-#[ORM\Column]
-#[ORM\GeneratedValue, ORM\Id]
-private int $Id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private int $id;
 
-#[ORM\Column]
-private string $Name;
+    #[ORM\Column]
+    private string $name;
 
-//private foto $foto; non so ancora come si fa
+    #[ORM\Column]
+    private string $email;
 
-#[ORM\Column]
-private string $Email;
+    #[ORM\Column]
+    private string $password;
 
-#[ORM\Column]
-private string $Password;
+    #[ORM\Column]
+    private bool $verified;
 
-#[ORM\Column]
-private bool $Verified;
-#[ORM\Column(enumType: rating::class)]
-private rating $Rating;
+    #[ORM\Column(enumType: rating::class)]
+    private rating $rating;
 
-#[ORM\Column]
-private int $Tel;
+    #[ORM\Column]
+    private int $tel;
 
-#[ORM\Column(type: 'decimal', precision:11, scale:8)]
-private float $Longitude;
+    #[ORM\Column(type: 'decimal', precision: 11, scale: 8)]
+    private float $longitude;
 
-#[ORM\Column(type: 'decimal', precision:10, scale:8)]
-private float $Latitude;
+    #[ORM\Column(type: 'decimal', precision: 10, scale: 8)]
+    private float $latitude;
 
-#[OneToMany(targetEntity:Mpost::class, mappedBy:'Costumer')]
-private Collection $AcceptedPost;
+    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'costumer')]
+    private Collection $acceptedPost;
 
-#[OneToMany(targetEntity:Mpost::class, mappedBy:'Seller')]
-private Collection $MyPost;
+    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller')]
+    private Collection $myPost;
 
-public function __construct()
-{
-    $this->MyPost = new ArrayCollection(); //da rivedere il costruttore
-    $this->AcceptedPost = new ArrayCollection();
+    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewed')]
+    private Collection $reviewToMe;
+
+    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer')]
+    private Collection $meToReview;
+
+    public function __construct()
+    {
+        $this->acceptedPost = new ArrayCollection();
+        $this->myPost = new ArrayCollection();
+        $this->reviewToMe = new ArrayCollection();
+        $this->meToReview = new ArrayCollection();
+    }
 }
-
-#[ORM\OneToMany(targetEntity:Mreview::class,mappedBy:'Reviewed')]
-private Collection $ReviewToMe; // recenzioni che mi hanno fatto
-
-#[ORM\OneToMany(targetEntity:Mreview::class,mappedBy:'Reviewer')]
-private Collection $MeToReview; //recensioni fatte da me
-
-}
-
-?>
