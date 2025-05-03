@@ -1,6 +1,6 @@
 <?php
 
-use doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
 
 require_once 'rating.php';
@@ -25,7 +25,7 @@ private string $Password;
 
 #[ORM\Column]
 private bool $Verified;
-#[ORM\Column(type: 'INT')]
+#[ORM\Column]
 private rating $Rating;
 
 #[ORM\Column]

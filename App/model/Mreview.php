@@ -20,7 +20,7 @@ private int $IdReviewed;
 #[ORM\Column]
 private string $Description;
 
-#[ORM\Column(type:'INT')] //non so se è giusto INT
+#[ORM\Column] //non so se è giusto INT
 private rating $rating;
 }
 ?>
