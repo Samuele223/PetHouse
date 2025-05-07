@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 require_once 'rating.php';
@@ -9,25 +10,27 @@ require_once 'rating.php';
 class Mreview
 {
 #[ORM\Column, ORM\GeneratedValue, ORM\Id]
-private int $Id; 
+private int $id; 
 
-#[ORM\Column('Id_Reviewer')]//da mappare bene con nullable= false
-private int $IdReviewer;
-
-#[ORM\Column('Id_Reviewed')]
-private int $IdReviewed;
 
 #[ORM\Column]
-private string $Description;
+private string $description;
 
 #[ORM\Column(enumType: rating::class)] 
-private rating $Rating;
+private rating $rating;
 
 #[ORM\ManyToOne(inversedBy:'MeToReview')]
-private Muser $Reviewer;
+#[ORM\JoinColumn(name:'reviewer',referencedColumnName:'id')]
+private Muser $reviewer;
 
 #[ORM\ManyToOne(inversedBy:'ReviewToMe')]
-private Muser $eviewed;
+#[ORM\JoinColumn(name:'reviewed',referencedColumnName:'id')]
+private Muser $reviewed;
+
+
+#[ORM\ManyToOne(inversedBy:'review')]
+#[ORM\JoinColumn(name:'id_offer',referencedColumnName:'id')]
+private Moffer $offer;
 
 }
 ?>

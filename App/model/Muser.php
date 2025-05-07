@@ -27,20 +27,14 @@ class Muser
     #[ORM\Column]
     private bool $verified;
 
+    #[ORM\Column(type: 'blob')]
+    private $immagine;
+
     #[ORM\Column(enumType: rating::class)]
     private rating $rating;
 
     #[ORM\Column]
     private int $tel;
-
-    #[ORM\Column(type: 'decimal', precision: 11, scale: 8)]
-    private float $longitude;
-
-    #[ORM\Column(type: 'decimal', precision: 10, scale: 8)]
-    private float $latitude;
-
-    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'costumer')]
-    private Collection $acceptedPost;
 
     #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller')]
     private Collection $myPost;
@@ -51,11 +45,20 @@ class Muser
     #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer')]
     private Collection $meToReview;
 
+    #[ORM\OneToMany(targetEntity: MPosition::class, mappedBy: 'owner')]
+    private Collection $houses;
+
+    #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter')]
+    private Collection $report;
+
+
     public function __construct()
-    {
-        $this->acceptedPost = new ArrayCollection();
+    { 
         $this->myPost = new ArrayCollection();
         $this->reviewToMe = new ArrayCollection();
         $this->meToReview = new ArrayCollection();
+        $this->houses = new ArrayCollection();
+        $this->report = new ArrayCollection();
+        //$this->password = password_hash();da finire funzione figa
     }
 }
