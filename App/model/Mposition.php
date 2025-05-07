@@ -22,10 +22,10 @@ private string $desc;
 private string $address;
 
 #[ORM\Column(type: 'decimal', precision:11, scale:8)]
-private string $longitude;
+private float $longitude;
 
 #[ORM\Column(type: 'decimal', precision:10,scale:8)]
-private string $latitude;  //dont know if float is better
+private float $latitude;  //dont know if float is better
 
 //foto private
 
@@ -36,9 +36,80 @@ private Muser $owner;
 #[ORM\OneToMany(targetEntity:Mpost::class, mappedBy:'house')]
 private Collection $post;
 
-public function __construct()
+public function getId(): int
+{
+    return $this->id;
+}
+
+public function getTitle(): string
+{
+    return $this->title;
+}
+
+public function getDesc(): string
+{
+    return $this->desc;
+}
+
+public function getAddress(): string
+{
+    return $this->address;
+}
+
+public function getLongitude(): float
+{
+    return $this->longitude;
+}
+
+public function getLatitude(): float
+{
+    return $this->latitude;
+}
+
+public function getOwner(): Muser
+{
+    return $this->owner;
+}
+
+
+public function getPosts(): array|Collection //cronologia riferita ad una casa di un utente
+{
+    return $this->post;
+}
+
+
+public function setTitle(string $title)
+{
+    $this->title = $title;
+}
+
+public function setDesc(string $desc)
+{
+    $this->desc = $desc;
+}
+
+public function setAddre(string $addres)
+{
+    $this->address = $addres;
+}
+
+public function setLongitude(float $longitude)
+{
+    $this->longitude = $longitude;
+}
+
+public function setLatitude(float $latitude)
+{
+    $this->latitude = $latitude;
+}
+
+public function __construct(string $address,string $title,string $desc)
     {
         $this->post = new ArrayCollection();
+        $this->address = $address;
+        $this->title = $title;
+        $this->desc = $desc;
+
     }
 }
 ?>

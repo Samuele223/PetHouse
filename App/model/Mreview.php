@@ -32,5 +32,42 @@ private Muser $reviewed;
 #[ORM\JoinColumn(name:'id_offer',referencedColumnName:'id')]
 private Moffer $offer;
 
+public function getId()
+{
+    return $this->id;
+}
+public function getDesc()
+{
+    return $this->description;
+}
+public function getRating()
+{
+    return $this->rating;
+}
+public function getReviewer()
+{
+    return $this->reviewer;
+}
+public function getreviewed()
+{
+    return $this->reviewed;
+}
+public function getOfferReviewed()
+{
+    return $this->offer;
+}
+public function setDesc(string $desc)
+{
+    $this->description = $desc;
+}
+public function setRating(rating $rating)
+{
+    $this->rating = $rating;
+}
+public function __construct(string $desc, rating $rating)
+{
+    $this->description = $desc;
+    $this->rating = $rating;
+}
 }
 ?>

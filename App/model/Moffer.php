@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\OneToOne;
 require_once 'stateoffer.php';
 
 #[ORM\Entity]
-#[ORM\table('offer')]
+#[ORM\Table('offer')]
 class Moffer
 {
 #[ORM\Id, ORM\Column, ORM\GeneratedValue]
