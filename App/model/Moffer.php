@@ -34,6 +34,28 @@ public function __construct()
 {
     $this->review = new ArrayCollection();
 }
+
+public function getId()
+{
+    return $this->id;
 }
+
+public function setId($id)
+{
+    $this->id = $id;
+}
+
+public function getState()
+{
+    return $this->state;
+}
+
+public function setState($state)
+{
+    $this->state = $state;
+}
+
+}
+
 
 ?>

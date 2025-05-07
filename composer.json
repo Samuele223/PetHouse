@@ -4,7 +4,8 @@
         "doctrine/dbal": "^4.2",
         "symfony/cache": "^7.2",
         "doctrine/migrations": "^3.9"
+    },
+    "require-dev": {
+        "symfony/console": "^7.2"
     }
-
-
 }
