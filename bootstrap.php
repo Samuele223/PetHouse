@@ -5,6 +5,7 @@ use Doctrine\ORM\EntityManager;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+function getEntityManager(){
 // Percorso delle tue entità (modifica se diverso)
 $paths = [__DIR__ . '/App/model'];
 $isDevMode = true;
@@ -24,3 +25,4 @@ $entityManager = new EntityManager($conn, $config);
 
 
 return $entityManager;
+}
