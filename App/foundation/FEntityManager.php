@@ -22,7 +22,7 @@ public static function getInstance(): FEntityManager
     return self::$instance;
 }
 
-public static function getEntityManager()
+public static function getEntityManager() 
 {
     return self::$entityManager;
 }

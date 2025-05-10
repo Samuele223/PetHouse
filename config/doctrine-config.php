@@ -18,6 +18,6 @@ $dbParams = [
     'charset'  => 'utf8mb4',
 ];
 
-$config = ORMSetup::createAttributeMetadataConfiguration(['/Users/rara/Documents/PetHouse_project/PetHouse/App/model'], $isDevMode);
+$config = ORMSetup::createAttributeMetadataConfiguration(['App\model'], $isDevMode); //ho messo il path relativo aurora cosi magari funziona a tutti e non solo a te
 $conn = DriverManager::getConnection($dbParams, $config);
 $entityManager = new EntityManager($conn, $config);

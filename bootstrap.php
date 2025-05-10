@@ -19,7 +19,7 @@ $dbParams = [
 ];
 
 
-$config = ORMSetup::createAttributeMetadataConfiguration(['/Users/rara/Documents/PetHouse_project/PetHouse/App/model'], $isDevMode);
+$config = ORMSetup::createAttributeMetadataConfiguration(['App/model'], $isDevMode); //anche qui ho messo il path relativo aurora se non ti funziona sei una sega a me funziona
 $conn = DriverManager::getConnection($dbParams, $config);
 $entityManager = new EntityManager($conn, $config);
 
