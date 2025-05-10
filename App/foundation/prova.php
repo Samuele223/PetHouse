@@ -7,6 +7,7 @@ require_once '../model/Mposition.php';
 require_once '../model/Moffer.php';
 require_once '../model/Mreview.php';
 require_once '../../bootstrap.php';
+require_once '../model/Mphoto.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 

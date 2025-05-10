@@ -165,6 +165,20 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
         echo "ERROR: ". $e->getMessage();
         return null;
     }
-}     
+}
+ public static function saveObject($obj) //non l ho controllata
+    {
+        try{
+            self::$entityManager->getConnection()->beginTransaction();
+            self::$entityManager->persist($obj);
+            self::$entityManager->flush();
+            self::$entityManager->getConnection()->commit();
+            return true;
+        }catch(Exception $e){
+            self::$entityManager->getConnection();
+            echo "ERROR: " . $e->getMessage();
+            return false;
+        }
+    }     
 }
 ?>

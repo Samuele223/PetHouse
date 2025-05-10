@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table('post')]
 class Mpost
 {
+
 #[ORM\Column, ORM\GeneratedValue , ORM\Id]
 private int $id;
 
