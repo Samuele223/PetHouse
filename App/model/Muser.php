@@ -27,9 +27,6 @@ class Muser
     #[ORM\Column]
     private bool $verified;
 
-    #[ORM\Column(type: 'blob')]
-    private $immagine;
-
     #[ORM\Column(enumType: rating::class)]
     private rating $rating;
 
@@ -51,6 +48,10 @@ class Muser
     #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter')]
     private Collection $report;
 
+    #[ORM\OneToOne(inversedBy:'user')]
+    #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id')]
+    private Mphoto $profilePicture;
+
 
     public function __construct()
     { 
@@ -62,19 +63,11 @@ class Muser
         //$this->password = password_hash();da finire funzione figa
     }
 
-    /**
-     * Get the value of id
-     */ 
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
     public function setId($id)
     {
         $this->id = $id;
@@ -82,19 +75,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of name
-     */ 
     public function getName()
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
     public function setName($name)
     {
         $this->name = $name;
@@ -102,19 +87,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of email
-     */ 
     public function getEmail()
     {
         return $this->email;
     }
 
-    /**
-     * Set the value of email
-     *
-     * @return  self
-     */ 
     public function setEmail($email)
     {
         $this->email = $email;
@@ -122,19 +99,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of password
-     */ 
     public function getPassword()
     {
         return $this->password;
     }
 
-    /**
-     * Set the value of password
-     *
-     * @return  self
-     */ 
     public function setPassword($password)
     {
         $this->password = $password;
@@ -142,19 +111,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of verified
-     */ 
     public function getVerified()
     {
         return $this->verified;
     }
 
-    /**
-     * Set the value of verified
-     *
-     * @return  self
-     */ 
     public function setVerified($verified)
     {
         $this->verified = $verified;
@@ -162,39 +123,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of immagine
-     */ 
-    public function getImmagine()
-    {
-        return $this->immagine;
-    }
-
-    /**
-     * Set the value of immagine
-     *
-     * @return  self
-     */ 
-    public function setImmagine($immagine)
-    {
-        $this->immagine = $immagine;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of rating
-     */ 
     public function getRating()
     {
         return $this->rating;
     }
-
-    /**
-     * Set the value of rating
-     *
-     * @return  self
-     */ 
+ 
     public function setRating($rating)
     {
         $this->rating = $rating;
@@ -202,19 +135,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of tel
-     */ 
     public function getTel()
     {
         return $this->tel;
     }
 
-    /**
-     * Set the value of tel
-     *
-     * @return  self
-     */ 
     public function setTel($tel)
     {
         $this->tel = $tel;
@@ -222,19 +147,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of myPost
-     */ 
     public function getMyPost()
     {
         return $this->myPost;
     }
 
-    /**
-     * Set the value of myPost
-     *
-     * @return  self
-     */ 
     public function setMyPost($myPost)
     {
         $this->myPost = $myPost;
@@ -242,19 +159,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of reviewToMe
-     */ 
     public function getReviewToMe()
     {
         return $this->reviewToMe;
     }
 
-    /**
-     * Set the value of reviewToMe
-     *
-     * @return  self
-     */ 
     public function setReviewToMe($reviewToMe)
     {
         $this->reviewToMe = $reviewToMe;
@@ -262,19 +171,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of meToReview
-     */ 
     public function getMeToReview()
     {
         return $this->meToReview;
     }
 
-    /**
-     * Set the value of meToReview
-     *
-     * @return  self
-     */ 
     public function setMeToReview($meToReview)
     {
         $this->meToReview = $meToReview;
@@ -282,19 +183,11 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of houses
-     */ 
     public function getHouses()
     {
         return $this->houses;
     }
 
-    /**
-     * Set the value of houses
-     *
-     * @return  self
-     */ 
     public function setHouses($houses)
     {
         $this->houses = $houses;
@@ -302,23 +195,23 @@ class Muser
         return $this;
     }
 
-    /**
-     * Get the value of report
-     */ 
     public function getReport()
     {
         return $this->report;
     }
 
-    /**
-     * Set the value of report
-     *
-     * @return  self
-     */ 
     public function setReport($report)
     {
         $this->report = $report;
+    }
 
-        return $this;
+    public function getProfilePicture()
+    {
+        return $this->profilePicture;
+    }
+
+    public function setProfilePicture($profilePicture)
+    {
+        $this->profilePicture = $profilePicture; 
     }
 }

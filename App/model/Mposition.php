@@ -36,6 +36,9 @@ private Muser $owner;
 #[ORM\OneToMany(targetEntity:Mpost::class, mappedBy:'house')]
 private Collection $post;
 
+#[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location')]
+private Collection $photos;
+
 public function getId(): int
 {
     return $this->id;
@@ -106,10 +109,22 @@ public function setLatitude(float $latitude)
 public function __construct(string $address,string $title,string $desc)
     {
         $this->post = new ArrayCollection();
+        $this->photos = new ArrayCollection();
         $this->address = $address;
         $this->title = $title;
         $this->desc = $desc;
+        
 
     }
+
+public function getPhotos()
+{
+return $this->photos;
+}
+
+public function setPhotos($photos)
+{
+$this->photos = $photos;
+}
 }
 ?>

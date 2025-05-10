@@ -29,11 +29,8 @@ private string $title;
 #[ORM\Column('More_Info')]
 private string $moreinfo;
 
-#[ORM\Column('Date_in')]
-private DateTime $DateIn;
-
-#[ORM\Column('Date_out')]
-private DateTime $Dateout; //da implementare gli intervalli date
+#[ORM\Column('date_ranges')]
+private Array $date;
 
 
 #[ORM\ManyToOne(inversedBy:'MyPost')]
@@ -49,6 +46,7 @@ private MPosition $house;
 
 #[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post')]
 private Collection $offers;
+
 
 public function getId(): int
 {
@@ -84,7 +82,10 @@ public function getMoreInfo(): string
 {
     return $this->moreinfo;
 }
-//da vedere come implementare le datee
+public function getDate(): array
+{
+    return $this->date;
+}
 
 public function getSeller(): Muser
 {
@@ -133,7 +134,18 @@ public function setMoreInfo(string $info): void
 {
     $this->moreinfo = $info;
 }
-//set date da inserire a intervalli non so come si fa me lo dirà andrea spero
+public function setDate(string $inizio, string $fine): void { //la data deve essere nel formato giusto 'Y-m-d'
+        // Validazione semplice (opzionale ma consigliata)
+        $dtInizio = new DateTime($inizio);
+        $dtFine = new DateTime($fine);
+
+        if ($dtFine < $dtInizio) {
+            throw new InvalidArgumentException("La data di fine deve essere successiva a quella di inizio.");
+        }
+
+        // Aggiunge l'intervallo (sovrascrive se la stessa data d'inizio è già presente)
+        $this->date[$inizio] = $fine;
+    }
 
 public function __construct(string $desc, string $accepted, float $price, string $title, string $info) //date mancano al costruttore ci pensa andrea con la a piccola
     {
