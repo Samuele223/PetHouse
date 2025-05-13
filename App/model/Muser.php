@@ -52,6 +52,8 @@ class Muser
     #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id')]
     private Mphoto $profilePicture;
 
+    private static string $entity = Muser::class;
+
 
     public function __construct()
     { 
@@ -63,155 +65,157 @@ class Muser
         //$this->password = password_hash();da finire funzione figa
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId($id): static
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): static
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail($email)
+    public function setEmail($email): static
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setPassword($password)
+    public function setPassword($password): static
     {
         $this->password = $password;
 
         return $this;
     }
 
-    public function getVerified()
+    public function getVerified(): bool
     {
         return $this->verified;
     }
 
-    public function setVerified($verified)
+    public function setVerified($verified): static
     {
         $this->verified = $verified;
 
         return $this;
     }
 
-    public function getRating()
+    public function getRating(): rating
     {
         return $this->rating;
     }
  
-    public function setRating($rating)
+    public function setRating($rating): static
     {
         $this->rating = $rating;
 
         return $this;
     }
 
-    public function getTel()
+    public function getTel(): int
     {
         return $this->tel;
     }
 
-    public function setTel($tel)
+    public function setTel($tel): static
     {
         $this->tel = $tel;
 
         return $this;
     }
 
-    public function getMyPost()
+    public function getMyPost(): array|Collection
     {
         return $this->myPost;
     }
 
-    public function setMyPost($myPost)
+    public function setMyPost($myPost): static
     {
         $this->myPost = $myPost;
 
         return $this;
     }
 
-    public function getReviewToMe()
+    public function getReviewToMe(): array|Collection
     {
         return $this->reviewToMe;
     }
 
-    public function setReviewToMe($reviewToMe)
+    public function setReviewToMe($reviewToMe): static
     {
         $this->reviewToMe = $reviewToMe;
 
         return $this;
     }
 
-    public function getMeToReview()
+    public function getMeToReview(): array|Collection
     {
         return $this->meToReview;
     }
 
-    public function setMeToReview($meToReview)
+    public function setMeToReview($meToReview): void
     {
         $this->meToReview = $meToReview;
 
-        return $this;
     }
 
-    public function getHouses()
+    public function getHouses(): array|Collection
     {
         return $this->houses;
     }
 
-    public function setHouses($houses)
+    public function setHouses($houses): void
     {
         $this->houses = $houses;
 
-        return $this;
     }
 
-    public function getReport()
+    public function getReport(): array|Collection
     {
         return $this->report;
     }
 
-    public function setReport($report)
+    public function setReport($report): void
     {
         $this->report = $report;
     }
 
-    public function getProfilePicture()
+    public function getProfilePicture(): Mphoto
     {
         return $this->profilePicture;
     }
 
-    public function setProfilePicture($profilePicture)
+    public function setProfilePicture($profilePicture): void
     {
         $this->profilePicture = $profilePicture; 
     }
+public static function getEntity(): string
+{
+return self::$entity;
+}
 }

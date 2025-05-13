@@ -23,7 +23,7 @@ private int $size;
 private string $types;
 
 #[ORM\Column(name:'image_data',type:"blob")]
-private BlobType $imageData; //non so se è giusto salvare cosi un blob con doctrine poi vedo bene
+private string $imageData; //non so se è giusto salvare cosi un blob con doctrine poi vedo bene
 
 private static $entity = Mphoto::class;
 
@@ -33,6 +33,7 @@ private mposition $location;
 
 #[ORM\OneToOne(mappedBy:'profilePicture')]
 private Muser $user;
+
 
 
 
@@ -51,34 +52,35 @@ public static function getEntity(): string
 }
 
 
-public function getId()
+public function getId(): int
 {
     return $this->id;
 }
 
-public function getName()
+public function getName(): string
 {
     return $this->name;
 }
 
-public function getSize()
+public function getSize(): int
 {
     return $this->size;
 }
 
-public function getType()
+public function getType(): string
 {
     return $this->types;
 }
 
-public function getImageData()
+public function getImageData(): string
 {
     return $this->imageData;
 }
 
-public function getEncodedData(){
+public function getEncodedData(): string
+{
     if(is_resource($this->imageData)){
-        $data = stream_get_contents($this->imageData);
+        $data = stream_get_contents($this->imageData); //andre vedi sta cosa come funziona
         return base64_encode($data);
     }else{
         return base64_encode($this->imageData);

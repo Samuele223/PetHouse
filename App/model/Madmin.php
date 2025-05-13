@@ -17,6 +17,8 @@ private string $password;
 #[ORM\Column]
 private string $email;
 
+private static $entity = Madmin::class;
+
 private function getId(): int //non  so se deve essere pubblica come funzione perche se ci sono piu admin 
 // allore dave essere spostata la chiave dell' admin che rimuove o aggiunge un post facciamo per ora che c è solo un admin 
 {
@@ -43,6 +45,9 @@ private function setEmail(string $email): void
     $this->email = $email;
 }
 
-
+public static function getEntity()
+{
+return self::$entity;
+}
 }
 ?>

@@ -29,6 +29,8 @@ private Mpost $post;
 #[ORM\OneToMany(targetEntity:'Mreview',mappedBy:'offer')]
 private Collection $review;
 
+private static $entity = Moffer::class;
+
 public function __construct()
 {
     $this->review = new ArrayCollection();
@@ -73,6 +75,10 @@ public function getPost()
 public function setPost($post)
 {
     $this->post = $post;
+}
+public static function getEntity(): string
+{
+    return self::$entity;
 }
 }
 
