@@ -13,9 +13,6 @@ class MPosition{
 private int $id;
 
 #[ORM\Column]
-private string $title;
-
-#[ORM\Column]
 private string $description;
 
 #[ORM\Column]
@@ -30,11 +27,11 @@ private string $province;
 #[ORM\Column]
 private string $country;
 
-#[ORM\Column(type: 'decimal', precision:11, scale:8)]
-private float $longitude;
+#[ORM\Column(type: 'decimal', precision:11, scale:8, nullable:true)]
+private ?float $longitude=null;
 
-#[ORM\Column(type: 'decimal', precision:10,scale:8)]
-private float $latitude;  //dont know if float is better
+#[ORM\Column(type: 'decimal', precision:10,scale:8, nullable:true)]
+private ?float $latitude=null;  //dont know if float is better
 
 //foto private
 
@@ -42,22 +39,17 @@ private float $latitude;  //dont know if float is better
 #[ORM\JoinColumn(name:'owner',referencedColumnName:'id')]
 private Muser $owner;
 
-#[ORM\OneToMany(targetEntity:Mpost::class, mappedBy:'house')]
-private Collection $post;
+#[ORM\OneToMany(targetEntity:Mpost::class, mappedBy:'house', nullable:true)]
+private ?Collection $post=null;
 
-#[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location')]
-private Collection $photos;
+#[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location', nullable:true)]
+private ?Collection $photos =null;
 
 private static $entity = MPosition::class;
 
 public function getId(): int
 {
     return $this->id;
-}
-
-public function getTitle(): string
-{
-    return $this->title;
 }
 
 public function getDescription(): string
@@ -92,10 +84,6 @@ public function getPosts(): array|Collection //cronologia riferita ad una casa d
 }
 
 
-public function setTitle(string $title)
-{
-    $this->title = $title;
-}
 
 public function setDescription(string $description)
 {
@@ -117,13 +105,16 @@ public function setLatitude(float $latitude)
     $this->latitude = $latitude;
 }
 
-public function __construct(string $address,string $title,string $description)
+public function __construct(string $address,string $description, string $city, string $province, string $country, Muser $owner)
     {
         $this->post = new ArrayCollection();
         $this->photos = new ArrayCollection();
         $this->address = $address;
-        $this->title = $title;
         $this->description = $description;
+        $this->city = $city;
+        $this->province = $province;
+        $this->country = $country;
+        $this->owner = $owner;
         
 
     }
