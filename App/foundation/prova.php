@@ -12,8 +12,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 
 //$a = FEntityManager::getInstance()::getEntityManager();
-$a = new Mphoto('antonio',11,'si','0101011101010');
-$b = FEntityManager::getEntityManager();
-$b->persist($a);
-$b->flush();
+$a = new MPosition('tua casa','terrazze','appartamento accogliente per i canguri');
+FEntityManager::getInstance()::saveObject($a);
 ?>

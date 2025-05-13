@@ -77,16 +77,7 @@ public function getImageData(): string
     return $this->imageData;
 }
 
-public function getEncodedData(): string
-{
-    if(is_resource($this->imageData)){
-        $data = stream_get_contents($this->imageData); //andre vedi sta cosa come funziona
-        return base64_encode($data);
-    }else{
-        return base64_encode($this->imageData);
-    }
-    
-}
+
 
 public function setLocation(Mposition $location): void
 {
