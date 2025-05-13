@@ -16,7 +16,7 @@ private int $id;
 private string $title;
 
 #[ORM\Column]
-private string $desc;
+private string $description;
 
 #[ORM\Column]
 private string $address;
@@ -51,9 +51,9 @@ public function getTitle(): string
     return $this->title;
 }
 
-public function getDesc(): string
+public function getDescription(): string
 {
-    return $this->desc;
+    return $this->description;
 }
 
 public function getAddress(): string
@@ -88,9 +88,9 @@ public function setTitle(string $title)
     $this->title = $title;
 }
 
-public function setDesc(string $desc)
+public function setDescription(string $description)
 {
-    $this->desc = $desc;
+    $this->description = $description;
 }
 
 public function setAddre(string $addres)
@@ -108,13 +108,13 @@ public function setLatitude(float $latitude)
     $this->latitude = $latitude;
 }
 
-public function __construct(string $address,string $title,string $desc)
+public function __construct(string $address,string $title,string $description)
     {
         $this->post = new ArrayCollection();
         $this->photos = new ArrayCollection();
         $this->address = $address;
         $this->title = $title;
-        $this->desc = $desc;
+        $this->description = $description;
         
 
     }

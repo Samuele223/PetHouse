@@ -18,6 +18,6 @@ $dbParams = [
     'charset'  => 'utf8mb4',
 ];
 
-$config = ORMSetup::createAttributeMetadataConfiguration(['App\model'], $isDevMode); //ho messo il path relativo aurora cosi magari funziona a tutti e non solo a te
+$config = ORMSetup::createAttributeMetadataConfiguration(['App/model'], $isDevMode); //samuele se devi modificare le cose, falle bene
 $conn = DriverManager::getConnection($dbParams, $config);
 $entityManager = new EntityManager($conn, $config);
