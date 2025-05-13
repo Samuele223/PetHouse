@@ -37,6 +37,17 @@ class FPersistentManager{
         $result = FEntityManager::getInstance()::deleteObj($obj);
         return $result;
     }
+    public static function getUserByUsername($username)
+    {
+        $result = FUser::getUserByUsername($username);
+        return $result;
+    }
+    public static function gerVerifiedUsers()
+    {
+        $result = FUser::loadVipUsers();
+        return $result;
+    }
+    
 
 
 }
