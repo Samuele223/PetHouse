@@ -23,6 +23,8 @@ private Muser $reporter;
 #[ORM\JoinColumn(name:'postreported',referencedColumnName:'id')]
 private Mpost $postreported;
 
+private static string $entity = Mreport::class;
+
 public function getId(): int
 {
     return $this->id;
@@ -47,6 +49,9 @@ public function __construct(string $desc)
 {
     $this->description = $desc;
 }
-
+public static function getEntity(): string
+{
+return self::$entity;
+}
 }
 ?>

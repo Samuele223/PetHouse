@@ -32,35 +32,37 @@ private Muser $reviewed;
 #[ORM\JoinColumn(name:'id_offer',referencedColumnName:'id')]
 private Moffer $offer;
 
-public function getId()
+private static string $entity = Mreview::class;
+
+public function getId(): int
 {
     return $this->id;
 }
-public function getDesc()
+public function getDesc(): string
 {
     return $this->description;
 }
-public function getRating()
+public function getRating(): rating
 {
     return $this->rating;
 }
-public function getReviewer()
+public function getReviewer(): Muser
 {
     return $this->reviewer;
 }
-public function getreviewed()
+public function getreviewed(): Muser
 {
     return $this->reviewed;
 }
-public function getOfferReviewed()
+public function getOfferReviewed(): Moffer
 {
     return $this->offer;
 }
-public function setDesc(string $desc)
+public function setDesc(string $desc): void
 {
     $this->description = $desc;
 }
-public function setRating(rating $rating)
+public function setRating(rating $rating): void
 {
     $this->rating = $rating;
 }
@@ -68,6 +70,10 @@ public function __construct(string $desc, rating $rating)
 {
     $this->description = $desc;
     $this->rating = $rating;
+}
+public static function getEntity(): string
+{
+return self::$entity;
 }
 }
 ?>

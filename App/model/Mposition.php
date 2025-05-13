@@ -39,6 +39,8 @@ private Collection $post;
 #[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location')]
 private Collection $photos;
 
+private static $entity = MPosition::class;
+
 public function getId(): int
 {
     return $this->id;
@@ -125,6 +127,10 @@ return $this->photos;
 public function setPhotos($photos)
 {
 $this->photos = $photos;
+}
+public static function getEntity(): string
+{
+return self::$entity;
 }
 }
 ?>

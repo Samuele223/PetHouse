@@ -12,6 +12,8 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 
 //$a = FEntityManager::getInstance()::getEntityManager();
-$b = FEntityManager::getInstance()::getObjByTwoAttribute('Mpost','description','title','primo post','gatto matto');
-echo $b[0]->getTitle();
+$a = new Mphoto('antonio',11,'si','0101011101010');
+$b = FEntityManager::getEntityManager();
+$b->persist($a);
+$b->flush();
 ?>

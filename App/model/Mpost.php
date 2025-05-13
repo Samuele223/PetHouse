@@ -48,6 +48,8 @@ private MPosition $house;
 #[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post')]
 private Collection $offers;
 
+private static $entity = Mpost::class;
+
 
 public function getId(): int
 {
@@ -157,6 +159,10 @@ public function __construct(string $desc, string $accepted, float $price, string
         $this->price = $price;
         $this->title = $title;
         $this->moreinfo = $info;
-    }   
+    }
+public static function getEntity(): string
+{
+return self::$entity;
+}   
 }
 ?>
