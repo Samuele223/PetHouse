@@ -31,9 +31,14 @@ private Collection $review;
 
 private static $entity = Moffer::class;
 
-public function __construct()
+public function __construct(stateoffer $state, DateTime $dateofferin, DateTime $dateofferout, Mpost $post)
 {
     $this->review = new ArrayCollection();
+    $this->state = $state;
+    $this->dateofferin = $dateofferin;
+    $this->dateofferout = $dateofferout;
+    $this->post = $post;
+
 }
 
 public function getId()

@@ -38,7 +38,7 @@ public function getId(): int
 {
     return $this->id;
 }
-public function getDesc(): string
+public function getDescription(): string
 {
     return $this->description;
 }
@@ -58,18 +58,21 @@ public function getOfferReviewed(): Moffer
 {
     return $this->offer;
 }
-public function setDesc(string $desc): void
+public function setDescription(string $description): void
 {
-    $this->description = $desc;
+    $this->description = $description;
 }
 public function setRating(rating $rating): void
 {
     $this->rating = $rating;
 }
-public function __construct(string $desc, rating $rating)
+public function __construct(string $description, rating $rating, Muser $reviewer, Muser $reviewed, Moffer $offer)
 {
-    $this->description = $desc;
+    $this->description = $description;
     $this->rating = $rating;
+    $this->reviewed = $reviewed;
+    $this->reviewer = $reviewer;
+    $this->offer = $offer;
 }
 public static function getEntity(): string
 {
