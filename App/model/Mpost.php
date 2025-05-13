@@ -12,8 +12,8 @@ class Mpost
 #[ORM\Column, ORM\GeneratedValue , ORM\Id]
 private int $id;
 
-#[ORM\Column('Num_Report')]
-private int $numreport;
+#[ORM\Column('Num_Report', nullable: true)]
+private ?int $numreport = null;
 
 #[ORM\Column]
 private string $description;
@@ -38,15 +38,15 @@ private Array $date;
 #[ORM\JoinColumn(name:'seller',referencedColumnName:'id')]
 private Muser $seller;
 
-#[ORM\OneToMany(targetEntity:Mreport::class, mappedBy:'postreported')]
-private Collection $reportreceived;
+#[ORM\OneToMany(targetEntity:Mreport::class, mappedBy:'postreported', nullable:true)]
+private ?Collection $reportreceived = null;
 
 #[ORM\ManyToOne(inversedBy:'post')]
 #[ORM\JoinColumn(name:'house',referencedColumnName:'id')]
 private MPosition $house;
 
-#[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post')]
-private Collection $offers;
+#[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post', nullable:true)]
+private ?Collection $offers=null;
 
 private static $entity = Mpost::class;
 
@@ -150,7 +150,7 @@ public function setDate(string $inizio, string $fine): void { //la data deve ess
         $this->date[$inizio] = $fine;
     }
 
-public function __construct(string $desc, string $accepted, float $price, string $title, string $info) //date mancano al costruttore ci pensa andrea con la a piccola
+public function __construct(string $desc, string $accepted, float $price, string $title, string $info, Muser $seller, MPosition $house) //date mancano al costruttore ci pensa andrea con la a piccola
     {
         $this->reportreceived = new ArrayCollection();
         $this->offers = new ArrayCollection();
@@ -159,6 +159,8 @@ public function __construct(string $desc, string $accepted, float $price, string
         $this->price = $price;
         $this->title = $title;
         $this->moreinfo = $info;
+        $this->seller = $seller;
+        $this->house = $house;
     }
 public static function getEntity(): string
 {

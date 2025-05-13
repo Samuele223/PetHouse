@@ -45,11 +45,11 @@ public function setDescription(string $description): void
 {
     $this->description = $description;
 }
-public function __construct(string $description, Muser $muser, Mpost $mpost)
+public function __construct(string $description, Muser $reporter, Mpost $postreported)
 {
     $this->description = $description;
-    $this->postreported = $mpost;
-    $this->reporter = $muser;
+    $this->postreported = $postreported;
+    $this->reporter = $reporter;
 }
 public static function getEntity(): string
 {

@@ -26,8 +26,8 @@ private DateTime $dateofferout;
 #[ORM\JoinColumn(name:'post',referencedColumnName:'id')]
 private Mpost $post;
 
-#[ORM\OneToMany(targetEntity:'Mreview',mappedBy:'offer')]
-private Collection $review;
+#[ORM\OneToMany(targetEntity:'Mreview',mappedBy:'offer', nullable: true)]
+private ?Collection $review = null;
 
 private static $entity = Moffer::class;
 
@@ -84,6 +84,17 @@ public function setPost($post)
 public static function getEntity(): string
 {
     return self::$entity;
+}
+public function getReview()
+{
+return $this->review;
+}
+
+public function setReview($review)
+{
+$this->review = $review;
+
+return $this;
 }
 }
 
