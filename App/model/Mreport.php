@@ -29,7 +29,7 @@ public function getId(): int
 {
     return $this->id;
 }
-public function getDesc(): string
+public function getDescription(): string
 {
     return $this->description;
 }
@@ -41,13 +41,15 @@ public function getPostReported(): Mpost
 {
     return $this->postreported;
 }
-public function setDesc(string $desc): void
+public function setDescription(string $description): void
 {
-    $this->description = $desc;
+    $this->description = $description;
 }
-public function __construct(string $desc)
+public function __construct(string $description, Muser $muser, Mpost $mpost)
 {
-    $this->description = $desc;
+    $this->description = $description;
+    $this->postreported = $mpost;
+    $this->reporter = $muser;
 }
 public static function getEntity(): string
 {

@@ -19,6 +19,12 @@ class Muser
     private string $name;
 
     #[ORM\Column]
+    private string $surname;
+
+    #[ORM\Column]
+    private string $username;
+
+    #[ORM\Column]
     private string $email;
 
     #[ORM\Column]
@@ -55,14 +61,21 @@ class Muser
     private static string $entity = Muser::class;
 
 
-    public function __construct()
+    public function __construct(string $name, string $surname, string $username, string $email, string $password, bool $verified)
     { 
         $this->myPost = new ArrayCollection();
         $this->reviewToMe = new ArrayCollection();
         $this->meToReview = new ArrayCollection();
         $this->houses = new ArrayCollection();
         $this->report = new ArrayCollection();
-        //$this->password = password_hash();da finire funzione figa
+        
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->username = $username;
+        $this->email = $email;
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $hashedPassword;
+        $this->verified = $verified;
     }
 
     public function getId(): int
@@ -88,6 +101,8 @@ class Muser
 
         return $this;
     }
+
+    
 
     public function getEmail(): string
     {
@@ -218,4 +233,24 @@ public static function getEntity(): string
 {
 return self::$entity;
 }
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
 }
