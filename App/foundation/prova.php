@@ -12,6 +12,11 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 
 //$a = FEntityManager::getInstance()::getEntityManager();
-$b = FEntityManager::getInstance()::getObjByTwoAttribute('Mpost','description','title','primo post','gatto matto');
-echo $b[0]->getTitle();
+//$b = FEntityManager::getInstance()::getObjByTwoAttribute('Mpost','description','title','primo post','gatto matto');
+
+
+$c = new MPosition("Via Torre", "Casa", "bella");
+echo FEntityManager::getInstance()::saveObject($c);
+
+
 ?>
