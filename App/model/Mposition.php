@@ -19,7 +19,16 @@ private string $title;
 private string $description;
 
 #[ORM\Column]
-private string $address;
+private string $address; // via e civico
+
+#[ORM\Column]
+private string $city;
+
+#[ORM\Column]
+private string $province;
+
+#[ORM\Column]
+private string $country;
 
 #[ORM\Column(type: 'decimal', precision:11, scale:8)]
 private float $longitude;
@@ -131,6 +140,40 @@ $this->photos = $photos;
 public static function getEntity(): string
 {
 return self::$entity;
+}
+
+public function getCity(): string
+{
+return $this->city;
+}
+
+public function setCity($city): void
+{
+$this->city = $city;
+
+}
+public function getProvince()
+{
+return $this->province;
+}
+
+
+public function setProvince($province): void
+{
+$this->province = $province;
+
+}
+
+public function getCountry(): string
+{
+return $this->country;
+}
+
+
+public function setCountry($country): void
+{
+$this->country = $country;
+
 }
 }
 ?>

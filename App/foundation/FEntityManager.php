@@ -179,6 +179,23 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
             echo "ERROR: " . $e->getMessage();
             return false;
         }
+    }
+    /**
+     * delete an object from the db
+     * @return boolean
+     */
+    public static function deleteObj($obj){
+        try{
+            self::$entityManager->getConnection()->beginTransaction();
+            self::$entityManager->remove($obj);
+            self::$entityManager->flush();
+            self::$entityManager->getConnection()->commit();
+            return true;
+        }catch(Exception $e){
+            self::$entityManager->getConnection();
+            echo "ERROR: " . $e->getMessage();
+            return false;
+        }
     }     
 }
 ?>
