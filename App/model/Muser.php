@@ -33,30 +33,30 @@ class Muser
     #[ORM\Column]
     private bool $verified;
 
-    #[ORM\Column(enumType: rating::class)]
-    private rating $rating;
+    #[ORM\Column(enumType: rating::class, nullable: true)]
+    private ?rating $rating = null;
 
-    #[ORM\Column]
-    private int $tel;
+    #[ORM\Column(nullable:true)]
+    private ?int $tel = true;
 
-    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller')]
-    private Collection $myPost;
+    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller', nullable: true)]
+    private ?Collection $myPost=null;
 
-    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewed')]
-    private Collection $reviewToMe;
+    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewed', nullable:true)]
+    private ?Collection $reviewToMe=null;
 
-    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer')]
-    private Collection $meToReview;
+    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer', nullable:true)]
+    private ?Collection $meToReview=null;
 
-    #[ORM\OneToMany(targetEntity: MPosition::class, mappedBy: 'owner')]
-    private Collection $houses;
+    #[ORM\OneToMany(targetEntity: MPosition::class, mappedBy: 'owner', nullable:true)]
+    private ?Collection $houses=null;
 
-    #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter')]
-    private Collection $report;
+    #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter', nullable:true)]
+    private ?Collection $report=null;
 
     #[ORM\OneToOne(inversedBy:'user')]
-    #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id')]
-    private Mphoto $profilePicture;
+    #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id', nullable:true)]
+    private ?Mphoto $profilePicture=null;
 
     private static string $entity = Muser::class;
 
