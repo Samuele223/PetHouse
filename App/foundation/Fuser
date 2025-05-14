@@ -7,7 +7,7 @@ class FUser{
         return $result;
     }
 
-    public static function loadVipUsers(){
+    public static function loadVerifiedUsers(){
         $result = FEntityManager::getInstance()->listOfObj(Muser::getEntity(), 'verified', '1');
 
         return $result;

@@ -51,10 +51,7 @@ public function getState()
     return $this->state;
 }
 
-public function setState($state)
-{
-    $this->state = $state;
-}
+
 
 public function getDateofferin(){
     return $this->dateofferin;
@@ -96,6 +93,39 @@ $this->review = $review;
 
 return $this;
 }
+
+public function setState(StateOffer|string $state): void
+    {
+        if (is_string($state)) {
+            $state = StateOffer::fromString($state);
+        }
+        $this->state = $state;
+    }
+
+//da vedere bene se funziona, mo famo la prova
+/**
+     * Accetta l'offerta: cambia stato, riserva le date sul post e persiste.
+     */
+    public function acceptOffer(): void
+    {
+        // 1) Cambio stato in ACCEPTED
+        $this->setState(StateOffer::ACCEPTED);
+
+        // 2) Split disponibilità sul post (prenota l'intervallo)
+        $this->getPost()->acceptReservation(
+            $this->getDateOfferIn()->format('Y-m-d'),
+            $this->getDateOfferOut()->format('Y-m-d')
+        );
+    // 3) Recupero l’EntityManager dal singleton
+    $em = FEntityManager::getEntityManager();
+
+    // 4) “Persist” (necessario solo se $offer è nuovo o detached)
+    $em->persist($this);
+
+    // 5) “Flush” scrive realmente sul DB
+    $em->flush();
 }
+}
+
 
 ?>

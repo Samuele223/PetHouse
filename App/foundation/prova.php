@@ -12,6 +12,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 
 //$a = FEntityManager::getInstance()::getEntityManager();
-$a = new MPosition('tua casa','terrazze','appartamento accogliente per i canguri');
+$a = new MPost("il post è relativo a una casa molto bella", )
 FEntityManager::getInstance()::saveObject($a);
 ?>

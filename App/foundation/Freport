@@ -1,0 +1,97 @@
+<?php
+// src/Persistence/FPersistentMReport.php
+
+use Doctrine\ORM\EntityManagerInterface;
+
+class FPersistentMReport
+{
+    private EntityManagerInterface $em;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->em = $entityManager;
+    }
+
+    /**
+     * Retrieve a Report by its primary key (ID)
+     */
+    public function retrieveById(int $id): ?Mreport
+    {
+        return $this->em->find(Mreport::class, $id);
+    }
+
+    /**
+     * List all Reports for a given post
+     */
+    public function listByPost(int $postId): array
+    {
+        return $this->em
+            ->getRepository(Mreport::class)
+            ->findBy(['postreported' => $postId]);
+    }
+
+    /**
+     * Create and persist a new Report
+     */
+    public function create(string $description, Muser $reporter, Mpost $post): bool
+    {
+        $report = new Mreport($description, $reporter, $post);
+
+        try {
+            $this->em->getConnection()->beginTransaction();
+            $this->em->persist($report);
+            $this->em->flush();
+            $this->em->getConnection()->commit();
+            return true;
+        } catch (\Exception $e) {
+            $this->em->getConnection()->rollBack();
+            error_log("ERROR createReport: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Update an existing Report
+     */
+    public function update(Mreport $report): bool
+    {
+        try {
+            $this->em->getConnection()->beginTransaction();
+
+            $managed = $this->em->find(Mreport::class, $report->getId());
+            if (! $managed) {
+                throw new \Exception("Report not found");
+            }
+
+            $managed->setDescription($report->getDescription());
+            // se serve aggiornare reporter o postreported, aggiungi qui
+
+            $this->em->flush();
+            $this->em->getConnection()->commit();
+            return true;
+        } catch (\Exception $e) {
+            $this->em->getConnection()->rollBack();
+            error_log("ERROR updateReport: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Delete a Report
+     */
+    public function delete(Mreport $report): bool
+    {
+        try {
+            $this->em->getConnection()->beginTransaction();
+            $this->em->remove($report);
+            $this->em->flush();
+            $this->em->getConnection()->commit();
+            return true;
+        } catch (\Exception $e) {
+            $this->em->getConnection()->rollBack();
+            error_log("ERROR deleteReport: " . $e->getMessage());
+            return false;
+        }
+    }
+}
+
