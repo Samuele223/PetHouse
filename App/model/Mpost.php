@@ -2,10 +2,13 @@
 //DA SISTEMARE, non mi trova acceptedPet quindi da errore + fare verifica su prova, vedere anche per quanto riguarda la gestione delle date automatica che è UNTESTED
 
 
-use App\model\acceptedPet;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
+require_once 'acceptedPet.php';
+
 
 
 
