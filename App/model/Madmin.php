@@ -19,12 +19,11 @@ private string $email;
 
 private static $entity = Madmin::class;
 
-public function getId(): int //non  so se deve essere pubblica come funzione perche se ci sono piu admin aggiornamento andrea, ho messo public perchè così pure agora ma soprattutto perchè fasmin se no non mi pijava i metodi
-// allore dave essere spostata la chiave dell' admin che rimuove o aggiunge un post facciamo per ora che c è solo un admin 
+public function getId(): int 
 {
     return $this->id;
 }
-public function getPassword(): string  //metto private su tutti i metodi sensibili
+public function getPassword(): string  
 {
     return $this->password;
 }

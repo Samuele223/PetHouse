@@ -41,40 +41,40 @@ public function __construct(stateoffer $state, DateTime $dateofferin, DateTime $
 
 }
 
-public function getId()
+public function getId(): int
 {
     return $this->id;
 }
 
-public function getState()
+public function getState(): stateoffer
 {
     return $this->state;
 }
 
 
 
-public function getDateofferin(){
+public function getDateofferin(): DateTime{
     return $this->dateofferin;
 }
 
-public function setDateofferin($dateofferin){
+public function setDateofferin($dateofferin): void{
     $this->dateofferin = $dateofferin;
 }
 
-public function getDateofferout(){
+public function getDateofferout(): DateTime{
     return $this->dateofferout;
 }
 
-public function setDateofferout($dateofferout){
+public function setDateofferout($dateofferout): void{
     $this->dateofferout = $dateofferout;
 }
 
-public function getPost()
+public function getPost(): Mpost
 {
     return $this->post;
 }
 
-public function setPost($post)
+public function setPost($post): void
 {
     $this->post = $post;
 }
@@ -82,12 +82,12 @@ public static function getEntity(): string
 {
     return self::$entity;
 }
-public function getReview()
+public function getReview(): array|Collection|null
 {
 return $this->review;
 }
 
-public function setReview($review)
+public function setReview($review): static
 {
 $this->review = $review;
 

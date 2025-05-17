@@ -29,7 +29,7 @@ class FPersistentManager{
     }
      
 
-    public static function uploadObj($obj){
+    public static function uploadObj($obj): bool{
 
         $result = FEntityManager::getInstance()->saveObject($obj);
 
@@ -43,14 +43,14 @@ class FPersistentManager{
     }
 
 
-    public static function updateObj($obj) {
+    public static function updateObj($obj) { // non so se ha senso avere una funzione che aggiorna
     $result = FEntityManager::getInstance()->updateObj($obj);
     return $result;
 }
 
 
     
-    public static function getUserByUsername($username)
+    public static function getUserByUsername($username): object|null
     {
         $result = FUser::getUserByUsername($username);
         return $result;
@@ -59,6 +59,7 @@ class FPersistentManager{
 
 
 
+    // sta roba penso sia da toglie non la capisco poi mi spiega andrea__________________-_______-----___--_-----_----_--_-_
 
      // ----- REPOSITORY ADMIN -----
 
@@ -100,17 +101,11 @@ class FPersistentManager{
         return self::reportRepo()->listByPost($postId);
     }
 
-    //----------------------------------DELETE DA AGORA, da cambiare tutti i termini/nomi classe----------------------------------------------------
+    //----------------------------------DELETE , ----------------------------------------------------
 
     public static function deleteImage($idImage){
-        $image = self::retriveObj(EImage::getEntity(), $idImage);
+        $image = self::retriveObj(Mphoto::getEntity(), $idImage);
         $result = FEntityManager::getInstance()->deleteObj($image);
-        return $result;
-    }
-
-    public static function deleteFollow($userId, $followedId){
-        $follow = FUserFollow::retriveUserFollow($userId, $followedId);
-        $result = FEntityManager::getInstance()->deleteObj($follow);
         return $result;
     }
 

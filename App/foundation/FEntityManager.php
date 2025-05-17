@@ -22,7 +22,7 @@ public static function getInstance(): FEntityManager
     return self::$instance;
 }
 
-public static function getEntityManager() 
+public static function getEntityManager()
 {
     return self::$entityManager;
 }
@@ -210,7 +210,7 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
  * @param object $obj Un’istanza “detached” con ID valorizzato e campi modificati
  * @return bool       True se l’operazione ha avuto successo, false altrimenti
  */
-public static function updateObj($obj) {
+public static function updateObj($obj): bool {
     try {
         $em = self::$entityManager;
         $em->getConnection()->beginTransaction();

@@ -7,15 +7,6 @@ class Freport
 {
 
     /**
-     * Mi pijo il report singolo dall'id del report stesso, PENSO può esse utile
-     */
-    public static function retrieveById(int $id){
-       
-        $result = FEntityManager::getInstance()->retriveObj(Mreport::getEntity(), $id);
-        return $result;
-    }
-
-    /**
      * qua na bella funzione, ti lista tutti i post che hanno ALMENO un report, pensavo per gli admin che vanno alla sezione
      * dei post segnalati, non me ne tiene a fare la if, che è nel caso esiste un solo post con dei reports
      */
