@@ -2,7 +2,7 @@
 
 class FPersistentManager{
 
-    /**
+    /**                                                     non mi funziona retrive obj
      * Singleton Class
      */
 
@@ -114,5 +114,13 @@ class FPersistentManager{
         return $result;
     }
 
-
+    public static function DeleteObjFromId($Mclass, $id){  //non si comporta bene con le eccezioni
+        $obj = FEntityManager::getInstance()->retriveObj($Mclass,$id);
+        FEntityManager::getInstance()->deleteObj($obj);
+    }
+        
+        
+        
+      
+    
 }

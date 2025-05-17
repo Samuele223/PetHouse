@@ -13,7 +13,7 @@ class Muser
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private int $userId;
+    private int $id;
 
     #[ORM\Column]
     private string $name;
@@ -37,7 +37,7 @@ class Muser
     private ?rating $rating = null;
 
     #[ORM\Column(nullable:true)]
-    private ?int $tel = true;
+    private ?int $tel; 
 
     #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller', nullable: true)]
     private ?Collection $myPost=null;
@@ -80,7 +80,7 @@ class Muser
 
     public function getId(): int
     {
-        return $this->userId;
+        return $this->id;
     }
 
     public function setId($id): static

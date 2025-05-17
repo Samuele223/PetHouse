@@ -28,15 +28,13 @@ public static function getEntityManager()
 }
 public static function retriveObj($class, $id)
 {
-    try
-    {
+
         $obj = self::$entityManager->find(className: $class, id: $id);
+        if (!$obj) {
+            echo "oggetto non trovato "; //doctrine non crea eccezioni con find che ubriaco quello di agora
+        }
+
         return $obj;
-    }catch(Exception $e)
-    {
-        echo "ERROR: ". $e->getMessage();
-        return null;
-    }
 }
 /**
  * Finds and returns the first object that matches a given attribute value.
@@ -218,7 +216,7 @@ public static function updateObj($obj): bool {
         $class = get_class($obj);
         // 1) Trovo l’istanza managed a partire dall’ID
         $idGetter = 'getId'; // o il metodo getter del tuo PK
-        $managed = $em->find($class, $obj->$idGetter());
+        $managed = $em->find($class, $obj->$idGetter()); //questa riga è da brividi
         if (! $managed) {
             throw new \Exception("Entità non trovata per aggiornamento");
         }
@@ -241,6 +239,8 @@ public static function updateObj($obj): bool {
         return false;
     }
 }
+
+
 
 
          

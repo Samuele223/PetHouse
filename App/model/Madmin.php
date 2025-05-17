@@ -14,7 +14,8 @@ private int $id;
 #[ORM\Column]
 private string $password;
 
-#[ORM\Column]
+#[ORM\Column(unique: true)] 
+
 private string $email;
 
 private static $entity = Madmin::class;
@@ -47,6 +48,11 @@ public function setEmail(string $email): void
 public static function getEntity()
 {
 return self::$entity;
+}
+public function  __construct(string $password,string $Email)
+{
+        $this->password = $password;
+        $this->email = $Email;
 }
 }
 ?>
