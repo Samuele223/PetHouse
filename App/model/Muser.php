@@ -13,7 +13,7 @@ class Muser
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private int $id;
+    private int $userId;
 
     #[ORM\Column]
     private string $name;
@@ -80,7 +80,7 @@ class Muser
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->userId;
     }
 
     public function setId($id): static

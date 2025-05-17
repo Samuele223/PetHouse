@@ -7,6 +7,9 @@ class FUser{
         return $result;
     }
 
+
+    // immagino che sono verified perchè hanno la value impostata a 1
+
     public static function loadVerifiedUsers(){
         $result = FEntityManager::getInstance()->listOfObj(Muser::getEntity(), 'verified', '1');
 
