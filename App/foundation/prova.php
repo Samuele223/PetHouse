@@ -14,6 +14,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 
 //$a = FEntityManager::getInstance()::getEntityManager();
-FPersistentManager::retriveObj(Madmin::getEntity(),100);
+$a = FPersistentManager::findObjNOtId(Madmin::getEntity(),'email','santagata@gma2il.com');
 
 ?>

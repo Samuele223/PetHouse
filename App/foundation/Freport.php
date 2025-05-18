@@ -1,8 +1,5 @@
 <?php
 // src/Persistence/Freport.php
-
-use Doctrine\ORM\EntityManagerInterface;
-
 class Freport
 {
 
@@ -22,7 +19,7 @@ class Freport
     // scopiazzata popo da agora pesante, elimina tutti i report va che bello, da rivedere/testare
     public static function deleteReports($id, $field = null){
         if($field === null){
-            $report = FEntityManager::getInstance()->retriveObj(Mreport::getEntity(), $id);
+            $report = FEntityManager::getInstance()->retrieveObj(Mreport::getEntity(), $id);
             $del = FEntityManager::getInstance()->deleteObj($report);
             return $del;
         }else{

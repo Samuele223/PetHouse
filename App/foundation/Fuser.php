@@ -2,7 +2,7 @@
 
 class FUser{
     public static function getUserByUsername($username){
-        $result = FEntityManager::getInstance()->retriveObjNotOnId(Muser::getEntity(), 'username', $username);
+        $result = FEntityManager::getInstance()->retrieveObjNotOnId(Muser::getEntity(), 'username', $username);
 
         return $result;
     }

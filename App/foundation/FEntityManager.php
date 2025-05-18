@@ -26,7 +26,7 @@ public static function getEntityManager()
 {
     return self::$entityManager;
 }
-public static function retriveObj($class, $id)
+public static function retrieveObj($class, $id)
 {
 
         $obj = self::$entityManager->find(className: $class, id: $id);
@@ -53,7 +53,7 @@ public static function retriveObj($class, $id)
  * @return object|null The first matching object, or null if no match is found.
  */
 
-public static function retriveObjNotOnId($class, $columnName, $attribute)
+public static function retrieveObjNotOnId($class, $columnName, $attribute)
 {
     try {
         // Usa l'EntityManager per accedere al repository della classe specificata
@@ -208,7 +208,7 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
  * @param object $obj Un’istanza “detached” con ID valorizzato e campi modificati
  * @return bool       True se l’operazione ha avuto successo, false altrimenti
  */
-public static function updateObj($obj): bool {
+public static function updateObj($obj): bool { 
     try {
         $em = self::$entityManager;
         $em->getConnection()->beginTransaction();
