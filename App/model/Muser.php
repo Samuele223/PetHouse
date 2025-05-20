@@ -37,7 +37,7 @@ class Muser
     private ?rating $rating = null;
 
     #[ORM\Column(nullable:true)]
-    private ?int $tel = true;
+    private ?int $tel; 
 
     #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller', nullable: true)]
     private ?Collection $myPost=null;

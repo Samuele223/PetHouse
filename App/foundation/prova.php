@@ -1,6 +1,8 @@
 <?php
 require_once 'FEntityManager.php';
 require_once '../model/Mpost.php';
+require_once '../model/Madmin.php';
+require_once 'FPersistentManager.php';
 require_once '../model/Muser.php';
 require_once '../model/Mreport.php';
 require_once '../model/Mposition.php';
@@ -12,6 +14,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/doctrine-config.php';
 
 //$a = FEntityManager::getInstance()::getEntityManager();
-$a = new MPosition('tua casa','terrazze','appartamento accogliente per i canguri');
-FEntityManager::getInstance()::saveObject($a);
+$a = FPersistentManager::findObjNOtId(Madmin::getEntity(),'email','santagata@gma2il.com');
+
 ?>

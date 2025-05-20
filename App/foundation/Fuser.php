@@ -2,12 +2,21 @@
 
 class FUser{
     public static function getUserByUsername($username){
-        $result = FEntityManager::getInstance()->retriveObjNotOnId(Muser::getEntity(), 'username', $username);
+
+        $result = FEntityManager::getInstance()->retrieveObjNotOnId(Muser::getEntity(), 'username', $username);
+
+
 
         return $result;
     }
 
-    public static function loadVipUsers(){
+
+
+    // immagino che sono verified perchè hanno la value impostata a 1
+
+    public static function loadVerifiedUsers(){
+
+
         $result = FEntityManager::getInstance()->listOfObj(Muser::getEntity(), 'verified', '1');
 
         return $result;

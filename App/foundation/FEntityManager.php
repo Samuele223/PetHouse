@@ -22,21 +22,19 @@ public static function getInstance(): FEntityManager
     return self::$instance;
 }
 
-public static function getEntityManager() 
+public static function getEntityManager()
 {
     return self::$entityManager;
 }
-public static function retriveObj($class, $id)
+public static function retrieveObj($class, $id)
 {
-    try
-    {
+
         $obj = self::$entityManager->find(className: $class, id: $id);
+        if (!$obj) {
+            echo "oggetto non trovato "; //doctrine non crea eccezioni con find che ubriaco quello di agora
+        }
+
         return $obj;
-    }catch(Exception $e)
-    {
-        echo "ERROR: ". $e->getMessage();
-        return null;
-    }
 }
 /**
  * Finds and returns the first object that matches a given attribute value.
@@ -55,7 +53,7 @@ public static function retriveObj($class, $id)
  * @return object|null The first matching object, or null if no match is found.
  */
 
-public static function retriveObjNotOnId($class, $columnName, $attribute)
+public static function retrieveObjNotOnId($class, $columnName, $attribute)
 {
     try {
         // Usa l'EntityManager per accedere al repository della classe specificata
@@ -83,7 +81,9 @@ public static function retriveObjNotOnId($class, $columnName, $attribute)
  * @param mixed $value The value of the field to search for.
  * 
  * @return array|null An array of matching objects, or null if an error occurs.
- */
+ * 
+ * mi fa ridere che invece di objectList da agora noi l'abbiamo chiamata listOfObj, spassoso
+ */ 
 public static function listOfObj($class, $columName, $value): array|null
 {
     try
@@ -196,6 +196,53 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
             echo "ERROR: " . $e->getMessage();
             return false;
         }
-    }     
+    }
+    /**
+ * Aggiorna un oggetto esistente nel database.
+ *
+ * Il metodo si occupa di:
+ *  1. Recuperare l’entità managed via find()
+ *  2. Copiare i campi modificati
+ *  3. Chiamare flush()
+ *
+ * @param object $obj Un’istanza “detached” con ID valorizzato e campi modificati
+ * @return bool       True se l’operazione ha avuto successo, false altrimenti
+ */
+public static function updateObj($obj): bool { 
+    try {
+        $em = self::$entityManager;
+        $em->getConnection()->beginTransaction();
+
+        $class = get_class($obj);
+        // 1) Trovo l’istanza managed a partire dall’ID
+        $idGetter = 'getId'; // o il metodo getter del tuo PK
+        $managed = $em->find($class, $obj->$idGetter()); //questa riga è da brividi
+        if (! $managed) {
+            throw new \Exception("Entità non trovata per aggiornamento");
+        }
+
+        // 2) Copio tutti i campi modificati da $obj a $managed
+        //    Qui serve del codice “boilerplate” o reflection per ogni proprietà.
+        //    Esempio manuale per le proprietà comuni:
+        // $managed->setTitle($obj->getTitle());
+        // $managed->setContent($obj->getContent());
+        // … ecc.
+
+        // 3) Applico le modifiche
+        $em->flush();
+        $em->getConnection()->commit();
+
+        return true;
+    } catch (\Exception $e) {
+        $em->getConnection()->rollBack();
+        echo "ERROR: " . $e->getMessage();
+        return false;
+    }
+}
+
+
+
+
+         
 }
 ?>

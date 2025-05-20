@@ -14,33 +14,33 @@ private int $id;
 #[ORM\Column]
 private string $password;
 
-#[ORM\Column]
+#[ORM\Column(unique: true)] 
+
 private string $email;
 
 private static $entity = Madmin::class;
 
-private function getId(): int //non  so se deve essere pubblica come funzione perche se ci sono piu admin 
-// allore dave essere spostata la chiave dell' admin che rimuove o aggiunge un post facciamo per ora che c è solo un admin 
+public function getId(): int 
 {
     return $this->id;
 }
-private function getPassword(): string  //metto private su tutti i metodi sensibili
+public function getPassword(): string  
 {
     return $this->password;
 }
-private function getEmail(): string
+public function getEmail(): string
 {
     return $this->email;
 }
-private function setId(int $id): void
+public function setId(int $id): void
 {
     $this->id = $id;
 }
-private function setPassword(string $password): void
+public function setPassword(string $password): void
 {
     $this->password = $password;
 }
-private function setEmail(string $email): void
+public function setEmail(string $email): void
 {
     $this->email = $email;
 }
@@ -48,6 +48,11 @@ private function setEmail(string $email): void
 public static function getEntity()
 {
 return self::$entity;
+}
+public function  __construct(string $password,string $Email)
+{
+        $this->password = $password;
+        $this->email = $Email;
 }
 }
 ?>

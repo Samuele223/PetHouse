@@ -50,7 +50,7 @@ public function getReviewer(): Muser
 {
     return $this->reviewer;
 }
-public function getreviewed(): Muser
+public function getReviewed(): Muser
 {
     return $this->reviewed;
 }
