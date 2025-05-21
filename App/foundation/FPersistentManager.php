@@ -92,17 +92,7 @@ class FPersistentManager{
 
 
 
-    /**
-     * Elenca tutti i report associati a un post.
-     *
-     * @param int $postId  ID del post segnalato
-     * @return Mreport[]  Array di oggetti Mreport (vuoto se nessuno)
-     */
-    public static function listReportsByPost(int $postId): array
-    {
-        return self::reportRepo()->listByPost($postId);
-    }
-
+  
     //----------------------------------DELETE , ----------------------------------------------------
 
     public static function deleteImage($idImage){
@@ -111,12 +101,12 @@ class FPersistentManager{
         return $result;
     }
 
-    public static function deleteRelatedReports($id, $field = null){
+    public static function deleteRelatedReports($id, $field = null): bool{
         $result = FReport::deleteReports($id, $field);
         return $result;
     }
 
-    public static function DeleteObjFromId($Mclass, $id)
+    public static function DeleteObjFromId($Mclass, $id): void
     {  
         $obj = FEntityManager::getInstance()->retrieveObj($Mclass,$id);
         if(!$obj){
