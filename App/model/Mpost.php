@@ -47,7 +47,7 @@ public function __construct(string $desc, array|string $acceptedPets, float $pri
     $this->reportreceived = new ArrayCollection();
     $this->offers = new ArrayCollection();
     $this->description = $desc;
-     $this->setAcceptedPets($acceptedPets);
+     $this->setAcceptedPets(acceptedPets: $acceptedPets);
     $this->price = $price;
     $this->title = $title;
     $this->moreinfo = $info;

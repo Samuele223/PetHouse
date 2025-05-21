@@ -90,7 +90,7 @@ public function setDescription(string $description)
     $this->description = $description;
 }
 
-public function setAddre(string $addres)
+public function setAddres(string $addres)
 {
     $this->address = $addres;
 }
@@ -119,12 +119,12 @@ public function __construct(string $address,string $description, string $city, s
 
     }
 
-public function getPhotos()
+public function getPhotos(): array|Collection|null
 {
 return $this->photos;
 }
 
-public function setPhotos($photos)
+public function setPhotos($photos): void
 {
 $this->photos = $photos;
 }
@@ -143,7 +143,7 @@ public function setCity($city): void
 $this->city = $city;
 
 }
-public function getProvince()
+public function getProvince(): string
 {
 return $this->province;
 }
