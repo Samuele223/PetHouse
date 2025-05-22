@@ -233,21 +233,21 @@ public static function getEntity(): string
 {
 return self::$entity;
 }
-    public function getSurname()
+    public function getSurname(): string
     {
         return $this->surname;
     }
-    public function setSurname($surname)
+    public function setSurname($surname): static
     {
         $this->surname = $surname;
 
         return $this;
     }
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
-    public function setUsername($username)
+    public function setUsername($username): static
     {
         $this->username = $username;
 

@@ -85,22 +85,22 @@ public function getPosts(): array|Collection //cronologia riferita ad una casa d
 
 
 
-public function setDescription(string $description)
+public function setDescription(string $description): void
 {
     $this->description = $description;
 }
 
-public function setAddres(string $addres)
+public function setAddres(string $addres): void
 {
     $this->address = $addres;
 }
 
-public function setLongitude(float $longitude)
+public function setLongitude(float $longitude): void
 {
     $this->longitude = $longitude;
 }
 
-public function setLatitude(float $latitude)
+public function setLatitude(float $latitude): void
 {
     $this->latitude = $latitude;
 }

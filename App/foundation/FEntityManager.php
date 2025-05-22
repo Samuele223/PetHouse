@@ -181,7 +181,7 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
         }
     }
     /**
-     * delete an object from the db
+     * delete an object from the db anche questa duplicata
      * @return boolean
      */
     public static function deleteObj($obj){

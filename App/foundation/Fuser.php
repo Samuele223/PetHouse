@@ -1,7 +1,7 @@
 <?php
 
 class FUser{
-    public static function getUserByUsername($username){
+    public static function getUserByUsername($username): object|null{
 
         $result = FEntityManager::getInstance()->retrieveObjNotOnId(Muser::getEntity(), 'username', $username);
 
@@ -14,7 +14,7 @@ class FUser{
 
     // immagino che sono verified perchè hanno la value impostata a 1
 
-    public static function loadVerifiedUsers(){
+    public static function loadVerifiedUsers(): array|null{
 
 
         $result = FEntityManager::getInstance()->listOfObj(Muser::getEntity(), 'verified', '1');

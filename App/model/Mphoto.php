@@ -89,12 +89,12 @@ public function getLocation(): ?MPosition
     return $this->location;
 }
 
-public function getUser()
+public function getUser(): Muser|null
 {
 return $this->user;
 }
 
-public function setUser($user)
+public function setUser($user): static
 {
 $this->user = $user;
 

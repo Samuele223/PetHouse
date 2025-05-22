@@ -24,7 +24,7 @@ class FPersistentManager{
     // metodi che usa anche agorà
 
 
-    public static function retriveObj($Mclass, $id) // penso sia da validare l' imput delle funzioni che prendono in imput il nome di una classe
+    public static function retriveObj($Mclass, $id): object|T|null // penso sia da validare l' imput delle funzioni che prendono in input il nome di una classe
     {
         $result = FEntityManager::getInstance()::retrieveObj($Mclass,$id);
         return $result;
@@ -38,7 +38,7 @@ class FPersistentManager{
         return $result;
     }
     
-    public static function deleteObj($obj)
+    public static function deleteObj($obj): bool
     {
         $result = FEntityManager::getInstance()::deleteObj($obj);
         return $result;
@@ -61,29 +61,12 @@ class FPersistentManager{
 
 
 
-    // sta roba penso sia da toglie non la capisco poi mi spiega andrea__________________-_______-----___--_-----_----_--_-_
+    // sta roba penso sia da toglie non la capisco poi mi spiega andrea: l'ho tolta tranquillo si duplica tutto e va ben così__________________-_______-----___--_-----_----_--_-_
 
      // ----- REPOSITORY ADMIN -----
 
-    /** @var Fadmin|null $adminRepo */
-    private static ?Fadmin $adminRepo = null;
 
-    /**
-     * Inizializza (una sola volta) il repository Admin
-     * ottenendo l’EntityManager dal singleton FEntityManager.
-     *
-     * @return Fadmin
-     */
-    private static function adminRepo(): Fadmin
-    {
-        // Se non esiste ancora l’istanza, la crea
-        if (self::$adminRepo === null) {
-            $em = FEntityManager::getInstance()->getEntityManager();
-            self::$adminRepo = new Fadmin($em);
-        }
-        // Restituisce l’istanza singleton
-        return self::$adminRepo;
-    }
+
 
 
 
@@ -121,7 +104,7 @@ class FPersistentManager{
      * @param mixed $attribute
      * @return object|null
      */
-    public static function findObjNOtId($class, $columnName, $attribute)
+    public static function findObjNOtId($class, $columnName, $attribute): object|null
     {
         $obj = FEntityManager::getInstance()::retrieveObjNotOnId(class: $class, columnName: $columnName, attribute: $attribute);
         return $obj;
@@ -133,7 +116,7 @@ class FPersistentManager{
      * @param mixed $attribute
      * @return array|null
      */
-    public static function listOfObj($class, $columnName, $attribute)
+    public static function listOfObj($class, $columnName, $attribute): array|null
     {
         $a = FEntityManager::getInstance()::listOfObj($class, $columnName, $attribute);
         return $a;

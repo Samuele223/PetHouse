@@ -7,7 +7,7 @@ class Fposition{
  * @param string $province
  * @return array|null
  */
-public static function filterPositionByCity(string $city,string $province)
+public static function filterPositionByCity(string $city,string $province): array|null
 {
     $resultList = FEntityManager::getInstance()::getObjByTwoAttribute('Mposition', 'city', 'province', $city, $province);
     return $resultList;

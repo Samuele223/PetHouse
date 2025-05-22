@@ -45,7 +45,7 @@ public function setEmail(string $email): void
     $this->email = $email;
 }
 
-public static function getEntity()
+public static function getEntity(): mixed
 {
 return self::$entity;
 }
