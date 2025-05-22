@@ -38,11 +38,16 @@ private string $title;
 #[ORM\Column('More_Info')]
 private string $moreinfo;
 
-#[ORM\Column('date_ranges')]
-private Array $date=[];
+#[ORM\Column('date_in')]
+private DateTime $datein;
+
+#[ORM\Column('date_out')]
+private DateTime $dateout;
+
+
 
 // 2) Nel costruttore inizializzo $this->date
-public function __construct(string $desc, array|string $acceptedPets, float $price, string $title, string $info, Muser $seller, MPosition $house)
+public function __construct(string $desc, array|string $acceptedPets, float $price, string $title, string $info, Muser $seller, MPosition $house, DateTime $datein, DateTime $dateout)
 {
     $this->reportreceived = new ArrayCollection();
     $this->offers = new ArrayCollection();
@@ -53,7 +58,9 @@ public function __construct(string $desc, array|string $acceptedPets, float $pri
     $this->moreinfo = $info;
     $this->seller = $seller;
     $this->house = $house;
-    $this->date = []; // inizializzo le date
+    $this->datein = $datein;
+    $this->dateout = $dateout;
+    
 }
 
 
@@ -80,40 +87,8 @@ private static $entity = Mpost::class;
 
 
 
-// 3) Metodo per accettare una prenotazione e "spezzare" le disponibilità
-public function acceptReservation(string $bookStart, string $bookEnd): void
-{
-    $dtBookStart = new DateTime($bookStart);
-    $dtBookEnd = new DateTime($bookEnd);
+// 3) Metodo per validare le date forse serve
 
-    if ($dtBookEnd < $dtBookStart) {
-        throw new InvalidArgumentException("La data di fine prenotazione deve essere successiva a quella di inizio.");
-    }
-
-    $newRanges = [];
-    foreach ($this->date as $start => $end) {
-        $dtStart = new DateTime($start);
-        $dtEnd = new DateTime($end);
-
-        // Se non c'è sovrapposizione, mantengo il range originale
-        if ($dtBookEnd <= $dtStart || $dtBookStart >= $dtEnd) {
-            $newRanges[$start] = $end;
-            continue;
-        }
-
-        // Se la prenotazione inizia dopo l'inizio del range, creo un range left
-        if ($dtBookStart > $dtStart) {
-            $newRanges[$start] = $dtBookStart->format('Y-m-d');
-        }
-        // Se la prenotazione finisce prima della fine del range, creo un range right
-        if ($dtBookEnd < $dtEnd) {
-            $newRanges[$dtBookEnd->format('Y-m-d')] = $end;
-        }
-        // Altrimenti, la parte centrale è occupata e non viene reinserita
-    }
-
-    $this->date = $newRanges;
-}
 
 public function getId(): int
 {
@@ -145,10 +120,15 @@ public function getMoreInfo(): string
 {
     return $this->moreinfo;
 }
-public function getDate(): array
+public function getDateIn(): DateTime 
 {
-    return $this->date;
+    return $this->datein;
 }
+public function getDateOut(): DateTime 
+{
+    return $this->dateout;
+}
+
 
 public function getSeller(): Muser
 {
@@ -258,19 +238,13 @@ public function setMoreInfo(string $info): void
 
 
 
-// 4) (facoltativo) rinomino setDate in addAvailability per chiarezza
-public function addAvailability(string $inizio, string $fine): void
-{
-    $dtInizio = new DateTime($inizio);
-    $dtFine = new DateTime($fine);
-
-    if ($dtFine < $dtInizio) {
-        throw new InvalidArgumentException("La data di fine deve essere successiva a quella di inizio.");
-    }
-
-    $this->date[$dtInizio->format('Y-m-d')] = $dtFine->format('Y-m-d');
+public function setdatein(DateTime $datein): void{
+    $this->datein = $datein;
 }
 
+public function setdateout(DateTime $dateout): void{
+    $this->dateout = $dateout;
+}
 
 public static function getEntity(): string
 {
