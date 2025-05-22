@@ -4,7 +4,7 @@ use App\Foundation\Exception\EntityNotFoundException;
 
 class FPersistentManager{
 
-    /**                                                     non mi funziona retrive obj
+    /**                                                    
      * Singleton Class
      */
 
@@ -24,7 +24,7 @@ class FPersistentManager{
     // metodi che usa anche agorà
 
 
-    public static function retriveObj($Mclass, $id): object|T|null // penso sia da validare l' imput delle funzioni che prendono in input il nome di una classe
+    public static function retriveObj($Mclass, $id): object|null // penso sia da validare l' imput delle funzioni che prendono in input il nome di una classe
     {
         $result = FEntityManager::getInstance()::retrieveObj($Mclass,$id);
         return $result;
