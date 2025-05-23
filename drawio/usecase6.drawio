@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vQ5re-SQzbfb5ocIh4el" name="Page-1">
-        <mxGraphModel dx="1454" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1008" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -82,8 +82,32 @@
                         <mxPoint x="120" y="880" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="16" value="admin da il verificato&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="295" y="3" width="130" height="40" as="geometry"/>
+                <mxCell id="17" value="visualizza profilo(admin)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="305" y="128" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="benvenuto Admin" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="208" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="gestioneUtenti()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="315" y="288" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="liista utenti Che richiedono il verificato" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="368" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="dettagliUtente(user)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="305" y="448" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="profilo utente e allegati" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="528" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="conferma/rifiuta" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="335" y="608" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="fatto!" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="365" y="688" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="gestione verificato" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="325" y="10" width="120" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
