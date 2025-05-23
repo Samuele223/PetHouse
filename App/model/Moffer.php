@@ -13,20 +13,20 @@ class Moffer
 #[ORM\Id, ORM\Column, ORM\GeneratedValue]
 private int $id;
 
-#[ORM\Column(enumType:stateoffer::class)]
+#[ORM\Column(enumType:stateoffer::class,name:'state')] //ok
 private stateoffer $state;
 
-#[ORM\Column]
+#[ORM\Column(type:'datetime')]
 private DateTime $dateofferin;
 
-#[ORM\Column]
+#[ORM\Column(type: 'datetime')]
 private DateTime $dateofferout;
 
 #[ORM\ManyToOne(inversedBy:'offers')]
 #[ORM\JoinColumn(name:'post',referencedColumnName:'id')]
 private Mpost $post;
 
-#[ORM\OneToMany(targetEntity:'Mreview',mappedBy:'offer', nullable: true)]
+#[ORM\OneToMany(targetEntity:'Mreview',mappedBy:'offer',)]
 private ?Collection $review = null;
 
 private static $entity = Moffer::class;
@@ -108,22 +108,7 @@ public function setState(StateOffer|string $state): void
      */
     public function acceptOffer(): void
     {
-        // 1) Cambio stato in ACCEPTED
-        $this->setState(StateOffer::ACCEPTED);
-
-        // 2) Split disponibilità sul post (prenota l'intervallo)
-        $this->getPost()->acceptReservation(
-            $this->getDateOfferIn()->format('Y-m-d'),
-            $this->getDateOfferOut()->format('Y-m-d')
-        );
-    // 3) Recupero l’EntityManager dal singleton
-    $em = FEntityManager::getEntityManager();
-
-    // 4) “Persist” (necessario solo se $offer è nuovo o detached)
-    $em->persist($this);
-
-    // 5) “Flush” scrive realmente sul DB
-    $em->flush();
+  
 }
 }
 

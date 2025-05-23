@@ -28,10 +28,10 @@ private string $imageData; //non so se è giusto salvare cosi un blob con doctri
 private static $entity = Mphoto::class;
 
 #[ORM\ManyToOne(inversedBy:"photos")]
-#[ORM\JoinColumn(name:"id_Position", referencedColumnName:"id", nullable: true)]
+#[ORM\JoinColumn(name:"id_Position", referencedColumnName:"id")]
 private ?Mposition $location=null;
 
-#[ORM\OneToOne(mappedBy:'profilePicture', nullable:true)]
+#[ORM\OneToOne(mappedBy:'profilePicture')]
 private ?Muser $user=null;
 
 

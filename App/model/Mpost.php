@@ -29,7 +29,7 @@ private string $description;
  #[ORM\Column(type: 'json')]
     private array $acceptedPets;
 
-#[ORM\Column(type: 'decimal', precision:2, scale:4)]
+#[ORM\Column(type: 'decimal', precision:5, scale:4)]
 private float $price;
 
 #[ORM\Column]
@@ -71,14 +71,14 @@ public function __construct(string $desc, array|string $acceptedPets, float $pri
 #[ORM\JoinColumn(name:'seller',referencedColumnName:'id')]
 private Muser $seller;
 
-#[ORM\OneToMany(targetEntity:Mreport::class, mappedBy:'postreported', nullable:true)]
+#[ORM\OneToMany(targetEntity:Mreport::class, mappedBy:'postreported')]
 private ?Collection $reportreceived = null;
 
 #[ORM\ManyToOne(inversedBy:'post')]
 #[ORM\JoinColumn(name:'house',referencedColumnName:'id')]
 private MPosition $house;
 
-#[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post', nullable:true)]
+#[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post')]
 private ?Collection $offers=null;
 
 private static $entity = Mpost::class;

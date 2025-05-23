@@ -39,10 +39,10 @@ private ?float $latitude=null;  //dont know if float is better
 #[ORM\JoinColumn(name:'owner',referencedColumnName:'id')]
 private Muser $owner;
 
-#[ORM\OneToMany(targetEntity:Mpost::class, mappedBy:'house', nullable:true)]
+#[ORM\OneToMany(targetEntity:Mpost::class, mappedBy:'house')]
 private ?Collection $post=null;
 
-#[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location', nullable:true)]
+#[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location')]
 private ?Collection $photos =null;
 
 private static $entity = MPosition::class;

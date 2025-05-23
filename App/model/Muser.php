@@ -39,23 +39,23 @@ class Muser
     #[ORM\Column(nullable:true)]
     private ?int $tel; 
 
-    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller', nullable: true)]
+    #[ORM\OneToMany(targetEntity: Mpost::class, mappedBy: 'seller')]
     private ?Collection $myPost=null;
 
-    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewed', nullable:true)]
+    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewed')]
     private ?Collection $reviewToMe=null;
 
-    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer', nullable:true)]
+    #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer')]
     private ?Collection $meToReview=null;
 
-    #[ORM\OneToMany(targetEntity: MPosition::class, mappedBy: 'owner', nullable:true)]
+    #[ORM\OneToMany(targetEntity: MPosition::class, mappedBy: 'owner')]
     private ?Collection $houses=null;
 
-    #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter', nullable:true)]
+    #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter')]
     private ?Collection $report=null;
 
     #[ORM\OneToOne(inversedBy:'user')]
-    #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id', nullable:true)]
+    #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id')]
     private ?Mphoto $profilePicture=null;
 
     private static string $entity = Muser::class;
