@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/../../bootstrap.php');
+require_once(__DIR__ . '/../../../bootstrap.php');
 //Signleton da implementare per ora faccio tutto static
 class FEntityManager
 {

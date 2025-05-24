@@ -7,7 +7,7 @@ class FPersistentManager{
     /**                                                    
      * Singleton Class
      */
-
+    
     private static $instance;
 
 
@@ -146,6 +146,10 @@ class FPersistentManager{
     {
         $a = FEntityManager::getInstance()::getObjByTwoAttribute($class, $col1, $col2, $val1, $val2);
         return $a;
+    }
+    public static function listOfPostFilterDate(DateTime $datain, DateTime $dataout)
+    {
+        return Fpost::listOfPostFilterDate($datain,$dataout); //non so perche non vede la classe fpost
     }   
         
         
