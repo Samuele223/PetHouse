@@ -229,10 +229,10 @@ class Muser
     {
         $this->profilePicture = $profilePicture; 
     }
-public static function getEntity(): string
-{
-return self::$entity;
-}
+    public static function getEntity(): string
+    {
+    return self::$entity;
+    }
     public function getSurname(): string
     {
         return $this->surname;

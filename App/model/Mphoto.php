@@ -23,7 +23,7 @@ private int $size;
 private string $types;
 
 #[ORM\Column(name:'image_data',type:"blob")]
-private string $imageData; //non so se è giusto salvare cosi un blob con doctrine poi vedo bene
+private $imageData; //non so se è giusto salvare cosi un blob con doctrine poi vedo bene
 
 private static $entity = Mphoto::class;
 
@@ -72,9 +72,13 @@ public function getType(): string
     return $this->types;
 }
 
-public function getImageData(): string
+public function getImageData(): mixed
 {
     return $this->imageData;
+}
+public function getBinaryData(): string
+{
+    return stream_get_contents($this->imageData);
 }
 
 
