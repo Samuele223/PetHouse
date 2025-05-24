@@ -61,7 +61,7 @@ class Muser
     private static string $entity = Muser::class;
 
 
-    public function __construct(string $name, string $surname, string $username, string $email, string $password, bool $verified)
+    public function __construct(string $name, string $surname, string $username, string $email)
     { 
         $this->myPost = new ArrayCollection();
         $this->reviewToMe = new ArrayCollection();
@@ -73,9 +73,6 @@ class Muser
         $this->surname = $surname;
         $this->username = $username;
         $this->email = $email;
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $this->password = $hashedPassword;
-        $this->verified = $verified;
     }
 
     public function getId(): int
@@ -123,7 +120,7 @@ class Muser
 
     public function setPassword($password): static
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
 
         return $this;
     }
