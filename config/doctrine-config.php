@@ -21,3 +21,6 @@ $dbParams = [
 $config = ORMSetup::createAttributeMetadataConfiguration(['App/model'], $isDevMode); //samuele se devi modificare le cose, falle bene
 $conn = DriverManager::getConnection($dbParams, $config);
 $entityManager = new EntityManager($conn, $config);
+
+//session coockie expiration, presa da agora, se no da errore alle utility che cookie exp time non è parametro settato
+define('COOKIE_EXP_TIME', 2592000); // 30 days in seconds

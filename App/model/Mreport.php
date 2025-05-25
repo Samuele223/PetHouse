@@ -51,6 +51,11 @@ public function __construct(string $description, Muser $reporter, Mpost $postrep
     $this->postreported = $postreported;
     $this->reporter = $reporter;
 }
+
+public function setPost(Mpost $post) //no idea di cosa faccia concretamente questa funzione, sempre copiata da agora per il report, penso semplicemente associ un report al post che sta reportando, secondo me agora lo fa disabile perchè avrebbe più senso inizializzarlo nel costruttore in vece che settarlo dopo, no?
+{
+    $this->postreported = $post;
+}
 public static function getEntity(): string
 {
 return self::$entity;

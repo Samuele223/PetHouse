@@ -45,4 +45,26 @@ class CUser {
         session_destroy();
         echo "Logout effettuato.";
     }
+
+    /**
+     * check if the user is logged (using session), preso sempre da Agora, mancava sta funzione 
+     * @return boolean
+     */
+    public static function isLogged()
+    {
+        $logged = false;
+
+        if(UCookie::isSet('PHPSESSID')){
+            if(session_status() == PHP_SESSION_NONE){
+                USession::getInstance();
+            }
+        }
+
+        if(!$logged){
+            header('Location: /Agora/User/login');
+            exit;
+        }
+        return true;
+    }
+
 }
