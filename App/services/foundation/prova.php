@@ -14,14 +14,32 @@ require_once 'Fpost.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../../config/doctrine-config.php';
 
-//$a = FEntityManager::getInstance()::getEntityManager();
-$b = new DateTime('23-05-2025');
-$c = new DateTime('24-05-2025');
-$user = new Muser('jonny','stecchino','jhonny33','Jhonny@gmail.com','jhonnybellissimo',0);
+$a = FEntityManager::getInstance()::getEntityManager();
+$b = new DateTime('22-05-2025');
+$c = new DateTime('29-05-2025');
+$user = new Muser('jon','stecchino','jhonny33','Jhonny@gmail.com');
 $position = new MPosition('roma','casa nonna','Roma','PM','italy',$user);
 $a = new Mpost('ao','DOG',6.33,'casa','romanina',$user,$position,$b,$c); //devo provare la nuova funzione di mpost per le date
+//FPersistentManager::saveObj($user);
 
-$d = Fpost::listOfPostFilterDate($b,$c);
+//FPersistentManager::saveObj($position);
+//FPersistentManager::saveObj($a);
+$list = FPersistentManager::listOfPostFilterDate($b,$c);
+         
+$r = FEntityManager::getInstance()::getEntityManager()->createQueryBuilder()
+        ->select('p')
+        ->from(Mpost::getEntity(), 'p')
+        ->join('p.house', 'pos') // join con la relazione posizione
+        ->where('pos.city = :city')
+        ->andWhere('pos.province = :province')
+        ->setParameter('city', 'Roma')
+        ->setParameter('province', 'rm')
+        ->getQuery();
 
-print $d;
+$sql = $r->getSQL();
+echo $sql;
+
+
+
+
 ?>

@@ -23,7 +23,7 @@ class Fpost
         $q = FEntityManager::getInstance()::getEntityManager()->createQueryBuilder();
         return $q
             ->select('p')
-            ->from(Mpost::getEntity(),'p')
+            ->from(Mpost::getEntity(),'p') //se il post è iniziato prima e finsice dopo o nella stessa data
             ->where('p.datein <= :in')
             ->andWhere('p.dateout >= :out')
             ->setParameter('in', $datein)
@@ -31,4 +31,26 @@ class Fpost
             ->getQuery()
             ->getResult();
     }
+    public static function listPostByCity(string $city,string $province)
+    {
+
+    $q = FEntityManager::getInstance()::getEntityManager()->createQueryBuilder();
+
+    return $q
+        ->select('p')
+        ->from(Mpost::getEntity(), 'p')
+        ->join('p.house', 'pos') // join con la relazione posizione dovrebbe anda bene
+        ->where('pos.city = :city')
+        ->andWhere('pos.province = :province')
+        ->setParameter('city', $city)
+        ->setParameter('province', $province)
+        ->getQuery()
+        ->getResult();
+
+  
+    }
+    public static function listPostByPet(acceptedPet $accepted) //un macello da realizzare forse dobbiamo cambiare il db
+    {
+  
+    } 
 }

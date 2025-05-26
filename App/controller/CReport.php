@@ -21,7 +21,7 @@ class CReport{
                 //type dentro al nostro report, scherzone alla fine l'ho direttamente tolto
                 $report = new Mreport(UHTTPMethods::post('description'), $reporter, $reportedPost);
                 $report->setPost($reportedPost); //messa dentro a Mreport sta funzione, scritto anche la cose
-                FPersistentManager::getInstance()->uploadObj($report);
+                FPersistentManager::getInstance()->saveObj($report);
                 header('Location: /PetHouse/Post/visit/' . $idPost); //poi volendo la possiamo modificare, è la url, ho lasciato così, l’importante è che il percorso corrisponda a una route effettiva della applicazione (gestita dal router, che non so che sia, o dal controller giusto)
             }else{
                 header('Location: /PetHouse/User/home');

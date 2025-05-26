@@ -27,7 +27,7 @@ private ?int $numreport = null;
 private string $description;
 
  #[ORM\Column(type: 'json')]
-    private array $acceptedPets;
+private array $acceptedPets;
 
 #[ORM\Column(type: 'decimal', precision:5, scale:4)]
 private float $price;

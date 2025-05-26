@@ -5,7 +5,7 @@ class Hosting{
     {
         $view = new Vhosting();
     }
-    public static function  findHost(string $city,string $province, DateTime $datin, DateTime $dateout, Array $animals)
+    public static function  findHostByCity(string $city,string $province, DateTime $datin, DateTime $dateout, Array $animals)
     {
         //$listOfHost = FPersistentManager::getObjbytwoattributes(Mpost::getEntity(),'date_in','date_out',$); 
     }

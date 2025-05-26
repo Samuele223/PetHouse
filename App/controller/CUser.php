@@ -18,7 +18,7 @@ class CUser {
             return;
         }
 
-        $user = new Muser($username, $name, $surname, $email, $password);
+        $user = new Muser($username, $name, $surname, $email);
         $user->setEmail($email);
         $user->setPassword($password);
         
