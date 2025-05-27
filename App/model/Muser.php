@@ -2,6 +2,7 @@
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\BooleanType;
 use Doctrine\ORM\Mapping as ORM;
 
 require_once 'rating.php';
@@ -30,7 +31,7 @@ class Muser
     #[ORM\Column]
     private string $password;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private bool $verified;
 
     #[ORM\Column(enumType: rating::class, nullable: true)]

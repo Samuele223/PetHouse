@@ -26,8 +26,8 @@ private ?int $numreport = null;
 #[ORM\Column]
 private string $description;
 
- #[ORM\Column(type: 'json')]
-private array $acceptedPets;
+#[ORM\Column(name: 'accepted_pets', type: 'json')]
+private array $acceptedPets = [];
 
 #[ORM\Column(type: 'decimal', precision:5, scale:4)]
 private float $price;
@@ -47,12 +47,12 @@ private DateTime $dateout;
 
 
 // 2) Nel costruttore inizializzo $this->date
-public function __construct(string $desc, array|string $acceptedPets, float $price, string $title, string $info, Muser $seller, MPosition $house, DateTime $datein, DateTime $dateout)
+public function __construct(string $desc, array $acceptedPets, float $price, string $title, string $info, Muser $seller, MPosition $house, DateTime $datein, DateTime $dateout)
 {
     $this->reportreceived = new ArrayCollection();
     $this->offers = new ArrayCollection();
     $this->description = $desc;
-     $this->setAcceptedPets(acceptedPets: $acceptedPets);
+    $this->addAcceptedPets($acceptedPets); //è un array 
     $this->price = $price;
     $this->title = $title;
     $this->moreinfo = $info;
@@ -186,45 +186,27 @@ public function setMoreInfo(string $info): void
      * Imposta la lista di AcceptedPet. Accetta array di enum o stringhe.
      * @param acceptedPet[]|string[] $acceptedPets
      */
-    public function setAcceptedPets(array|string $acceptedPets): void
-    {
-        $pets = is_string($acceptedPets)
-            ? array_map('trim', explode(',', $acceptedPets))
-            : $acceptedPets;
-
-        $this->acceptedPets = array_map(function($pet) {
-            if (is_string($pet)) {
-                $enum = acceptedPet::tryFrom(strtoupper($pet));
-                if (!$enum) {
-                    throw new \InvalidArgumentException("Valore non valido per acceptedPet: $pet");
-                }
-                return $enum;
+public function addAcceptedPets(array $pets)
+{
+    foreach($pets as $pet){
+        if (acceptedPet::tryFrom($pet)){
+            if (isset($this->acceptedPets[$pet])) {
+                $this->acceptedPets[$pet]++;
+            } else {
+                $this->acceptedPets[$pet] = 1;
             }
-            if ($pet instanceof acceptedPet) {
-                return $pet;
-            }
-            throw new \InvalidArgumentException("Tipo non valido in acceptedPets");
-        }, $pets);
-    }
-
-    /**
-     * Aggiunge un AcceptedPet alla lista, se non già presente.
-     */
-    public function addAcceptedPet(acceptedPet|string $pet): void
-    {
-        $enum = is_string($pet)
-            ? (acceptedPet::tryFrom(strtoupper($pet)) ?? throw new \InvalidArgumentException("Valore non valido per acceptedPet: $pet"))
-            : $pet;
-
-        if (!in_array($enum, $this->acceptedPets, true)) {
-            $this->acceptedPets[] = $enum;
         }
-    }
+        else{ 
+            throw new Exception("argument miss matched");}
+    
+}
+}
+
 
     /**
      * Rimuove un AcceptedPet dalla lista.
      */
-    public function removeAcceptedPet(acceptedPet|string $pet): void
+    public function removeAcceptedPet(acceptedPet|string $pet): void // non so da rivedere
     {
         $enum = is_string($pet)
             ? (acceptedPet::tryFrom(strtoupper($pet)) ?? throw new \InvalidArgumentException("Valore non valido per acceptedPet: $pet"))

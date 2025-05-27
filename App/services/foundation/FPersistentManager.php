@@ -149,8 +149,21 @@ class FPersistentManager{
     }
     public static function listOfPostFilterDate(DateTime $datain, DateTime $dataout)
     {
-        return Fpost::listOfPostFilterDate($datain,$dataout); //non so perche non vede la classe fpost
-    }   
+        return Fpost::listOfPostFilterDate($datain,$dataout); 
+    }
+    
+    //per far funzionare questo schifo accepted pet deve essere un array associativo dove ['ANIMALE'=>3(numero di volte che mi serve l' animale)]
+    public static function serachPost(string $City, string $province, DateTime $datain, DateTime $dataout, array $acceptedPets)
+    {
+        
+        $partial1 = Fpost::listOfPostFilterDate($datain,$dataout);
+        $partial2 = Fpost::findPostsByAcceptedPets($acceptedPets);
+        $partial3 = Fpost::listPostByCity($City,$province);
+        $result = Fpost::intersectPostArrays($partial1,$partial2,$partial3);//metodo inefficiente
+        return $result;
+
+
+    }
         
         
       
