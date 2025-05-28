@@ -143,7 +143,7 @@ public static function findPostsByAcceptedPets(array $requiredPets): array  //fu
 
     return $posts;
 }
-/*public static function findPostsByFilters(
+public static function filterPost( //funziona
     array $acceptedPets,
     ?string $city = null,
     ?string $startDate = null,
@@ -170,13 +170,13 @@ public static function findPostsByAcceptedPets(array $requiredPets): array  //fu
 
     // Filtro per range date (se entrambi forniti)
     if ($startDate !== null && $endDate !== null) {
-        $conditions[] = 'start_date <= :endDate AND end_date >= :startDate';
+        $conditions[] = 'date_in <= :endDate AND date_out >= :startDate';
         $params[':startDate'] = $startDate;
         $params[':endDate'] = $endDate;
     }
 
     // Costruisci la query
-    $sql = 'SELECT * FROM post';
+    $sql = 'SELECT * FROM post join position on post.house = position.id' ;
     if (!empty($conditions)) {
         $sql .= ' WHERE ' . implode(' AND ', $conditions);
     }
@@ -198,7 +198,7 @@ public static function findPostsByAcceptedPets(array $requiredPets): array  //fu
     }
 
     return $posts;
-}*/
+}
 
 
 }

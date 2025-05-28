@@ -19,6 +19,9 @@ private stateoffer $state;
 #[ORM\Column(type:'datetime')]
 private DateTime $dateofferin;
 
+#[ORM\Column(name: 'required_Pets', type: 'json')]
+private array $requiredPets = [];
+
 #[ORM\Column(type: 'datetime')]
 private DateTime $dateofferout;
 
@@ -31,13 +34,14 @@ private ?Collection $review = null;
 
 private static $entity = Moffer::class;
 
-public function __construct(stateoffer $state, DateTime $dateofferin, DateTime $dateofferout, Mpost $post)
+public function __construct(DateTime $dateofferin, DateTime $dateofferout, Mpost $post, array $requiredPets)
 {
     $this->review = new ArrayCollection();
-    $this->state = $state;
+    $this->state = stateoffer::PENDANT;
     $this->dateofferin = $dateofferin;
     $this->dateofferout = $dateofferout;
     $this->post = $post;
+    $this->setRequiredPet($requiredPets);
 
 }
 
@@ -109,6 +113,27 @@ public function setState(StateOffer|string $state): void
     public function acceptOffer(): void
     {
   
+}
+
+public function getRequiredPet()
+{
+return $this->requiredPets;
+}
+
+
+public function setRequiredPet(array $pets)
+{
+    foreach($pets as $pet){
+        if (acceptedPet::tryFrom($pet)){
+            if (isset($this->acceptedPets[$pet])) {
+                $this->requiredPets[$pet]++;
+            } else {
+                $this->requiredPets[$pet] = 1;
+            }
+        }
+        else{ 
+            throw new Exception("argument miss matched");}
+        }
 }
 }
 

@@ -16,7 +16,10 @@ require_once 'acceptedPet.php';
 #[ORM\Table('post')]
 class Mpost
 {
-
+#[ORM\Column]
+private bool $booked;
+    
+#[ORM\Column]
 #[ORM\Column, ORM\GeneratedValue , ORM\Id]
 private int $id;
 
@@ -232,5 +235,25 @@ public static function getEntity(): string
 {
 return self::$entity;
 }   
+
+/**
+ * Get the value of booked
+ */ 
+public function getBooked()
+{
+return $this->booked;
+}
+
+/**
+ * Set the value of booked
+ *
+ * @return  self
+ */ 
+public function setBooked($booked)
+{
+$this->booked = $booked;
+
+return $this;
+}
 }
 ?>
