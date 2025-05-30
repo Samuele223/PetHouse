@@ -176,6 +176,17 @@ public function setMoreInfo(string $info): void
     $this->moreinfo = $info;
 }
 
+public function setHouse(MPosition $house): void //new function to set the house after the creation of a post, and to connect it to the associated location
+{
+    $this->house = $house;
+}
+
+public function setSeller(Muser $seller): void //seller because non so come stracazzo chiamarlo se no, position ha già getOwner, I don't have inventiva
+{
+    $this->seller = $seller;
+}
+
+
   /**
      * Restituisce la lista di AcceptedPet.
      * @return acceptedPet[]
