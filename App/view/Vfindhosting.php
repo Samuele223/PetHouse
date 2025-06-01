@@ -1,5 +1,5 @@
 <?php
-class Vhosting
+class Vfindhosting
 {
     public function __construct(){
 

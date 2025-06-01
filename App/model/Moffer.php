@@ -32,10 +32,15 @@ private Mpost $post;
 #[ORM\OneToMany(targetEntity:'Mreview',mappedBy:'offer',)]
 private ?Collection $review = null;
 
+#[ORM\ManyToOne(inversedBy:'listOfOffers')]
+#[ORM\JoinColumn(name:'client',referencedColumnName:'id')]
+private Muser $client;
+
 private static $entity = Moffer::class;
 
-public function __construct(DateTime $dateofferin, DateTime $dateofferout, Mpost $post, array $requiredPets)
+public function __construct(DateTime $dateofferin, DateTime $dateofferout, Mpost $post, array $requiredPets, Muser $client)
 {
+    $this->client = $client;
     $this->review = new ArrayCollection();
     $this->state = stateoffer::PENDANT;
     $this->dateofferin = $dateofferin;
@@ -124,7 +129,7 @@ return $this->requiredPets;
 public function setRequiredPet(array $pets)
 {
     foreach($pets as $pet){
-        if (acceptedPet::tryFrom($pet)){
+        if (acceptedPet::tryFrom(strtoupper( $pet))){
             if (isset($this->acceptedPets[$pet])) {
                 $this->requiredPets[$pet]++;
             } else {

@@ -59,6 +59,9 @@ class Muser
     #[ORM\JoinColumn(name: 'photo_id', referencedColumnName: 'id')]
     private ?Mphoto $profilePicture=null;
 
+    #[ORM\OneToMany(targetEntity: Moffer::class, mappedBy: 'client')] //aiuto non so perche ma mesa è sbagliata sta relazione
+    private ?Collection $listOfOffers = null;
+
     private static string $entity = Muser::class;
 
 
@@ -69,6 +72,7 @@ class Muser
         $this->meToReview = new ArrayCollection();
         $this->houses = new ArrayCollection();
         $this->report = new ArrayCollection();
+        $this->listOfOffers = new ArrayCollection();
         
         $this->name = $name;
         $this->surname = $surname;
