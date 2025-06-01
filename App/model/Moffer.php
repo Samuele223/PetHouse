@@ -140,6 +140,17 @@ public function setRequiredPet(array $pets)
             throw new Exception("argument miss matched");}
         }
 }
+
+public function getClient()
+{
+return $this->client;
+}
+
+public function setClient($client)
+{
+$this->client = $client;
+
+}
 }
 
 
