@@ -1,6 +1,6 @@
 <?
-require_once "config/config.php";
-require_once 'config/autoloader.php';
+require_once "config/config.php"; //db connection
+require_once 'config/autoloader.php'; 
 //require_once "/install/Installation.php";
 //Installation::install();
 

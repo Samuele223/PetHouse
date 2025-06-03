@@ -178,7 +178,7 @@ public static function filterPost( //funziona
     // Costruisci la query
     $sql = 'SELECT * FROM post join position on post.house = position.id' ;
     if (!empty($conditions)) {
-        $sql .= ' WHERE ' . implode(' AND ', $conditions);
+        $sql .= ' WHERE ' . implode(' AND ', $conditions) .' AND booked = FALSE '; //non so se funge
     }
 
     $stmt = $conn->prepare($sql);

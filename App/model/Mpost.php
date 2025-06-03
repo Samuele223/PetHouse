@@ -19,7 +19,7 @@ class Mpost
 #[ORM\Column]
 private bool $booked;
     
-#[ORM\Column]
+
 #[ORM\Column, ORM\GeneratedValue , ORM\Id]
 private int $id;
 
@@ -63,6 +63,7 @@ public function __construct(string $desc, array $acceptedPets, float $price, str
     $this->house = $house;
     $this->datein = $datein;
     $this->dateout = $dateout;
+    $this->booked = false;
     
 }
 
@@ -201,6 +202,7 @@ public function setSeller(Muser $seller): void //seller because non so come stra
      * @param acceptedPet[]|string[] $acceptedPets
      */
 public function addAcceptedPets(array $pets)
+//example ['dog','cat','miao','dog']
 {
     foreach($pets as $pet){
         if (acceptedPet::tryFrom($pet)){
@@ -220,16 +222,9 @@ public function addAcceptedPets(array $pets)
     /**
      * Rimuove un AcceptedPet dalla lista.
      */
-    public function removeAcceptedPet(acceptedPet|string $pet): void // non so da rivedere
+    public function removeAcceptedPet(array $pet): void // non so da rivedere
     {
-        $enum = is_string($pet)
-            ? (acceptedPet::tryFrom(strtoupper($pet)) ?? throw new \InvalidArgumentException("Valore non valido per acceptedPet: $pet"))
-            : $pet;
 
-        $this->acceptedPets = array_filter(
-            $this->acceptedPets,
-            fn($p) => $p !== $enum
-        );
     }
 
  
@@ -255,11 +250,6 @@ public function getBooked()
 return $this->booked;
 }
 
-/**
- * Set the value of booked
- *
- * @return  self
- */ 
 public function setBooked($booked)
 {
 $this->booked = $booked;

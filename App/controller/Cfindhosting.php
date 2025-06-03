@@ -50,16 +50,16 @@ class Cfindhosting{
             return 'post already booked';
         }    
     }
-    public static function createOffer() //è una post   body json bisogna fare dei controlli alle date e qualcosina in javascript per tradurre i nomi dei pet
+    public static function createOffer() //è una post  body json bisogna fare dei controlli alle date e qualcosina in javascript per tradurre i nomi dei pet
     {   
         if(CUser::isLogged())
         {
         //fetching arguments from post request
-        $datein = new DateTime(UHTTPMethods::post('datain'));
+        $datein = new DateTime(UHTTPMethods::post('datein'));
         $dateout = new DateTime(UHTTPMethods::post('dateout'));
         $id_post = UHTTPMethods::post('id_post');
         $id_user = UHTTPMethods::post('id_user');
-        $requiredPets = UHTTPMethods::post('requred_pets');
+        $requiredPets = UHTTPMethods::post('required_pets');
 
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);

@@ -26,17 +26,21 @@ class Cmanagerequest
     }
     public static function selectPost(int $post_id) 
     {
+        if(CUser::isLogged()){
         $view = new Vmanagerequest();
         $postSelected = FPersistentManager::retriveObj(Mpost::getEntity(),$post_id);
         $listOfOffer = $postSelected->getOffers();
         $view->showOffers($listOfOffer); //mostra una lista di offerte relative al post
-
+        }
     }
     public static function selectOffer(int $offer_id)
     {
+        if(CUser::isLogged()){
+        
         $view = new Vmanagerequest();
         $offer = FPersistentManager::retriveObj(Moffer::getEntity(),$offer_id);
         $view->showOffer($offer);
+        }
 
     }
     public static function acceptOffer()

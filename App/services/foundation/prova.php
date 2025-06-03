@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../../config/doctrine-config.php';
 
 /*
-for($i = 0; $i<10; $i++){
+for($i = 0; $i<1000; $i++){
 $pet = ["DOG","DOG",'CAT','PARROT'];
 $a = FEntityManager::getInstance()::getEntityManager();
 $b = new DateTime('22-05-2025');
@@ -29,7 +29,7 @@ FPersistentManager::saveObj($user);
 
 FPersistentManager::saveObj($position);
 FPersistentManager::saveObj($a);}
-
+*/
 $ao = ["DOG" =>1,'CAT' =>1];
 $in = new DateTime('23-05-2025');
 $out = new DateTime('27-05-2025');
@@ -48,7 +48,7 @@ $executionTime = $end - $start;
 echo "Tempo di esecuzione: " . $executionTime . " secondi";
 
 
-
+/*
 $start = microtime(true);
 
 // Funzione da profilare
@@ -57,22 +57,17 @@ $a = FPersistentManager::serachPost('Roma','PM',$in,$out,$ao);
 $end = microtime(true);
 $executionTime = $end - $start;
 echo "Tempo di esecuzione: " . $executionTime . " secondi";
-
-
-
-echo count($a);
-echo count($b);
-echo count($c);
-echo count($d);
 */
-$a = FPersistentManager::retriveObj(MPosition::getEntity(),2);
-$b = $a->getPost();
-echo json_encode($b);
-$in = new DateTime('22-05-2025');
-$out = new DateTime('29-05-2025');
-$user = FPersistentManager::retriveObj(Muser::getEntity(),2);
-$c = new Mpost('casa bellissima',['DOG','CAT'],20,'giacomo','info',$user,$a,$in,$out);
-FPersistentManager::saveObj($c);
+
+echo"\n";
+echo count($a);
+ echo("\n");
+echo count($b);
+echo"\n";
+echo count($c);
+echo"\n";
+echo count($d);
+
 
 
 
