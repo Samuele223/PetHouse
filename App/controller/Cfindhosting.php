@@ -1,5 +1,5 @@
 <?php
-class Hosting{
+class Cfindhosting{
 //________________________________cerca ospitalità______________________________________________________________________
     public static function startResaerch()
     {
