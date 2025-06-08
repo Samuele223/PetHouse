@@ -1,132 +1,138 @@
 <?php
-require_once __DIR__ . '/../../bootstrap.php';
-session_start();
 
-// Always include the associated view
-require_once __DIR__ . '/../view/VUser.php';
+require_once __DIR__ . '/../../bootstrap.php';
 
 class CUser {
 
-    private $em; // EntityManager instance
-    private $view; // VUser view instance
+    /**
+     * Show registration form on GET, process registration on POST.
+     */
+    public static function registration() {
+        $view = new VUser();
 
-    public function __construct($em) {
-        $this->em = $em;
-        $this->view = new VUser();
-    }
-
-    // User registration (handles POST data)
-    public function register() {
-        // Get input from POST, using null coalescing operator to prevent undefined index
-        $name = $_POST['name'] ?? null;
-        $surname  = $_POST['surname'] ?? null;
-        $username  = $_POST['username'] ?? null;
-        $email    = $_POST['email'] ?? null;
-        $password = $_POST['password'] ?? null;
-        $password = $_POST['password'] ?? null;
-        echo "DEBUG - Password ricevuta dal form: '$password'<br>";
-        if ($password !== null) {
-        echo "DEBUG - lunghezza password: " . strlen($password) . "<br>";
-        }
-        
-
-        // Basic validation: ensure all required fields are present
-        if (!$name || !$surname || !$username || !$email || !$password) {
-            $this->view->showRegisterForm('Please fill out all fields.');
+        // If GET, show registration form
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $view->showRegisterForm();
             return;
         }
 
-        // Check if email is already registered
-        $userRepo = $this->em->getRepository(Muser::class);
-        $existing = $userRepo->findOneBy(['email' => $email]);
-        if ($existing) {
-            $this->view->showRegisterForm('Email already registered.');
-            return;
+        // If POST, process registration data
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name     = UHTTPMethods::post('name') ?? null; //??null vuol dire vuol dire: “Se UHTTPMethods::post('name') restituisce un valore, assegnalo a $name. Se invece la chiave non esiste, o è null, allora $name sarà null.” Questo evita warning se il campo non è stato inviato, ed è sintassi molto usata nelle versioni moderne di PHP (>=7).
+            $surname  = UHTTPMethods::post('surname') ?? null;
+            $username = UHTTPMethods::post('username') ?? null;
+            $email    = UHTTPMethods::post('email') ?? null;
+            $password = UHTTPMethods::post('password') ?? null;
+
+
+            // Basic validation
+            if (!$name || !$surname || !$username || !$email || !$password) {
+                $view->showRegisterForm('Please fill out all fields.');
+                return;
+            }
+
+            $pm = FPersistentManager::getInstance();
+
+            // Check email and username uniqueness
+            if ($pm->verifyUserEmail($email)) {
+                $view->showRegisterForm('Email already registered.');
+                return;
+            }
+            if ($pm->verifyUserUsername($username)) {
+                $view->showRegisterForm('Username already taken.');
+                return;
+            }
+
+            // Create and hash password
+            
+            $user = new MUser($name, $surname, $username, $email);
+            $user->setPassword($password); // <-- passa la password in chiaro
+
+
+            $check = $pm->saveObj($user);
+
+            if ($check) {
+                $view->registrationSuccess();
+            } else {
+                $view->showRegisterForm('Registration failed. Please try again.');
+            }
         }
-
-        // Create new user entity and persist
-        $user = new Muser($name, $surname, $username, $email);
-        $user->setEmail($email);
-        $user->setPassword($password); // <-- passa la password in chiaro
-        echo "DEBUG: hash salvato: " . $user->getPassword() . "<br>";
-        echo strlen($user->getPassword() ); // deve essere 60 per bcrypt
-
-        $this->em->persist($user);
-        $this->em->flush();
-
-        // Show registration success page
-        $this->view->registrationSuccess();
-    }
-
-    // User login (handles POST data)
-    public function login() {
-        $username = $_POST['username'] ?? null;
-        $password = $_POST['password'] ?? null;
-
-
-        // Basic validation
-        if (!$username || !$password) {
-            $this->view->showLoginForm('Please enter your username and password.');
-            return;
-        }
-
-        $userRepo = $this->em->getRepository(Muser::class);
-        $user = $userRepo->findOneBy(['username' => $username]);
-
-
-        /** debug
-        **/
-        if ($user) {
-    echo "<pre>";
-    echo "Username POST: " . $username . "\n";
-    echo "Password POST: " . $password . "\n";
-    echo "Username DB: " . $user->getUsername() . "\n";
-    echo "Password DB: " . $user->getPassword() . "\n";
-    var_dump(password_verify($password, $user->getPassword()));
-    echo "DEBUG: hash salvato: " . $user->getPassword() . "<br>";
-    echo strlen($user->getPassword() ); // deve essere 60 per bcrypt
-    echo "</pre>";
-    echo phpversion();
-}
-
-        // Check credentials
-        if (!$user || !password_verify($password, $user->getPassword())) {
-            $this->view->showLoginForm('Invalid credentials.');
-            return;
-        }
-
-        // Login successful, set session variable
-        $_SESSION['user_id'] = $user->getId();
-
-        // Redirect to home/dashboard
-        header('Location: /PetHouse/Home');
-        exit;
-    }
-
-    // User logout
-    public function logout() {
-        session_destroy();
-        // Show login form after logout, or a logout message
-        $this->view->showLoginForm('Logout successful.');
     }
 
     /**
-     * Check if the user is logged in (using session)
-     * @return boolean
+     * Show login form on GET, process login on POST.
+     */
+    public static function login() {
+        $view = new VUser();
+
+        // If user is already logged in, redirect to home
+        if (USession::isSetSessionElement('user')) {
+            header('Location: /PetHouse/Home');
+            exit;
+        }
+
+        // Show login form on GET
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $view->showLoginForm();
+            return;
+        }
+
+        // Process login on POST
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = UHTTPMethods::post('username') ?? null;
+            $password = UHTTPMethods::post('password') ?? null;
+
+            if (!$username || !$password) {
+                $view->showLoginForm('Please enter your username and password.');
+                return;
+            }
+
+            $pm = FPersistentManager::getInstance();
+            $user = $pm->getUserByUsername($username);
+
+            if (!$user || !password_verify($password, $user->getPassword())) {
+                  echo "<div style='color: red; font-weight: bold;'>Invalid credentials.</div>";
+                return;
+            }
+
+
+            if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+                USession::getInstance();
+            }
+            USession::setSessionElement('user', $user->getId());
+
+            header('Location: /PetHouse/User/Home');
+            exit;
+        }
+    }
+
+    /**
+     * Check if the user is logged in, else redirect.
      */
     public static function isLogged() {
         $logged = false;
 
         if (UCookie::isSet('PHPSESSID')) {
-            if (session_status() == PHP_SESSION_NONE) {
+            if (USession::getSessionStatus() == PHP_SESSION_NONE) {
                 USession::getInstance();
             }
         }
-        // If not logged in, redirect to login
+
         if (!$logged) {
-            header('Location: /PetHouse/User/login');
+            header('Location: /PetHouse/paginadefault');
             exit;
         }
         return true;
+    }
+
+
+    /**
+     * Log out the user and destroy the session.
+     */
+    public static function logout() {
+        USession::getInstance();
+        USession::unsetSession();
+        USession::destroySession();
+        header('Location: /PetHouse/Home/mainscreen');
     }
 }

@@ -12,7 +12,7 @@ class VUser {
     // Show the registration form
     public function showRegisterForm($error = null) {
         $this->smarty->assign('error', $error);
-        $this->smarty->display('register.tpl');
+        $this->smarty->display('registration.tpl');
     }
 
     // Show the login form
@@ -25,5 +25,5 @@ class VUser {
     public function registrationSuccess() {
         $this->smarty->display('registration_success.tpl');
     }
-}
 
+}

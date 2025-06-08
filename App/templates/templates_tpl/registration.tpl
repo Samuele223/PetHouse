@@ -82,7 +82,7 @@
         {if $error}
             <div class="error">{$error}</div>
         {/if}
-        <form action="/PetHouse/User/register" method="post">
+        <form action="/PetHouse/User/registration" method="post">
             <label>
                 Username:
                 <input type="text" name="username" required>

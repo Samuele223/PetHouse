@@ -1,68 +1,61 @@
 <?php
 
 class CFrontController {
-    private $entityManager;
-    private $persistentManager;
 
-    // Accept dependencies via constructor
-    public function __construct($entityManager = null, $persistentManager = null) {
-        $this->entityManager = $entityManager;
-        $this->persistentManager = $persistentManager;
-    }
-
+    /**
+     * Main dispatcher: parses the request URI and calls the appropriate controller and method.
+     * @param string $requestUri
+     * @return void
+     */
     public function run($requestUri) {
+        // Remove leading/trailing slashes
         $requestUri = trim($requestUri, '/');
+
+        // Split the URI into parts
         $uriParts = explode('/', $requestUri);
+
+        // Remove the first empty element (if any)
         array_shift($uriParts);
+
+        // Determine controller and method names
         $controllerName = !empty($uriParts[0]) ? ucfirst($uriParts[0]) : 'User'; // Default controller: 'User'
-        $methodName = !empty($uriParts[1]) ? $uriParts[1] : 'index';
-        $classController = 'C' . $controllerName;
-        $fileController = __DIR__ . "/{$classController}.php"; // Adjust path as needed
+        $methodName = !empty($uriParts[1]) ? $uriParts[1] : 'login'; // Default method: 'login'
 
-        // Debug info (uncomment for troubleshooting)
-        // echo "Request URI: $requestUri<br>";
-        // echo "Controller: $classController<br>";
-        // echo "Method: $methodName<br>";
-        // echo "File path: $fileController<br>";
+        // Build controller class and file name
+        $controllerClass = 'C' . $controllerName;
+        $controllerFile = __DIR__ . "/{$controllerClass}.php";
 
-        if (file_exists($fileController)) {
-            require_once($fileController);
-            if (class_exists($classController)) {
-                // Instantiate the controller, inject dependencies if required
-                // Check constructor arguments
-                $reflection = new ReflectionClass($classController);
-                $constructor = $reflection->getConstructor();
-                $constructorParams = $constructor ? $constructor->getNumberOfParameters() : 0;
+        echo "<pre>";
+        echo "RequestUri: $requestUri\n";
+        print_r($uriParts);
+        echo "Controller class: $controllerClass\n";
+        echo "Controller file: $controllerFile\n";
+        echo "Method: $methodName\n";
+        echo "</pre>";
 
-                // Pass dependencies if the constructor expects them
-                if ($constructorParams == 2) {
-                    $controller = new $classController($this->entityManager, $this->persistentManager);
-                } elseif ($constructorParams == 1) {
-                    $controller = new $classController($this->entityManager);
-                } else {
-                    $controller = new $classController();
-                }
+        // Check if controller file exists
+        if (file_exists($controllerFile)) {
+            require_once $controllerFile;
 
-                if (method_exists($controller, $methodName)) {
-                    $params = array_slice($uriParts, 2);
-                    // Call the controller's method on the instance (not statically!)
-                    /**debug
-                    echo "<br>DEBUG:<br>";
-                    var_dump($controller);
-                    var_dump($methodName);
-                    var_dump(method_exists($controller, $methodName));
-                    var_dump(is_callable([$controller, $methodName]));
-                    echo "<br>";
-                    **/ //debug
-                    call_user_func_array([$controller, $methodName], $params);
-                } else {
-                    echo "Method $methodName not found in class $classController.<br>";
-                }
+            // Check if the method exists as a static method in the controller class
+            if (method_exists($controllerClass, $methodName)) {
+                // Get any optional parameters from the URI
+                $params = array_slice($uriParts, 2);
+                // Call the controller's static method with parameters (if any)
+                call_user_func_array([$controllerClass, $methodName], $params);
             } else {
-                echo "Class $classController not defined in $fileController.<br>";
+                // Method not found: redirect or show a 404 error
+                http_response_code(404);
+                echo "404 - Page not found.";
+                echo "Method: $methodName\n not found error"; //per debug
+                exit;
             }
         } else {
-            echo "File $fileController does not exist.<br>";
+            // Controller file not found: redirect or show a 404 error
+            http_response_code(404);
+            echo "404 - Page not found.";
+            echo "Controller file: $controllerFile\n not found, error";
+            exit;
         }
     }
 }
