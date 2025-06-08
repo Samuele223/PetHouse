@@ -41,7 +41,7 @@ $d = Fpost::findPostsByAcceptedPets($ao);
 $start = microtime(true);
 
 // Funzione da profilare
-$a = Fpost::filterPost($ao,'Roma',$in->format('Y-m-d'),$out->format('Y-m-d'));
+$a = Fpost::filterPost('PM',$ao,'Roma',$in->format('Y-m-d'),$out->format('Y-m-d'));
 
 $end = microtime(true);
 $executionTime = $end - $start;
