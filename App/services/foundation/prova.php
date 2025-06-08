@@ -29,7 +29,7 @@ FPersistentManager::saveObj($user);
 
 FPersistentManager::saveObj($position);
 FPersistentManager::saveObj($a);}
-*/
+
 $ao = ["DOG" =>1,'CAT' =>1];
 $in = new DateTime('23-05-2025');
 $out = new DateTime('27-05-2025');
@@ -57,18 +57,16 @@ $a = FPersistentManager::serachPost('Roma','PM',$in,$out,$ao);
 $end = microtime(true);
 $executionTime = $end - $start;
 echo "Tempo di esecuzione: " . $executionTime . " secondi";
+
+$in = new DateTime('23-05-2025');
+$out = new DateTime('27-05-2025');
+$user = new Muser('mario','cesile','surgo','surgo@gg');
+$post = FPersistentManager::retriveObj(Mpost::getEntity(),12);
+$offer = new Moffer($in,$out,$post,['DOG'],$user);
 */
-
-echo"\n";
-echo count($a);
- echo("\n");
-echo count($b);
-echo"\n";
-echo count($c);
-echo"\n";
-echo count($d);
-
-
+$offer = FPersistentManager::retriveObj(Moffer::getEntity(),1);
+$offer->acceptOffer();
+FPersistentManager::saveObj($offer);
 
 
 

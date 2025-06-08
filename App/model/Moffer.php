@@ -117,8 +117,12 @@ public function setState(StateOffer|string $state): void
      */
     public function acceptOffer(): void
     {
-  
-}
+        $this->state = stateoffer::ACCEPTED;
+    }
+    public function denyOffer()
+    {
+        $this->state = stateoffer::DENIED;
+    }
 
 public function getRequiredPet()
 {

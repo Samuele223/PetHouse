@@ -16,7 +16,7 @@ class Cfindhosting{
 
 
         $result = FPersistentManager::serachPost($City, $province, $datain, $dataout, $acceptedPets);
-        //show result al posto di return $result
+        //show result 
         // oppure usare filter post
 
         return $result; 
@@ -24,18 +24,7 @@ class Cfindhosting{
     public static function selectPost(int $id)
     {
         $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //cosi prendo dalla query string della url l' id del post
-        $responseData = [
-            'description' => $post->getDesc(),
-            'acceptedPets' => [$post->getAcceptedPets()],
-            'title' => $post->getTitle(),
-            'price' => $post->getPrice(),
-            'moreInfo' => $post->getMoreInfo(),
-            'dataIn' => $post->getDateIn(),
-            'dataOut' => $post->getDateOut(),
-            'seller' => $post->getSeller()->getEmail(),
-            'addres' => $post->getHouse()->getAddress(),
-        ];
-        return json_encode($responseData); //non so se ritorna un json da vedere
+        //show post 
     }
 
     private static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post

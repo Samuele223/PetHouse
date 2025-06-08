@@ -6,6 +6,8 @@ enum stateoffer: string
     case ACCEPTED = 'accepted';
     case FINISHED = 'finished';
 
+    case DENIED = 'denied';
+
     /**
      * Converte una stringa in uno dei casi dell'enum.
      * Lancia un'eccezione se la stringa non è valida.
