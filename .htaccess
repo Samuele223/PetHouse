@@ -1,11 +1,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /petHouse
-    RewriteCond %{REQUEST_URI} !^/public/index\.php
+    RewriteBase /PetHouse  
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [QSA,L]
-    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTPS} no
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
