@@ -250,7 +250,7 @@ public function getBooked()
 return $this->booked;
 }
 
-public function setBooked($booked)
+public function setBooked(bool $booked)
 {
 $this->booked = $booked;
 

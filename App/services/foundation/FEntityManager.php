@@ -196,49 +196,8 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
             echo "ERROR: " . $e->getMessage();
             return false;
         }
-    }
-    /**
- * Aggiorna un oggetto esistente nel database.
- *
- * Il metodo si occupa di:
- *  1. Recuperare l’entità managed via find()
- *  2. Copiare i campi modificati
- *  3. Chiamare flush()
- *
- * @param object $obj Un’istanza “detached” con ID valorizzato e campi modificati
- * @return bool       True se l’operazione ha avuto successo, false altrimenti
- */
-public static function updateObj($obj): bool { 
-    try {
-        $em = self::$entityManager;
-        $em->getConnection()->beginTransaction();
 
-        $class = get_class($obj);
-        // 1) Trovo l’istanza managed a partire dall’ID
-        $idGetter = 'getId'; // o il metodo getter del tuo PK
-        $managed = $em->find($class, $obj->$idGetter()); //questa riga è da brividi
-        if (! $managed) {
-            throw new \Exception("Entità non trovata per aggiornamento");
-        }
-
-        // 2) Copio tutti i campi modificati da $obj a $managed
-        //    Qui serve del codice “boilerplate” o reflection per ogni proprietà.
-        //    Esempio manuale per le proprietà comuni:
-        // $managed->setTitle($obj->getTitle());
-        // $managed->setContent($obj->getContent());
-        // … ecc.
-
-        // 3) Applico le modifiche
-        $em->flush();
-        $em->getConnection()->commit();
-
-        return true;
-    } catch (\Exception $e) {
-        $em->getConnection()->rollBack();
-        echo "ERROR: " . $e->getMessage();
-        return false;
-    }
-}
+    }         
 
     /**
      * verify if exist an object
@@ -260,10 +219,5 @@ public static function updateObj($obj): bool {
                 return null;
             }
     }
-
-
-
-
-         
 }
 ?>

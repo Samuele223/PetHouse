@@ -43,14 +43,6 @@ class FPersistentManager{
         $result = FEntityManager::getInstance()::deleteObj($obj);
         return $result;
     }
-
-
-    public static function updateObj($obj) { // non so se ha senso avere una funzione che aggiorna
-    $result = FEntityManager::getInstance()->updateObj($obj);
-    return $result;
-}
-
-
     
     public static function getUserByUsername($username): object|null
     {
@@ -186,7 +178,17 @@ class FPersistentManager{
     }
 
         
-        
+     public static function filterPost(
+        ?string $province = null,
+        array $acceptedPets,
+        ?string $city = null,
+        ?string $startDate = null,
+        ?string $endDate = null
+     )
+     {
+        $result = Fpost::filterPost( $province, $acceptedPets, $city, $startDate, $endDate);
+        return  $result;
+     }   
       
     
 }

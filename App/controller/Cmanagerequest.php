@@ -37,14 +37,28 @@ class Cmanagerequest
     {
         if(CUser::isLogged()){
         
-        $view = new Vmanagerequest();
-        $offer = FPersistentManager::retriveObj(Moffer::getEntity(),$offer_id);
-        $view->showOffer($offer);
+            $view = new Vmanagerequest();
+            $offer = FPersistentManager::retriveObj(Moffer::getEntity(),$offer_id);
+            $view->showOffer($offer);
         }
 
     }
-    public static function acceptOffer()
+    public static function accept_Deny_Offer(int $offer_id, bool $yesorno) //get request
+
     {
-        
+        if(CUser::isLogged()){
+            $offer = FPersistentManager::retriveObj(Moffer::getEntity(), $offer_id);
+            if($yesorno == true)
+            {
+                $offer->acceptOffer();
+                $offer->getPost()->setBooked(true);
+            }
+            else
+            {
+                $offer->denyOffer();
+            }
+            $view = new Vmanagerequest();
+            // mostra una schermata che dice bravo hai accettato o rifiutato
+        }
     }
 }

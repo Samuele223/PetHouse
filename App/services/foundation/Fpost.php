@@ -143,7 +143,8 @@ public static function findPostsByAcceptedPets(array $requiredPets): array  //fu
 
     return $posts;
 }
-public static function filterPost( //funziona
+public static function filterPost(
+    ?string $province = null, //funziona
     array $acceptedPets,
     ?string $city = null,
     ?string $startDate = null,
@@ -166,6 +167,10 @@ public static function filterPost( //funziona
     if ($city !== null) {
         $conditions[] = 'city = :city';
         $params[':city'] = $city;
+    }
+        if ($province !== null) {
+        $conditions[] = 'province = :province';
+        $params[':province'] = $province;
     }
 
     // Filtro per range date (se entrambi forniti)
