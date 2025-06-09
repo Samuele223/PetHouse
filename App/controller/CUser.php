@@ -1,70 +1,138 @@
 <?php
+
 require_once __DIR__ . '/../../bootstrap.php';
-session_start();
 
 class CUser {
 
-    private $em; //entitymanager
+    /**
+     * Show registration form on GET, process registration on POST.
+     */
+    public static function registration() {
+        $view = new VUser();
 
-    public function __construct($em) {
-        $this->em = $em;
-    }
-
-    public function register($username, $name, $surname, $email, $password) {
-        $userRepo = $this->em->getRepository(Muser::class);
-        $existing = $userRepo->findOneBy(['email' => $email]);
-        if ($existing) {
-            echo "Email già registrata.";
+        // If GET, show registration form
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $view->showRegisterForm();
             return;
         }
 
-        $user = new Muser($username, $name, $surname, $email);
-        $user->setEmail($email);
-        $user->setPassword($password);
-        
-        $this->em->persist($user);
-        $this->em->flush();
-        
-        echo "Registrazione completata.";
-    }
+        // If POST, process registration data
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name     = UHTTPMethods::post('name') ?? null; //??null vuol dire vuol dire: “Se UHTTPMethods::post('name') restituisce un valore, assegnalo a $name. Se invece la chiave non esiste, o è null, allora $name sarà null.” Questo evita warning se il campo non è stato inviato, ed è sintassi molto usata nelle versioni moderne di PHP (>=7).
+            $surname  = UHTTPMethods::post('surname') ?? null;
+            $username = UHTTPMethods::post('username') ?? null;
+            $email    = UHTTPMethods::post('email') ?? null;
+            $password = UHTTPMethods::post('password') ?? null;
 
-    public function login($username, $password) {
-        $userRepo = $this->em->getRepository(Muser::class);
-        $user = $userRepo->findOneBy(['username' => $username]);
 
-        if (!$user || !password_verify($password, $user->getPassword())) {
-            echo "Credenziali non valide.";
-            return;
+            // Basic validation
+            if (!$name || !$surname || !$username || !$email || !$password) {
+                $view->showRegisterForm('Please fill out all fields.');
+                return;
+            }
+
+            $pm = FPersistentManager::getInstance();
+
+            // Check email and username uniqueness
+            if ($pm->verifyUserEmail($email)) {
+                $view->showRegisterForm('Email already registered.');
+                return;
+            }
+            if ($pm->verifyUserUsername($username)) {
+                $view->showRegisterForm('Username already taken.');
+                return;
+            }
+
+            // Create and hash password
+            
+            $user = new MUser($name, $surname, $username, $email);
+            $user->setPassword($password); // <-- passa la password in chiaro
+
+
+            $check = $pm->saveObj($user);
+
+            if ($check) {
+                $view->registrationSuccess();
+            } else {
+                $view->showRegisterForm('Registration failed. Please try again.');
+            }
         }
-
-        $_SESSION['user_id'] = $user->getId();
-        echo "Login effettuato.";
-    }
-
-    public function logout() {
-        session_destroy();
-        echo "Logout effettuato.";
     }
 
     /**
-     * check if the user is logged (using session), preso sempre da Agora, mancava sta funzione 
-     * @return boolean
+     * Show login form on GET, process login on POST.
      */
-    public static function isLogged()
-    {
+    public static function login() {
+        $view = new VUser();
+
+        // If user is already logged in, redirect to home
+        if (USession::isSetSessionElement('user')) {
+            header('Location: /PetHouse/Home');
+            exit;
+        }
+
+        // Show login form on GET
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $view->showLoginForm();
+            return;
+        }
+
+        // Process login on POST
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = UHTTPMethods::post('username') ?? null;
+            $password = UHTTPMethods::post('password') ?? null;
+
+            if (!$username || !$password) {
+                $view->showLoginForm('Please enter your username and password.');
+                return;
+            }
+
+            $pm = FPersistentManager::getInstance();
+            $user = $pm->getUserByUsername($username);
+
+            if (!$user || !password_verify($password, $user->getPassword())) {
+                  echo "<div style='color: red; font-weight: bold;'>Invalid credentials.</div>";
+                return;
+            }
+
+
+            if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+                USession::getInstance();
+            }
+            USession::setSessionElement('user', $user->getId());
+
+            header('Location: /PetHouse/User/Home');
+            exit;
+        }
+    }
+
+    /**
+     * Check if the user is logged in, else redirect.
+     */
+    public static function isLogged() {
         $logged = false;
 
-        if(UCookie::isSet('PHPSESSID')){
-            if(session_status() == PHP_SESSION_NONE){
+        if (UCookie::isSet('PHPSESSID')) {
+            if (USession::getSessionStatus() == PHP_SESSION_NONE) {
                 USession::getInstance();
             }
         }
 
-        if(!$logged){
-            header('Location: /Agora/User/login');
+        if (!$logged) {
+            header('Location: /PetHouse/paginadefault');
             exit;
         }
         return true;
     }
 
+
+    /**
+     * Log out the user and destroy the session.
+     */
+    public static function logout() {
+        USession::getInstance();
+        USession::unsetSession();
+        USession::destroySession();
+        header('Location: /PetHouse/Home/mainscreen');
+    }
 }

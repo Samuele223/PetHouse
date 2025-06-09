@@ -196,6 +196,28 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
             echo "ERROR: " . $e->getMessage();
             return false;
         }
+
     }         
+
+    /**
+     * verify if exist an object
+     */
+    public static function verifyAttributes($fieldId, $table, $field, $id){
+        try{
+            $dql = "SELECT u.id".$fieldId. " FROM " . $table . " u WHERE u." . $field . " = :attribute";
+            $query = self::$entityManager->createQuery($dql);
+            $query->setParameter('attribute', $id);
+
+            $result = $query->getResult();
+            if(count($result) > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception $e){
+                echo "ERROR " . $e->getMessage();
+                return null;
+            }
+    }
 }
 ?>

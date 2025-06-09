@@ -156,6 +156,27 @@ class FPersistentManager{
 
 
     }
+    
+    //-------------------------------------VERIFY---------------------------------------
+    
+    /**
+     * verify if exist a user with this email (also mod)
+     */
+    public static function verifyUserEmail($email){
+        $result = FUser::verify('email', $email);
+
+        return $result;
+    }
+
+    /**
+     * verify if exist a user with this username (also mod)
+     */
+    public static function verifyUserUsername($username){
+        $result = FUser::verify('username', $username);
+
+        return $result;
+    }
+
         
      public static function filterPost(
         ?string $province = null,
