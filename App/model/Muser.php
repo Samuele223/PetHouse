@@ -1,5 +1,9 @@
 <?php
 
+// File: App/model/Muser.php
+
+
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\BooleanType;

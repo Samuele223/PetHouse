@@ -1,91 +1,91 @@
 <?php
-class CofferHosting{
+// CofferHosting.php
 
-//________________________________offer hosting______________________________________________________________________
+require_once __DIR__ . '/../../bootstrap.php';
+require_once __DIR__ . '/CUser.php';
+require_once __DIR__ . '/../view/VOfferHosting.php';
 
-//mo faccio i commenti in inglese quindi preparatevi per delle belle perle
+class CofferHosting {
 
-// Start the hosting process
-    public static function startHostingProcess() {
+    /**
+     * showOfferForm
+     * Display the form to create a new hosting offer (GET)
+     */
+    public static function showOfferForm() {
         if (CUser::isLogged()) {
-            $idUser = USession::getInstance()->getSessionElement('user'); //checking if user is logged, the same as agora (ma va che bello scriverlo in inglese scopiazziamo tutto sehhh)
+            $userId    = USession::getInstance()->getSessionElement('user');
+            // load all positions (houses) for this user so they can choose where to host
+            $positions = FPersistentManager::getHousesFromUser($userId);
 
-            $view = new VselectHouse();
-            
+            $view = new VOfferHosting();
+            $view->showPostForm($positions);
         }
     }
 
-    // Step 2: Called when the user selects a location to host from (triggered from the view)
-    public static function preparePostCreation(int $idPosition) {
+    /**
+     * createOffer
+     * Collect form data, validate it, and create the hosting offer (POST)
+     */
+    public static function createOffer() {
         if (CUser::isLogged()) {
-            $idUser = USession::getInstance()->getSessionElement('user'); //always checks if the user is logged or not
+            // Gather fields from the form
+            $idPosition   = UHTTPMethods::post('idPosition')   ?? null;
+            $title        = UHTTPMethods::post('title')        ?? '';
+            $description  = UHTTPMethods::post('description')  ?? '';
+            $moreInfo     = UHTTPMethods::post('moreInfo')     ?? '';
+            $price        = floatval(UHTTPMethods::post('price') ?? 0);
+            $dateInStr    = UHTTPMethods::post('dateIn')       ?? '';
+            $dateOutStr   = UHTTPMethods::post('dateOut')      ?? '';
+            $acceptedPets = UHTTPMethods::post('acceptedPets') ?? [];
 
-            $position = FPersistentManager::retriveObj(MPosition::getEntity(), $idPosition);
-
-            if ($position && $position->getOwner()->getId() === $idUser) { //double chek, the first one is to check if the poision (location) is not null and the second one is to check if it is associated with the user
-                $view = new VCreatePost();
-                $view->showPostForm($position); // shows the actual form to create post, and the user will then input the data, still to be implemented perchè siamo lenti e le view non siamo capaci
-            } else {
-                echo "Unauthorized or invalid selected location, please try again.";
+            // Basic validation
+            if (!$idPosition || !$title || !$description || !$dateInStr || !$dateOutStr) {
+                CofferHosting::showErrorAndForm('Missing required fields.', $idPosition);
+                return;
             }
-        }
-    }
 
-    // Actually create the post after form submission and the data collection
-    public static function createPost(string $title, string $desc, string $moreInfo, float $price, DateTime $dataIn, DateTime $dataOut, array $acceptedPets, int $idPosition) {
-        if (CUser::isLogged()) {
-            $idUser = USession::getInstance()->getSessionElement('user');
-
-            $position = FPersistentManager::retriveObj(MPosition::getEntity(), $idPosition);
-
-            if ($position && $position->getOwner()->getId() === $idUser) {
-                $post = new Mpost();
-                $post->setTitle($title);
-                $post->setDesc($desc);
-                $post->setMoreInfo($moreInfo);
-                $post->setPrice($price);
-                $post->setDateIn($dataIn);
-                $post->setDateOut($dataOut);
-                $post->addAcceptedPets($acceptedPets);
-                $post->setHouse($position);
-                $post->setSeller($position->getOwner());
-                $post->setBooked(false);
-
-                FPersistentManager::saveObj($post);
-
-                $view = new VCreatePost();
-                $view->showPostSummary($post); //still to be implemented in the view
-            } else {
-                echo "Invalid selected location or logged in error."; //boh non so che scrive = I don't know what to write
+            // Convert date strings to DateTime objects
+            try {
+                $dateIn  = new DateTime($dateInStr);
+                $dateOut = new DateTime($dateOutStr);
+            } catch (Exception $e) {
+                CofferHosting::showErrorAndForm('Invalid date format.', $idPosition);
+                return;
             }
+
+            // Verify ownership of the selected position
+            $userId   = USession::getInstance()->getSessionElement('user');
+            $position = FPersistentManager::retriveObj(MPosition::getEntity(), (int)$idPosition);
+            if (!$position || $position->getOwner()->getId() !== $userId) {
+                CofferHosting::showErrorAndForm('Invalid position or insufficient permissions.', $idPosition);
+                return;
+            }
+
+            // Create and save the hosting post
+            $post = new Mpost(
+                $description,
+                $acceptedPets,
+                $price,
+                $title,
+                $moreInfo,
+                $position->getOwner(),
+                $position,
+                $dateIn,
+                $dateOut
+            );
+            $post->setBooked(false);
+            FPersistentManager::saveObj($post);
+
+            // Show summary of the created post instead of redirecting
+            $view = new VOfferHosting();
+            $view->showPostSummary($post);
         }
     }
 
+    private static function showErrorAndForm(string $error, ?int $positionId) {
+        $userId    = USession::getInstance()->getSessionElement('user');
+        $positions = FPersistentManager::getHousesFromUser($userId);
+        $view = new VOfferHosting();
+        $view->showPostFormError($error, $positions);
+    }
 }
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-

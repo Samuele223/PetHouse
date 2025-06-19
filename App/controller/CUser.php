@@ -67,7 +67,7 @@ class CUser {
 
         // If user is already logged in, redirect to home
         if (USession::isSetSessionElement('user')) {
-            header('Location: /PetHouse/Home');
+            header('Location: /PetHouse/offerHosting/showOfferForm'); //modified to redirect to post creation, should be HOME but I'm testing
             exit;
         }
 
@@ -101,7 +101,7 @@ class CUser {
             }
             USession::setSessionElement('user', $user->getId());
 
-            header('Location: /PetHouse/User/Home');
+            header('Location: /PetHouse/offerHosting/showOfferForm'); //modified to redirect to post creation
             exit;
         }
     }
@@ -109,21 +109,24 @@ class CUser {
     /**
      * Check if the user is logged in, else redirect.
      */
-    public static function isLogged() {
-        $logged = false;
 
-        if (UCookie::isSet('PHPSESSID')) {
-            if (USession::getSessionStatus() == PHP_SESSION_NONE) {
-                USession::getInstance();
-            }
-        }
-
-        if (!$logged) {
-            header('Location: /PetHouse/paginadefault');
-            exit;
-        }
-        return true;
+     public static function isLogged() {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
     }
+
+    // Check for our “user” marker in session
+    if (USession::isSetSessionElement('user')) {
+        return true;  // authenticated
+    }
+
+    // not authenticated → send to login
+    header('Location: /PetHouse/User/login');
+    exit;
+}
+
+   
 
 
     /**

@@ -8,5 +8,15 @@
     },
     "require-dev": {
         "symfony/console": "^7.2"
-    }
+    },
+    
+  "autoload": {
+    "classmap": [
+    "App/model/",
+    "App/services"]
+  }
 }
+
+
+   
+

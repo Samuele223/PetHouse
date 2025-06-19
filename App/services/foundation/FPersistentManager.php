@@ -1,6 +1,10 @@
 <?php
 
+
+
 use App\Foundation\Exception\EntityNotFoundException;
+
+
 
 class FPersistentManager{
 
@@ -64,6 +68,16 @@ class FPersistentManager{
 
     // ----- REPOSITORY UTENTE (che sarebbero i metodi che sono utili) -----
 
+     /**
+     * getHousesFromUser
+     * English: Delegate to FUser to fetch all houses owned by the given user.
+     *
+     * @param int $userId  ID of the user whose houses we want
+     * @return MPosition[]|null  Array of MPosition or null if none
+     */
+    public static function getHousesFromUser(int $userId): ?array {
+        return FUser::getHousesFromUser($userId);
+    }
 
 
 
@@ -179,8 +193,8 @@ class FPersistentManager{
 
         
      public static function filterPost(
-        ?string $province = null,
         array $acceptedPets,
+        ?string $province = null,
         ?string $city = null,
         ?string $startDate = null,
         ?string $endDate = null

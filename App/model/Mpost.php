@@ -201,21 +201,25 @@ public function setSeller(Muser $seller): void //seller because non so come stra
      * Imposta la lista di AcceptedPet. Accetta array di enum o stringhe.
      * @param acceptedPet[]|string[] $acceptedPets
      */
-public function addAcceptedPets(array $pets)
-//example ['dog','cat','miao','dog']
+/**
+ * @param array<string,int> $pets  Associative: [ 'DOG'=>2, 'CAT'=>1, ... ]
+ */
+public function addAcceptedPets(array $pets): void
 {
-    foreach($pets as $pet){
-        if (acceptedPet::tryFrom($pet)){
-            if (isset($this->acceptedPets[$pet])) {
-                $this->acceptedPets[$pet]++;
-            } else {
-                $this->acceptedPets[$pet] = 1;
-            }
+    $counts = [];
+    foreach ($pets as $petKey => $count) {
+        // il form invia chiavi in uppercase, es. 'DOG'
+        if (!is_string($petKey) || acceptedPet::tryFrom($petKey) === null) {
+            throw new \Exception("Invalid pet type: $petKey");
         }
-        else{ 
-            throw new Exception("argument miss matched");}
-    
-}
+        // forza il valore intero, min 0
+        $n = max(0, (int)$count);
+        if ($n > 0) {
+            $counts[$petKey] = $n;
+        }
+    }
+    // sostituisci completamente l'array
+    $this->acceptedPets = $counts;
 }
 
 
