@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/bootstrap.php';   // getEntityManager()
+require __DIR__ . '/config/autoloader.php';
+
 
 // Hardcoded user ID for 'Paperone'
 $userId = 12;
@@ -18,14 +18,14 @@ if (!$user) {
 // Define two sets of fixed position data
 $positionsData = [
     [
-        'description' => '1 Villa Rosa con giardino ampio',
+        'description' => '2 Villa Rosa con giardino ampio',
         'address'     => '1 Via Roma 1',
         'city'        => '1 Milano',
         'province'    => 'MI',
         'country'     => 'Italy',
     ],
     [
-        'description' => '1 Appartamento moderno al centro',
+        'description' => '2 Appartamento moderno al centro',
         'address'     => '1 Corso Italia 10',
         'city'        => '1 Roma',
         'province'    => 'RM',
