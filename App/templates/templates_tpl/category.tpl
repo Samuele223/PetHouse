@@ -53,15 +53,15 @@ https://templatemo.com/tm-564-plot-listing
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="/PetHouse/App/templates/templates_tpl/index.tpl" class="logo">
+            <a href="/PetHouse/" class="logo">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="/PetHouse/App/templates/templates_tpl/index.tpl">Home</a></li>
-              <li><a href="/PetHouse/App/templates/templates_tpl/category.tpl" class="active">Category</a></li>
-              <li><a href="/PetHouse/App/templates/templates_tpl/listing.tpl">Listing</a></li>
-              <li><a href="/PetHouse/App/templates/templates_tpl/contact.tpl">Contact Us</a></li> 
+              <li><a href="/PetHouse/">Home</a></li>
+              <li><a href="/PetHouse/" class="active">Category</a></li>
+              <li><a href="/PetHouse/">Listing</a></li>
+              <li><a href="/PetHouse/">Contact Us</a></li> 
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
             </ul>        
             <a class='menu-trigger'>

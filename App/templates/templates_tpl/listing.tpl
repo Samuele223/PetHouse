@@ -53,15 +53,15 @@ https://templatemo.com/tm-564-plot-listing
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="/PetHouse/App/templates/templates_tpl/index.tpl" class="logo">
+            <a href="/PetHouse/" class="logo">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="/PetHouse/App/templates/templates_tpl/index.tpl">Home</a></li>
-              <li><a href="/PetHouse/App/templates/templates_tpl/category.tpl">Category</a></li>
-              <li><a href="/PetHouse/App/templates/templates_tpl/listing.tpl" class="active">Listing</a></li>
-              <li><a href="/PetHouse/App/templates/templates_tpl/contact.tpl">Contact Us</a></li> 
+              <li><a href="/PetHouse/">Home</a></li>
+              <li><a href="/PetHouse/">Category</a></li>
+              <li><a href="/PetHouse/" class="active">Listing</a></li>
+              <li><a href="/PetHouse/">Contact Us</a></li> 
               <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
@@ -138,7 +138,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-01.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -157,7 +157,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-02.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -176,7 +176,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -199,7 +199,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-01.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -218,7 +218,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-02.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -237,7 +237,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -262,7 +262,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-01.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -281,7 +281,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-02.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -300,7 +300,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -333,7 +333,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-04.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -352,7 +352,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-05.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -371,7 +371,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -396,7 +396,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-05.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -415,7 +415,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-04.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -434,7 +434,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -469,7 +469,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-05.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -488,7 +488,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-04.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -507,7 +507,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -532,7 +532,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-01.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -551,7 +551,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-02.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -570,7 +570,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-06.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -608,7 +608,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-06.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -627,7 +627,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-04.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -646,7 +646,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -671,7 +671,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-05.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -690,7 +690,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-06.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -709,7 +709,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>
@@ -734,7 +734,7 @@ https://templatemo.com/tm-564-plot-listing
                                       <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-06.jpg" alt=""></a>
                                       <div class="hover-content">
                                         <div class="main-white-button">
-                                          <a href="/PetHouse/App/templates/templates_tpl/contact.tpl"><i class="fa fa-eye"></i> Contact Now</a>
+                                          <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
                                         </div>
                                       </div>
                                     </div>

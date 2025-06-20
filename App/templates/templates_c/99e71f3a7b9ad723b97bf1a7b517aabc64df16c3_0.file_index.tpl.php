@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-20 17:02:14
+/* Smarty version 5.5.0, created on 2025-06-20 17:53:55
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685577f6024a06_22747355',
+  'unifunc' => 'content_6855841370e314_99666450',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99e71f3a7b9ad723b97bf1a7b517aabc64df16c3' => 
     array (
       0 => 'index.tpl',
-      1 => 1750431720,
+      1 => 1750434800,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685577f6024a06_22747355 (\Smarty\Template $_smarty_tpl) {
+function content_6855841370e314_99666450 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?>
 <!DOCTYPE html>
@@ -76,7 +76,7 @@ https://templatemo.com/tm-564-plot-listing
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="/PetHouse/App/templates/templates_tpl/index.tpl" class="logo">
+            <a href="/PetHouse/" class="logo">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
