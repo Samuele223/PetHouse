@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-19 20:06:34
-  from 'file:registration.tpl' */
+/* Smarty version 5.5.0, created on 2025-06-20 16:27:56
+  from 'file:login.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685451aa869965_91687730',
+  'unifunc' => 'content_68556fecd2e4b8_66710783',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '313ef9a26d7437a6d8c439d169ef8e423ff44105' => 
+    '9794ddda3f1657487b71555e0d795bc31663384a' => 
     array (
-      0 => 'registration.tpl',
-      1 => 1750354938,
+      0 => 'login.tpl',
+      1 => 1750429443,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,12 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685451aa869965_91687730 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+function content_68556fecd2e4b8_66710783 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <style>
         body {
@@ -43,7 +43,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             padding: 2rem 2.5rem;
             border-radius: 16px;
             box-shadow: 0 2px 24px rgba(34,34,34,0.10);
-            width: 360px;
+            width: 340px;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -58,7 +58,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             font-weight: 500;
             margin-bottom: .5rem;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="password"] {
             padding: .7rem;
             border-radius: 8px;
             border: 1px solid #d1d8e0;
@@ -102,36 +102,24 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
 </head>
 <body>
     <div class="container">
-        <h1>Register</h1>
+        <h1>Login</h1>
         <?php if ($_smarty_tpl->getValue('error')) {?>
             <div class="error"><?php echo $_smarty_tpl->getValue('error');?>
 </div>
         <?php }?>
-        <form action="/PetHouse/User/registration" method="post">
+        <form action="/PetHouse/User/login" method="post">
             <label>
                 Username:
                 <input type="text" name="username" required>
             </label>
             <label>
-                Name:
-                <input type="text" name="name" required>
-            </label>
-            <label>
-                Surname:
-                <input type="text" name="surname" required>
-            </label>
-            <label>
-                Email:
-                <input type="email" name="email" required>
-            </label>
-            <label>
                 Password:
                 <input type="password" name="password" required>
             </label>
-            <button type="submit">Register</button>
+            <button type="submit">Login</button>
         </form>
         <div class="link">
-            <p>Already registered? <a href="/PetHouse/User/login">Login here</a></p>
+            <p>Don't have an account? <a href="/PetHouse/User/register">Register here</a></p>
         </div>
     </div>
 </body>

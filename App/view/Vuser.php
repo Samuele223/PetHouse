@@ -28,11 +28,11 @@ class VUser {
     public function home($username){
     if($username){
     $this->smarty->assign('username', $username);
-    $this->smarty->display('home_logged_in.tpl');
+    $this->smarty->display('index.tpl');
     }
     else
     {
-        $this->smarty->display('home_guest.tpl');
+        $this->smarty->display('index.tpl');
     }
 }
 public function profile($user)
