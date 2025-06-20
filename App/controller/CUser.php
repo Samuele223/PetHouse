@@ -67,7 +67,7 @@ class CUser {
 
         // If user is already logged in, redirect to home
         if (USession::isSetSessionElement('user')) {
-            header('Location: /PetHouse/offerHosting/showOfferForm'); //modified to redirect to post creation, should be HOME but I'm testing
+            header('Location: /PetHouse'); //modified to redirect to post creation, should be HOME but I'm testing
             exit;
         }
 
@@ -87,8 +87,7 @@ class CUser {
                 return;
             }
 
-            $pm = FPersistentManager::getInstance();
-            $user = $pm->getUserByUsername($username);
+            $user = FPersistentManager::getUserByUsername($username);
 
             if (!$user || !password_verify($password, $user->getPassword())) {
                   echo "<div style='color: red; font-weight: bold;'>Invalid credentials.</div>";
@@ -100,8 +99,9 @@ class CUser {
                 USession::getInstance();
             }
             USession::setSessionElement('user', $user->getId());
+            
 
-            header('Location: /PetHouse/offerHosting/showOfferForm'); //modified to redirect to post creation
+            header('Location: /PetHouse'); //modified to redirect to post creation
             exit;
         }
     }
@@ -136,6 +136,34 @@ class CUser {
         USession::getInstance();
         USession::unsetSession();
         USession::destroySession();
-        header('Location: /PetHouse/Home/mainscreen');
+        header('Location: /PetHouse/');
     }
+    public static function home()
+    {   
+        if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    } 
+        $id = USession::getSessionElement('user');
+        $view = new VUser();
+        if ($id){
+            $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+            $username = $user->getUsername();
+            $view->home($username);
+        }
+        else{
+            $view->home(false);
+        }
+
+}
+public static function profile()
+{
+if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+    USession::getInstance();
+} 
+$id = USession::getSessionElement('user');
+$view = new VUser();
+$user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+$username = $user->getUsername();
+$view->profile($user);
+}
 }

@@ -4,7 +4,7 @@
         "doctrine/dbal": "^4.2",
         "symfony/cache": "^7.2",
         "doctrine/migrations": "^3.9",
-        "smarty/smarty": "^5.5"
+        "smarty/smarty": "5.5"
     },
     "require-dev": {
         "symfony/console": "^7.2"
@@ -16,7 +16,3 @@
     "App/services"]
   }
 }
-
-
-   
-

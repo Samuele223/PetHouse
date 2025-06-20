@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea5d59ef6443306ba66c12a753703cac",
+    "content-hash": "b3068bd33700175f1d69579c3939f809",
     "packages": [
         {
             "name": "doctrine/collections",
@@ -1017,16 +1017,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v5.5.1",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "cbcd66e1de017ae3bcbf8b5fa2a34858f5e2adbc"
+                "reference": "372f7cf41a6e2a9ca2e7253bc5f5c4f38df25a63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/cbcd66e1de017ae3bcbf8b5fa2a34858f5e2adbc",
-                "reference": "cbcd66e1de017ae3bcbf8b5fa2a34858f5e2adbc",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/372f7cf41a6e2a9ca2e7253bc5f5c4f38df25a63",
+                "reference": "372f7cf41a6e2a9ca2e7253bc5f5c4f38df25a63",
                 "shasum": ""
             },
             "require": {
@@ -1081,7 +1081,7 @@
             "support": {
                 "forum": "https://github.com/smarty-php/smarty/discussions",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v5.5.1"
+                "source": "https://github.com/smarty-php/smarty/tree/v5.5.0"
             },
             "funding": [
                 {
@@ -1089,7 +1089,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-19T09:29:42+00:00"
+            "time": "2025-05-03T21:36:46+00:00"
         },
         {
             "name": "symfony/cache",

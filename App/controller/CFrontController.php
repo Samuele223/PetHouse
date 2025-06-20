@@ -19,7 +19,7 @@ class CFrontController {
 
         // Determine controller and method names
         $controllerName = !empty($uriParts[0]) ? ucfirst($uriParts[0]) : 'User'; // Default controller: 'User'
-        $methodName = !empty($uriParts[1]) ? $uriParts[1] : 'login'; // Default method: 'login'
+        $methodName = !empty($uriParts[1]) ? $uriParts[1] : 'home'; // Default method: 'login'
 
         // Build controller class and file name
         $controllerClass = 'C' . $controllerName;

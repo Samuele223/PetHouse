@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.1, created on 2025-06-19 16:45:14
+/* Smarty version 5.5.0, created on 2025-06-19 19:47:33
   from 'file:offer_hosting_form.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.1',
-  'unifunc' => 'content_6854227a489276_47195743',
+  'version' => '5.5.0',
+  'unifunc' => 'content_68544d35a78618_20489893',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '90c014a68c87a7a2a9b803fc1821033558118487' => 
     array (
       0 => 'offer_hosting_form.tpl',
-      1 => 1750344294,
+      1 => 1750354938,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_6854227a489276_47195743 (\Smarty\Template $_smarty_tpl) {
+function content_68544d35a78618_20489893 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <html lang="it">

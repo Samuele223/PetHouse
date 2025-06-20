@@ -25,5 +25,26 @@ class VUser {
     public function registrationSuccess() {
         $this->smarty->display('registration_success.tpl');
     }
+    public function home($username){
+    if($username){
+    $this->smarty->assign('username', $username);
+    $this->smarty->display('home_logged_in.tpl');
+    }
+    else
+    {
+        $this->smarty->display('home_guest.tpl');
+    }
+}
+public function profile($user)
+    {
+        $this->smarty->assign('name',$user->getName());
+        $this->smarty->assign('surname', $user->getsurname());
+        $this->smarty->assign('email',$user->getemail());
+        $this->smarty->display('profile.tpl');
+    }
+  
+
+   
+    
 
 }
