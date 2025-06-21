@@ -1,11 +1,12 @@
 <?php
-class Cfindhosting{
+class CFindhosting{
 //________________________________cerca ospitalità______________________________________________________________________
-    public static function startResaerch()
+    public static function startResearch()
     {
         $view = new Vfindhosting();
+        $view->showForm();
     }
-    public static function searchHost()  //post  request could be implemented as a get 
+    public static function searchHost()  //post  request 
     {
         //fetching arguments from postrequest
         $City = UHTTPMethods::post('city');
@@ -16,7 +17,7 @@ class Cfindhosting{
 
 
         $result = FPersistentManager::serachPost($City, $province, $datain, $dataout, $acceptedPets);
-        //show result 
+        
         // oppure usare filter post
 
         return $result; 

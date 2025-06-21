@@ -11,13 +11,13 @@ class CUser {
         $view = new VUser();
 
         // If GET, show registration form
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if (UServer::getRequestMethod() === 'GET') {
             $view->showRegisterForm();
             return;
         }
 
         // If POST, process registration data
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (UServer::getRequestMethod() === 'POST') {
             $name     = UHTTPMethods::post('name') ?? null; //??null vuol dire vuol dire: “Se UHTTPMethods::post('name') restituisce un valore, assegnalo a $name. Se invece la chiave non esiste, o è null, allora $name sarà null.” Questo evita warning se il campo non è stato inviato, ed è sintassi molto usata nelle versioni moderne di PHP (>=7).
             $surname  = UHTTPMethods::post('surname') ?? null;
             $username = UHTTPMethods::post('username') ?? null;
@@ -72,13 +72,13 @@ class CUser {
         }
 
         // Show login form on GET
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if (UServer::getRequestMethod() === 'GET') {
             $view->showLoginForm();
             return;
         }
 
         // Process login on POST
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (UServer::getRequestMethod() === 'POST') {
             $username = UHTTPMethods::post('username') ?? null;
             $password = UHTTPMethods::post('password') ?? null;
 
