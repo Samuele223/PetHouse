@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-22 16:51:42
+/* Smarty version 5.5.0, created on 2025-06-22 18:54:53
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_6858187ed16216_14213771',
+  'unifunc' => 'content_6858355d868139_95557545',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
     array (
       0 => 'index.tpl',
-      1 => 1750603897,
+      1 => 1750611291,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_6858187ed16216_14213771 (\Smarty\Template $_smarty_tpl) {
+function content_6858355d868139_95557545 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -242,15 +242,15 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
 
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/3.jpeg" alt="GTA V"></div>
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/2.jpeg" alt="The Last of us"></div>
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/1.jpeg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/3.jpg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/2.jpg" alt="The Last of us"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/1.jpg" alt="GTA VI"></div>
 
                 </div>
             </div>
             <div class="slider-content">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12">
                         <h2>Take care of your Pets they matter</h2>
                         <p>For a world full of good creature</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
@@ -326,8 +326,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>Top submitted property</h2>
-                        <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+                        <h2>Top PetHouses</h2>
+                        <p>Best verified PetHouse's profile. </p>
                     </div>
                 </div>
 

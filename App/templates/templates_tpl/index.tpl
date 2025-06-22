@@ -217,15 +217,15 @@
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
 
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/3.jpeg" alt="GTA V"></div>
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/2.jpeg" alt="The Last of us"></div>
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/1.jpeg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/3.jpg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/2.jpg" alt="The Last of us"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/1.jpg" alt="GTA VI"></div>
 
                 </div>
             </div>
             <div class="slider-content">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12">
                         <h2>Take care of your Pets they matter</h2>
                         <p>For a world full of good creature</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
@@ -299,8 +299,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>Top submitted property</h2>
-                        <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+                        <h2>Top PetHouses</h2>
+                        <p>Best verified PetHouse's profile. </p>
                     </div>
                 </div>
 

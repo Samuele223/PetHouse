@@ -226,9 +226,16 @@ class Muser
         $this->report = $report;
     }
 
-    public function getProfilePicture(): Mphoto
+    public function getProfilePicture() 
     {
-        return $this->profilePicture;
+        if($this->profilePicture)
+        {
+            return $this->profilePicture;
+        }
+        else
+        {
+            return null;
+    }
     }
 
     public function setProfilePicture($profilePicture): void

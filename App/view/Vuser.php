@@ -40,6 +40,7 @@ public function profile($user, $picid)
         $this->smarty->assign('name',$user->getName());
         $this->smarty->assign('surname', $user->getsurname());
         $this->smarty->assign('email',$user->getemail());
+        $this->smarty->assign('pic',  $picid);
         $this->smarty->display('user-profile.tpl');
     }
   
