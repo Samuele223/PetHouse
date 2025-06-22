@@ -34,16 +34,11 @@ private ?Mposition $location=null;
 #[ORM\OneToOne(mappedBy:'profilePicture')]
 private ?Muser $user=null;
 
-
-
-
-
-
-public function __construct($name, $size, $type, $imageData){
-    $this->name = $name;
-    $this->size = $size;
-    $this->types = $type;
-    $this->imageData = $imageData;
+public function __construct($dati, $types)
+{
+    $this->imageData = $dati;
+    $this->types = $types;
+    $this->size = strlen($dati);
 }
 
 public static function getEntity(): string
@@ -76,11 +71,17 @@ public function getImageData(): mixed
 {
     return $this->imageData;
 }
-public function getBinaryData(): string
-{
-    return stream_get_contents($this->imageData);
-}
 
+public function getMimeType(): string
+    {
+        $map = [
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'png' => 'image/png',
+            'gif' => 'image/gif',
+        ];
+        return $map[$this->types] ?? 'application/octet-stream';
+    }
 
 
 public function setLocation(Mposition $location): void

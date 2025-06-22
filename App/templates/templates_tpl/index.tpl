@@ -63,7 +63,22 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-top: 30px;">
+                    <h1>
+                        Welcome 
+                        {if isset($username) && $username|@strlen > 0}
+                            {$username|escape}
+                        {else}
+                            User
+                        {/if}
+                    </h1>
+                </div>
+            </div>
+        </div>       
+
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -82,8 +97,14 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.45s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
+                        {if isset($username) && $username|@strlen > 0}
+                            <form method="post" action="/PetHouse/user/logout" style="display:inline;">
+                                <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
+                            </form>
+                        {else}
+                            <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
+                        {/if}
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">

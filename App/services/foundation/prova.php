@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../../../config/autoloader.php';
+/*
 require_once 'FEntityManager.php';
 require_once '../../model/Mpost.php';
 require_once '../../model/Madmin.php';
@@ -14,7 +16,7 @@ require_once 'Fpost.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../../config/doctrine-config.php';
 
-/*
+
 for($i = 0; $i<1000; $i++){
 $pet = ["DOG","DOG",'CAT','PARROT'];
 $a = FEntityManager::getInstance()::getEntityManager();
@@ -63,12 +65,13 @@ $out = new DateTime('27-05-2025');
 $user = new Muser('mario','cesile','surgo','surgo@gg');
 $post = FPersistentManager::retriveObj(Mpost::getEntity(),12);
 $offer = new Moffer($in,$out,$post,['DOG'],$user);
-*/
+
 $offer = FPersistentManager::retriveObj(Moffer::getEntity(),1);
 $offer->acceptOffer();
 FPersistentManager::saveObj($offer);
-
-
-
+*/
+$foto = FPersistentManager::retriveObj(Mphoto::getEntity(),1);
+echo stream_get_contents($foto->getImageData());
+echo $foto->getType(); 
 
 ?>

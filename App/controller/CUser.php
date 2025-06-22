@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../bootstrap.php';
+require_once __DIR__ . '/../../config/autoloader.php';
 
 class CUser {
 
@@ -31,25 +32,41 @@ class CUser {
                 return;
             }
 
-            $pm = FPersistentManager::getInstance();
+            
 
             // Check email and username uniqueness
-            if ($pm->verifyUserEmail($email)) {
+            /*if (FPersistentManager::verifyUserEmail($email)) {
                 $view->showRegisterForm('Email already registered.');
                 return;
             }
-            if ($pm->verifyUserUsername($username)) {
+            if (FPersistentManager::verifyUserUsername($username)) {
                 $view->showRegisterForm('Username already taken.');
                 return;
-            }
+            }*/
 
             // Create and hash password
             
             $user = new MUser($name, $surname, $username, $email);
             $user->setPassword($password); // <-- passa la password in chiaro
+            if ($_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
+                $tmpName = $_FILES['profile_pic']['tmp_name'];
+                $nomeFile = $_FILES['profile_pic']['name'];
+                $mimeType = $_FILES['profile_pic']['type'];
+                $dati = file_get_contents($tmpName);
 
+                $foto = new Mphoto( $dati,$mimeType );
 
-            $check = $pm->saveObj($user);
+                // Assumi che $entityManager sia il manager di Doctrine
+                FPersistentManager::saveObj($foto); // Salva la foto nel database
+                $user->setProfilePicture($foto); // Associa la foto all'utente
+
+                // Ora puoi associare $foto all'utente o salvarla come preferisci
+            } else {
+                echo 'skibidi';
+            }
+
+            $check = FPersistentManager::saveObj($user);
+            
 
             if ($check) {
                 $view->registrationSuccess();
@@ -163,7 +180,9 @@ if (USession::getSessionStatus() == PHP_SESSION_NONE) {
 $id = USession::getSessionElement('user');
 $view = new VUser();
 $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
-$username = $user->getUsername();
-$view->profile($user);
+$pic = $user->getProfilePicture();
+$picid = $pic->getId();
+
+$view->profile($user, $picid);
 }
 }

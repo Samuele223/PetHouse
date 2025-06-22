@@ -34,7 +34,7 @@
             font-weight: 500;
             margin-bottom: .5rem;
         }
-        input[type="text"], input[type="email"], input[type="password"] {
+        input[type="text"], input[type="email"], input[type="password"], input[type="file"] {
             padding: .7rem;
             border-radius: 8px;
             border: 1px solid #d1d8e0;
@@ -82,7 +82,7 @@
         {if $error}
             <div class="error">{$error}</div>
         {/if}
-        <form action="/PetHouse/User/registration" method="post">
+        <form action="/PetHouse/User/registration" method="post" enctype="multipart/form-data">
             <label>
                 Username:
                 <input type="text" name="username" required>
@@ -102,6 +102,10 @@
             <label>
                 Password:
                 <input type="password" name="password" required>
+            </label>
+            <label>
+                Foto Profilo:
+                <input type="file" name="profile_pic" accept="image/*" required>
             </label>
             <button type="submit">Register</button>
         </form>
