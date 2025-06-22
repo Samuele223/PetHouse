@@ -12,13 +12,13 @@ class VUser {
     // Show the registration form
     public function showRegisterForm($error = null) {
         $this->smarty->assign('error', $error);
-        $this->smarty->display('registration.tpl');
+        $this->smarty->display('register.tpl');
     }
 
     // Show the login form
     public function showLoginForm($error = null) {
         $this->smarty->assign('error', $error);
-        $this->smarty->display('login.tpl');
+        $this->smarty->display('register.tpl');
     }
 
     // Show a page after successful registration

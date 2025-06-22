@@ -1,649 +1,905 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GARO ESTATE | Home page</title>
+        <meta name="description" content="GARO is a real-estate template">
+        <meta name="author" content="Kimarotec">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <head>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <title>Plot Listing HTML5 Website Template</title>
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontello.css">
+        <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+        <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+        <link href="/PetHouse/App/templates/assets/css/animate.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/bootstrap-select.min.css"> 
+        <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/price-range.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
+    </head>
+    <body>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/PetHouse/App/templates/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/templatemo-plot-listing.css">
-    <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/animated.css">
-    <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.css">
-<!--
-
-TemplateMo 564 Plot Listing
-
-https://templatemo.com/tm-564-plot-listing
-
--->
-  </head>
-
-<body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="/PetHouse/" class="logo">
-            </a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li><a href="/PetHouse/" class="active">Home</a></li>
-              <li><a href="/PetHouse/">Category</a></li>
-              <li><a href="/PetHouse/">Listing</a></li>
-              <li><a href="/PetHouse/">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
-            </ul>        
-            <a class='menu-trigger'>
-                <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
         </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+        <!-- Body content -->
 
-  <div class="main-banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="top-text header-text">
-            <h6>Over 36,500+ Active Listings</h6>
-            <h2>Find Nearby Places &amp; Things</h2>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <form id="search-form" name="gs" method="submit" role="search" action="#">
-            <div class="row">
-              <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <select name="area" class="form-select" aria-label="Area" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>All Areas</option>
-                          <option value="New Village">New Village</option>
-                          <option value="Old Town">Old Town</option>
-                          <option value="Modern City">Modern City</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required>
-                  </fieldset>
-              </div>
-              <div class="col-lg-3 align-self-center">
-                  <fieldset>
-                      <select name="price" class="form-select" aria-label="Default select example" id="chooseCategory" onchange="this.form.click()">
-                          <option selected>Price Range</option>
-                          <option value="$100 - $250">$100 - $250</option>
-                          <option value="$250 - $500">$250 - $500</option>
-                          <option value="$500 - $1000">$500 - $1,000</option>
-                          <option value="$1000+">$1,000 or more</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-3">                        
-                  <fieldset>
-                      <button class="main-button"><i class="fa fa-search"></i> Search Now</button>
-                  </fieldset>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-lg-10 offset-lg-1">
-          <ul class="categories">
-            <li><a href="/PetHouse/"><span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-01.png" alt="Home"></span> Apartments</a></li>
-            <li><a href="/PetHouse/"><span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-02.png" alt="Food"></span> Food &amp; Life</a></li>
-            <li><a href="#"><span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-03.png" alt="Vehicle"></span> Cars</a></li>
-            <li><a href="#"><span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-04.png" alt="Shopping"></span> Shopping</a></li>
-            <li><a href="#"><span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-05.png" alt="Travel"></span> Traveling</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="popular-categories">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <h2>Popular Categories</h2>
-            <h6>Check Them Out</h6>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="naccs">
-            <div class="grid">
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="menu">
-                    <div class="first-thumb active">
-                      <div class="thumb">
-                        <span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-01.png" alt=""></span>
-                        Apartments
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">                 
-                        <span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-02.png" alt=""></span>
-                        Food &amp; Life
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">                 
-                        <span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-03.png" alt=""></span>
-                        Cars
-                      </div>
-                    </div>
-                    <div>
-                      <div class="thumb">                 
-                        <span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-04.png" alt=""></span>
-                        Shopping
-                      </div>
-                    </div>
-                    <div class="last-thumb">
-                      <div class="thumb">                 
-                        <span class="icon"><img src="/PetHouse/App/templates/assets/images/search-icon-05.png" alt=""></span>
-                        Traveling
-                      </div>
-                    </div>
-                  </div>
-                </div> 
-                <div class="col-lg-9 align-self-center">
-                  <ul class="nacc">
-                    <li class="active">
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-5 align-self-center">
-                              <div class="left-text">
-                                <h4>One Of The Most Trending Stuffs Right Now!</h4>
-                                <p>Plot Listing is a responsive Bootstrap 5 website template that included 4 different HTML pages. This template is provided by TemplateMo website. You can apply this layout for your static or dynamic CMS websites.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
-                              </div>
-                            </div>
-                            <div class="col-lg-7 align-self-center">
-                              <div class="right-image">
-                                <img src="/PetHouse/App/templates/assets/images/tabs-image-01.jpg" alt="">
-                              </div>
-                            </div>
-                          </div>
+        <div class="header-connect">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-8  col-xs-12">
+                        <div class="header-half header-call">
+                            
                         </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-5 align-self-center">
-                              <div class="left-text">
-                                <h4>Food and Lifestyle category is here</h4>
-                                <p>You can feel free to download, edit and apply this template for your website. Please tell your friends about TemplateMo website.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Explore More</a></div>
-                              </div>
-                            </div>
-                            <div class="col-lg-7 align-self-center">
-                              <div class="right-image">
-                                <img src="/PetHouse/App/templates/assets/images/tabs-image-02.jpg" alt="Foods on the table">
-                              </div>
-                            </div>
-                          </div>
+                    </div>
+                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
+                        <div class="header-half header-social">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
                         </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-5 align-self-center">
-                              <div class="left-text">
-                                <h4>Best car rentals for your trips!</h4>
-                                <p>Did you know? You can get the best free HTML templates on Too CSS blog. Visit the blog pages and explore fresh and latest website templates.</p>
-                                <div class="main-white-button"><a href="/PetHouse/"><i class="fa fa-eye"></i> More Listing</a></div>
-                              </div>
-                            </div>
-                            <div class="col-lg-7 align-self-center">
-                              <div class="right-image">
-                                <img src="/PetHouse/App/templates/assets/images/tabs-image-03.jpg" alt="cars in the city">
-                              </div>
-                            </div>
-                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <!--End top header -->
+
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse yamm" id="navigation">
+                    <div class="button navbar-right">
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.45s">Login</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
+                    </div>
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                            <a href="/PetHouse/" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="index-2.html">Home Style 2</a>
+                                </li>
+                                <li>
+                                    <a href="index-3.html">Home Style 3</a>
+                                </li>
+                                <li>
+                                    <a href="index-4.html">Home Style 4</a>
+                                </li>
+                                <li>
+                                    <a href="index-5.html">Home Style 5</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="property.html">Property</a></li>
+                        <li class="dropdown yamm-fw" data-wow-delay="0.4s">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h5>Home pages</h5>
+                                                <ul>
+                                                    <li>
+                                                        <a href="/PetHouse/">Home Style 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-2.html">Home Style 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-3.html">Home Style 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-4.html">Home Style 4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-5.html">Home Style 5</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Pages and blog</h5>
+                                                <ul>
+                                                    <li><a href="blog.html">Blog listing</a>  </li>
+                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
+                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
+                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
+                                                    <li><a href="contact.html">Contact style (1)</a> </li>
+                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
+                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
+                                                    <li><a href="faq.html">FAQ page</a> </li> 
+                                                    <li><a href="404.html">404 page</a>  </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Property</h5>
+                                                <ul>
+                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
+                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
+                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
+                                                </ul>
+
+                                                <h5>Properties list</h5>
+                                                <ul>
+                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
+                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
+                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
+                                                </ul>                                               
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Property process</h5>
+                                                <ul> 
+                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
+                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
+                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
+                                                </ul>
+                                                <h5>User account</h5>
+                                                <ul>
+                                                    <li><a href="/PetHouse/App/templates/templates_tpl/register.tpl">Register / login</a>   </li>
+                                                    <li><a href="user-properties.html">Your properties</a>  </li>
+                                                    <li><a href="submit-property.html">Submit property</a>  </li>
+                                                    <li><a href="change-password.html">Change password</a> </li>
+                                                    <li><a href="user-profile.html">Your profile</a>  </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.yamm-content -->
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!-- End of nav bar -->
+
+        <div class="slider-area">
+            <div class="slider">
+                <div id="bg-slider" class="owl-carousel owl-theme">
+
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/slider-image-2.jpg" alt="The Last of us"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+
+                </div>
+            </div>
+            <div class="slider-content">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                        <h2>property Searching Just Got So Easy</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
+                        <div class="search-form wow pulse" data-wow-delay="0.8s">
+
+                            <form action="" class=" form-inline">
+                                <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Key word">
+                                </div>
+                                <div class="form-group">                                   
+                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
+
+                                        <option>New york, CA</option>
+                                        <option>Paris</option>
+                                        <option>Casablanca</option>
+                                        <option>Tokyo</option>
+                                        <option>Marraekch</option>
+                                        <option>kyoto , shibua</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">                                     
+                                    <select id="basic" class="selectpicker show-tick form-control">
+                                        <option> -Status- </option>
+                                        <option>Rent </option>
+                                        <option>Boy</option>
+                                        <option>used</option>  
+
+                                    </select>
+                                </div>
+                                <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
+
+                                <div style="display: none;" class="search-toggle">
+
+                                    <div class="search-row">   
+
+                                        <div class="form-group mar-r-20">
+                                            <label for="price-range">Price range ($):</label>
+                                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                                   data-slider-max="600" data-slider-step="5" 
+                                                   data-slider-value="[0,450]" id="price-range" ><br />
+                                            <b class="pull-left color">2000$</b> 
+                                            <b class="pull-right color">100000$</b>
+                                        </div>
+                                        <!-- End of  -->  
+
+                                        <div class="form-group mar-l-20">
+                                            <label for="property-geo">Property geo (m2) :</label>
+                                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                                   data-slider-max="600" data-slider-step="5" 
+                                                   data-slider-value="[50,450]" id="property-geo" ><br />
+                                            <b class="pull-left color">40m</b> 
+                                            <b class="pull-right color">12000m</b>
+                                        </div>
+                                        <!-- End of  --> 
+                                    </div>
+
+                                    <div class="search-row">
+
+                                        <div class="form-group mar-r-20">
+                                            <label for="price-range">Min baths :</label>
+                                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                                   data-slider-max="600" data-slider-step="5" 
+                                                   data-slider-value="[250,450]" id="min-baths" ><br />
+                                            <b class="pull-left color">1</b> 
+                                            <b class="pull-right color">120</b>
+                                        </div>
+                                        <!-- End of  --> 
+
+                                        <div class="form-group mar-l-20">
+                                            <label for="property-geo">Min bed :</label>
+                                            <input type="text" class="span2" value="" data-slider-min="0" 
+                                                   data-slider-max="600" data-slider-step="5" 
+                                                   data-slider-value="[250,450]" id="min-bed" ><br />
+                                            <b class="pull-left color">1</b> 
+                                            <b class="pull-right color">120</b>
+                                        </div>
+                                        <!-- End of  --> 
+
+                                    </div>
+                                    <br>
+                                    <div class="search-row">  
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Fire Place(3100)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  -->  
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Dual Sinks(500)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  --> 
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Hurricane Shutters(99)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  --> 
+                                    </div>
+
+                                    <div class="search-row">  
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Swimming Pool(1190)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  -->  
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> 2 Stories(4600)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  --> 
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Emergency Exit(200)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  --> 
+                                    </div>                                    
+
+                                    <div class="search-row">  
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Laundry Room(10073)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  -->  
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Jog Path(1503)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  --> 
+
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> 26' Ceilings(1200)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- End of  --> 
+                                        <br>
+                                        <hr>
+                                    </div>                             
+                                    <button class="btn search-btn prop-btm-sheaerch" type="submit"><i class="fa fa-search"></i></button>  
+                                </div>                    
+
+                            </form>
                         </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-5 align-self-center">
-                              <div class="left-text">
-                                <h4>Shopping List: Images from Unsplash</h4>
-                                <p>Image credits go to Unsplash website that provides free stock photos for anyone. Images used in this Plot Listing template are from Unsplash.</p>
-                                <div class="main-white-button"><a href="#"><i class="fa fa-eye"></i> Discover More</a></div>
-                              </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- property area -->
+        <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2>Top submitted property</h2>
+                        <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="proerty-th">
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
                             </div>
-                            <div class="col-lg-7 align-self-center">
-                              <div class="right-image">
-                                <img src="/PetHouse/App/templates/assets/images/tabs-image-04.jpg" alt="Shopping Girl">
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <div class="thumb">
-                          <div class="row">
-                            <div class="col-lg-5 align-self-center">
-                              <div class="left-text">
-                                <h4>Information and Safety Tips for Traveling</h4>
-                                <p>You are allowed to use this template for your commercial websites. You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites.</p>
-                                <div class="main-white-button"><a rel="nofollow" href="https://templatemo.com/contact"><i class="fa fa-eye"></i> Read More</a></div>
-                              </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-2.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-2.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
                             </div>
-                            <div class="col-lg-7 align-self-center">
-                              <div class="right-image">
-                                <img src="/PetHouse/App/templates/assets/images/tabs-image-05.jpg" alt="Traveling Beach">
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>          
-              </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-3.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
+
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-3.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
+
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-3.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-3.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-2.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-2.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Area :</b> 120m </span>
+                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-tree more-proerty text-center">
+                                <div class="item-tree-icon">
+                                    <i class="fa fa-th"></i>
+                                </div>
+                                <div class="more-entry overflow">
+                                    <h5><a href="property-1.html" >CAN'T DECIDE ? </a></h5>
+                                    <h5 class="tree-sub-ttl">Show all properties</h5>
+                                    <button class="btn border-btn more-black" value="All properties">All properties</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+
+        <!--Welcome area -->
+        <div class="Welcome-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 Welcome-entry  col-sm-12">
+                        <div class="col-md-5 col-md-offset-2 col-sm-6 col-xs-12">
+                            <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                                        <!-- /.feature title -->
+                                        <h2>GARO ESTATE </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6 col-xs-12">
+                            <div  class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
+                                <div class="row">
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="pe-7s-home pe-4x"></i>
+                                            </div>
+                                            <h3>Any property</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="pe-7s-users pe-4x"></i>
+                                            </div>
+                                            <h3>More Clients</h3>
+                                        </div>
+                                    </div>
 
 
-  <div class="recent-listing">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <h2>Recent Listing</h2>
-            <h6>Check Them Out</h6>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <div class="owl-carousel owl-listing">
-            <div class="item">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-01.jpg" alt=""></a>
+                                    <div class="col-xs-12 text-center">
+                                        <i class="welcome-circle"></i>
+                                    </div>
+
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="pe-7s-notebook pe-4x"></i>
+                                            </div>
+                                            <h3>Easy to use</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="pe-7s-help2 pe-4x"></i>
+                                            </div>
+                                            <h3>Any help </h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>1. First Apartment Unit</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(18) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $450 - $950 / month with taxes</span>
-                      <span class="details">Details: <em>2760 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-02.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>2. Another House of Gaming</h4></a>
-                      <h6>by: Top Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $1,400 - $3,500 / month with taxes</span>
-                      <span class="details">Details: <em>3650 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-03.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>3. Secret Place Hidden House</h4></a>
-                      <h6>by: Best Property</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(36) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $1,500 - $3,600 / month with taxes</span>
-                      <span class="details">Details: <em>5500 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-04.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>4. Sunshine Fourth Apartment</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $3,600 / month with taxes</span>
-                      <span class="details">Details: <em>3660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 5 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-05.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>5. Best House Of the Town</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(32) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $5,600 / month with taxes</span>
-                      <span class="details">Details: <em>1750 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 6 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-06.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>6. Amazing Pool Party Villa</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(40) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $3,850 / month with taxes</span>
-                      <span class="details">Details: <em>3660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 4 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 3 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-05.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>7. Sunny Apartment</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(24) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $5,450 / month with taxes</span>
-                      <span class="details">Details: <em>1640 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 8 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 5 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-02.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>8. Third House of Gaming</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(15) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $5,520 / month with taxes</span>
-                      <span class="details">Details: <em>1660 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 5 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="listing-item">
-                    <div class="left-image">
-                      <a href="#"><img src="/PetHouse/App/templates/assets/images/listing-06.jpg" alt=""></a>
-                    </div>
-                    <div class="right-content align-self-center">
-                      <a href="#"><h4>9. Relaxing BBQ Party Villa</h4></a>
-                      <h6>by: Sale Agent</h6>
-                      <ul class="rate">
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li>(20) Reviews</li>
-                      </ul>
-                      <span class="price"><div class="icon"><img src="/PetHouse/App/templates/assets/images/listing-icon-01.png" alt=""></div> $4,760 / month with taxes</span>
-                      <span class="details">Details: <em>2880 sq ft</em></span>
-                      <ul class="info">
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-02.png" alt=""> 6 Bedrooms</li>
-                        <li><img src="/PetHouse/App/templates/assets/images/listing-icon-03.png" alt=""> 4 Bathrooms</li>
-                      </ul>
-                      <div class="main-white-button">
-                        <a href="/PetHouse/"><i class="fa fa-eye"></i> Contact Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
+        <!--TESTIMONIALS -->
+        <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2>Our Customers Said  </h2> 
+                    </div>
+                </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="about">
-            <div class="logo">
-              <img src="/PetHouse/App/templates/assets/images/black-logo.png" alt="Plot Listing">
+                <div class="row">
+                    <div class="row testimonial">
+                        <div class="col-md-12">
+                            <div id="testimonial-slider">
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                    </div>
+                                    <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
+                                        <img src="/PetHouse/App/templates/assets/img/client-face1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                    </div>
+                                    <div class="client-face">
+                                        <img src="/PetHouse/App/templates/assets/img/client-face2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                    </div>
+                                    <div class="client-face">
+                                        <img src="/PetHouse/App/templates/assets/img/client-face1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
+                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                    </div>
+                                    <div class="client-face">
+                                        <img src="/PetHouse/App/templates/assets/img/client-face2.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <p>If you consider that <a rel="nofollow" href="https://templatemo.com/tm-564-plot-listing" target="_parent">Plot Listing template</a> is useful for your website, please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal.</p>
-          </div>
         </div>
-        <div class="col-lg-4">
-          <div class="helpful-links">
-            <h4>Helpful Links</h4>
-            <div class="row">
-              <div class="col-lg-6 col-sm-6">
-                <ul>
-                  <li><a href="#">Categories</a></li>
-                  <li><a href="#">Reviews</a></li>
-                  <li><a href="#">Listing</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Awards</a></li>
-                  <li><a href="#">Useful Sites</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
-              </div>
+
+        <!-- Count area -->
+        <div class="count-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2>You can trust Us </h2> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-users"></span>
+                                    </div>
+                                    <div class="chart" data-percent="5000">
+                                        <h2 class="percent" id="counter">0</h2>
+                                        <h5>HAPPY CUSTOMER </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-home"></span>
+                                    </div>
+                                    <div class="chart" data-percent="12000">
+                                        <h2 class="percent" id="counter1">0</h2>
+                                        <h5>Properties in stock</h5>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-flag"></span>
+                                    </div>
+                                    <div class="chart" data-percent="120">
+                                        <h2 class="percent" id="counter2">0</h2>
+                                        <h5>City registered </h5>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-graph2"></span>
+                                    </div>
+                                    <div class="chart" data-percent="5000">
+                                        <h2 class="percent"  id="counter3">5000</h2>
+                                        <h5>DEALER BRANCHES</h5>
+                                    </div>
+                                </div> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-lg-4">
-          <div class="contact-us">
-            <h4>Contact Us</h4>
-            <p>27th Street of New Town, Digital Villa</p>
-            <div class="row">
-              <div class="col-lg-6">
-                <a href="#">010-020-0340</a>
-              </div>
-              <div class="col-lg-6">
-                <a href="#">090-080-0760</a>
-              </div>
+
+        <!-- boy-sale area -->
+        <div class="boy-sale-area">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
+                        <div class="asks-first">
+                            <div class="asks-first-circle">
+                                <span class="fa fa-search"></span>
+                            </div>
+                            <div class="asks-first-info">
+                                <h2>ARE YOU LOOKING FOR A Property?</h2>
+                                <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>                                        
+                            </div>
+                            <div class="asks-first-arrow">
+                                <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
+                        <div  class="asks-first">
+                            <div class="asks-first-circle">
+                                <span class="fa fa-usd"></span>
+                            </div>
+                            <div class="asks-first-info">
+                                <h2>DO YOU WANT TO SELL A Property?</h2>
+                                <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>
+                            </div>
+                            <div class="asks-first-arrow">
+                                <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <p  class="asks-call">QUESTIONS? CALL US  : <span class="strong"> + 3-123- 424-5700</span></p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="col-lg-12">
-          <div class="sub-footer">
-            <p>Copyright © 2021 Plot Listing Co., Ltd. All Rights Reserved.
-            <br>
-			Design: <a rel="nofollow" href="https://templatemo.com" title="CSS Templates">TemplateMo</a></p>
-          </div>
+
+        <!-- Footer area-->
+        <div class="footer-area">
+
+            <div class=" footer">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>About us </h4>
+                                <div class="footer-title-line"></div>
+
+                                <img src="/PetHouse/App/templates/assets/img/logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+                                <ul class="footer-adress">
+                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
+                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
+                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Quick links </h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-menu">
+                                    <li><a href="properties.html">Properties</a>  </li> 
+                                    <li><a href="#">Services</a>  </li> 
+                                    <li><a href="submit-property.html">Submit property </a></li> 
+                                    <li><a href="contact.html">Contact us</a></li> 
+                                    <li><a href="faq.html">fqa</a>  </li> 
+                                    <li><a href="faq.html">Terms </a>  </li> 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Last News</h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-blog">
+                                    <li>
+                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
+                                            <a href="single.html">
+                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
+                                            </a>
+                                            <span class="blg-date">12-12-2016</span>
+
+                                        </div>
+                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                            <h6> <a href="single.html">Add news functions </a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                        </div>
+                                    </li> 
+
+                                    <li>
+                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
+                                            <a href="single.html">
+                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
+                                            </a>
+                                            <span class="blg-date">12-12-2016</span>
+
+                                        </div>
+                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                            <h6> <a href="single.html">Add news functions </a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                        </div>
+                                    </li> 
+
+                                    <li>
+                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
+                                            <a href="single.html">
+                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
+                                            </a>
+                                            <span class="blg-date">12-12-2016</span>
+
+                                        </div>
+                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                            <h6> <a href="single.html">Add news functions </a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                        </div>
+                                    </li> 
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer news-letter">
+                                <h4>Stay in touch</h4>
+                                <div class="footer-title-line"></div>
+                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
+
+                                <form>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="E-mail ... ">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
+                                        </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </form> 
+
+                                <div class="social pull-right"> 
+                                    <ul>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copy text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="pull-left">
+                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                        </div> 
+                        <div class="bottom-menu pull-right"> 
+                            <ul> 
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
+                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-  </footer>
 
+        <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
 
-  <!-- Scripts -->
-  <script src="/PetHouse/App/templates/vendor/jquery/jquery.min.js"></script>
-  <script src="/PetHouse/App/templates/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/PetHouse/App/templates/assets/js/owl-carousel.js"></script>
-  <script src="/PetHouse/App/templates/assets/js/animation.js"></script>
-  <script src="/PetHouse/App/templates/assets/js/imagesloaded.js"></script>
-  <script src="/PetHouse/App/templates/assets/js/custom.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
 
-</body>
+        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
 
+        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
+
+        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
+
+        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+
+    </body>
 </html>
