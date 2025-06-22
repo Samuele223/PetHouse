@@ -35,7 +35,7 @@ class VUser {
         $this->smarty->display('index.tpl');
     }
 }
-public function profile($user)
+public function profile($user, $picid)
     {
         $this->smarty->assign('name',$user->getName());
         $this->smarty->assign('surname', $user->getsurname());

@@ -181,8 +181,14 @@ $id = USession::getSessionElement('user');
 $view = new VUser();
 $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
 $pic = $user->getProfilePicture();
+if (!$pic) {
+    // If no profile picture, set a default or handle accordingly
+    $picid = 1; // or set to a default image ID if you have one
+} else {
+    // If there is a profile picture, get its ID
 $picid = $pic->getId();
-
+}
 $view->profile($user, $picid);
+
 }
 }

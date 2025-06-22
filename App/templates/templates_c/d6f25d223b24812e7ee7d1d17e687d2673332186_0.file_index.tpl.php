@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-22 16:51:42
+  from 'file:index.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_6858187ed16216_14213771',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
+    array (
+      0 => 'index.tpl',
+      1 => 1750603897,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_6858187ed16216_14213771 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -69,11 +93,12 @@
                 <div class="col-md-12 text-center" style="margin-top: 30px;">
                     <h1>
                         Welcome 
-                        {if isset($username) && $username|@strlen > 0}
-                            {$username|escape}
-                        {else}
+                        <?php if ((true && ($_smarty_tpl->hasVariable('username') && null !== ($_smarty_tpl->getValue('username') ?? null))) && strlen((string) $_smarty_tpl->getValue('username')) > 0) {?>
+                            <?php echo htmlspecialchars((string)$_smarty_tpl->getValue('username'), ENT_QUOTES, 'UTF-8', true);?>
+
+                        <?php } else { ?>
                             User
-                        {/if}
+                        <?php }?>
                     </h1>
                 </div>
             </div>
@@ -97,13 +122,13 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        {if isset($username) && $username|@strlen > 0}
+                        <?php if ((true && ($_smarty_tpl->hasVariable('username') && null !== ($_smarty_tpl->getValue('username') ?? null))) && strlen((string) $_smarty_tpl->getValue('username')) > 0) {?>
                             <form method="post" action="/PetHouse/user/logout" style="display:inline;">
                                 <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
                             </form>
-                        {else}
+                        <?php } else { ?>
                             <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
-                        {/if}
+                        <?php }?>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
@@ -262,7 +287,8 @@
                                 <button type="submit" class="btn btn-primary">Search</button>
                             </form>
 
-<script>
+<?php echo '<script'; ?>
+>
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#petFields').addEventListener('click', function(e) {
         if (e.target.classList.contains('add-pet')) {
@@ -285,7 +311,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-</script>
+<?php echo '</script'; ?>
+>
 
                         </div>
                     </div>
@@ -789,23 +816,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </div>
 
-        <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script> 
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
 
     </body>
-</html>
+</html><?php }
+}
