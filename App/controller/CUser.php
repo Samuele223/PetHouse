@@ -222,7 +222,37 @@ if ($id) {
     $province = UHTTPMethods::post('province') ?? null;
     $country = UHTTPMethods::post('country') ?? null;
     $position = new MPosition($address, $description,$city, $province, $country, $user,$title);
+    
+    if ($_FILES['pic']['error'] === UPLOAD_ERR_OK) {
+    $tmpName = $_FILES['pic']['tmp_name'];
+    $nomeFile = $_FILES['pic']['name'];
+    $mimeType = $_FILES['pic']['type'];
+    $dati = file_get_contents($tmpName);
     $check = FPersistentManager::saveObj($position);
+    $foto = new Mphoto( $dati,$mimeType );
+    $foto->setLocation($position);
+    // Assumi che $entityManager sia il manager di Doctrine
+    FPersistentManager::saveObj($foto); // Salva la foto nel database
+      // Associa la foto all'utentes
+    
+    // Ora puoi associare $foto all'utente o salvarla come preferisci
+} else {
+    echo 'No file uploaded or an error occurred.';
+}
+    if($_FILES['pic']['error'] === UPLOAD_ERR_OK) { //  Check al var
+        for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
+            $tmpName = $_FILES['img']['tmp_name'][$i];
+            $nomeFile = $_FILES['img']['name'][$i];
+            $mime = $_FILES['img']['type'][$i];
+            $data = file_get_contents($tmpName);
+
+            $picc = new Mphoto( $data,$mime );
+            $picc->setLocation($position);
+            FPersistentManager::saveObj($picc); 
+        }}
+        else {
+            echo 'non si è caricato nulla';
+        }
     if ($check) {
         $view->home($user->getUsername());
     } else {

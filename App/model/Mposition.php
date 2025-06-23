@@ -169,5 +169,17 @@ public function setCountry($country): void
 $this->country = $country;
 
 }
+
+public function addPhoto(Mphoto $photo): void
+{
+    if ($this->photos === null) {
+        $this->photos = new ArrayCollection();
+    }
+    if (!$this->photos->contains($photo)) {
+        $this->photos->add($photo);
+        
+        $photo->setLocation($this);
+    }
+}
 }
 ?>
