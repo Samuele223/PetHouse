@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-23 17:53:53
+/* Smarty version 5.5.0, created on 2025-06-23 19:46:18
   from 'file:houseform.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_68597891a66de2_79277236',
+  'unifunc' => 'content_685992ea234d04_58160614',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6a44c6441c6578a004e1df0957a4aa5ba26a0e7d' => 
     array (
       0 => 'houseform.tpl',
-      1 => 1750691156,
+      1 => 1750700729,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_68597891a66de2_79277236 (\Smarty\Template $_smarty_tpl) {
+function content_685992ea234d04_58160614 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -105,14 +105,14 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/logo.png" alt=""></a>
+                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -239,7 +239,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                     <div class="wizard-container"> 
 
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form action="/PetHouse/offerHosting/createOffer" method="post" enctype="multipart/form-data">                        
+                            <form id="houseForm" action="/PetHouse/user/createHouse" method="post" enctype="multipart/form-data">                        
                                 <div class="wizard-header">
                                     <h3>
                                         <b>Submit</b> YOUR PROPERTY <br>
@@ -259,21 +259,11 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                     <div class="tab-pane" id="step1">
                                         <div class="row p-b-15  ">
                                             <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                                            <div class="col-sm-4 col-sm-offset-1">
-                                            <div class="picture-container">
-                                                <div class="picture">
-                                                    <img src="/PetHouse/App/templates/assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" title="Profile Picture Preview"/>
-                                                    <input type="file" id="wizard-picture" name="profile_picture" accept="image/*">
-                                                </div>
-                                                <small>Scegli la foto profilo della casa</small>
-                                            </div>
-                                            </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Property name <small>(required)</small></label>
                                                     <input name="title" type="text" class="form-control" placeholder="Super villa ...">
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label>Info <small></small></label>
                                                     <input name="moreInfo" type="text" class="form-control" placeholder="Big garden a lof of space for your pets">
@@ -295,11 +285,11 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                                 <div class="col-sm-12"> 
                                                     <div class="form-group">
                                                         <label>Property Description :</label>
-                                                        <textarea name="discrition" class="form-control" ></textarea>
+                                                        <textarea name="description" class="form-control" ></textarea>
                                                     </div> 
                                                 </div> 
                                             </div>
-                                                <div class="col-sm-12">
+                                            <div class="col-sm-12">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property Province :</label>
@@ -314,14 +304,14 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label>Date In :</label>
-                                                        <input type="date" name="date_in" class="form-control" placeholder="Date In">
+                                                        <label>Country :</label>
+                                                        <input type="text" name="country" class="form-control" placeholder="Enter country">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label>Date Out :</label>
-                                                        <input type="date" name="date_out" class="form-control" placeholder="Date Out">
+                                                        <label>Address :</label>
+                                                        <input type="text" name="address" class="form-control" placeholder="Enter address">
                                                     </div>
                                                 </div>
                                             </div>
@@ -337,7 +327,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                                     <label for="property-images">Choose Images :</label>
                                                     <div id="imageFields">
                                                         <div class="input-group" style="margin-bottom:10px; max-width:400px;">
-                                                            <input class="form-control" type="file" name="property_images[]" accept="image/*">
+                                                            <input class="form-control" type="file" name="img[]" accept="image/*">
                                                             <span class="input-group-btn">
                                                                 <button type="button" class="btn btn-warning add-image-field" title="Aggiungi un altro campo immagine">
                                                                     <i class="fa fa-plus"></i>
@@ -384,7 +374,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                 <div class="wizard-footer">
                                     <div class="pull-right">
                                         <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
-                                        <input type='button' class='btn btn-finish btn-primary ' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' />
                                     </div>
 
                                     <div class="pull-left">
@@ -412,7 +402,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
 
-                                <img src="/PetHouse/App/templates/assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="" class="wow pulse" data-wow-delay="1s">
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
@@ -638,6 +628,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+});
+<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+document.addEventListener('DOMContentLoaded', function() {
+    var finishBtn = document.querySelector('.btn-finish');
+    if(finishBtn){
+        finishBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('houseForm').submit();
+        });
+    }
 });
 <?php echo '</script'; ?>
 >
