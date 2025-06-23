@@ -1,18 +1,30 @@
 <?php
+<<<<<<< HEAD:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
 /* Smarty version 5.5.0, created on 2025-06-23 16:17:50
+=======
+/* Smarty version 5.5.0, created on 2025-06-23 15:57:39
+>>>>>>> 82d603772990894751fa9666e2d916d3507d5f33:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
+<<<<<<< HEAD:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
   'unifunc' => 'content_6859620e381cb4_95346780',
+=======
+  'unifunc' => 'content_68595d539cc197_59696319',
+>>>>>>> 82d603772990894751fa9666e2d916d3507d5f33:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
     array (
       0 => 'index.tpl',
+<<<<<<< HEAD:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
       1 => 1750687386,
+=======
+      1 => 1750686719,
+>>>>>>> 82d603772990894751fa9666e2d916d3507d5f33:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
       2 => 'file',
     ),
   ),
@@ -20,8 +32,13 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
+<<<<<<< HEAD:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
 function content_6859620e381cb4_95346780 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+=======
+function content_68595d539cc197_59696319 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
+>>>>>>> 82d603772990894751fa9666e2d916d3507d5f33:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -97,7 +114,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                             <?php echo htmlspecialchars((string)$_smarty_tpl->getValue('username'), ENT_QUOTES, 'UTF-8', true);?>
 
                         <?php } else { ?>
-                            User
+                            to our website!
                         <?php }?>
                     </h1>
                 </div>
@@ -133,7 +150,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="/PetHouse/" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                             
                         </li>
 
@@ -308,9 +325,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- property area -->
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
+<<<<<<< HEAD:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
         <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/user/addHouse'" data-wow-delay="0.45s">
             Create House +
         </button>
+=======
+>>>>>>> 82d603772990894751fa9666e2d916d3507d5f33:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
         <button class="navbar-btn nav-button wow bounceInRight Create Post" onclick="window.location.href='https://localhost/PetHouse/offerHosting/showOfferForm'  " data-wow-delay="0.45s">Create Post +</button>
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
