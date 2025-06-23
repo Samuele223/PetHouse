@@ -13,8 +13,8 @@ class Mphoto{
 #[ORM\Column]
 private int $id;
 
-#[ORM\Column]
-private string $name;
+#[ORM\Column(nullable: true)]
+private ?string $name = null;
 
 #[ORM\Column]
 private int $size;
@@ -39,6 +39,7 @@ public function __construct($dati, $types)
     $this->imageData = $dati;
     $this->types = $types;
     $this->size = strlen($dati);
+    $this->name = 'photo_' . time() . '_' . uniqid(); // Nome generato automaticamente
 }
 
 public static function getEntity(): string
