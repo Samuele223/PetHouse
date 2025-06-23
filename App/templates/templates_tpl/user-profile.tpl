@@ -91,7 +91,7 @@
                         <form method="post" action="/PetHouse/user/logout" style="display:inline;">
                                 <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
                             </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
