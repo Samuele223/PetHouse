@@ -191,4 +191,20 @@ $picid = $pic->getId();
 $view->profile($user, $picid);
 
 }
+public static function addHouse()
+{
+if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+    USession::getInstance();
+}
+$id = USession::getSessionElement('user');
+$view = new VUser();
+if ($id) {
+    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $view->showHomeForm();
+} else {
+    // Handle case where user is not logged in
+    header('Location: /PetHouse/User/login');
+    exit;
+}
+}
 }

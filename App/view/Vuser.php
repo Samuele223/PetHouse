@@ -46,9 +46,12 @@ public function profile($user, $picid)
   
 public function showInvalidCredentials($error = null) {
         $this->smarty->assign('error', $error);
-        $this->smarty->display('invalid_credentials.tpl');
-
-   
-    
+        $this->smarty->display('invalid_credentials.tpl');   
 }
+public function showHomeForm($error = null) {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('houseform.tpl');
+    }
+
+    
 }

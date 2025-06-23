@@ -1,28 +1,4 @@
-<?php
-/* Smarty version 5.5.0, created on 2025-06-23 13:04:39
-  from 'file:offer_hosting.tpl' */
-
-/* @var \Smarty\Template $_smarty_tpl */
-if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.0',
-  'unifunc' => 'content_685934c75f27d1_83236737',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '0d0ee849f621c7e97a950ebcdc22b3f64b86b864' => 
-    array (
-      0 => 'offer_hosting.tpl',
-      1 => 1750676099,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-))) {
-function content_685934c75f27d1_83236737 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -280,8 +256,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                                 </div> 
                                                 <div class="form-group">
                                                     <label>Telephone <small>(empty if you wanna use default phone number)</small></label>
-                                                    <input name="phone" type="text" class="form-control" placeholder="<?php echo $_smarty_tpl->getValue('telehone');?>
-">
+                                                    <input name="phone" type="text" class="form-control" placeholder="{$telehone}">
                                                 </div>
                                             </div>
                                         </div>
@@ -299,8 +274,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                                     </div> 
                                                 </div> 
                                             </div>
-
-                                            <div class="col-sm-12">
+                                                <div class="col-sm-12">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property Province :</label>
@@ -325,239 +299,28 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                                         <input type="date" name="date_out" class="form-control" placeholder="Date Out">
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label>Prezzo per notte <span style="color:#FDC600;">€</span>:</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
-                                                            <i class="fa fa-eur"></i>
-                                                        </span>
-                                                        <input type="number" name="price" class="form-control" min="0" step="0.01" placeholder="Inserisci il prezzo" required>
-                                                        <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">/notte</span>
-                                                    </div>
-                                                </div>
                                             </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Accepted Pets:</label>
-                                                    <div id="acceptedPetsFields">
-                                                        <div class="input-group pet-group" style="margin-bottom:5px; max-width:400px;">
-                                                            <select name="accepted_pets[]" class="form-control">
-                                                                <option value="">Select pet</option>
-                                                                <option value="dog">Dog</option>
-                                                                <option value="cat">Cat</option>
-                                                                <option value="bird">Bird</option>
-                                                                <option value="rabbit">Rabbit</option>
-                                                                <option value="mouse">Mouse</option>
-                                                                <!-- Add more pet types -->
-                                                            </select>
-                                                            <input type="number" name="accepted_pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
-                                                            <span class="input-group-btn">
-                                                                <button type="button" class="btn btn-success add-pet">+</button>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 padding-top-15">                                                   
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="property-geo">Min bed :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[250,450]" id="min-bed" ><br />
-                                                        <b class="pull-left color">1</b> 
-                                                        <b class="pull-right color">120</b>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-
-                                                    <div class="form-group">
-                                                        <label for="price-range">Min baths :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[250,450]" id="min-baths" ><br />
-                                                        <b class="pull-left color">1</b> 
-                                                        <b class="pull-right color">120</b>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-
-                                                    <div class="form-group">
-                                                        <label for="property-geo">Property geo (m2) :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[50,450]" id="property-geo" ><br />
-                                                        <b class="pull-left color">40m</b> 
-                                                        <b class="pull-right color">12000m</b>
-                                                    </div>
-                                                </div>   
-                                            </div>
-                                            <div class="col-sm-12 padding-top-15">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Swimming Pool
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> 2 Stories
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                 
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Emergency Exit
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                 
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Fire Place 
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                            </div> 
-                                            <div class="col-sm-12 padding-bottom-15">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Laundry Room
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Jog Path
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Ceilings
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Dual Sinks
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br>
                                         </div>
                                     </div>
                                     <!-- End step 2 -->
 
                                     <div class="tab-pane" id="step3">                                        
-                                        <h4 class="info-text">Give us somme images and videos ? </h4>
+                                        <h4 class="info-text">Give us somme images</h4>
                                         <div class="row">  
                                             <div class="col-sm-6">
-                                            <div class="form-group">
-                                            <label for="property-images">Choose Images :</label>
-                                            <div id="imageFields">
-                                                <div class="input-group" style="margin-bottom:10px; max-width:400px;">
-                                                    <input class="form-control" type="file" name="property_images[]" accept="image/*">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-warning add-image-field" title="Aggiungi un altro campo immagine">
-                                                            <i class="fa fa-plus"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <p class="help-block">Aggiungi una o più immagini per la tua proprietà.</p>
-                                        </div>
-
-<?php echo '<script'; ?>
->
-document.getElementById('property-images').addEventListener('change', function(e) {
-    const preview = document.getElementById('image-preview');
-    preview.innerHTML = '';
-    Array.from(e.target.files).forEach(file => {
-        if (file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                const img = document.createElement('img');
-                img.src = evt.target.result;
-                img.style.maxWidth = '80px';
-                img.style.maxHeight = '80px';
-                img.style.borderRadius = '8px';
-                img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                preview.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-});
-<?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
->
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('imageFields').addEventListener('click', function(e) {
-        if (e.target.closest('.add-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            const newGroup = group.cloneNode(true);
-            newGroup.querySelector('input[type="file"]').value = '';
-            // Cambia il bottone "+" in "-" per rimuovere
-            const btn = newGroup.querySelector('.add-image-field');
-            btn.classList.remove('btn-warning');
-            btn.classList.add('btn-danger');
-            btn.innerHTML = '<i class="fa fa-minus"></i>';
-            btn.classList.remove('add-image-field');
-            btn.classList.add('remove-image-field');
-            document.getElementById('imageFields').appendChild(newGroup);
-        } else if (e.target.closest('.remove-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            if(document.querySelectorAll('#imageFields .input-group').length > 1) {
-                group.remove();
-            }
-        }
-    });
-});
-<?php echo '</script'; ?>
->                                               
-                                        </div>
-                                            <div class="col-sm-6"> 
                                                 <div class="form-group">
-                                                    <label for="property-video">Property video :</label>
-                                                    <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                                </div> 
-
-                                                <div class="form-group">
-                                                    <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
+                                                    <label for="property-images">Choose Images :</label>
+                                                    <div id="imageFields">
+                                                        <div class="input-group" style="margin-bottom:10px; max-width:400px;">
+                                                            <input class="form-control" type="file" name="property_images[]" accept="image/*">
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-warning add-image-field" title="Aggiungi un altro campo immagine">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="help-block">Aggiungi una o più immagini per la tua proprietà.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -750,56 +513,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         </div>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
+        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
-> 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script> 
+        <script src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+        <script src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
 
-<?php echo '<script'; ?>
->
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#acceptedPetsFields').addEventListener('click', function(e) {
         if (e.target.classList.contains('add-pet')) {
@@ -822,8 +554,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-<?php echo '</script'; ?>
->
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestione aggiunta/rimozione campi immagine
+    document.getElementById('imageFields').addEventListener('click', function(e) {
+        if (e.target.closest('.add-image-field')) {
+            e.preventDefault();
+            const group = e.target.closest('.input-group');
+            const newGroup = group.cloneNode(true);
+            newGroup.querySelector('input[type="file"]').value = '';
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-image-field');
+            btn.classList.remove('btn-warning');
+            btn.classList.add('btn-danger');
+            btn.innerHTML = '<i class="fa fa-minus"></i>';
+            btn.classList.remove('add-image-field');
+            btn.classList.add('remove-image-field');
+            document.getElementById('imageFields').appendChild(newGroup);
+        } else if (e.target.closest('.remove-image-field')) {
+            e.preventDefault();
+            const group = e.target.closest('.input-group');
+            if(document.querySelectorAll('#imageFields .input-group').length > 1) {
+                group.remove();
+            }
+        }
+    });
+});
+</script>
     </body>
-</html><?php }
-}
+</html>

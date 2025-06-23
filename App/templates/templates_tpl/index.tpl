@@ -281,6 +281,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- property area -->
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
+        <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/user/addHouse'" data-wow-delay="0.45s">
+            Create House +
+        </button>
         <button class="navbar-btn nav-button wow bounceInRight Create Post" onclick="window.location.href='https://localhost/PetHouse/offerHosting/showOfferForm'  " data-wow-delay="0.45s">Create Post +</button>
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">

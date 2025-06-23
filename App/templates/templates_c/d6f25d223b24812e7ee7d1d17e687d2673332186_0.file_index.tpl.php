@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-23 12:57:20
+/* Smarty version 5.5.0, created on 2025-06-23 16:17:50
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_68593310729471_59472364',
+  'unifunc' => 'content_6859620e381cb4_95346780',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '99e71f3a7b9ad723b97bf1a7b517aabc64df16c3' => 
+    'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
     array (
       0 => 'index.tpl',
-      1 => 1750675493,
+      1 => 1750687386,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_68593310729471_59472364 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
+function content_6859620e381cb4_95346780 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -241,7 +241,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                         <p>For a world full of good creature</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                            <form action="/PetHouse/search" method="get" class="form-inline" id="customSearchForm">
+                            <form action="/PetHouse/Findhosting/searchHost" method="post" class="form-inline" id="customSearchForm">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="city" placeholder="City">
                                 </div>
@@ -307,6 +307,11 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <!-- property area -->
+        <!-- Add this button where you want, for example above the "Top PetHouses" section -->
+        <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/user/addHouse'" data-wow-delay="0.45s">
+            Create House +
+        </button>
+        <button class="navbar-btn nav-button wow bounceInRight Create Post" onclick="window.location.href='https://localhost/PetHouse/offerHosting/showOfferForm'  " data-wow-delay="0.45s">Create Post +</button>
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
