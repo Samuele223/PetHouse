@@ -107,7 +107,7 @@ class CUser {
             $user = FPersistentManager::getUserByUsername($username);
 
             if (!$user || !password_verify($password, $user->getPassword())) {
-                  echo "<div style='color: red; font-weight: bold;'>Invalid credentials.</div>";
+                  $view->showInvalidCredentials();
                 return;
             }
 
