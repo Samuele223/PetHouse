@@ -235,21 +235,11 @@
                                     <div class="tab-pane" id="step1">
                                         <div class="row p-b-15  ">
                                             <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                                            <div class="col-sm-4 col-sm-offset-1">
-                                            <div class="picture-container">
-                                                <div class="picture">
-                                                    <img src="/PetHouse/App/templates/assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" title="Profile Picture Preview"/>
-                                                    <input type="file" id="wizard-picture" name="pic" accept="image/*">
-                                                </div>
-                                                <small>Scegli la foto profilo della casa</small>
-                                            </div>
-                                            </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Property name <small>(required)</small></label>
                                                     <input name="title" type="text" class="form-control" placeholder="Super villa ...">
                                                 </div>
-
                                                 <div class="form-group">
                                                     <label>Info <small></small></label>
                                                     <input name="moreInfo" type="text" class="form-control" placeholder="Big garden a lof of space for your pets">
