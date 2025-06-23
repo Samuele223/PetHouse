@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-23 17:29:37
+/* Smarty version 5.5.0, created on 2025-06-23 17:53:53
   from 'file:houseform.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685972e11cc181_84814110',
+  'unifunc' => 'content_68597891a66de2_79277236',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '329a3177893326f674a744411208c9e042abe0d7' => 
+    '6a44c6441c6578a004e1df0957a4aa5ba26a0e7d' => 
     array (
       0 => 'houseform.tpl',
-      1 => 1750692567,
+      1 => 1750691156,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685972e11cc181_84814110 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+function content_68597891a66de2_79277236 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -239,7 +239,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                     <div class="wizard-container"> 
 
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form id="houseForm" action="/PetHouse/user/createHouse" method="post" enctype="multipart/form-data">                        
+                            <form action="/PetHouse/offerHosting/createOffer" method="post" enctype="multipart/form-data">                        
                                 <div class="wizard-header">
                                     <h3>
                                         <b>Submit</b> YOUR PROPERTY <br>
@@ -295,11 +295,11 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                                 <div class="col-sm-12"> 
                                                     <div class="form-group">
                                                         <label>Property Description :</label>
-                                                        <textarea name="description" class="form-control" ></textarea>
+                                                        <textarea name="discrition" class="form-control" ></textarea>
                                                     </div> 
                                                 </div> 
                                             </div>
-                                            <div class="col-sm-12">
+                                                <div class="col-sm-12">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property Province :</label>
@@ -314,14 +314,14 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label>Country :</label>
-                                                        <input type="text" name="country" class="form-control" placeholder="Enter country">
+                                                        <label>Date In :</label>
+                                                        <input type="date" name="date_in" class="form-control" placeholder="Date In">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label>Address :</label>
-                                                        <input type="text" name="address" class="form-control" placeholder="Enter address">
+                                                        <label>Date Out :</label>
+                                                        <input type="date" name="date_out" class="form-control" placeholder="Date Out">
                                                     </div>
                                                 </div>
                                             </div>
@@ -384,7 +384,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                 <div class="wizard-footer">
                                     <div class="pull-right">
                                         <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' />
+                                        <input type='button' class='btn btn-finish btn-primary ' name='finish' value='Finish' />
                                     </div>
 
                                     <div class="pull-left">
@@ -638,19 +638,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-});
-<?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
->
-document.addEventListener('DOMContentLoaded', function() {
-    var finishBtn = document.querySelector('.btn-finish');
-    if(finishBtn){
-        finishBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('houseForm').submit();
-        });
-    }
 });
 <?php echo '</script'; ?>
 >

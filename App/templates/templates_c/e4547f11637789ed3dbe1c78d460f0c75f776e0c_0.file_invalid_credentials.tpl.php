@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-23 17:00:57
+/* Smarty version 5.5.1, created on 2025-06-23 17:53:38
   from 'file:invalid_credentials.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.0',
-  'unifunc' => 'content_68596c2903aa50_88453306',
+  'version' => '5.5.1',
+  'unifunc' => 'content_68597882632919_37711664',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e4547f11637789ed3dbe1c78d460f0c75f776e0c' => 
     array (
       0 => 'invalid_credentials.tpl',
-      1 => 1750677567,
+      1 => 1750686802,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_68596c2903aa50_88453306 (\Smarty\Template $_smarty_tpl) {
+function content_68597882632919_37711664 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->

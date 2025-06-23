@@ -26,21 +26,21 @@
         }
         .success-icon {
             font-size: 3rem;
-            color: #27ae60;
+            color:rgb(174, 156, 39);
             margin-bottom: 1rem;
         }
         h1 {
-            color: #218c5b;
+            color: #d27e04;
             text-align: center;
             margin-bottom: .5rem;
         }
         p {
             text-align: center;
             margin-bottom: 1.2rem;
-            color: #303952;
+            color: #d27e04;
         }
         a {
-            color: #218c5b;
+            color: #d27e04;
             text-decoration: none;
             font-weight: 500;
             margin-top: .5rem;

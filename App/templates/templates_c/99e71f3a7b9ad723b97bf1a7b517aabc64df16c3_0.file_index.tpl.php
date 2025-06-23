@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-23 16:57:46
+/* Smarty version 5.5.0, created on 2025-06-23 18:20:48
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_68596b6af2e915_96979399',
+  'unifunc' => 'content_68597ee08df529_46802418',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
+    '99e71f3a7b9ad723b97bf1a7b517aabc64df16c3' => 
     array (
       0 => 'index.tpl',
-      1 => 1750688311,
+      1 => 1750695646,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_68596b6af2e915_96979399 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+function content_68597ee08df529_46802418 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -129,7 +129,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                         <?php } else { ?>
                             <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
                         <?php }?>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -277,20 +277,29 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
 >
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#petFields').addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-pet')) {
+        const target = e.target;
+
+        if (target.classList.contains('add-pet')) {
             e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
+            const petGroup = target.closest('.pet-group');
             const newGroup = petGroup.cloneNode(true);
+
             newGroup.querySelector('select').selectedIndex = 0;
             newGroup.querySelector('input').value = 1;
-            // Change + to - for remove button
-            newGroup.querySelector('.add-pet').classList.remove('btn-success');
-            newGroup.querySelector('.add-pet').classList.add('btn-danger');
-            newGroup.querySelector('.add-pet').textContent = '-';
+
+            const addBtn = newGroup.querySelector('.add-pet');
+            addBtn.classList.remove('btn-success');
+            addBtn.classList.add('btn-danger');
+            addBtn.classList.remove('add-pet');
+            addBtn.classList.add('remove-pet'); 
+            addBtn.textContent = '-';
+
             document.querySelector('#petFields').appendChild(newGroup);
-        } else if (e.target.classList.contains('btn-danger')) {
+        }
+
+        else if (target.classList.contains('remove-pet')) { // ✅ Controlla nuova classe
             e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
+            const petGroup = target.closest('.pet-group');
             if(document.querySelectorAll('#petFields .pet-group').length > 1) {
                 petGroup.remove();
             }
@@ -299,6 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 <?php echo '</script'; ?>
 >
+
 
                         </div>
                     </div>
@@ -309,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- property area -->
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
         <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/user/addHouse'" data-wow-delay="0.45s">
-            Create House +
+            Add House +
         </button>
         <button class="navbar-btn nav-button wow bounceInRight Create Post" onclick="window.location.href='https://localhost/PetHouse/offerHosting/showOfferForm'  " data-wow-delay="0.45s">Create Post +</button>
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
