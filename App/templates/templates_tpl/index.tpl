@@ -72,7 +72,7 @@
                         {if isset($username) && $username|@strlen > 0}
                             {$username|escape}
                         {else}
-                            User
+                            to our website!
                         {/if}
                     </h1>
                 </div>
@@ -108,7 +108,7 @@
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="/PetHouse/" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                             
                         </li>
 
