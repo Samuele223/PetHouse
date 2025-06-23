@@ -45,6 +45,9 @@ private ?Collection $post=null;
 #[ORM\OneToMany(targetEntity:Mphoto::class, mappedBy:'location')]
 private ?Collection $photos =null;
 
+#[ORM\Column]
+private string $title;
+
 private static $entity = MPosition::class;
 
 public function getId(): int
@@ -105,7 +108,7 @@ public function setLatitude(float $latitude): void
     $this->latitude = $latitude;
 }
 
-public function __construct(string $address,string $description, string $city, string $province, string $country, Muser $owner)
+public function __construct(string $address,string $description, string $city, string $province, string $country, Muser $owner, string $title)
     {
         $this->post = new ArrayCollection();
         $this->photos = new ArrayCollection();
@@ -115,8 +118,8 @@ public function __construct(string $address,string $description, string $city, s
         $this->province = $province;
         $this->country = $country;
         $this->owner = $owner;
+        $this->title = $title;
         
-
     }
 
 public function getPhotos(): array|Collection|null

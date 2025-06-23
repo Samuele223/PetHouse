@@ -199,12 +199,41 @@ if (USession::getSessionStatus() == PHP_SESSION_NONE) {
 $id = USession::getSessionElement('user');
 $view = new VUser();
 if ($id) {
-    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
     $view->showHomeForm();
 } else {
     // Handle case where user is not logged in
     header('Location: /PetHouse/User/login');
     exit;
 }
+}
+public static function createHouse()
+{
+if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+    USession::getInstance();
+}
+$id = USession::getSessionElement('user');
+$view = new VUser();
+if ($id) {
+    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $title = UHTTPMethods::post('title') ?? null;
+    $city = UHTTPMethods::post('city') ?? null;
+    $description = UHTTPMethods::post('description') ?? null;
+    $address = UHTTPMethods::post('address') ?? null;
+    $province = UHTTPMethods::post('province') ?? null;
+    $country = UHTTPMethods::post('country') ?? null;
+    $position = new MPosition($address, $description,$city, $province, $country, $user,$title);
+    $check = FPersistentManager::saveObj($position);
+    if ($check) {
+        $view->home($user->getUsername());
+    } else {
+        $view->showHomeForm('Failed to create house. Please try again.');
+    }
+}
+else {
+    // Handle case where user is not logged in
+    header('Location: /PetHouse/User/login');
+    exit;
+}
+
 }
 }
