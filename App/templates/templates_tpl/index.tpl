@@ -104,7 +104,7 @@
                         {else}
                             <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
                         {/if}
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
