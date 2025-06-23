@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-21 20:16:39
+/* Smarty version 5.5.0, created on 2025-06-23 13:00:09
   from 'file:register.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_6856f707c1d9d7_17298769',
+  'unifunc' => 'content_685933b95e3c36_69774435',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0d48080d0a7963ca4922cfed1c18f5717ac07313' => 
     array (
       0 => 'register.tpl',
-      1 => 1750529795,
+      1 => 1750676404,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_6856f707c1d9d7_17298769 (\Smarty\Template $_smarty_tpl) {
+function content_685933b95e3c36_69774435 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -110,27 +110,12 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.4s">Login</button>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="/PetHouse/" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <button class="navbar-btn nav-button wow bounceInRight home" onclick="window.location.href='https://localhost/PetHouse/'" data-wow-delay="0.45s">Home</button>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -240,18 +225,30 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                     <div class="box-for overflow">
                         <div class="col-md-12 col-xs-12 register-blocks">
                             <h2>New account : </h2> 
-                            <form action="" method="post">
+                            <form action="/PetHouse/User/registration" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Surname</label>
+                                    <input type="text" class="form-control" id="surname" name="surname" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <input type="text" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" id="password" name="Password" required>
+                                </div>
+                                <div class="form-group">
+                                     <label for="profile_image">Profile Image</label>
+                                    <input type="file" class="form-control" id="profile_image" name="profile_pic" accept="image/*">
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-default">Register</button>
@@ -265,14 +262,14 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                     <div class="box-for overflow">                         
                         <div class="col-md-12 col-xs-12 login-blocks">
                             <h2>Login : </h2> 
-                            <form action="" method="post">
+                            <form action="/PetHouse/User/login" method="post">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
+                                    <label for="Username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" id="password" name="password">
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-default"> Log in</button>
@@ -311,8 +308,8 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
+                                    <li><i class="pe-7s-call strong"> </i> +302 135 7812</li>
                                 </ul>
                             </div>
                         </div>

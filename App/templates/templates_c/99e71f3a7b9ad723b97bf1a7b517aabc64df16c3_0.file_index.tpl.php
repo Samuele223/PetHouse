@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-21 20:17:04
+/* Smarty version 5.5.0, created on 2025-06-23 12:57:20
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_6856f7208eac53_29301761',
+  'unifunc' => 'content_68593310729471_59472364',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99e71f3a7b9ad723b97bf1a7b517aabc64df16c3' => 
     array (
       0 => 'index.tpl',
-      1 => 1750529818,
+      1 => 1750675493,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_6856f7208eac53_29301761 (\Smarty\Template $_smarty_tpl) {
+function content_68593310729471_59472364 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -87,7 +87,23 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-top: 30px;">
+                    <h1>
+                        Welcome 
+                        <?php if ((true && ($_smarty_tpl->hasVariable('username') && null !== ($_smarty_tpl->getValue('username') ?? null))) && strlen((string) $_smarty_tpl->getValue('username')) > 0) {?>
+                            <?php echo htmlspecialchars((string)$_smarty_tpl->getValue('username'), ENT_QUOTES, 'UTF-8', true);?>
+
+                        <?php } else { ?>
+                            User
+                        <?php }?>
+                    </h1>
+                </div>
+            </div>
+        </div>       
+
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -106,27 +122,19 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.45s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.48s">Submit</button>
+                        <?php if ((true && ($_smarty_tpl->hasVariable('username') && null !== ($_smarty_tpl->getValue('username') ?? null))) && strlen((string) $_smarty_tpl->getValue('username')) > 0) {?>
+                            <form method="post" action="/PetHouse/user/logout" style="display:inline;">
+                                <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
+                            </form>
+                        <?php } else { ?>
+                            <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
+                        <?php }?>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="/PetHouse/" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li>
@@ -220,191 +228,78 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
 
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/slider-image-2.jpg" alt="The Last of us"></div>
-                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/3.jpg" alt="GTA V"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/2.jpg" alt="The Last of us"></div>
+                    <div class="item"><img src="/PetHouse/App/templates/assets/img/slide1/1.jpg" alt="GTA VI"></div>
 
                 </div>
             </div>
             <div class="slider-content">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2>property Searching Just Got So Easy</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
+                    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12">
+                        <h2>Take care of your Pets they matter</h2>
+                        <p>For a world full of good creature</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                            <form action="" class=" form-inline">
-                                <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
-
+                            <form action="/PetHouse/search" method="get" class="form-inline" id="customSearchForm">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Key word">
+                                    <input type="text" class="form-control" name="city" placeholder="City">
                                 </div>
-                                <div class="form-group">                                   
-                                    <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select your city">
-
-                                        <option>New york, CA</option>
-                                        <option>Paris</option>
-                                        <option>Casablanca</option>
-                                        <option>Tokyo</option>
-                                        <option>Marraekch</option>
-                                        <option>kyoto , shibua</option>
-                                    </select>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="province" placeholder="Province">
                                 </div>
-                                <div class="form-group">                                     
-                                    <select id="basic" class="selectpicker show-tick form-control">
-                                        <option> -Status- </option>
-                                        <option>Rent </option>
-                                        <option>Boy</option>
-                                        <option>used</option>  
-
-                                    </select>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="datain" placeholder="Date In">
                                 </div>
-                                <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
-
-                                <div style="display: none;" class="search-toggle">
-
-                                    <div class="search-row">   
-
-                                        <div class="form-group mar-r-20">
-                                            <label for="price-range">Price range ($):</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[0,450]" id="price-range" ><br />
-                                            <b class="pull-left color">2000$</b> 
-                                            <b class="pull-right color">100000$</b>
-                                        </div>
-                                        <!-- End of  -->  
-
-                                        <div class="form-group mar-l-20">
-                                            <label for="property-geo">Property geo (m2) :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[50,450]" id="property-geo" ><br />
-                                            <b class="pull-left color">40m</b> 
-                                            <b class="pull-right color">12000m</b>
-                                        </div>
-                                        <!-- End of  --> 
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="dataout" placeholder="Date Out">
+                                </div>
+                                <div class="form-group" id="petFields">
+                                    <div class="input-group pet-group" style="margin-bottom:5px;">
+                                        <select name="pets[]" class="form-control">
+                                            <option value="">Select pet</option>
+                                            <option value="dog">Dog</option>
+                                            <option value="cat">Cat</option>
+                                            <option value="bird">Bird</option>
+                                            <option value="rabbit">Rabbit</option>
+                                            <!-- Add more pet types as needed -->
+                                        </select>
+                                        <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success add-pet">+</button>
+                                        </span>
                                     </div>
-
-                                    <div class="search-row">
-
-                                        <div class="form-group mar-r-20">
-                                            <label for="price-range">Min baths :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[250,450]" id="min-baths" ><br />
-                                            <b class="pull-left color">1</b> 
-                                            <b class="pull-right color">120</b>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                        <div class="form-group mar-l-20">
-                                            <label for="property-geo">Min bed :</label>
-                                            <input type="text" class="span2" value="" data-slider-min="0" 
-                                                   data-slider-max="600" data-slider-step="5" 
-                                                   data-slider-value="[250,450]" id="min-bed" ><br />
-                                            <b class="pull-left color">1</b> 
-                                            <b class="pull-right color">120</b>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                    </div>
-                                    <br>
-                                    <div class="search-row">  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Fire Place(3100)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  -->  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Dual Sinks(500)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Hurricane Shutters(99)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-                                    </div>
-
-                                    <div class="search-row">  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Swimming Pool(1190)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  -->  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> 2 Stories(4600)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Emergency Exit(200)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-                                    </div>                                    
-
-                                    <div class="search-row">  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Laundry Room(10073)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  -->  
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> Jog Path(1503)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> 26' Ceilings(1200)
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- End of  --> 
-                                        <br>
-                                        <hr>
-                                    </div>                             
-                                    <button class="btn search-btn prop-btm-sheaerch" type="submit"><i class="fa fa-search"></i></button>  
-                                </div>                    
-
+                                </div>
+                                <button type="submit" class="btn btn-primary">Search</button>
                             </form>
+
+<?php echo '<script'; ?>
+>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#petFields').addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-pet')) {
+            e.preventDefault();
+            const petGroup = e.target.closest('.pet-group');
+            const newGroup = petGroup.cloneNode(true);
+            newGroup.querySelector('select').selectedIndex = 0;
+            newGroup.querySelector('input').value = 1;
+            // Change + to - for remove button
+            newGroup.querySelector('.add-pet').classList.remove('btn-success');
+            newGroup.querySelector('.add-pet').classList.add('btn-danger');
+            newGroup.querySelector('.add-pet').textContent = '-';
+            document.querySelector('#petFields').appendChild(newGroup);
+        } else if (e.target.classList.contains('btn-danger')) {
+            e.preventDefault();
+            const petGroup = e.target.closest('.pet-group');
+            if(document.querySelectorAll('#petFields .pet-group').length > 1) {
+                petGroup.remove();
+            }
+        }
+    });
+});
+<?php echo '</script'; ?>
+>
+
                         </div>
                     </div>
                 </div>
@@ -417,8 +312,8 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>Top submitted property</h2>
-                        <p>Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium. Nullam sed arcu ultricies . </p>
+                        <h2>Top PetHouses</h2>
+                        <p>Best verified PetHouse's profile. </p>
                     </div>
                 </div>
 
@@ -781,7 +676,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
 
-                                <img src="/PetHouse/App/templates/assets/img/logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="" class="wow pulse" data-wow-delay="1s">
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>

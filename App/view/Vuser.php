@@ -44,8 +44,11 @@ public function profile($user, $picid)
         $this->smarty->display('user-profile.tpl');
     }
   
+public function showInvalidCredentials($error = null) {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('invalid_credentials.tpl');
 
    
     
-
+}
 }
