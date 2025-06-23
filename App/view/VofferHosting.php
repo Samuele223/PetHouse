@@ -18,12 +18,12 @@ class VOfferHosting {
      *
      * @param array $positions  Array of MPosition objects
      */
-    public function showPostForm(array $positions) {
+    public function showPostForm(array $positions) { //dobbiamo aggiunge la cosa che fa sceglie la casa aiuto
         // assign the list of positions and clear any previous error
-        $this->smarty->assign('positions', $positions);
+        //$this->smarty->assign('positions', $positions);
         $this->smarty->assign('error', null);
         // render the form template (to be created later)
-        $this->smarty->display('offer_hosting_form.tpl');
+        $this->smarty->display('offer_hosting.tpl');
     }
 
     /**

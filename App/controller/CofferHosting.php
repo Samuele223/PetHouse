@@ -20,6 +20,11 @@ class CofferHosting {
             $view = new VOfferHosting();
             $view->showPostForm($positions);
         }
+        else {
+            // If the user is not logged in, redirect to login page or show an error
+            header('Location: /Pethouse/user/login');
+            exit;
+        }
     }
 
     /**

@@ -230,7 +230,7 @@
                         <p>For a world full of good creature</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                            <form action="/PetHouse/search" method="get" class="form-inline" id="customSearchForm">
+                            <form action="/PetHouse/Findhosting/searchHost" method="post" class="form-inline" id="customSearchForm">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="city" placeholder="City">
                                 </div>
@@ -294,6 +294,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         <!-- property area -->
+        <!-- Add this button where you want, for example above the "Top PetHouses" section -->
+        <button class="navbar-btn nav-button wow bounceInRight Create Post" onclick="window.location.href='https://localhost/PetHouse/offerHosting/showOfferForm'  " data-wow-delay="0.45s">Create Post +</button>
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">

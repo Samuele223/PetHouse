@@ -94,7 +94,7 @@
             <button type="submit">Login</button>
         </form>
         <div class="link">
-            <p>Don't have an account? <a href="/PetHouse/User/register">Register here</a></p>
+            <p>Don't have an account? <a href="/PetHouse/User/registration">Register here</a></p>
         </div>
     </div>
 </body>

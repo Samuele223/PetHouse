@@ -3,8 +3,7 @@ class CFindhosting{
 //________________________________cerca ospitalità______________________________________________________________________
     public static function startResearch()
     {
-        $view = new Vfindhosting();
-        $view->showForm();
+        
     }
     public static function searchHost()  //post  request 
     {
@@ -13,7 +12,9 @@ class CFindhosting{
         $province = UHTTPMethods::post('province');
         $datain = new DateTime(UHTTPMethods::post('datain'));
         $dataout = new DateTime(UHTTPMethods::post('dataout'));
-        $acceptedPets = UHTTPMethods::post('acceptedpet');
+        $Pets = UHTTPMethods::post('pets');
+        $num = UHTTPMethods::post('pet_counts');
+        $acceptedPets = array_combine($Pets, $num);
 
 
         $result = FPersistentManager::serachPost($City, $province, $datain, $dataout, $acceptedPets);
