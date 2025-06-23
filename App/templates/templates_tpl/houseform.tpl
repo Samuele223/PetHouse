@@ -239,7 +239,7 @@
                                             <div class="picture-container">
                                                 <div class="picture">
                                                     <img src="/PetHouse/App/templates/assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" title="Profile Picture Preview"/>
-                                                    <input type="file" id="wizard-picture" name="profile_picture" accept="image/*">
+                                                    <input type="file" id="wizard-picture" name="pic" accept="image/*">
                                                 </div>
                                                 <small>Scegli la foto profilo della casa</small>
                                             </div>
@@ -312,7 +312,7 @@
                                                     <label for="property-images">Choose Images :</label>
                                                     <div id="imageFields">
                                                         <div class="input-group" style="margin-bottom:10px; max-width:400px;">
-                                                            <input class="form-control" type="file" name="property_images[]" accept="image/*">
+                                                            <input class="form-control" type="file" name="img[]" accept="image/*">
                                                             <span class="input-group-btn">
                                                                 <button type="button" class="btn btn-warning add-image-field" title="Aggiungi un altro campo immagine">
                                                                     <i class="fa fa-plus"></i>
