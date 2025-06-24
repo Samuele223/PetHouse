@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 03:38:13
+/* Smarty version 5.5.0, created on 2025-06-24 13:00:38
   from 'file:offer_hosting.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a01855e4862_10309296',
+  'unifunc' => 'content_685a8556a48804_52523664',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0d0ee849f621c7e97a950ebcdc22b3f64b86b864' => 
+    '16f5bac2c270b293968acef51d0cd37eba4cfa1c' => 
     array (
       0 => 'offer_hosting.tpl',
-      1 => 1750729067,
+      1 => 1750754047,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a01855e4862_10309296 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+function content_685a8556a48804_52523664 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->

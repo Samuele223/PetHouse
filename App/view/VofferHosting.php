@@ -61,4 +61,8 @@ class VOfferHosting {
         $this->smarty->display('offer_hosting_summary.tpl');
     }
 
-}
+    public function showOfferBeforeHouseError($error = null) {
+       $this->smarty->assign('error', $error);
+        $this->smarty->display('post_before_house_error.tpl');
+
+}}

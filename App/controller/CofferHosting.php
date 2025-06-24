@@ -20,8 +20,9 @@ class CofferHosting {
             // Check if the user has any houses
             if (!$positions || count($positions) === 0) {
                 // Redirect to add house with message
-                header('Location: /PetHouse/user/addHouse?message=Please add a property first before creating a hosting post');
-                exit;
+                $view = new VofferHosting();
+                $view -> showOfferBeforeHouseError();
+                return;
             }
             
             $view = new VOfferHosting();

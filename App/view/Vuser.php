@@ -58,8 +58,15 @@ public function showHomeForm($error = null) {
         $this->smarty->display('houseform.tpl');
     }
 
-    public function showUserPosts($posts) {
+public function showUserPosts($posts) {
         $this->smarty->assign('posts', $posts);
-        $this->smarty->display('user_posts.tpl');
+        $this->smarty->display('user_posts.tpl');}
+
+public function showUserHouses($houses) {
+    $this->smarty->assign('houses', $houses);
+    $this->smarty->display('user_posts.tpl');
+
+
+
     }
 }

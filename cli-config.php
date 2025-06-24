@@ -13,8 +13,15 @@ $config = new PhpFile('migrations.php'); // Or use one of the Doctrine\Migration
 
 $paths = [__DIR__.'/App/model'];
 $isDevMode = true;
+$proxyDir = __DIR__ . '/Proxies';
 
-$ORMConfig = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
+// Configurazione ORM
+$ORMConfig = ORMSetup::createAttributeMetadataConfiguration(
+    paths: $paths,
+    isDevMode: $isDevMode,
+    proxyDir: $proxyDir,
+    cache: null
+);
 $connection = DriverManager::getConnection(['driver' => 'pdo_sqlite', 'memory' => true]);
 
 $entityManager = new EntityManager($connection, $ORMConfig);

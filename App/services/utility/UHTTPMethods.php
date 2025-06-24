@@ -9,8 +9,12 @@ class UHTTPMethods{
      * can access to $_POST superglobal
      */
     public static function post($param){
+    if (isset($_POST[$param])) {
         return $_POST[$param];
     }
+    return null; // oppure valore di default
+}
+
 
     /**
      * can access to $_FILES superglobal

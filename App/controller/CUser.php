@@ -289,4 +289,27 @@ public static function myPost() {
     $view = new VUser();
     $view->showUserPosts($posts);
 }
+public static function myHouses() {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    // Query diretta al database - metodo più affidabile
+    $em = FEntityManager::getInstance()::getEntityManager();
+    // Prende TUTTI gli oggetti dell'entità Position
+    $houses = $em->getRepository(Mposition::getEntity())->findBy(['owner' => $userId]);
+
+
+    $view = new Vuser();
+    $view->showUserHouses($houses);
+}
 }

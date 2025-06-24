@@ -278,9 +278,11 @@
                             <div class="col-sm-10 col-sm-offset-1">
                                 <br>
                                 <a href="https://localhost/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
+                                <a href="/PetHouse/user/myHouses" class="btn btn-primary" style="margin-right:10px;">Your Houses</a>
                                 <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
                                 <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
-                                <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>                                
+                                <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
+                                    
                             </div>
                             <br>
                     </form>

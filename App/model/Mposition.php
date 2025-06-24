@@ -1,8 +1,11 @@
 <?php
 
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
+
 
 
 #[ORM\Entity]
@@ -48,7 +51,8 @@ private ?Collection $photos =null;
 #[ORM\Column]
 private string $title;
 
-private static $entity = MPosition::class;
+private static $entity = 'Mposition';
+
 
 public function getId(): int
 {

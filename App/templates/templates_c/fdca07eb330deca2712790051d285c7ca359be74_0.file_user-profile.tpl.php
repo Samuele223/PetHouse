@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 03:38:42
+/* Smarty version 5.5.0, created on 2025-06-24 12:16:30
   from 'file:user-profile.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a01a26ebda8_05574013',
+  'unifunc' => 'content_685a7afee2aed0_92962348',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b05a076ccb1cd3eeaf58484c53a58c0ec85f14d3' => 
+    'fdca07eb330deca2712790051d285c7ca359be74' => 
     array (
       0 => 'user-profile.tpl',
-      1 => 1750725820,
+      1 => 1750757565,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a01a26ebda8_05574013 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+function content_685a7afee2aed0_92962348 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -314,9 +314,11 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                             <div class="col-sm-10 col-sm-offset-1">
                                 <br>
                                 <a href="https://localhost/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
+                                <a href="/PetHouse/user/myHouses" class="btn btn-primary" style="margin-right:10px;">Your Houses</a>
                                 <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
                                 <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
-                                <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>                                
+                                <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
+                                    
                             </div>
                             <br>
                     </form>

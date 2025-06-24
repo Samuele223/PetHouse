@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Submit property Page</title>
+        <title>GARO ESTATE | User properties Page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -21,18 +21,17 @@
 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontello.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/ssets/css/fontello.css">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
-        <link href="css/animate.css" rel="stylesheet" media="screen">
+        <link href="/PetHouse/App/templates/assets/css/animate.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/bootstrap-select.min.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/price-range.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css"> 
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
     </head>
@@ -43,6 +42,7 @@
         </div>
         <!-- Body content -->
 
+       
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-        </div>              
+        </div>         
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -87,12 +87,27 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">Login</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
+                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="index_1.html">Home Style 1</a>
+                                </li>
+                                <li>
+                                    <a href="index_2.html">Home Style 2</a>
+                                </li>
+                                <li>
+                                    <a href="index_3.html">Home Style 3</a>
+                                </li>
+                                <li>
+                                    <a href="index_4.html">Home Style 4</a>
+                                </li>
+
+                            </ul>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -107,19 +122,16 @@
                                                 <h5>Home pages</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="index.html">Home Style 1</a>
+                                                        <a href="index_1.html">Home Style 1</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index-2.html">Home Style 2</a>
+                                                        <a href="index_2.html">Home Style 2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index-3.html">Home Style 3</a>
+                                                        <a href="index_3.html">Home Style 3</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
+                                                        <a href="index_4.html">Home Style 4</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -140,16 +152,16 @@
                                             <div class="col-sm-3">
                                                 <h5>Property</h5>
                                                 <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
+                                                    <li><a href="property-pages_1.html">Property pages (1)</a> </li>
+                                                    <li><a href="property-pages_2.html">Property pages (2)</a> </li>
+                                                    <li><a href="property-pages_3.html">Property pages (3)</a> </li>
                                                 </ul>
 
                                                 <h5>Properties list</h5>
                                                 <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
+                                                    <li><a href="property-list_1.html">Properties list (1)</a> </li> 
+                                                    <li><a href="property-list_2.html">Properties list (2)</a> </li> 
+                                                    <li><a href="property-list_3.html">Properties list (3)</a> </li> 
                                                 </ul>                                               
                                             </div>
                                             <div class="col-sm-3">
@@ -186,7 +198,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Submit new property</h1>               
+                        <h1 class="page-title">List Layout With Sidebar</h1>               
                     </div>
                 </div>
             </div>
@@ -194,158 +206,130 @@
         <!-- End page header -->
 
         <!-- property area -->
-        <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">
-                <div class="clearfix" > 
-                    <div class="wizard-container"> 
+        <div class="content-area recent-property" style="background-color: #FFF;">
+            <div class="container">   
+                <div class="row">
 
-                        <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form id="houseForm" action="/PetHouse/user/createHouse" method="post" enctype="multipart/form-data">                        
-                                <div class="wizard-header">
-                                    <h3>
-                                        <b>Submit</b> YOUR PROPERTY <br>
-                                        <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
-                                    </h3>
-                                </div>
+                    <div class="col-md-9 pr-30 padding-top-40 properties-page user-properties">
 
-                                <ul>
-                                    <li><a href="#step1" data-toggle="tab">Step 1 </a></li>
-                                    <li><a href="#step2" data-toggle="tab">Step 2 </a></li>
-                                    <li><a href="#step3" data-toggle="tab">Step 3 </a></li>
-                                    <li><a href="#step4" data-toggle="tab">Finished </a></li>
-                                </ul>
+                        <div class="section"> 
+                            <div class="page-subheader sorting pl0 pr-10">
 
-                                <div class="tab-content">
 
-                                    <div class="tab-pane" id="step1">
-                                        <div class="row p-b-15  ">
-                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Property name <small>(required)</small></label>
-                                                    <input name="title" type="text" class="form-control" placeholder="Super villa ...">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Info <small></small></label>
-                                                    <input name="moreInfo" type="text" class="form-control" placeholder="Big garden a lof of space for your pets">
-                                                </div> 
-                                                <div class="form-group">
-                                                    <label>Telephone <small>(empty if you wanna use default phone number)</small></label>
-                                                    <input name="phone" type="text" class="form-control" placeholder="{$telehone}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--  End step 1 -->
+                                <ul class="sort-by-list pull-left">
+                                    <li class="active">
+                                        <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
+                                            Property Date <i class="fa fa-sort-amount-asc"></i>					
+                                        </a>
+                                    </li>
+                                    <li class="">
+                                        <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
+                                            Property Price <i class="fa fa-sort-numeric-desc"></i>						
+                                        </a>
+                                    </li>
+                                </ul><!--/ .sort-by-list-->
 
-                                    <div class="tab-pane" id="step2">
-                                        <h4 class="info-text"> Describe your house  </h4>
-                                        <div class="row">
-                                            <div class="col-sm-12"> 
-                                                <div class="col-sm-12"> 
-                                                    <div class="form-group">
-                                                        <label>Property Description :</label>
-                                                        <textarea name="description" class="form-control" ></textarea>
-                                                    </div> 
-                                                </div> 
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Property Province :</label>
-                                                        <input type="text" name="province" class="form-control" placeholder="Enter Province">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Property City :</label>
-                                                        <input type="text" name="city" class="form-control" placeholder="Enter city">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Country :</label>
-                                                        <input type="text" name="country" class="form-control" placeholder="Enter country">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Address :</label>
-                                                        <input type="text" name="address" class="form-control" placeholder="Enter address">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End step 2 -->
+                                <div class="items-per-page pull-right">
+                                    <label for="items_per_page"><b>Property per page :</b></label>
+                                    <div class="sel">
+                                        <select id="items_per_page" name="per_page">
+                                            <option value="3">3</option>
+                                            <option value="6">6</option>
+                                            <option value="9">9</option>
+                                            <option selected="selected" value="12">12</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="45">45</option>
+                                            <option value="60">60</option>
+                                        </select>
+                                    </div><!--/ .sel-->
+                                </div><!--/ .items-per-page-->
+                            </div>
 
-                                    <div class="tab-pane" id="step3">                                        
-                                        <h4 class="info-text">Give us somme images</h4>
-                                        <div class="row">  
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label for="property-images">Choose Images :</label>
-                                                    <div id="imageFields">
-                                                        <div class="input-group" style="margin-bottom:10px; max-width:400px;">
-                                                            <input class="form-control" type="file" name="img[]" accept="image/*">
-                                                            <span class="input-group-btn">
-                                                                <button type="button" class="btn btn-warning add-image-field" title="Aggiungi un altro campo immagine">
-                                                                    <i class="fa fa-plus"></i>
-                                                                </button>
-                                                            </span>
+                        </div>
+
+                        <div class="section"> 
+                            <div id="list-type" class="proerty-th-list">
+                                {if $posts|@count > 0}
+                                    {foreach from=$posts item=post}
+                                        <div class="col-md-4 p0">
+                                            <div class="box-two proerty-item">
+                                                <div class="item-thumb">
+                                                    {assign var="house" value=$post->getHouse()}
+                                                    {assign var="photos" value=$house->getPhotos()}
+                                                    {if $photos|@count > 0}
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                                                        </a>
+                                                    {else}
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
+                                                        </a>
+                                                    {/if}
+                                                </div>
+                                                <div class="item-entry overflow">
+                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
+                                                    <div class="dot-hr"></div>
+                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
+                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <div class="property-icon">
+                                                        <div class="dealer-action pull-right">                                        
+                                                            <a href="/PetHouse/Post/edit/{$post->getId()}" class="button">Edit</a>
+                                                            <a href="/PetHouse/Post/delete/{$post->getId()}" class="button delete_user_car">Delete</a>
+                                                            <a href="/PetHouse/Post/view/{$post->getId()}" class="button">View</a>
                                                         </div>
                                                     </div>
-                                                    <p class="help-block">Aggiungi una o più immagini per la tua proprietà.</p>
                                                 </div>
                                             </div>
                                         </div>
+                                    {/foreach}
+                                {else}
+                                    <div class="col-md-12">
+                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
                                     </div>
-                                    <!--  End step 3 -->
+                                {/if}
+                            </div>
+                        </div>
 
+                        <div class="section"> 
+                            <div class="pull-right">
+                                <div class="pagination">
+                                    <ul>
+                                        <li><a href="#">Prev</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">Next</a></li>
+                                    </ul>
+                                </div>
+                            </div>                
+                        </div>
 
-                                    <div class="tab-pane" id="step4">                                        
-                                        <h4 class="info-text"> Finished and submit </h4>
-                                        <div class="row">  
-                                            <div class="col-sm-12">
-                                                <div class="">
-                                                    <p>
-                                                        <label><strong>Terms and Conditions</strong></label>
-                                                        By accessing or using  GARO ESTATE services, such as 
-                                                        posting your property advertisement with your personal 
-                                                        information on our website you agree to the
-                                                        collection, use and disclosure of your personal information 
-                                                        in the legal proper manner
-                                                    </p>
+                    </div>       
 
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" /> <strong>Accept termes and conditions.</strong>
-                                                        </label>
-                                                    </div> 
-
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--  End step 4 -->
+                    <div class="col-md-3 p0 padding-top-40">
+                        <div class="blog-asside-right">
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Hello Kimaro</h3>
+                                </div>
+                                <div class="panel-body search-widget">
 
                                 </div>
+                            </div>
 
-                                <div class="wizard-footer">
-                                    <div class="pull-right">
-                                        <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' />
-                                    </div>
+                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Recommended</h3>
+                                </div>
+                                <div class="panel-body recent-property-widget">
 
-                                    <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default' name='previous' value='Previous' />
-                                    </div>
-                                    <div class="clearfix"></div>                                            
-                                </div>	
-                            </form>
+                                </div>
+                            </div>
                         </div>
-                        <!-- End submit form -->
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -487,6 +471,7 @@
             </div>
 
         </div>
+          
 
         <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
@@ -506,67 +491,5 @@
 
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#acceptedPetsFields').addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-pet')) {
-            e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
-            const newGroup = petGroup.cloneNode(true);
-            newGroup.querySelector('select').selectedIndex = 0;
-            newGroup.querySelector('input').value = 1;
-            // Change + to - for remove button
-            newGroup.querySelector('.add-pet').classList.remove('btn-success');
-            newGroup.querySelector('.add-pet').classList.add('btn-danger');
-            newGroup.querySelector('.add-pet').textContent = '-';
-            document.querySelector('#acceptedPetsFields').appendChild(newGroup);
-        } else if (e.target.classList.contains('btn-danger')) {
-            e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
-            if(document.querySelectorAll('#acceptedPetsFields .pet-group').length > 1) {
-                petGroup.remove();
-            }
-        }
-    });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Gestione aggiunta/rimozione campi immagine
-    document.getElementById('imageFields').addEventListener('click', function(e) {
-        if (e.target.closest('.add-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            const newGroup = group.cloneNode(true);
-            newGroup.querySelector('input[type="file"]').value = '';
-            // Cambia il bottone "+" in "-" per rimuovere
-            const btn = newGroup.querySelector('.add-image-field');
-            btn.classList.remove('btn-warning');
-            btn.classList.add('btn-danger');
-            btn.innerHTML = '<i class="fa fa-minus"></i>';
-            btn.classList.remove('add-image-field');
-            btn.classList.add('remove-image-field');
-            document.getElementById('imageFields').appendChild(newGroup);
-        } else if (e.target.closest('.remove-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            if(document.querySelectorAll('#imageFields .input-group').length > 1) {
-                group.remove();
-            }
-        }
-    });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var finishBtn = document.querySelector('.btn-finish');
-    if(finishBtn){
-        finishBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('houseForm').submit();
-        });
-    }
-});
-</script>
     </body>
 </html>

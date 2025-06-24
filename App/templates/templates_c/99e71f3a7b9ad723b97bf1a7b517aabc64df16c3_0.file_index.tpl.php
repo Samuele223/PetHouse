@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 03:38:10
+/* Smarty version 5.5.0, created on 2025-06-24 12:47:07
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a018201bfd1_85887996',
+  'unifunc' => 'content_685a822b208080_75386236',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
+    '99e71f3a7b9ad723b97bf1a7b517aabc64df16c3' => 
     array (
       0 => 'index.tpl',
-      1 => 1750700393,
+      1 => 1750756417,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a018201bfd1_85887996 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+function content_685a822b208080_75386236 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -317,10 +317,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- property area -->
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
-        <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/user/addHouse'" data-wow-delay="0.45s">
-            Add House +
-        </button>
-        <button class="navbar-btn nav-button wow bounceInRight Create Post" onclick="window.location.href='https://localhost/PetHouse/offerHosting/showOfferForm'  " data-wow-delay="0.45s">Create Post +</button>
+        <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
+        <a href="https://localhost/PetHouse/user/addHouse" class="btn btn-default">Registra la tua casa + </a>  
+        <a href="https://localhost/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Crea un'offerta +</a> 
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
