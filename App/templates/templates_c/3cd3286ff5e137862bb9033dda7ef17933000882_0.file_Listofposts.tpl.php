@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-24 11:50:29
+  from 'file:Listofposts.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685a74e500e732_69962104',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '3cd3286ff5e137862bb9033dda7ef17933000882' => 
+    array (
+      0 => 'Listofposts.tpl',
+      1 => 1750758626,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685a74e500e732_69962104 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -87,6 +111,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                         <div class="button navbar-right">
+                            <button class="navbar-btn nav-button wow bounceInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.4s">Home</button>
                             <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
                         </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
@@ -260,32 +285,46 @@
 
                     <div class="section"> 
                             <div id="list-type" class="proerty-th-list">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
+                                <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('posts')) > 0) {?>
+                                    <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('posts'), 'post');
+$foreach0DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('post')->value) {
+$foreach0DoElse = false;
+?>
                                         <div class="col-md-4 p0">
                                             <div class="box-two proerty-item">
                                                 <div class="item-thumb">
-                                                    {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                                                    <?php $_smarty_tpl->assign('house', $_smarty_tpl->getValue('post')->getHouse(), false, NULL);?>
+                                                    <?php $_smarty_tpl->assign('photos', $_smarty_tpl->getValue('house')->getPhotos(), false, NULL);?>
+                                                    <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('photos')) > 0) {?>
+                                                        <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+">
+                                                            <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photos')[0]->getId();?>
+" alt="Property Image">
                                                         </a>
-                                                    {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                    <?php } else { ?>
+                                                        <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
-                                                    {/if}
+                                                    <?php }?>
                                                 </div>
                                                 <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
+                                                    <h5><a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+"><?php echo $_smarty_tpl->getValue('post')->getTitle();?>
+</a></h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <span class="pull-left"><b>Area:</b> <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('truncate')($_smarty_tpl->getValue('house')->getDescription(),20);?>
+</span>
+                                                    <span class="proerty-price pull-right">€ <?php echo $_smarty_tpl->getValue('post')->getPrice();?>
+</span>
+                                                    <p style="display: none;"><?php echo $_smarty_tpl->getSmarty()->getModifierCallback('truncate')($_smarty_tpl->getValue('post')->getMoreinfo(),100);?>
+</p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Post/view/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
+                                                                <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
                                                                     <i class="fa fa-search-plus"></i> See more
                                                                 </a>
                                                         </div>
@@ -293,12 +332,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {/foreach}
-                                {else}
+                                    <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+                                <?php } else { ?>
                                     <div class="col-md-12">
                                         <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
                                     </div>
-                                {/if}
+                                <?php }?>
                             </div>
                         </div>
                     
@@ -459,19 +500,44 @@
 
         </div>
 
-      <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-        <script>
+      <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+>
         document.addEventListener('DOMContentLoaded', function() {
             var input = document.getElementById('filter-price');
             var valueSpan = document.getElementById('filter-price-value');
@@ -493,6 +559,8 @@
                 });
             });
         });
-        </script>
+        <?php echo '</script'; ?>
+>
     </body>
-</html>
+</html><?php }
+}

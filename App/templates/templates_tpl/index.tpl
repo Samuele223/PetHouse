@@ -232,10 +232,11 @@
                                     <div class="input-group pet-group" style="margin-bottom:5px;">
                                         <select name="pets[]" class="form-control">
                                             <option value="">Select pet</option>
-                                            <option value="dog">Dog</option>
-                                            <option value="cat">Cat</option>
-                                            <option value="bird">Bird</option>
-                                            <option value="rabbit">Rabbit</option>
+                                            <option value="DOG">DOG</option>
+                                            <option value="CAT">CAT</option>
+                                            <option value="BIRD">BIRD</option>
+                                            <option value="RABBIT">RABBIT</option>
+                                            <option value="PARROT">PARROT</option>
                                             <!-- Add more pet types as needed -->
                                         </select>
                                         <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">

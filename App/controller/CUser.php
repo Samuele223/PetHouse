@@ -24,6 +24,7 @@ class CUser {
             $username = UHTTPMethods::post('username') ?? null;
             $email    = UHTTPMethods::post('email') ?? null;
             $password = UHTTPMethods::post('password') ?? null;
+            $phone = UHTTPMethods::post('phone') ?? null; 
 
 
             // Basic validation
@@ -47,6 +48,9 @@ class CUser {
             // Create and hash password
             
             $user = new MUser($name, $surname, $username, $email);
+            if ($phone) {
+                $user->setTel($phone);
+            }
             $user->setPassword($password); // <-- passa la password in chiaro
             if ($_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
                 $tmpName = $_FILES['profile_pic']['tmp_name'];

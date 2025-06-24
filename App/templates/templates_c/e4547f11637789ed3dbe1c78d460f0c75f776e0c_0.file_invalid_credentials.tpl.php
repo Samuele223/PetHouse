@@ -1,14 +1,38 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-24 10:32:58
+  from 'file:invalid_credentials.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685a62ba25e719_73397891',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'e4547f11637789ed3dbe1c78d460f0c75f776e0c' => 
+    array (
+      0 => 'invalid_credentials.tpl',
+      1 => 1750750239,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685a62ba25e719_73397891 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
+ <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Properties  page</title>
-        <meta name="description" content="GARO is a real-estate template">
+        <title>GARO ESTATE | 404 page</title>
+        <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,8 +65,7 @@
             <div id="status">&nbsp;</div>
         </div>
         <!-- Body content -->
-    
-       
+
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -68,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>           
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -81,32 +104,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
-                        <div class="button navbar-right">
-                            <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
-                        </div>
+                    <div class="button navbar-right">
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.4s">Login</button>
+                    </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -195,133 +203,20 @@
             </div><!-- /.container-fluid -->
         </nav>
         <!-- End of nav bar -->
-
-        <div class="page-head"> 
+      
+        <div class="content-area error-page" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
-                    <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                    <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
+                        <h2 class="error-title">Credenziali non corrette!</h2>
+                        <p>Le tue credenziali sembrano essere errate... forse hai dimenticato qualcosa?</p>
+                        <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
                     </div>
-                </div>
+                </div> 
             </div>
-        </div>
-        <!-- End page header -->
+        </div> 
 
-        <!-- property area -->
-        <div class="properties-area recent-property" style="background-color: #FFF;">
-            <div class="container">  
-                <div class="row">
-                     
-
-
-                <div class="col-md-9  pr0 padding-top-40 properties-page">
-                    <div class="col-md-12 clear"> 
-                        <div class="col-xs-10 page-subheader sorting pl0">
-                            <ul class="sort-by-list">
-                                <li class="active">
-                                    <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                        Property Date <i class="fa fa-sort-amount-asc"></i>					
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
-                                    </a>
-                                </li>
-                            </ul><!--/ .sort-by-list-->
-
-                            <div class="items-per-page">
-                                <label for="items_per_page"><b>Property per page :</b></label>
-                                <div class="sel">
-                                    <select id="items_per_page" name="per_page">
-                                        <option value="3">3</option>
-                                        <option value="6">6</option>
-                                        <option value="9">9</option>
-                                        <option selected="selected" value="12">12</option>
-                                        <option value="15">15</option>
-                                        <option value="30">30</option>
-                                        <option value="45">45</option>
-                                        <option value="60">60</option>
-                                    </select>
-                                </div><!--/ .sel-->
-                            </div><!--/ .items-per-page-->
-                        </div>
-
-                        <div class="col-xs-2 layout-switcher">
-                            <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
-                            <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
-                        </div><!--/ .layout-switcher-->
-                    </div>
-                    <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
-                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
-                        <span id="filter-price-value">100</span>
-                    </div>
-
-                    <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
-                                        <div class="col-md-4 p0">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-thumb">
-                                                    {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
-                                                        </a>
-                                                    {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
-                                                    {/if}
-                                                </div>
-                                                <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Post/view/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
-                                                                    <i class="fa fa-search-plus"></i> See more
-                                                                </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/foreach}
-                                {else}
-                                    <div class="col-md-12">
-                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
-                                    </div>
-                                {/if}
-                            </div>
-                        </div>
-                    
-                    <div class="col-md-12"> 
-                        <div class="pull-right">
-                            <div class="pagination">
-                                <ul>
-                                    <li><a href="#">Prev</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">Next</a></li>
-                                </ul>
-                            </div>
-                        </div>                
-                    </div>
-                </div>  
-                </div>              
-            </div>
-        </div>
-
-          <!-- Footer area-->
+    <!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
@@ -459,40 +354,48 @@
 
         </div>
 
-      <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var input = document.getElementById('filter-price');
-            var valueSpan = document.getElementById('filter-price-value');
-            if (!input) return;
-            // Mostra il valore iniziale
-            valueSpan.textContent = input.value;
-            input.addEventListener('input', function() {
-                valueSpan.textContent = this.value;
-                var max = parseFloat(this.value) || Infinity;
-                document.querySelectorAll('.proerty-item').forEach(function(item) {
-                    var priceText = item.querySelector('.proerty-price');
-                    if (!priceText) return;
-                    var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
-                    if (isNaN(price) || price > max) {
-                        item.style.display = 'none';
-                    } else {
-                        item.style.display = '';
-                    }
-                });
-            });
-        });
-        </script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
+
     </body>
-</html>
+</html><?php }
+}

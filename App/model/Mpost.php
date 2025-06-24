@@ -267,6 +267,7 @@ public function getDescription(): string {
 
 }
 
+
 $rawPrice = UHTTPMethods::post('price');
 if (!$rawPrice) {
     $rawPrice = '0';

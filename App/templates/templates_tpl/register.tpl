@@ -215,6 +215,10 @@
                                     <input type="text" class="form-control" id="email" name="email" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="Username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username" required>
                                 </div>
