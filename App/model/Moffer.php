@@ -46,7 +46,7 @@ public function __construct(DateTime $dateofferin, DateTime $dateofferout, Mpost
     $this->dateofferin = $dateofferin;
     $this->dateofferout = $dateofferout;
     $this->post = $post;
-    $this->setRequiredPet($requiredPets);
+    $this->requiredPets = $requiredPets;
 
 }
 

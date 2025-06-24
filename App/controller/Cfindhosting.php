@@ -35,33 +35,39 @@ class CFindhosting{
 
     }
 
-    private static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post
+    public static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post
     {
+
         $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id);
-        if ($post->getBooked == 0 )
-        {
-            return new Vfindhosting();//richiamo la view per il form di crazione di una proposta
-        }
-        else
-        {
-            return 'post already booked';
-        }    
+        new Vfindhosting();
+        $view = new Vfindhosting();
+        $view->showFormOffer($post);  
     }
-    public static function createOffer() //è una post  body json bisogna fare dei controlli alle date e qualcosina in javascript per tradurre i nomi dei pet
+    public static function createOffer($id_post) //è una post  body json bisogna fare dei controlli alle date e qualcosina in javascript per tradurre i nomi dei pet
     {   
         if(CUser::isLogged())
         {
+        Usession::getInstance();
+        $id_user = USession::getSessionElement('user');
         //fetching arguments from post request
         $datein = new DateTime(UHTTPMethods::post('datein'));
         $dateout = new DateTime(UHTTPMethods::post('dateout'));
-        $id_post = UHTTPMethods::post('id_post');
-        $id_user = UHTTPMethods::post('id_user');
-        $requiredPets = UHTTPMethods::post('required_pets');
+        
+        
+        $requiredPetss = UHTTPMethods::post('required_pets');
+        $countPets = UHTTPMethods::post('required_pets_count');
 
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
+        $requiredPets = array_combine($requiredPetss, $countPets);
+
+        $client = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
-        $offer = new Moffer($datein,$dateout,$post,$requiredPets, $user);
+        $offer = new Moffer($datein,$dateout,$post,$requiredPets, $client);
         FPersistentManager::saveObj($offer);
+        $view = new Vfindhosting();
+        $view->showok();
+        }
+        else{
+            header('Location: PetHouse/user/login');
         }
         //show riepilogo
     }

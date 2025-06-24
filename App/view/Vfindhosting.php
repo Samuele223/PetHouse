@@ -26,15 +26,16 @@ public function showPost($post)
 {
     $this->smarty->assign('photos', $post->getHouse()->getPhotos());
     $this->smarty->assign('post',$post);
-    //$this->smarty->assign('description', $post->getDescription());
-    //$this->smarty->assign('price', $post->getPrice());
-    //$this->smarty->assign('datein', $post->getDateIn()->format('Y-m-d'));
-    //$this->smarty->assign('dateout', $post->getDateOut()->format('Y-m-d'));
-    //$this->smarty->assign('seller', $post->getSeller()->getUsername());
-    //$this->smarty->assign('acceptedPets', $post->getAcceptedPets());
-    //$this->smarty->assign('moreinfo', $post->getMoreInfo());
-    //$this->smarty->assign('title', $post->getTitle());
     $this->smarty->display('Post_detail.tpl');
+}
+public function showFormOffer($post)
+{
+    $this->smarty->assign('post', $post);
+    $this->smarty->display('formOffer.tpl');
+}
+public function showok()
+{
+    $this->smarty->display('offer_created.tpl');
 }
 }
 ?>

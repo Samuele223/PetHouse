@@ -1,14 +1,37 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-24 19:50:02
+  from 'file:register.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685ae54aedae42_64661595',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '3c80cca74f0d3f34fd5ded6527e189d6a3b26893' => 
+    array (
+      0 => 'register.tpl',
+      1 => 1750759043,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685ae54aedae42_64661595 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> 
-<html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Property  page</title>
-        <meta name="description" content="company is a real-estate template">
+        <title>GARO ESTATE | Register page</title>
+        <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +55,6 @@
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/lightslider.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
     </head>
@@ -43,6 +65,7 @@
         </div>
         <!-- Body content -->
 
+       
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -68,7 +91,7 @@
                     </div>
                 </div>
             </div>
-        </div>              
+        </div>            
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -81,32 +104,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.4s">Home</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.4s">Login</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -121,7 +130,7 @@
                                                 <h5>Home pages</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="index.html">Home Style 1</a>
+                                                        <a href="/PetHouse/">Home Style 1</a>
                                                     </li>
                                                     <li>
                                                         <a href="index-2.html">Home Style 2</a>
@@ -200,148 +209,92 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Super nice villa </h1>               
+                        <h1 class="page-title">Home New account / Sign in </h1>               
                     </div>
                 </div>
             </div>
         </div>
         <!-- End page header -->
+ 
 
-        <!-- property area -->
-        <div class="content-area single-property" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">   
+        <!-- register-area -->
+        <div class="register-area" style="background-color: rgb(249, 249, 249);">
+            <div class="container">
 
-                <div class="clearfix padding-top-40" >
-
-                    <div class="col-md-8 single-property-content prp-style-1 ">
-                        <div class="row">
-                            <!-- Galleria immagini dinamica -->
-                            <div class="light-slide-item">            
-                                <div class="clearfix">
-                                    <div class="favorite-and-print">
-                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal">
-                                            <i class="fa fa-star-o"></i>
-                                        </a>
-                                        <a class="printer-icon " href="javascript:window.print()">
-                                            <i class="fa fa-print"></i> 
-                                        </a>
-                                    </div> 
-
-                                    <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        {foreach from=$photos item=photo}
-                                            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
-                                                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
-                                            </li>
-                                        {/foreach}
-                                    </ul>
+                <div class="col-md-6">
+                    <div class="box-for overflow">
+                        <div class="col-md-12 col-xs-12 register-blocks">
+                            <h2>New account : </h2> 
+                            <form action="/PetHouse/User/registration" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label for="surname">Surname</label>
+                                    <input type="text" class="form-control" id="surname" name="surname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                                <div class="form-group">
+                                     <label for="profile_image">Profile Image</label>
+                                    <input type="file" class="form-control" id="profile_image" name="profile_pic" accept="image/*">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-default">Register</button>
+                                </div>
+                            </form>
                         </div>
-
-                        <div class="single-property-wrapper">
-                            <div class="single-property-header">                                          
-                                <h1 class="property-title pull-left">{$post->getTitle()}</h1>
-                                <span class="property-price pull-right">€ {$post->getPrice()}</span>
-                            </div>
-
-                            <!-- Box con i dettagli del post -->
-                            <div class="panel panel-default" style="margin-top:20px;">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Post Details</h4>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-group" style="margin-bottom:0;">
-                                        <li class="list-group-item">
-                                            <strong>Description:</strong><br>
-                                            <span class="form-control-static">{$post->getDescription()}</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Start Date:</strong><br>
-                                            <span class="form-control-static">{$post->getDateIn()|date_format:"%d/%m/%Y"}</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>End Date:</strong><br>
-                                            <span class="form-control-static">{$post->getDateOut()|date_format:"%d/%m/%Y"}</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Accepted Pets:</strong><br>
-                                            <span class="form-control-static">
-                                                {foreach from=$post->getAcceptedPets() key=pet item=count name=pets}
-                                                    {$pet} ({$count}){if !$smarty.foreach.pets.last}, {/if}
-                                                {/foreach}
-                                            </span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Additional Info:</strong><br>
-                                            <span class="form-control-static">{$post->getMoreInfo()}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Fine box dettagli -->
-
-                            <div class="section">
-                                <h4 class="s-property-title">Description: </h4>
-                                <div class="s-property-content">
-                                    <p>{$post->getDescription()}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 p0">
-                        <aside class="sidebar sidebar-property blog-asside-right">
-                            <div class="dealer-widget">
-                                <div class="dealer-content">
-                                    <div class="inner-wrapper">
-                                        <div class="clear">
-                                            <div class="col-xs-4 col-sm-4 dealer-face">
-                                                <a href="#">
-                                                    {assign var="owner" value=$post->getSeller()}
-                                                    {if $owner->getProfilePicture()}
-                                                        <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
-                                                    {else}
-                                                        <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
-                                                    {/if}
-                                                </a>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8 ">
-                                                <h3 class="dealer-name">
-                                                    <a href="#">
-                                                        {if $owner->getName()}{$owner->getName()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                        {if $owner->getSurname()} {$owner->getSurname()}{else} <span style="color:#aaa;">Missing field</span>{/if}
-                                                    </a>
-                                                    
-                                                </h3>
-                                            </div>
-                                        </div>
-                                        <div class="clear">
-                                            <ul class="dealer-contacts">
-                                                <li>
-                                                    <i class="pe-7s-mail strong"></i>
-                                                    {if $owner->getEmail()}{$owner->getEmail()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                </li>
-                                                <li>
-                                                    <i class="pe-7s-call strong"></i>
-                                                    {if $owner->getTel()}{$owner->getTel()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </aside>
                     </div>
                 </div>
-                <a href="/PetHouse/Findhosting/bookPost/{$post->getId()}" class="btn btn-warning btn-lg btn-block" style="border-radius: 30px; font-weight: bold;">
-                    <i class="fa fa-calendar-check-o"></i> Book this post
-                </a>
+
+                <div class="col-md-6">
+                    <div class="box-for overflow">                         
+                        <div class="col-md-12 col-xs-12 login-blocks">
+                            <h2>Login : </h2> 
+                            <form action="/PetHouse/User/login" method="post">
+                                <div class="form-group">
+                                    <label for="Username">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-default"> Log in</button>
+                                </div>
+                            </form>
+                            <br>
+                            
+                            <h2>Social login :  </h2> 
+                            
+                            <p>
+                            <a class="login-social" href="#"><i class="fa fa-facebook"></i>&nbsp;Facebook</a> 
+                            <a class="login-social" href="#"><i class="fa fa-google-plus"></i>&nbsp;Gmail</a> 
+                            <a class="login-social" href="#"><i class="fa fa-twitter"></i>&nbsp;Twitter</a>  
+                            </p> 
+                        </div>
+                        
+                    </div>
+                </div>
 
             </div>
-        </div>
-
+        </div>      
 
           <!-- Footer area-->
         <div class="footer-area">
@@ -359,8 +312,8 @@
                                 <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
+                                    <li><i class="pe-7s-call strong"> </i> +302 135 7812</li>
                                 </ul>
                             </div>
                         </div>
@@ -447,11 +400,11 @@
 
                                 <div class="social pull-right"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
@@ -465,7 +418,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                            <span> (C) <a href="http://www.google.com">KimaroTheme</a> , All rights reserved 2016  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
                             <ul> 
@@ -480,40 +433,49 @@
             </div>
 
         </div>
-          
-        
-        
-        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
-        <script type="text/javascript" src="/PetHouse/App/templates/assets/js/lightslider.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
 
-        <script>
-            $(document).ready(function () {
+         <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
 
-                $('#image-gallery').lightSlider({
-                    gallery: true,
-                    item: 1,
-                    thumbItem: 9,
-                    slideMargin: 0,
-                    speed: 500,
-                    auto: true,
-                    loop: true,
-                    onSliderLoad: function () {
-                        $('#image-gallery').removeClass('cS-hidden');
-                    }
-                });
-            });
-        </script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
 
     </body>
-</html>
+</html><?php }
+}

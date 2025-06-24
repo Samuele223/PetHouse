@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 17:57:28
+/* Smarty version 5.5.0, created on 2025-06-24 19:30:40
   from 'file:Post_detail.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685acae8696a84_23994925',
+  'unifunc' => 'content_685ae0c08beab7_92143826',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9edff62f011f5b821aaaef6899dbab0894e217b4' => 
     array (
       0 => 'Post_detail.tpl',
-      1 => 1750780646,
+      1 => 1750786233,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685acae8696a84_23994925 (\Smarty\Template $_smarty_tpl) {
+function content_685ae0c08beab7_92143826 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -398,7 +398,7 @@ echo $_smarty_tpl->getValue('owner')->getTel();
                         </aside>
                     </div>
                 </div>
-                <a href="/PetHouse/Findhost/bookpost/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+                <a href="/PetHouse/Findhosting/bookPost/<?php echo $_smarty_tpl->getValue('post')->getId();?>
 " class="btn btn-warning btn-lg btn-block" style="border-radius: 30px; font-weight: bold;">
                     <i class="fa fa-calendar-check-o"></i> Book this post
                 </a>
