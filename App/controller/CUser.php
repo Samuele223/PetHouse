@@ -316,4 +316,34 @@ public static function myHouses() {
     $view = new Vuser();
     $view->showUserHouses($houses);
 }
-}
+
+
+public static function viewMyHousesDetails($Id) {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    // Recupera la casa solo se appartiene all'utente loggato
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $house = $em->getRepository(Mposition::getEntity())->findOneBy([
+        'id' => $Id,
+        'owner' => $userId
+    ]);
+
+    $view = new VUser();
+    if ($house) {
+        $view->showUserHousesDetails($house);
+    } else {
+        echo "Casa non trovata o non autorizzato.";
+    }
+}}

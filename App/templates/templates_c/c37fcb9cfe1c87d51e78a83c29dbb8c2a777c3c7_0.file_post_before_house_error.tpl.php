@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 12:47:10
+/* Smarty version 5.5.0, created on 2025-06-24 17:41:01
   from 'file:post_before_house_error.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a822eddcee3_72276556',
+  'unifunc' => 'content_685ac70d5e6541_72418935',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a822eddcee3_72276556 (\Smarty\Template $_smarty_tpl) {
+function content_685ac70d5e6541_72418935 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->

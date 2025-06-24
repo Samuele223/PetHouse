@@ -64,9 +64,14 @@ public function showUserPosts($posts) {
 
 public function showUserHouses($houses) {
     $this->smarty->assign('houses', $houses);
-    $this->smarty->display('user_posts.tpl');
+    $this->smarty->display('user-properties.tpl');}
+
+public function showUserHousesDetails($house) {
+    $this->smarty->assign('house', $house);
+    $this->smarty->display('house_detail.tpl');
+}
+
 
 
 
     }
-}

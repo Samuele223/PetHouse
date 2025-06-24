@@ -1,30 +1,18 @@
 <?php
-<<<<<<< HEAD:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
-/* Smarty version 5.5.0, created on 2025-06-24 12:47:07
-=======
-/* Smarty version 5.5.0, created on 2025-06-24 10:48:30
->>>>>>> f8b98641d24ce004c3088840c0373f64b1dbf414:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
+/* Smarty version 5.5.0, created on 2025-06-24 17:35:36
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-<<<<<<< HEAD:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
-  'unifunc' => 'content_685a822b208080_75386236',
-=======
-  'unifunc' => 'content_685a665e363da1_09450876',
->>>>>>> f8b98641d24ce004c3088840c0373f64b1dbf414:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
+  'unifunc' => 'content_685ac5c85a2941_79218698',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99e71f3a7b9ad723b97bf1a7b517aabc64df16c3' => 
     array (
       0 => 'index.tpl',
-<<<<<<< HEAD:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
-      1 => 1750756417,
-=======
-      1 => 1750754893,
->>>>>>> f8b98641d24ce004c3088840c0373f64b1dbf414:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
+      1 => 1750763295,
       2 => 'file',
     ),
   ),
@@ -32,13 +20,8 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-<<<<<<< HEAD:App/templates/templates_c/99e71f3a7b9ad723b97bf1a7b517aabc64df16c3_0.file_index.tpl.php
-function content_685a822b208080_75386236 (\Smarty\Template $_smarty_tpl) {
+function content_685ac5c85a2941_79218698 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
-=======
-function content_685a665e363da1_09450876 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
->>>>>>> f8b98641d24ce004c3088840c0373f64b1dbf414:App/templates/templates_c/d6f25d223b24812e7ee7d1d17e687d2673332186_0.file_index.tpl.php
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->

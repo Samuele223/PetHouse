@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 13:00:38
+/* Smarty version 5.5.0, created on 2025-06-24 19:04:52
   from 'file:offer_hosting.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a8556a48804_52523664',
+  'unifunc' => 'content_685adab4578276_05171297',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '16f5bac2c270b293968acef51d0cd37eba4cfa1c' => 
     array (
       0 => 'offer_hosting.tpl',
-      1 => 1750754047,
+      1 => 1750784689,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a8556a48804_52523664 (\Smarty\Template $_smarty_tpl) {
+function content_685adab4578276_05171297 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -605,12 +605,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const newGroup = petGroup.cloneNode(true);
             newGroup.querySelector('select').selectedIndex = 0;
             newGroup.querySelector('input').value = 1;
-            // Change + to - for remove button
-            newGroup.querySelector('.add-pet').classList.remove('btn-success');
-            newGroup.querySelector('.add-pet').classList.add('btn-danger');
-            newGroup.querySelector('.add-pet').textContent = '-';
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-pet');
+            btn.classList.remove('btn-success', 'add-pet');
+            btn.classList.add('btn-danger', 'remove-pet');
+            btn.textContent = '-';
             document.querySelector('#acceptedPetsFields').appendChild(newGroup);
-        } else if (e.target.classList.contains('btn-danger')) {
+        } else if (e.target.classList.contains('remove-pet')) {
             e.preventDefault();
             const petGroup = e.target.closest('.pet-group');
             if(document.querySelectorAll('#acceptedPetsFields .pet-group').length > 1) {

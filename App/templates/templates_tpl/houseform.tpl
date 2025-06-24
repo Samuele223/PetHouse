@@ -508,12 +508,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const newGroup = petGroup.cloneNode(true);
             newGroup.querySelector('select').selectedIndex = 0;
             newGroup.querySelector('input').value = 1;
-            // Change + to - for remove button
-            newGroup.querySelector('.add-pet').classList.remove('btn-success');
-            newGroup.querySelector('.add-pet').classList.add('btn-danger');
-            newGroup.querySelector('.add-pet').textContent = '-';
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-pet');
+            btn.classList.remove('btn-success', 'add-pet');
+            btn.classList.add('btn-danger', 'remove-pet');
+            btn.textContent = '-';
             document.querySelector('#acceptedPetsFields').appendChild(newGroup);
-        } else if (e.target.classList.contains('btn-danger')) {
+        } else if (e.target.classList.contains('remove-pet')) {
             e.preventDefault();
             const petGroup = e.target.closest('.pet-group');
             if(document.querySelectorAll('#acceptedPetsFields .pet-group').length > 1) {
