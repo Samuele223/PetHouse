@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 11:50:29
+/* Smarty version 5.5.0, created on 2025-06-24 17:32:07
   from 'file:Listofposts.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a74e500e732_69962104',
+  'unifunc' => 'content_685ac4f7d16f79_97002975',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3cd3286ff5e137862bb9033dda7ef17933000882' => 
     array (
       0 => 'Listofposts.tpl',
-      1 => 1750758626,
+      1 => 1750777167,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a74e500e732_69962104 (\Smarty\Template $_smarty_tpl) {
+function content_685ac4f7d16f79_97002975 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -111,7 +111,6 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                         <div class="button navbar-right">
-                            <button class="navbar-btn nav-button wow bounceInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.4s">Home</button>
                             <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
                         </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
@@ -323,7 +322,7 @@ $foreach0DoElse = false;
 </p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+                                                                <a href="/PetHouse/Findhosting/selectpost/<?php echo $_smarty_tpl->getValue('post')->getId();?>
 " class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
                                                                     <i class="fa fa-search-plus"></i> See more
                                                                 </a>

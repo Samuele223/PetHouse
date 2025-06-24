@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 10:32:58
-  from 'file:invalid_credentials.tpl' */
+/* Smarty version 5.5.0, created on 2025-06-24 17:57:28
+  from 'file:Post_detail.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a62ba25e719_73397891',
+  'unifunc' => 'content_685acae8696a84_23994925',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e4547f11637789ed3dbe1c78d460f0c75f776e0c' => 
+    '9edff62f011f5b821aaaef6899dbab0894e217b4' => 
     array (
-      0 => 'invalid_credentials.tpl',
-      1 => 1750750239,
+      0 => 'Post_detail.tpl',
+      1 => 1750780646,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a62ba25e719_73397891 (\Smarty\Template $_smarty_tpl) {
+function content_685acae8696a84_23994925 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -29,9 +29,9 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
     <head>
- <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | 404 page</title>
+        <title>GARO ESTATE | Property  page</title>
         <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -56,6 +56,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/lightslider.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
     </head>
@@ -91,7 +92,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                     </div>
                 </div>
             </div>
-        </div>           
+        </div>              
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -104,17 +105,32 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.4s">Login</button>
+                        <button class="navbar-btn nav-button wow bounceInRight" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.4s">Home</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="index-2.html">Home Style 2</a>
+                                </li>
+                                <li>
+                                    <a href="index-3.html">Home Style 3</a>
+                                </li>
+                                <li>
+                                    <a href="index-4.html">Home Style 4</a>
+                                </li>
+                                <li>
+                                    <a href="index-5.html">Home Style 5</a>
+                                </li>
+
+                            </ul>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -203,20 +219,195 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             </div><!-- /.container-fluid -->
         </nav>
         <!-- End of nav bar -->
-      
-        <div class="content-area error-page" style="background-color: #FCFCFC; padding-bottom: 55px;">
+
+        <div class="page-head"> 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
-                        <h2 class="error-title">Credenziali non corrette!</h2>
-                        <p>Le tue credenziali sembrano essere errate... forse hai dimenticato qualcosa?</p>
-                        <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
+                    <div class="page-head-content">
+                        <h1 class="page-title">Super nice villa </h1>               
                     </div>
-                </div> 
+                </div>
             </div>
-        </div> 
+        </div>
+        <!-- End page header -->
 
-    <!-- Footer area-->
+        <!-- property area -->
+        <div class="content-area single-property" style="background-color: #FCFCFC;">&nbsp;
+            <div class="container">   
+
+                <div class="clearfix padding-top-40" >
+
+                    <div class="col-md-8 single-property-content prp-style-1 ">
+                        <div class="row">
+                            <!-- Galleria immagini dinamica -->
+                            <div class="light-slide-item">            
+                                <div class="clearfix">
+                                    <div class="favorite-and-print">
+                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal">
+                                            <i class="fa fa-star-o"></i>
+                                        </a>
+                                        <a class="printer-icon " href="javascript:window.print()">
+                                            <i class="fa fa-print"></i> 
+                                        </a>
+                                    </div> 
+
+                                    <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+                                        <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('photos'), 'photo');
+$foreach0DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('photo')->value) {
+$foreach0DoElse = false;
+?>
+                                            <li data-thumb="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photo')->getId();?>
+"> 
+                                                <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photo')->getId();?>
+" alt="Property Image"/>
+                                            </li>
+                                        <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="single-property-wrapper">
+                            <div class="single-property-header">                                          
+                                <h1 class="property-title pull-left"><?php echo $_smarty_tpl->getValue('post')->getTitle();?>
+</h1>
+                                <span class="property-price pull-right">€ <?php echo $_smarty_tpl->getValue('post')->getPrice();?>
+</span>
+                            </div>
+
+                            <!-- Box con i dettagli del post -->
+                            <div class="panel panel-default" style="margin-top:20px;">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Post Details</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group" style="margin-bottom:0;">
+                                        <li class="list-group-item">
+                                            <strong>Description:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('post')->getDescription();?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Start Date:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getSmarty()->getModifierCallback('date_format')($_smarty_tpl->getValue('post')->getDateIn(),"%d/%m/%Y");?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>End Date:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getSmarty()->getModifierCallback('date_format')($_smarty_tpl->getValue('post')->getDateOut(),"%d/%m/%Y");?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Accepted Pets:</strong><br>
+                                            <span class="form-control-static">
+                                                <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('post')->getAcceptedPets(), 'count', false, 'pet', 'pets', array (
+  'last' => true,
+  'iteration' => true,
+  'total' => true,
+));
+$foreach1DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('pet')->value => $_smarty_tpl->getVariable('count')->value) {
+$foreach1DoElse = false;
+$_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['iteration']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['last'] = $_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['iteration'] === $_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['total'];
+?>
+                                                    <?php echo $_smarty_tpl->getValue('pet');?>
+ (<?php echo $_smarty_tpl->getValue('count');?>
+)<?php if (!($_smarty_tpl->getValue('__smarty_foreach_pets')['last'] ?? null)) {?>, <?php }?>
+                                                <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Additional Info:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('post')->getMoreInfo();?>
+</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Fine box dettagli -->
+
+                            <div class="section">
+                                <h4 class="s-property-title">Description: </h4>
+                                <div class="s-property-content">
+                                    <p><?php echo $_smarty_tpl->getValue('post')->getDescription();?>
+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 p0">
+                        <aside class="sidebar sidebar-property blog-asside-right">
+                            <div class="dealer-widget">
+                                <div class="dealer-content">
+                                    <div class="inner-wrapper">
+                                        <div class="clear">
+                                            <div class="col-xs-4 col-sm-4 dealer-face">
+                                                <a href="#">
+                                                    <?php $_smarty_tpl->assign('owner', $_smarty_tpl->getValue('post')->getSeller(), false, NULL);?>
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getProfilePicture()) {?>
+                                                        <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('owner')->getProfilePicture()->getId();?>
+" class="img-circle" alt="Owner profile picture">
+                                                    <?php } else { ?>
+                                                        <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
+                                                    <?php }?>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 ">
+                                                <h3 class="dealer-name">
+                                                    <a href="#">
+                                                        <?php if ($_smarty_tpl->getValue('owner')->getName()) {
+echo $_smarty_tpl->getValue('owner')->getName();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                        <?php if ($_smarty_tpl->getValue('owner')->getSurname()) {?> <?php echo $_smarty_tpl->getValue('owner')->getSurname();
+} else { ?> <span style="color:#aaa;">Missing field</span><?php }?>
+                                                    </a>
+                                                    
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="clear">
+                                            <ul class="dealer-contacts">
+                                                <li>
+                                                    <i class="pe-7s-mail strong"></i>
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getEmail()) {
+echo $_smarty_tpl->getValue('owner')->getEmail();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                </li>
+                                                <li>
+                                                    <i class="pe-7s-call strong"></i>
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getTel()) {
+echo $_smarty_tpl->getValue('owner')->getTel();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </aside>
+                    </div>
+                </div>
+                <a href="/PetHouse/Findhost/bookpost/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+" class="btn btn-warning btn-lg btn-block" style="border-radius: 30px; font-weight: bold;">
+                    <i class="fa fa-calendar-check-o"></i> Book this post
+                </a>
+
+            </div>
+        </div>
+
+
+          <!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
@@ -320,11 +511,11 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
 
                                 <div class="social pull-right"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
@@ -353,14 +544,15 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             </div>
 
         </div>
-
+          
+        
+        
         <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+ src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
 >
-
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
-> 
+>
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
 >
@@ -370,30 +562,49 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
 >
-
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
 >
-
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
 >
-
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
 >
-
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/PetHouse/App/templates/assets/js/lightslider.min.js"><?php echo '</script'; ?>
+>
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
+
+        <?php echo '<script'; ?>
+>
+            $(document).ready(function () {
+
+                $('#image-gallery').lightSlider({
+                    gallery: true,
+                    item: 1,
+                    thumbItem: 9,
+                    slideMargin: 0,
+                    speed: 500,
+                    auto: true,
+                    loop: true,
+                    onSliderLoad: function () {
+                        $('#image-gallery').removeClass('cS-hidden');
+                    }
+                });
+            });
+        <?php echo '</script'; ?>
 >
 
     </body>

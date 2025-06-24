@@ -30,7 +30,9 @@ class CFindhosting{
     public static function selectPost(int $id)
     {
         $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //cosi prendo dalla query string della url l' id del post
-        //show post 
+        $view = new Vfindhosting();
+        $view->showPost($post);
+
     }
 
     private static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post
