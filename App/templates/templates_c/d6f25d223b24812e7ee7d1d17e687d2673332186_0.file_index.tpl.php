@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 03:38:10
+/* Smarty version 5.5.0, created on 2025-06-24 10:48:30
   from 'file:index.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685a018201bfd1_85887996',
+  'unifunc' => 'content_685a665e363da1_09450876',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd6f25d223b24812e7ee7d1d17e687d2673332186' => 
     array (
       0 => 'index.tpl',
-      1 => 1750700393,
+      1 => 1750754893,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685a018201bfd1_85887996 (\Smarty\Template $_smarty_tpl) {
+function content_685a665e363da1_09450876 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -257,10 +257,11 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                     <div class="input-group pet-group" style="margin-bottom:5px;">
                                         <select name="pets[]" class="form-control">
                                             <option value="">Select pet</option>
-                                            <option value="dog">Dog</option>
-                                            <option value="cat">Cat</option>
-                                            <option value="bird">Bird</option>
-                                            <option value="rabbit">Rabbit</option>
+                                            <option value="DOG">DOG</option>
+                                            <option value="CAT">CAT</option>
+                                            <option value="BIRD">BIRD</option>
+                                            <option value="RABBIT">RABBIT</option>
+                                            <option value="PARROT">PARROT</option>
                                             <!-- Add more pet types as needed -->
                                         </select>
                                         <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">

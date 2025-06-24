@@ -234,20 +234,13 @@
 
                                     <div class="tab-pane" id="step1">
                                         <div class="row p-b-15  ">
-                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                                            
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Property name <small>(required)</small></label>
                                                     <input name="title" type="text" class="form-control" placeholder="Super villa ...">
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Info <small></small></label>
-                                                    <input name="moreInfo" type="text" class="form-control" placeholder="Big garden a lof of space for your pets">
-                                                </div> 
-                                                <div class="form-group">
-                                                    <label>Telephone <small>(empty if you wanna use default phone number)</small></label>
-                                                    <input name="phone" type="text" class="form-control" placeholder="{$telehone}">
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

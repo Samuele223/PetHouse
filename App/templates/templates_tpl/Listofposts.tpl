@@ -86,10 +86,9 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')" data-wow-delay="0.5s">Submit</button>
-                    </div>
+                        <div class="button navbar-right">
+                            <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
+                        </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
@@ -213,240 +212,7 @@
             <div class="container">  
                 <div class="row">
                      
-                <div class="col-md-3 p0 padding-top-40">
-                    <div class="blog-asside-right pr0">
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Smart search</h3>
-                            </div>
-                            <div class="panel-body search-widget">
-                                <form action="" class=" form-inline"> 
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <input type="text" class="form-control" placeholder="Key word">
-                                            </div>
-                                        </div>
-                                    </fieldset>
 
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="col-xs-6">
-
-                                                <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Select Your City">
-
-                                                    <option>New york, CA</option>
-                                                    <option>Paris</option>
-                                                    <option>Casablanca</option>
-                                                    <option>Tokyo</option>
-                                                    <option>Marraekch</option>
-                                                    <option>kyoto , shibua</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-xs-6">
-
-                                                <select id="basic" class="selectpicker show-tick form-control">
-                                                    <option> -Status- </option>
-                                                    <option>Rent </option>
-                                                    <option>Boy</option>
-                                                    <option>used</option>  
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <label for="price-range">Price range ($):</label>
-                                                <input type="text" class="span2" value="" data-slider-min="0" 
-                                                       data-slider-max="600" data-slider-step="5" 
-                                                       data-slider-value="[0,450]" id="price-range" ><br />
-                                                <b class="pull-left color">2000$</b> 
-                                                <b class="pull-right color">100000$</b>                                                
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label for="property-geo">Property geo (m2) :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="0" 
-                                                       data-slider-max="600" data-slider-step="5" 
-                                                       data-slider-value="[50,450]" id="property-geo" ><br />
-                                                <b class="pull-left color">40m</b> 
-                                                <b class="pull-right color">12000m</b>                                                
-                                            </div>                                            
-                                        </div>
-                                    </fieldset>                                
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <label for="price-range">Min baths :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="0" 
-                                                       data-slider-max="600" data-slider-step="5" 
-                                                       data-slider-value="[250,450]" id="min-baths" ><br />
-                                                <b class="pull-left color">1</b> 
-                                                <b class="pull-right color">120</b>                                                
-                                            </div>
-
-                                            <div class="col-xs-6">
-                                                <label for="property-geo">Min bed :</label>
-                                                <input type="text" class="span2" value="" data-slider-min="0" 
-                                                       data-slider-max="600" data-slider-step="5" 
-                                                       data-slider-value="[250,450]" id="min-bed" ><br />
-                                                <b class="pull-left color">1</b> 
-                                                <b class="pull-right color">120</b>
-
-                                            </div>
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox" checked> Fire Place</label>
-                                                </div> 
-                                            </div>
-
-                                            <div class="col-xs-6">
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox"> Dual Sinks</label>
-                                                </div>
-                                            </div>                                            
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox" checked> Swimming Pool</label>
-                                                </div>
-                                            </div>  
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox" checked> 2 Stories </label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox"> Laundry Room </label>
-                                                </div>
-                                            </div>  
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label> <input type="checkbox"> Emergency Exit</label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label>  <input type="checkbox" checked> Jog Path </label>
-                                                </div>
-                                            </div>  
-                                            <div class="col-xs-6"> 
-                                                <div class="checkbox">
-                                                    <label>  <input type="checkbox"> 26' Ceilings </label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset class="padding-5">
-                                        <div class="row">
-                                            <div class="col-xs-12"> 
-                                                <div class="checkbox">
-                                                    <label>  <input type="checkbox"> Hurricane Shutters </label>
-                                                </div>
-                                            </div>  
-                                        </div>
-                                    </fieldset>
-
-                                    <fieldset >
-                                        <div class="row">
-                                            <div class="col-xs-12">  
-                                                <input class="button btn largesearch-btn" value="Search" type="submit">
-                                            </div>  
-                                        </div>
-                                    </fieldset>                                     
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Recommended</h3>
-                            </div>
-                            <div class="panel-body recent-property-widget">
-                                        <ul>
-                                        <li>
-                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="/PetHouse/App/templates/assets/img/demo/small-property-2.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3 col-sm-3  col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="/PetHouse/App/templates/assets/img/demo/small-property-1.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="/PetHouse/App/templates/assets/img/demo/small-property-3.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                                <a href="single.html"><img src="/PetHouse/App/templates/assets/img/demo/small-property-2.jpg"></a>
-                                                <span class="property-seeker">
-                                                    <b class="b-1">A</b>
-                                                    <b class="b-2">S</b>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
-                                                <h6> <a href="single.html">Super nice villa </a></h6>
-                                                <span class="property-price">3000000$</span>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
@@ -486,202 +252,55 @@
                             <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
                         </div><!--/ .layout-switcher-->
                     </div>
-
-                    <div class="col-md-12 clear"> 
-                        <div id="list-type" class="proerty-th">
-                            <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-
-                                <div class="col-sm-6 col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-                                            </div>
-                                        </div> 
-                                    </div>
-                                </div> 
-                        </div>
+                    <div class="form-inline" style="margin-bottom:20px;">
+                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
+                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
+                        <span id="filter-price-value">100</span>
                     </div>
+
+                    <div class="section"> 
+                            <div id="list-type" class="proerty-th-list">
+                                {if $posts|@count > 0}
+                                    {foreach from=$posts item=post}
+                                        <div class="col-md-4 p0">
+                                            <div class="box-two proerty-item">
+                                                <div class="item-thumb">
+                                                    {assign var="house" value=$post->getHouse()}
+                                                    {assign var="photos" value=$house->getPhotos()}
+                                                    {if $photos|@count > 0}
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                                                        </a>
+                                                    {else}
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
+                                                        </a>
+                                                    {/if}
+                                                </div>
+                                                <div class="item-entry overflow">
+                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
+                                                    <div class="dot-hr"></div>
+                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
+                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <div class="property-icon">
+                                                        <div class="dealer-action pull-right">                                        
+                                                                <a href="/PetHouse/Post/view/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
+                                                                    <i class="fa fa-search-plus"></i> See more
+                                                                </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {/foreach}
+                                {else}
+                                    <div class="col-md-12">
+                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
+                                    </div>
+                                {/if}
+                            </div>
+                        </div>
                     
                     <div class="col-md-12"> 
                         <div class="pull-right">
@@ -852,5 +471,28 @@
         <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var input = document.getElementById('filter-price');
+            var valueSpan = document.getElementById('filter-price-value');
+            if (!input) return;
+            // Mostra il valore iniziale
+            valueSpan.textContent = input.value;
+            input.addEventListener('input', function() {
+                valueSpan.textContent = this.value;
+                var max = parseFloat(this.value) || Infinity;
+                document.querySelectorAll('.proerty-item').forEach(function(item) {
+                    var priceText = item.querySelector('.proerty-price');
+                    if (!priceText) return;
+                    var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
+                    if (isNaN(price) || price > max) {
+                        item.style.display = 'none';
+                    } else {
+                        item.style.display = '';
+                    }
+                });
+            });
+        });
+        </script>
     </body>
 </html>
