@@ -228,7 +228,7 @@
                                                         <div class="dealer-action pull-right">                                        
                                                             <a href="/PetHouse/House/edit/{$house->getId()}" class="button">Edit</a>
                                                             <a href="/PetHouse/House/delete/{$house->getId()}" class="button delete_user_car">Delete</a>
-                                                            <a href="/PetHouse/user/viewMyHousesDetails" class="button">View</a>
+                                                            <a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}" class="button">View</a>
                                                         </div>
                                                     </div>
                                                 </div>
