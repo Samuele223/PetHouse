@@ -285,7 +285,7 @@
                                                     <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Post/view/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
+                                                                <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
                                                                     <i class="fa fa-search-plus"></i> See more
                                                                 </a>
                                                         </div>

@@ -115,7 +115,7 @@ public function getPrice(): float
     return $this->price;
 }
 
-public function getTitle(): string
+public function getTitle()
 {
     return $this->title;
 }

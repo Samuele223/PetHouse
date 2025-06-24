@@ -1,18 +1,30 @@
 <?php
+<<<<<<< HEAD:App/templates/templates_c/89766dc14409761e23df4191a4c5e932c0329f2f_0.file_Listofposts.tpl.php
 /* Smarty version 5.5.0, created on 2025-06-24 17:37:35
+=======
+/* Smarty version 5.5.0, created on 2025-06-24 17:32:07
+>>>>>>> da8f9885a1446d5866a2a70c583ecaf0362c6761:App/templates/templates_c/3cd3286ff5e137862bb9033dda7ef17933000882_0.file_Listofposts.tpl.php
   from 'file:Listofposts.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
+<<<<<<< HEAD:App/templates/templates_c/89766dc14409761e23df4191a4c5e932c0329f2f_0.file_Listofposts.tpl.php
   'unifunc' => 'content_685ac63f27b629_50142935',
+=======
+  'unifunc' => 'content_685ac4f7d16f79_97002975',
+>>>>>>> da8f9885a1446d5866a2a70c583ecaf0362c6761:App/templates/templates_c/3cd3286ff5e137862bb9033dda7ef17933000882_0.file_Listofposts.tpl.php
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '89766dc14409761e23df4191a4c5e932c0329f2f' => 
     array (
       0 => 'Listofposts.tpl',
+<<<<<<< HEAD:App/templates/templates_c/89766dc14409761e23df4191a4c5e932c0329f2f_0.file_Listofposts.tpl.php
       1 => 1750763295,
+=======
+      1 => 1750777167,
+>>>>>>> da8f9885a1446d5866a2a70c583ecaf0362c6761:App/templates/templates_c/3cd3286ff5e137862bb9033dda7ef17933000882_0.file_Listofposts.tpl.php
       2 => 'file',
     ),
   ),
@@ -20,8 +32,13 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
+<<<<<<< HEAD:App/templates/templates_c/89766dc14409761e23df4191a4c5e932c0329f2f_0.file_Listofposts.tpl.php
 function content_685ac63f27b629_50142935 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
+=======
+function content_685ac4f7d16f79_97002975 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+>>>>>>> da8f9885a1446d5866a2a70c583ecaf0362c6761:App/templates/templates_c/3cd3286ff5e137862bb9033dda7ef17933000882_0.file_Listofposts.tpl.php
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -322,7 +339,7 @@ $foreach0DoElse = false;
 </p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+                                                                <a href="/PetHouse/Findhosting/selectpost/<?php echo $_smarty_tpl->getValue('post')->getId();?>
 " class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
                                                                     <i class="fa fa-search-plus"></i> See more
                                                                 </a>

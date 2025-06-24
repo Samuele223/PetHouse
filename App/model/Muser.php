@@ -158,7 +158,7 @@ class Muser
         return $this;
     }
 
-    public function getTel(): int
+    public function getTel(): ?int
     {
         return $this->tel;
     }
