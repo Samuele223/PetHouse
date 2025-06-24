@@ -95,7 +95,7 @@
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
+                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -278,7 +278,7 @@
                             <div class="col-sm-10 col-sm-offset-1">
                                 <br>
                                 <a href="https://localhost/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
-                                <a href="/PetHouse/user/post" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
+                                <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
                                 <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
                                 <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>                                
                             </div>

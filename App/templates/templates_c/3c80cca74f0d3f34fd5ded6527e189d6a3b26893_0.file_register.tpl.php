@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.1, created on 2025-06-23 17:37:19
+/* Smarty version 5.5.0, created on 2025-06-24 03:42:44
   from 'file:register.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.1',
-  'unifunc' => 'content_685974afd4bbd9_04700034',
+  'version' => '5.5.0',
+  'unifunc' => 'content_685a029479dde2_34689627',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c80cca74f0d3f34fd5ded6527e189d6a3b26893' => 
     array (
       0 => 'register.tpl',
-      1 => 1750686802,
+      1 => 1750695533,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685974afd4bbd9_04700034 (\Smarty\Template $_smarty_tpl) {
+function content_685a029479dde2_34689627 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -115,7 +115,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <button class="navbar-btn nav-button wow bounceInRight home" onclick="window.location.href='https://localhost/PetHouse/'" data-wow-delay="0.45s">Home</button>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>

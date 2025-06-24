@@ -18,10 +18,13 @@ class VOfferHosting {
      *
      * @param array $positions  Array of MPosition objects
      */
-    public function showPostForm(array $positions) { //dobbiamo aggiunge la cosa che fa sceglie la casa aiuto
-        // assign the list of positions and clear any previous error
-        //$this->smarty->assign('positions', $positions);
-        $this->smarty->assign('error', null);
+    public function showPostForm($positions, $error = null) {
+        $this->smarty->assign('positions', $positions);
+        
+        if ($error) {
+            $this->smarty->assign('error', $error);
+        }
+        
         // render the form template (to be created later)
         $this->smarty->display('offer_hosting.tpl');
     }
@@ -33,12 +36,16 @@ class VOfferHosting {
      * @param string $error      Error message to display
      * @param array  $positions  Array of MPosition objects
      */
-    public function showPostFormError(string $error, array $positions) {
-        // assign both positions and error message
-        $this->smarty->assign('positions', $positions);
+    public function showPostFormError($error, $positions, $selectedPosition = null) {
         $this->smarty->assign('error', $error);
+        $this->smarty->assign('positions', $positions);
+        
+        if ($selectedPosition) {
+            $this->smarty->assign('selectedPosition', $selectedPosition);
+        }
+        
         // render the same form template, now showing the error
-        $this->smarty->display('offer_hosting_form.tpl');
+        $this->smarty->display('offer_hosting.tpl');
     }
 
     /**

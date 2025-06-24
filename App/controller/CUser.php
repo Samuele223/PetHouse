@@ -174,22 +174,30 @@ class CUser {
 }
 public static function profile()
 {
-if (USession::getSessionStatus() == PHP_SESSION_NONE) {
-    USession::getInstance();
-} 
-$id = USession::getSessionElement('user');
-$view = new VUser();
-$user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
-$pic = $user->getProfilePicture();
-if (!$pic) {
-    // If no profile picture, set a default or handle accordingly
-    $picid = 1; // or set to a default image ID if you have one
-} else {
-    // If there is a profile picture, get its ID
-$picid = $pic->getId();
-}
-$view->profile($user, $picid);
-
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    } 
+    $id = USession::getSessionElement('user');
+    $view = new VUser();
+    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $pic = $user->getProfilePicture();
+    if (!$pic) {
+        // If no profile picture, set a default or handle accordingly
+        $picid = 1; // or set to a default image ID if you have one
+    } else {
+        // If there is a profile picture, get its ID
+        $picid = $pic->getId();
+    }
+    
+    // Controlla se c'è un messaggio di successo
+    $successMessage = USession::getSessionElement('success_message');
+    if ($successMessage) {
+        $view->profile($user, $picid, $successMessage);
+        // Rimuovi il messaggio dopo averlo mostrato
+        USession::unsetSessionElement('success_message');
+    } else {
+        $view->profile($user, $picid);
+    }
 }
 public static function addHouse()
 {
@@ -256,5 +264,29 @@ else {
     exit;
 }
 
+}
+public static function myPost() {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    // Query diretta al database - metodo più affidabile
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $posts = $em->getRepository(Mpost::getEntity())
+        ->findBy(['seller' => $userId, 'booked' => false]); // Solo post attivi (non prenotati)
+
+    // Passa i post alla view
+    $view = new VUser();
+    $view->showUserPosts($posts);
 }
 }

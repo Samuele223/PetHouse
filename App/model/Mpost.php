@@ -32,7 +32,7 @@ private string $description;
 #[ORM\Column(name: 'accepted_pets', type: 'json')]
 private array $acceptedPets = [];
 
-#[ORM\Column(type: 'decimal', precision:5, scale:4)]
+#[ORM\Column(type: 'decimal', precision:10, scale:2)]
 private float $price;
 
 #[ORM\Column]
@@ -260,5 +260,17 @@ $this->booked = $booked;
 
 return $this;
 }
+
+public function getDescription(): string {
+    return $this->description;
+}
+
 }
 ?>
+$rawPrice = UHTTPMethods::post('price');
+if (!$rawPrice) {
+    $rawPrice = '0';
+}
+$rawPrice = str_replace(',', '.', $rawPrice);
+$price = floatval($rawPrice);
+// ...costruisci poi il tuo oggetto Mpost, passando $price correttamente...

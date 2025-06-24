@@ -35,12 +35,17 @@ class VUser {
         $this->smarty->display('index.tpl');
     }
 }
-public function profile($user, $picid)
+public function profile($user, $picid, $successMessage = null)
     {
-        $this->smarty->assign('name',$user->getName());
+        $this->smarty->assign('name', $user->getName());
         $this->smarty->assign('surname', $user->getsurname());
-        $this->smarty->assign('email',$user->getemail());
-        $this->smarty->assign('pic',  $picid);
+        $this->smarty->assign('email', $user->getemail());
+        $this->smarty->assign('pic', $picid);
+        
+        if ($successMessage) {
+            $this->smarty->assign('success_message', $successMessage);
+        }
+        
         $this->smarty->display('user-profile.tpl');
     }
   
@@ -53,5 +58,8 @@ public function showHomeForm($error = null) {
         $this->smarty->display('houseform.tpl');
     }
 
-    
+    public function showUserPosts($posts) {
+        $this->smarty->assign('posts', $posts);
+        $this->smarty->display('user_posts.tpl');
+    }
 }

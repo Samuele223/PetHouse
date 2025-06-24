@@ -13,16 +13,23 @@ class CofferHosting {
      */
     public static function showOfferForm() {
         if (CUser::isLogged()) {
-            $userId    = USession::getInstance()->getSessionElement('user');
+            $userId = USession::getInstance()->getSessionElement('user');
             // load all positions (houses) for this user so they can choose where to host
             $positions = FPersistentManager::getHousesFromUser($userId);
-
+            
+            // Check if the user has any houses
+            if (!$positions || count($positions) === 0) {
+                // Redirect to add house with message
+                header('Location: /PetHouse/user/addHouse?message=Please add a property first before creating a hosting post');
+                exit;
+            }
+            
             $view = new VOfferHosting();
             $view->showPostForm($positions);
         }
         else {
-            // If the user is not logged in, redirect to login page or show an error
-            header('Location: /Pethouse/user/login');
+            // If the user is not logged in, redirect to login page
+            header('Location: /PetHouse/User/login');
             exit;
         }
     }
@@ -33,19 +40,30 @@ class CofferHosting {
      */
     public static function createOffer() {
         if (CUser::isLogged()) {
-            // Gather fields from the form
-            $idPosition   = UHTTPMethods::post('idPosition')   ?? null;
-            $title        = UHTTPMethods::post('title')        ?? '';
-            $description  = UHTTPMethods::post('description')  ?? '';
-            $moreInfo     = UHTTPMethods::post('moreInfo')     ?? '';
-            $price        = floatval(UHTTPMethods::post('price') ?? 0);
-            $dateInStr    = UHTTPMethods::post('dateIn')       ?? '';
-            $dateOutStr   = UHTTPMethods::post('dateOut')      ?? '';
-            $acceptedPets = UHTTPMethods::post('acceptedPets') ?? [];
-
-            // Basic validation
-            if (!$idPosition || !$title || !$description || !$dateInStr || !$dateOutStr) {
-                CofferHosting::showErrorAndForm('Missing required fields.', $idPosition);
+            // Verifica che i termini siano stati accettati
+            $termsAccepted = UHTTPMethods::post('terms_accepted') ?? null;
+            if (!$termsAccepted) {
+                CofferHosting::showErrorAndForm('Devi accettare i termini e le condizioni.', null);
+                return;
+            }
+            
+            // Gather fields from the form - CORRETTO con i nomi effettivi del form
+            $idPosition   = UHTTPMethods::post('idPosition') ?? null;
+            $moreInfo     = UHTTPMethods::post('moreInfo') ?? '';
+            $price        = UHTTPMethods::post('price');
+            if (empty($price) || !is_numeric($price)) {
+                CofferHosting::showErrorAndForm('Please enter a valid price.', $idPosition);
+                return;
+            }
+            $price = floatval(str_replace(',', '.', $price));
+            $dateInStr    = UHTTPMethods::post('date_in') ?? ''; // Corretto da dateIn a date_in
+            $dateOutStr   = UHTTPMethods::post('date_out') ?? ''; // Corretto da dateOut a date_out
+            $acceptedPets = UHTTPMethods::post('accepted_pets') ?? []; // Corretto da acceptedPets a accepted_pets
+            $petCounts    = UHTTPMethods::post('accepted_pet_counts') ?? [];
+            
+            // Basic validation - RIMOSSI title e description che non esistono più nel form
+            if (!$idPosition || !$moreInfo || !$dateInStr || !$dateOutStr || !$price) {
+                CofferHosting::showErrorAndForm('Mancano campi obbligatori.', $idPosition);
                 return;
             }
 
@@ -54,7 +72,7 @@ class CofferHosting {
                 $dateIn  = new DateTime($dateInStr);
                 $dateOut = new DateTime($dateOutStr);
             } catch (Exception $e) {
-                CofferHosting::showErrorAndForm('Invalid date format.', $idPosition);
+                CofferHosting::showErrorAndForm('Formato data non valido.', $idPosition);
                 return;
             }
 
@@ -62,17 +80,25 @@ class CofferHosting {
             $userId   = USession::getInstance()->getSessionElement('user');
             $position = FPersistentManager::retriveObj(MPosition::getEntity(), (int)$idPosition);
             if (!$position || $position->getOwner()->getId() !== $userId) {
-                CofferHosting::showErrorAndForm('Invalid position or insufficient permissions.', $idPosition);
+                CofferHosting::showErrorAndForm('Posizione non valida o permessi insufficienti.', $idPosition);
                 return;
             }
 
-            // Create and save the hosting post
+            // Formatta gli animali accettati nel formato corretto
+            $formattedPets = [];
+            for ($i = 0; $i < count($acceptedPets); $i++) {
+                if (!empty($acceptedPets[$i])) {
+                    $formattedPets[$acceptedPets[$i]] = intval($petCounts[$i]);
+                }
+            }
+            
+            // Create and save the hosting post - ADATTATO ai campi disponibili
             $post = new Mpost(
-                $description,
-                $acceptedPets,
+                $moreInfo, // come descrizione
+                $formattedPets,
                 $price,
-                $title,
-                $moreInfo,
+                $position->getTitle(), // usa il titolo della proprietà invece del title
+                $moreInfo, // usa moreInfo anche per campo moreinfo
                 $position->getOwner(),
                 $position,
                 $dateIn,
@@ -81,9 +107,13 @@ class CofferHosting {
             $post->setBooked(false);
             FPersistentManager::saveObj($post);
 
-            // Show summary of the created post instead of redirecting
-            $view = new VOfferHosting();
-            $view->showPostSummary($post);
+            // Redirect to success page
+            USession::getInstance()->setSessionElement('success_message', 'Post creato con successo!');
+            header('Location: /PetHouse/user/profile');
+            exit;
+        } else {
+            header('Location: /PetHouse/User/login');
+            exit;
         }
     }
 

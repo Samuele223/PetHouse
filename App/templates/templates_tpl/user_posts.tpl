@@ -250,205 +250,45 @@
 
                         <div class="section"> 
                             <div id="list-type" class="proerty-th-list">
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                        </div>
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
+                                {if $posts|@count > 0}
+                                    {foreach from=$posts item=post}
+                                        <div class="col-md-4 p0">
+                                            <div class="box-two proerty-item">
+                                                <div class="item-thumb">
+                                                    {assign var="house" value=$post->getHouse()}
+                                                    {assign var="photos" value=$house->getPhotos()}
+                                                    {if $photos|@count > 0}
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                                                        </a>
+                                                    {else}
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
+                                                        </a>
+                                                    {/if}
                                                 </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>                             
-
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow ">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
+                                                <div class="item-entry overflow">
+                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
+                                                    <div class="dot-hr"></div>
+                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
+                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <div class="property-icon">
+                                                        <div class="dealer-action pull-right">                                        
+                                                            <a href="/PetHouse/Post/edit/{$post->getId()}" class="button">Edit</a>
+                                                            <a href="/PetHouse/Post/delete/{$post->getId()}" class="button delete_user_car">Delete</a>
+                                                            <a href="/PetHouse/Post/view/{$post->getId()}" class="button">View</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    {/foreach}
+                                {else}
+                                    <div class="col-md-12">
+                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
                                     </div>
-                                </div> 
-
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div> 
-
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div> 
-
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div> 
-
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>                             
-
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                        </div>
-
-                                        <div class="item-entry overflow">
-                                            <h5><a href="property-1.html"> Super nice villa </a></h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Area :</b> 120m </span>
-                                            <span class="proerty-price pull-right"> $ 300,000</span>
-                                            <p style="display: none;">Suspendisse ultricies Suspendisse ultricies Nulla quis dapibus nisl. Suspendisse ultricies commodo arcu nec pretium ...</p>
-                                            <div class="property-icon">
-                                                <img src="/PetHouse/App/templates/assets/img/icon/bed.png">(5)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/shawer.png">(2)|
-                                                <img src="/PetHouse/App/templates/assets/img/icon/cars.png">(1)  
-
-                                                <div class="dealer-action pull-right">                                        
-                                                    <a href="submit-property.html" class="button">Edit </a>
-                                                    <a href="#" class="button delete_user_car">Delete</a>
-                                                    <a href="property-1.html" class="button">View</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>                                                        
+                                {/if}
                             </div>
                         </div>
 

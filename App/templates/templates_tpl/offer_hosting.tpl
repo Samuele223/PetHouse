@@ -208,358 +208,163 @@
                                     </h3>
                                 </div>
 
-                                <ul>
-                                    <li><a href="#step1" data-toggle="tab">Step 1 </a></li>
-                                    <li><a href="#step2" data-toggle="tab">Step 2 </a></li>
-                                    <li><a href="#step3" data-toggle="tab">Step 3 </a></li>
-                                    <li><a href="#step4" data-toggle="tab">Finished </a></li>
-                                </ul>
-
-                                <div class="tab-content">
-
-                                    <div class="tab-pane" id="step1">
-                                        <div class="row p-b-15  ">
-                                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                                            <div class="col-sm-4 col-sm-offset-1">
-                                            <div class="picture-container">
-                                                <div class="picture">
-                                                    <img src="/PetHouse/App/templates/assets/img/default-property.jpg" class="picture-src" id="wizardPicturePreview" title="Profile Picture Preview"/>
-                                                    <input type="file" id="wizard-picture" name="profile_picture" accept="image/*">
-                                                </div>
-                                                <small>Scegli la foto profilo della casa</small>
-                                            </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Property name <small>(required)</small></label>
-                                                    <input name="title" type="text" class="form-control" placeholder="Super villa ...">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Info <small></small></label>
-                                                    <input name="moreInfo" type="text" class="form-control" placeholder="Big garden a lof of space for your pets">
-                                                </div> 
-                                                <div class="form-group">
-                                                    <label>Telephone <small>(empty if you wanna use default phone number)</small></label>
-                                                    <input name="phone" type="text" class="form-control" placeholder="{$telehone}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--  End step 1 -->
-
-                                    <div class="tab-pane" id="step2">
-                                        <h4 class="info-text"> Describe your house  </h4>
-                                        <div class="row">
-                                            <div class="col-sm-12"> 
-                                                <div class="col-sm-12"> 
-                                                    <div class="form-group">
-                                                        <label>Property Description :</label>
-                                                        <textarea name="discrition" class="form-control" ></textarea>
-                                                    </div> 
-                                                </div> 
-                                            </div>
-
-                                            <div class="col-sm-12">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Property Province :</label>
-                                                        <input type="text" name="province" class="form-control" placeholder="Enter Province">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Property City :</label>
-                                                        <input type="text" name="city" class="form-control" placeholder="Enter city">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Date In :</label>
-                                                        <input type="date" name="date_in" class="form-control" placeholder="Date In">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Date Out :</label>
-                                                        <input type="date" name="date_out" class="form-control" placeholder="Date Out">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label>Prezzo per notte <span style="color:#FDC600;">€</span>:</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
-                                                            <i class="fa fa-eur"></i>
-                                                        </span>
-                                                        <input type="number" name="price" class="form-control" min="0" step="0.01" placeholder="Inserisci il prezzo" required>
-                                                        <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">/notte</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label>Accepted Pets:</label>
-                                                    <div id="acceptedPetsFields">
-                                                        <div class="input-group pet-group" style="margin-bottom:5px; max-width:400px;">
-                                                            <select name="accepted_pets[]" class="form-control">
-                                                                <option value="">Select pet</option>
-                                                                <option value="dog">Dog</option>
-                                                                <option value="cat">Cat</option>
-                                                                <option value="bird">Bird</option>
-                                                                <option value="rabbit">Rabbit</option>
-                                                                <option value="mouse">Mouse</option>
-                                                                <!-- Add more pet types -->
-                                                            </select>
-                                                            <input type="number" name="accepted_pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
-                                                            <span class="input-group-btn">
-                                                                <button type="button" class="btn btn-success add-pet">+</button>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12 padding-top-15">                                                   
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label for="property-geo">Min bed :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[250,450]" id="min-bed" ><br />
-                                                        <b class="pull-left color">1</b> 
-                                                        <b class="pull-right color">120</b>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-
-                                                    <div class="form-group">
-                                                        <label for="price-range">Min baths :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[250,450]" id="min-baths" ><br />
-                                                        <b class="pull-left color">1</b> 
-                                                        <b class="pull-right color">120</b>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-
-                                                    <div class="form-group">
-                                                        <label for="property-geo">Property geo (m2) :</label>
-                                                        <input type="text" class="span2" value="" data-slider-min="0" 
-                                                               data-slider-max="600" data-slider-step="5" 
-                                                               data-slider-value="[50,450]" id="property-geo" ><br />
-                                                        <b class="pull-left color">40m</b> 
-                                                        <b class="pull-right color">12000m</b>
-                                                    </div>
-                                                </div>   
-                                            </div>
-                                            <div class="col-sm-12 padding-top-15">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Swimming Pool
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> 2 Stories
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                 
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Emergency Exit
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                 
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Fire Place 
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                            </div> 
-                                            <div class="col-sm-12 padding-bottom-15">
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Laundry Room
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Jog Path
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Ceilings
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox"> Dual Sinks
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <!-- End step 2 -->
-
-                                    <div class="tab-pane" id="step3">                                        
-                                        <h4 class="info-text">Give us somme images and videos ? </h4>
-                                        <div class="row">  
-                                            <div class="col-sm-6">
-                                            <div class="form-group">
-                                            <label for="property-images">Choose Images :</label>
-                                            <div id="imageFields">
-                                                <div class="input-group" style="margin-bottom:10px; max-width:400px;">
-                                                    <input class="form-control" type="file" name="property_images[]" accept="image/*">
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-warning add-image-field" title="Aggiungi un altro campo immagine">
-                                                            <i class="fa fa-plus"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <p class="help-block">Aggiungi una o più immagini per la tua proprietà.</p>
-                                        </div>
-
-<script>
-document.getElementById('property-images').addEventListener('change', function(e) {
-    const preview = document.getElementById('image-preview');
-    preview.innerHTML = '';
-    Array.from(e.target.files).forEach(file => {
-        if (file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                const img = document.createElement('img');
-                img.src = evt.target.result;
-                img.style.maxWidth = '80px';
-                img.style.maxHeight = '80px';
-                img.style.borderRadius = '8px';
-                img.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                preview.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('imageFields').addEventListener('click', function(e) {
-        if (e.target.closest('.add-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            const newGroup = group.cloneNode(true);
-            newGroup.querySelector('input[type="file"]').value = '';
-            // Cambia il bottone "+" in "-" per rimuovere
-            const btn = newGroup.querySelector('.add-image-field');
-            btn.classList.remove('btn-warning');
-            btn.classList.add('btn-danger');
-            btn.innerHTML = '<i class="fa fa-minus"></i>';
-            btn.classList.remove('add-image-field');
-            btn.classList.add('remove-image-field');
-            document.getElementById('imageFields').appendChild(newGroup);
-        } else if (e.target.closest('.remove-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            if(document.querySelectorAll('#imageFields .input-group').length > 1) {
-                group.remove();
-            }
-        }
-    });
-});
-</script>                                               
-                                        </div>
-                                            <div class="col-sm-6"> 
-                                                <div class="form-group">
-                                                    <label for="property-video">Property video :</label>
-                                                    <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                                </div> 
-
-                                                <div class="form-group">
-                                                    <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <input class="form-control" value="" placeholder="http://www.youtube.com, http://vimeo.com" name="property_video" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--  End step 3 -->
-
-
-                                    <div class="tab-pane" id="step4">                                        
-                                        <h4 class="info-text"> Finished and submit </h4>
-                                        <div class="row">  
-                                            <div class="col-sm-12">
-                                                <div class="">
-                                                    <p>
-                                                        <label><strong>Terms and Conditions</strong></label>
-                                                        By accessing or using  GARO ESTATE services, such as 
-                                                        posting your property advertisement with your personal 
-                                                        information on our website you agree to the
-                                                        collection, use and disclosure of your personal information 
-                                                        in the legal proper manner
-                                                    </p>
-
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" /> <strong>Accept termes and conditions.</strong>
-                                                        </label>
-                                                    </div> 
-
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--  End step 4 -->
-
+                                <!-- Aggiungi questo blocco per mostrare eventuali errori -->
+                                {if isset($error)}
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Error!</strong> {$error}
                                 </div>
+                                {/if}
 
-                                <div class="wizard-footer">
-                                    <div class="pull-right">
-                                        <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
-                                        <input type='button' class='btn btn-finish btn-primary ' name='finish' value='Finish' />
-                                    </div>
+                                <ul>
+    <li><a href="#step1" data-toggle="tab">Step 1</a></li>
+    <li><a href="#step2" data-toggle="tab">Step 2</a></li>
+    <li><a href="#step3" data-toggle="tab">Step 3</a></li>
+    <li><a href="#step4" data-toggle="tab">Finished</a></li>
+</ul>
 
-                                    <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default' name='previous' value='Previous' />
-                                    </div>
-                                    <div class="clearfix"></div>                                            
-                                </div>	
+<div class="tab-content">
+    <!-- STEP 1 -->
+    <div class="tab-pane" id="step1">
+        <div class="row p-b-15">
+            <h4 class="info-text">Select your property</h4>
+
+            <div class="col-sm-12">
+                <div class="col-sm-7">
+                    <!-- Campo property -->
+                    <div class="form-group">
+                        <label>Select your property <small>(required)</small></label>
+                        <select name="idPosition" id="propertySelect" class="form-control" required>
+                            <option value="">-- Select a property --</option>
+                            {foreach from=$positions item=position}
+                                <option value="{$position->getId()}">
+                                    {$position->getTitle()} - {$position->getAddress()}, {$position->getCity()}
+                                </option>
+                            {/foreach}
+                        </select>
+                        {if $positions|@count == 0}
+                            <div class="alert alert-warning" style="margin-top:10px;">
+                                <p>You don't have any properties yet.
+                                    <a href="/PetHouse/user/addHouse" class="btn btn-xs btn-primary">Add a property</a>
+                                </p>
+                            </div>
+                        {/if}
+                    </div>
+
+                    <!-- Campo moreInfo -->
+                    <div class="form-group">
+                        <label>Additional information <small>(required)</small></label>
+                        <textarea name="moreInfo" class="form-control" rows="4" placeholder="Add more details about this listing..." required></textarea>
+                    </div>
+                </div>
+
+                <!-- Anteprima immagine -->
+                <div class="col-sm-5">
+                    <div id="property-preview-container" style="margin-top: 20px; text-align: center;">
+                        <img src="/PetHouse/App/templates/assets/img/default-property.jpg" 
+                             id="propertyImagePreview"
+                             style="max-width: 100%; max-height: 200px; border:1px solid #ddd; padding:3px; border-radius:4px;" />
+                        <p style="margin-top:10px;">Selected property image</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FINE STEP 1 -->
+
+    <!-- STEP 2 -->
+    <div class="tab-pane" id="step2">
+        <h4 class="info-text">Listing details</h4>
+
+        <div class="form-group">
+            <label>Price per night <span style="color:#FDC600;">€</span>:</label>
+            <div class="input-group" style="max-width: 300px;">
+                <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
+                    <i class="fa fa-eur"></i>
+                </span>
+                <input type="number" name="price" class="form-control" min="0" step="0.01"
+                       placeholder="Enter price" required>
+                <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
+                    /night
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Accepted pets:</label>
+            <div id="acceptedPetsFields">
+                <div class="input-group pet-group" style="margin-bottom:5px; max-width:400px;">
+                    <select name="accepted_pets[]" class="form-control">
+                        <option value="">Select pet type</option>
+                        <option value="DOG">Dog</option>
+                        <option value="CAT">Cat</option>
+                        <option value="PARROT">Parrot</option>
+                        <option value="FISH">Fish</option>
+                        <option value="HAMSTER">Hamster</option>
+                        <option value="MOUSE">Mouse</option>
+                        <option value="SNAKE">Snake</option>
+                        <option value="RABBIT">Rabbit</option>
+                        <option value="TURTLE">Turtle</option>
+                    </select>
+                    <input type="number" name="accepted_pet_counts[]" class="form-control" min="1" value="1" 
+                           style="width:80px;" placeholder="Qty">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success add-pet">+</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FINE STEP 2 -->
+
+    <!-- STEP 3 -->
+    <div class="tab-pane" id="step3">
+        <h4 class="info-text">Availability period</h4>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Start date:</label>
+                    <input type="date" name="date_in" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>End date:</label>
+                    <input type="date" name="date_out" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i> Enter the period when your property will be available for hosting.
+        </div>
+    </div>
+    <!-- FINE STEP 3 -->
+
+    <!-- STEP 4 -->
+    <div class="tab-pane" id="step4">
+        <h4 class="info-text">Terms and Conditions</h4>
+        <div class="alert alert-warning">
+            <p>Please review the terms and conditions before finalizing.</p>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="terms_accepted" id="terms_checkbox" required>
+            <strong>I accept the terms and conditions.</strong>
+        </div>
+    </div>
+    <!-- FINE STEP 4 -->
+</div>
+
+<!-- Footer con i pulsanti del Wizard -->
+<div class="wizard-footer">
+    <div class="pull-right">
+        <input type='button' class='btn btn-primary btn-next' name='next' value='Next'/>
+        <input type='button' class='btn btn-primary btn-finish' name='finish' value='Finish'/>
+    </div>
+    <div class="pull-left">
+        <input type='button' class='btn btn-default btn-previous' name='previous' value='Previous'/>
+    </div>
+    <div class="clearfix"></div>
+</div>
                             </form>
                         </div>
                         <!-- End submit form -->
@@ -745,6 +550,238 @@ document.addEventListener('DOMContentLoaded', function() {
                 petGroup.remove();
             }
         }
+    });
+});
+</script>
+<!-- Aggiungi questo script prima della chiusura del body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestisce la selezione della proprietà e aggiorna l'immagine
+    const propertySelect = document.getElementById('propertySelect');
+    const imagePreview = document.getElementById('propertyImagePreview');
+    
+    propertySelect.addEventListener('change', function() {
+        const propertyId = this.value;
+        
+        if (!propertyId) {
+            // Se nessuna proprietà è selezionata, mostra l'immagine di default
+            imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+            return;
+        }
+        
+        // Esegui una richiesta AJAX per ottenere la prima foto della proprietà
+        fetch('/PetHouse/image/getPropertyFirstImage/' + propertyId)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Image data:', data); // Per debug
+                if (data.success && data.imageUrl) {
+                    // Precarica l'immagine
+                    const tempImg = new Image();
+                    tempImg.onload = function() {
+                        imagePreview.src = data.imageUrl;
+                    };
+                    tempImg.onerror = function() {
+                        console.error('Failed to load image:', data.imageUrl);
+                        imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+                    };
+                    tempImg.src = data.imageUrl;
+                } else {
+                    console.warn('No image found:', data.message);
+                    imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching property image:', error);
+                imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+            });
+    });
+    
+    // Se c'è già un valore selezionato all'avvio, aggiorna l'immagine
+    if (propertySelect.value) {
+        propertySelect.dispatchEvent(new Event('change'));
+    }
+});
+</script>
+<!-- Aggiungi questo script prima della chiusura del body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Evento per aggiornare il riepilogo quando si passa allo step 3
+    document.querySelector('a[href="#step3"]').addEventListener('click', updateSummary);
+    
+    function updateSummary() {
+        // Proprietà selezionata
+        const propertySelect = document.getElementById('propertySelect');
+        const propertyText = propertySelect.options[propertySelect.selectedIndex]?.text || '-';
+        document.getElementById('summary-property').textContent = propertyText;
+        
+        // Informazioni aggiuntive
+        const moreInfo = document.querySelector('textarea[name="moreInfo"]').value || '-';
+        document.getElementById('summary-moreinfo').textContent = moreInfo;
+        
+        // Immagine
+        document.getElementById('summary-image').src = document.getElementById('propertyImagePreview').src;
+        
+        // Date e prezzo
+        const dateIn = document.querySelector('input[name="date_in"]').value;
+        document.getElementById('summary-datein').textContent = dateIn ? new Date(dateIn).toLocaleDateString() : '-';
+        
+        const dateOut = document.querySelector('input[name="date_out"]').value;
+        document.getElementById('summary-dateout').textContent = dateOut ? new Date(dateOut).toLocaleDateString() : '-';
+        
+        const price = document.querySelector('input[name="price"]').value;
+        document.getElementById('summary-price').textContent = price ? '€ ' + price + ' /notte' : '-';
+        
+        // Animali accettati
+        const petsList = document.getElementById('summary-pets');
+        petsList.innerHTML = '';
+        
+        const petSelects = document.querySelectorAll('select[name="accepted_pets[]"]');
+        const petCounts = document.querySelectorAll('input[name="accepted_pet_counts[]"]');
+        
+        let hasPets = false;
+        
+        for (let i = 0; i < petSelects.length; i++) {
+            if (petSelects[i].value) {
+                hasPets = true;
+                const petType = petSelects[i].options[petSelects[i].selectedIndex].text;
+                const petCount = petCounts[i].value;
+                
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = petType + ' (' + petCount + ')';
+                petsList.appendChild(li);
+            }
+        }
+        
+        if (!hasPets) {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = 'Nessun animale selezionato';
+            petsList.appendChild(li);
+        }
+    }
+});
+</script>
+<!-- Sostituisci il vecchio script del riepilogo con questo -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Imposta date predefinite quando si carica la pagina
+    const today = new Date();
+    const nextMonth = new Date();
+    nextMonth.setMonth(today.getMonth() + 1);
+    
+    // Formatta le date in YYYY-MM-DD per il campo input type="date"
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return year + '-' + month + '-' + day;
+    };
+    
+    // Imposta i valori predefiniti se l'utente non ha già inserito date
+    document.querySelector('a[href="#step3"]').addEventListener('click', function() {
+        const dateInField = document.querySelector('input[name="date_in"]');
+        const dateOutField = document.querySelector('input[name="date_out"]');
+        
+        if (!dateInField.value) {
+            dateInField.value = formatDate(today);
+        }
+        
+        if (!dateOutField.value) {
+            dateOutField.value = formatDate(nextMonth);
+        }
+    });
+});
+</script>
+<style>
+.picture::before,
+.picture::after {
+  content: none !important;
+}
+</style>
+<!-- Aggiungi questo prima della chiusura del body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Aggiunge validazione al bottone Finish
+    const finishBtn = document.querySelector('.btn-finish');
+    const form = document.querySelector('form');
+    
+    finishBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Previeni l'invio automatico
+        
+        // Verifica che i termini siano stati accettati
+        const termsCheckbox = document.getElementById('terms_checkbox');
+        if (!termsCheckbox.checked) {
+            alert('You must accept the terms and conditions to continue.');
+            return false;
+        }
+        
+        // Assicurati che il prezzo sia valido
+        const priceField = document.querySelector('input[name="price"]');
+        if (!priceField.value || isNaN(parseFloat(priceField.value))) {
+            alert('Please enter a valid price.');
+            return false;
+        }
+        
+        // Se tutto è ok, invia il form
+        form.submit();
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const steps = document.querySelectorAll('.tab-pane');
+    const nextBtn = document.querySelector('.btn-next');
+    const prevBtn = document.querySelector('.btn-previous');
+    const finishBtn = document.querySelector('.btn-finish');
+
+    function updateButtons() {
+        const activeIndex = [...steps].findIndex(step => step.classList.contains('active'));
+
+        if (activeIndex === 0) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-block';
+            finishBtn.style.display = 'none';
+        } else if (activeIndex === steps.length - 1) {
+            prevBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'none';
+            finishBtn.style.display = 'inline-block';
+        } else {
+            prevBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'inline-block';
+            finishBtn.style.display = 'none';
+        }
+    }
+
+    updateButtons();
+
+    nextBtn.addEventListener('click', function() {
+        const active = document.querySelector('.tab-pane.active');
+        const nextStep = active.nextElementSibling;
+        if (nextStep) {
+            const nextTabId = nextStep.id;
+            // Usa concatenazione classica anziché i backtick:
+            document.querySelector('a[href="#' + nextTabId + '"]').click();
+        }
+    });
+
+    prevBtn.addEventListener('click', function() {
+        const active = document.querySelector('.tab-pane.active');
+        const prevStep = active.previousElementSibling;
+        if (prevStep) {
+            const prevTabId = prevStep.id;
+            document.querySelector('a[href="#' + prevTabId + '"]').click();
+        }
+    });
+
+    // Ricalcola i pulsanti ogni volta che si cambia tab
+    document.querySelectorAll('a[data-toggle="tab"]').forEach(link => {
+        link.addEventListener('shown.bs.tab', updateButtons);
     });
 });
 </script>

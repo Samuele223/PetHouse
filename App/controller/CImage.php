@@ -21,4 +21,24 @@ class CImage
             echo "Immagine non trovata";
         }
     }
+    
+    public static function getPropertyFirstImage($propertyId) {
+        // Verifica che l'ID sia valido
+        if (!is_numeric($propertyId)) {
+            echo json_encode(['success' => false, 'message' => 'Invalid property ID']);
+            return;
+        }
+        
+        // Usa FPosition per trovare direttamente la prima immagine
+        $photoId = FPosition::getFirstImageForPosition((int)$propertyId);
+        
+        if ($photoId) {
+            // Costruisci l'URL dell'immagine
+            $imageUrl = '/PetHouse/image/showImage/' . $photoId;
+            echo json_encode(['success' => true, 'imageUrl' => $imageUrl]);
+        } else {
+            // Nessuna foto trovata
+            echo json_encode(['success' => false, 'message' => 'No images found']);
+        }
+    }
 }
