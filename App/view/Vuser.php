@@ -72,7 +72,11 @@ public function showUserHousesDetails($house) {
     $this->smarty->display('house_detail.tpl');
 }
 
-
-
-
+/**
+ * Shows the verification form
+ */
+public function showVerificationForm($user) {
+    $this->smarty->assign('user', $user);
+    $this->smarty->display('formVerification.tpl');
+}
     }

@@ -34,6 +34,10 @@ private ?Mposition $location=null;
 #[ORM\OneToOne(mappedBy:'profilePicture')]
 private ?Muser $user=null;
 
+#[ORM\ManyToOne(inversedBy:"documents")]
+#[ORM\JoinColumn(name:"verification_id", referencedColumnName:"id", nullable:true)]
+private ?Mverification $verification=null;
+
 public function __construct($dati, $types)
 {
     $this->imageData = $dati;
@@ -53,9 +57,15 @@ public function getId(): int
     return $this->id;
 }
 
-public function getName(): string
+public function getName(): ?string
 {
     return $this->name;
+}
+
+public function setName(?string $name): self
+{
+    $this->name = $name;
+    return $this;
 }
 
 public function getSize(): int
@@ -105,6 +115,17 @@ public function setUser($user): static
 $this->user = $user;
 
 return $this;
+}
+
+public function getVerification(): ?Mverification
+{
+    return $this->verification;
+}
+
+public function setVerification(?Mverification $verification): self
+{
+    $this->verification = $verification;
+    return $this;
 }
 }
 ?>

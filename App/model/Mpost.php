@@ -267,11 +267,3 @@ public function getDescription(): string {
 
 }
 
-
-$rawPrice = UHTTPMethods::post('price');
-if (!$rawPrice) {
-    $rawPrice = '0';
-}
-$rawPrice = str_replace(',', '.', $rawPrice);
-$price = floatval($rawPrice);
-// ...costruisci poi il tuo oggetto Mpost, passando $price correttamente...?>

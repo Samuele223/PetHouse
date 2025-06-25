@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-25 17:18:17
+  from 'file:formVerification.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685c1339ab9b91_85690525',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd011683ae52641180d3ff6edf045dd3698526b3c' => 
+    array (
+      0 => 'formVerification.tpl',
+      1 => 1750864657,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685c1339ab9b91_85690525 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -7,7 +31,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | property User profile Page </title>
+        <title>GARO ESTATE | Submit property Page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -19,13 +43,12 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontello.css">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
-        <link href="/PetHouse/App/templates/css/animate.css" rel="stylesheet" media="screen">
+        <link href="css/animate.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/bootstrap-select.min.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
@@ -69,7 +92,7 @@
                     </div>
                 </div>
             </div>
-        </div>         
+        </div>              
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -88,14 +111,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <form method="post" action="/PetHouse/user/logout" style="display:inline;">
-                                <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
-                            </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -189,109 +210,81 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">{$name}</span></h1>               
+                        <h1 class="page-title">User Verification</h1>               
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End page header --> 
+        <!-- End page header -->
 
-        <!-- property area -->
-        <div class="content-area user-profiel" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">   
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 profiel-container">
+        <!-- Verification form area -->
+        <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
+            <div class="container">
+                <div class="clearfix" > 
+                    <div class="wizard-container"> 
+                        <div class="wizard-card ct-wizard-orange" id="wizardProperty">
+                            <form id="verificationForm" action="/PetHouse/user/submitVerification" method="post" enctype="multipart/form-data">                        
+                                <div class="wizard-header">
+                                    <h3>
+                                        <b>Verify</b> your account<br>
+                                        <small>Submit documents to verify your identity</small>
+                                    </h3>
+                                </div>
 
-                        <form action="" method="">
-                            <div class="profiel-header">
-                                <h3>
-                                    <b></b> YOUR PROFILE <br>
-                                    <small>All about you</small>
-                                </h3>
-                                <hr>
-                            </div>
+                                <ul>
+                                    <li><a href="#step1" data-toggle="tab">Identity Verification</a></li>
+                                </ul>
 
-                            <div class="clear">
-                                <div class="col-sm-3 col-sm-offset-1">
-                                    <div class="picture-container">
-                                        <div class="picture">
-                                            <img src="/PetHouse/image/showImage/{$pic}" alt="Foto profilo di {$name}" style="pointer-events: none;">
-                                            <input type="file" id="wizard-picture">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="step1">
+                                        <div class="row p-b-15">
+                                            <div class="col-sm-12">
+                                                <div class="alert alert-info">
+                                                    <i class="fa fa-info-circle"></i> 
+                                                    Verification helps build trust in the PetHouse community. Please upload a valid ID document.
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label>Upload your ID document (passport, driver's license, etc.)</label>
+                                                    <div id="imageFields">
+                                                        <div class="input-group" style="margin-bottom:10px;">
+                                                            <input type="file" name="id_document" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label>Additional information</label>
+                                                    <textarea name="verification_notes" class="form-control" rows="4" placeholder="Add any notes that might help with your verification..."></textarea>
+                                                </div>
+                                                
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" name="terms_accepted" required /> 
+                                                        <strong>I confirm that the information provided is accurate and belongs to me.</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h6>YOUR PROFILE PICTURE</h6>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-3 padding-top-25">
-
-                                    <div class="form-group">
-                                        <label>First Name <small>(required)</small></label>
-                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
+                                <div class="wizard-footer">
+                                    <div class="pull-right">
+                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Submit Verification' />
                                     </div>
-                                    <div class="form-group">
-                                        <label>Last Name <small>(required)</small></label>
-                                        <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="{$surname|escape}" readonly>
-                                    </div> 
-                                    <div class="form-group">
-                                        <label>Email <small>(required)</small></label>
-                                        <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="{$email|escape}" readonly>
-                                    </div> 
-                                    <div class="form-group">
-                                        <label>Phone :</label>
-                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
+                                    <div class="pull-left">
+                                        <a href="/PetHouse/user/profile" class='btn btn-default'>Cancel</a>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="clear">
-                                <br>
-                                <hr>
-                                <br>
-                                <div class="col-sm-5 col-sm-offset-1">
-                                    <div class="form-group">
-                                        <label>Facebook :</label>
-                                        <input name="Facebook" type="text" class="form-control" placeholder="https://facebook.com/user" value="{$facebook|escape}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Twitter :</label>
-                                        <input name="Twitter" type="text" class="form-control" placeholder="https://Twitter.com/@user" value="{$twitter|escape}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Website :</label>
-                                        <input name="website" type="text" class="form-control" placeholder="https://yoursite.com/" value="{$website|escape}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Public email :</label>
-                                        <input name="p-email" type="email" class="form-control" placeholder="p-email@rmail.com" value="{$pemail|escape}">
-                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>  
-
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label>FAX :</label>
-                                        <input name="FAX" type="text" class="form-control" placeholder="+1 9090909090" value="{$fax|escape}">
-                                    </div>
-                                </div>
- 
-                            </div>
-                    
-                            <div class="col-sm-10 col-sm-offset-1">
-                                <br>
-                                <a href="https://localhost/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
-                                <a href="/PetHouse/user/myHouses" class="btn btn-primary" style="margin-right:10px;">Your Houses</a>
-                                <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
-                                <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
-                                <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
-                                <a href="/PetHouse/user/askVerification" class="btn btn-success" style="margin-right:10px;">Ask Verification</a>
-                            </div>
-                            <br>
-                    </form>
-
+                            </form>
+                        </div>
+                    </div> 
                 </div>
-            </div><!-- end row -->
-
+            </div>
         </div>
-    </div>
+
           <!-- Footer area-->
         <div class="footer-area">
 
@@ -396,11 +389,11 @@
 
                                 <div class="social pull-right"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
@@ -430,25 +423,121 @@
 
         </div>
 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script> 
-        <script src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-
-
-</body>
-</html>
+<?php echo '<script'; ?>
+>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#requiredPetsFields').addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-pet')) {
+            e.preventDefault();
+            const petGroup = e.target.closest('.pet-group');
+            const newGroup = petGroup.cloneNode(true);
+            newGroup.querySelector('select').selectedIndex = 0;
+            newGroup.querySelector('input').value = 1;
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-pet');
+            btn.classList.remove('btn-success', 'add-pet');
+            btn.classList.add('btn-danger', 'remove-pet');
+            btn.textContent = '-';
+            document.querySelector('#requiredPetsFields').appendChild(newGroup);
+        } else if (e.target.classList.contains('remove-pet')) {
+            e.preventDefault();
+            const petGroup = e.target.closest('.pet-group');
+            if(document.querySelectorAll('#requiredPetsFields .pet-group').length > 1) {
+                petGroup.remove();
+            }
+        }
+    });
+});
+<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestione aggiunta/rimozione campi immagine
+    document.getElementById('imageFields').addEventListener('click', function(e) {
+        if (e.target.closest('.add-image-field')) {
+            e.preventDefault();
+            const group = e.target.closest('.input-group');
+            const newGroup = group.cloneNode(true);
+            newGroup.querySelector('input[type="file"]').value = '';
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-image-field');
+            btn.classList.remove('btn-warning');
+            btn.classList.add('btn-danger');
+            btn.innerHTML = '<i class="fa fa-minus"></i>';
+            btn.classList.remove('add-image-field');
+            btn.classList.add('remove-image-field');
+            document.getElementById('imageFields').appendChild(newGroup);
+        } else if (e.target.closest('.remove-image-field')) {
+            e.preventDefault();
+            const group = e.target.closest('.input-group');
+            if(document.querySelectorAll('#imageFields .input-group').length > 1) {
+                group.remove();
+            }
+        }
+    });
+});
+<?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('verificationForm');
+    form.addEventListener('submit', function(e) {
+        // Non chiamare preventDefault() qui - lascia che il form venga inviato normalmente
+        console.log('Form is being submitted');
+    });
+});
+<?php echo '</script'; ?>
+>
+    </body>
+</html><?php }
+}
