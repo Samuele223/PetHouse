@@ -282,6 +282,7 @@
                                 <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
                                 <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
                                 <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
+                                <a href="/PetHouse/Review/Deals" class="btn btn-primary" style="margin-right:10px;">History Deals</a>
                                 <a href="/PetHouse/user/askVerification" class="btn btn-success" style="margin-right:10px;">Ask Verification</a>
                             </div>
                             <br>

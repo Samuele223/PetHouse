@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-25 17:01:37
+/* Smarty version 5.5.0, created on 2025-06-25 17:38:18
   from 'file:user-profile.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685c0f51048533_65511758',
+  'unifunc' => 'content_685c17ea8eaae5_45272803',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b05a076ccb1cd3eeaf58484c53a58c0ec85f14d3' => 
     array (
       0 => 'user-profile.tpl',
-      1 => 1750862441,
+      1 => 1750865871,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685c0f51048533_65511758 (\Smarty\Template $_smarty_tpl) {
+function content_685c17ea8eaae5_45272803 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -318,7 +318,8 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                                 <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
                                 <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
                                 <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
-                                <a href="/PetHouse/Review/Deals" class="btn btn-primary" style="margin-right:10px;">History Deals</a>    
+                                <a href="/PetHouse/Review/Deals" class="btn btn-primary" style="margin-right:10px;">History Deals</a>
+                                <a href="/PetHouse/user/askVerification" class="btn btn-success" style="margin-right:10px;">Ask Verification</a>
                             </div>
                             <br>
                     </form>
