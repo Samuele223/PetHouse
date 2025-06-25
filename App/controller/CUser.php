@@ -338,4 +338,91 @@ public static function viewMyHousesDetails(int $id) {
         $view = new Vuser();
         $view->showUserHousesDetails($house);
 }
+
+public static function editHouse(int $id) {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+
+
+    // Recupera la casa
+    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+
+    $view = new Vuser();
+    $view->showUserHousesEdit($house);
+        
 }
+public static function updateHouse(int $id): void {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    // Recupera la casa
+     $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+
+
+    // Aggiorna i dati con quelli del POST
+    $house->setTitle($_POST['title']);
+    $house->setDescription($_POST['description']);
+    $house->setProvince($_POST['province']);
+    $house->setCity($_POST['city']);
+    $house->setCountry($_POST['country']);
+    $house->setAddress($_POST['address']);
+
+
+    // Salva le modifiche
+    $house = FPersistentManager::saveObj($house);  
+
+    header('Location: /PetHouse/user/profile/myHouses');
+    exit;
+}
+public static function deleteHouse(int $id) {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    // Recupera la casa
+    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+
+    if ($house && $house->getOwner()->getId() === $userId) {
+        FPersistentManager::deleteObj($house);
+        USession::setSessionElement('success_message', 'House deleted successfully.');
+    } else {
+        USession::setSessionElement('success_message', 'You do not have permission to delete this house.');
+    }
+
+    header('Location: /PetHouse/User/myHouses');
+    exit;
+
+}}

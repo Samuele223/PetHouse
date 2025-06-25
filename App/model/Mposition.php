@@ -79,6 +79,11 @@ public function getLatitude(): float
     return $this->latitude;
 }
 
+public function setAddress(string $address): void
+{
+    $this->address = $address;
+}
+
 public function getOwner(): Muser
 {
     return $this->owner;
@@ -192,8 +197,6 @@ return $this->title;
 public function setTitle($title)
 {
 $this->title = $title;
-
-return $this;
 }
 }
 ?>

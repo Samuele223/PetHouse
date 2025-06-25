@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-25 17:30:07
+  from 'file:user-properties.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685c15ff243c24_78944409',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd09cbbe3e560ee6358a1b718b9b989f8791da06d' => 
+    array (
+      0 => 'user-properties.tpl',
+      1 => 1750865402,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685c15ff243c24_78944409 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -202,44 +226,61 @@
 
                         <div class="section"> 
                             <div id="list-type" class="proerty-th-list">
-                                {if $houses|@count > 0}
-                                    {foreach from=$houses item=house}
+                                <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('houses')) > 0) {?>
+                                    <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('houses'), 'house');
+$foreach0DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('house')->value) {
+$foreach0DoElse = false;
+?>
                                         <div class="col-md-4 p0">
                                             <div class="box-two proerty-item">
                                                 <div class="item-thumb">
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                                                    <?php $_smarty_tpl->assign('photos', $_smarty_tpl->getValue('house')->getPhotos(), false, NULL);?>
+                                                    <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('photos')) > 0) {?>
+                                                        <a href="/PetHouse/user/viewMyHousesDetails/<?php echo $_smarty_tpl->getValue('house')->getId();?>
+">
+                                                            <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photos')[0]->getId();?>
+" alt="Property Image">
                                                         </a>
-                                                    {else}
-                                                        <a href="/PetHouse/House/view/{$house->getId()}">
+                                                    <?php } else { ?>
+                                                        <a href="/PetHouse/House/view/<?php echo $_smarty_tpl->getValue('house')->getId();?>
+">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
-                                                    {/if}
+                                                    <?php }?>
                                                 </div>
                                                 <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/House/view/{$house->getId()}">{$house->getTitle()}</a></h5>
+                                                    <h5><a href="/PetHouse/House/view/<?php echo $_smarty_tpl->getValue('house')->getId();?>
+"><?php echo $_smarty_tpl->getValue('house')->getTitle();?>
+</a></h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="pull-left"><b>Area:</b> <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('truncate')($_smarty_tpl->getValue('house')->getDescription(),20);?>
+</span>
                                                     <span class="proerty-price pull-right"></span>
-                                                    <p style="display: none;">{$house->getAddress()|truncate:100}</p>
+                                                    <p style="display: none;"><?php echo $_smarty_tpl->getSmarty()->getModifierCallback('truncate')($_smarty_tpl->getValue('house')->getAddress(),100);?>
+</p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/user/editHouse/{$house->getId()}" class="button">Edit</a>
-                                                            <a href="/PetHouse/user/deleteHouse/{$house->getId()}" class="button delete_user_car">Delete</a>
-                                                            <a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}" class="button">View</a>
+                                                            <a href="/PetHouse/user/editHouse/<?php echo $_smarty_tpl->getValue('house')->getId();?>
+" class="button">Edit</a>
+                                                            <a href="/PetHouse/user/deleteHouse/<?php echo $_smarty_tpl->getValue('house')->getId();?>
+" class="button delete_user_car">Delete</a>
+                                                            <a href="/PetHouse/user/viewMyHousesDetails/<?php echo $_smarty_tpl->getValue('house')->getId();?>
+" class="button">View</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    {/foreach}
-                                {else}
+                                    <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+                                <?php } else { ?>
                                     <div class="col-md-12">
                                         <p>Non hai ancora creato case. <a href="/PetHouse/user/addHouse">Crea la tua prima casa</a>.</p>
                                     </div>
-                                {/if}
+                                <?php }?>
                             </div>
                         </div>
 
@@ -424,23 +465,54 @@
         </div>
           
 
-        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script> 
-        <script src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
 
     </body>
-</html>
+</html><?php }
+}

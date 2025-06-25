@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-25 16:17:44
+  from 'file:house_detail.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685c05082f6e10_11558092',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '2139ef3621a689ac354bff1823634ffa7fe13a53' => 
+    array (
+      0 => 'house_detail.tpl',
+      1 => 1750861062,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685c05082f6e10_11558092 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -216,11 +240,20 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        {foreach from=$photos item=photo}
-                                            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
-                                                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
+                                        <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('photos'), 'photo');
+$foreach0DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('photo')->value) {
+$foreach0DoElse = false;
+?>
+                                            <li data-thumb="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photo')->getId();?>
+"> 
+                                                <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photo')->getId();?>
+" alt="Property Image"/>
                                             </li>
-                                        {/foreach}
+                                        <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
                                     </ul>
                                 </div>
                             </div>
@@ -228,7 +261,8 @@
 
                         <div class="single-property-wrapper">
                             <div class="single-property-header">                                          
-                                <h1 class="property-title pull-left">{$house->getTitle()}</h1>
+                                <h1 class="property-title pull-left"><?php echo $_smarty_tpl->getValue('house')->getTitle();?>
+</h1>
                             </div>
 
                             <!-- Box con i dettagli della casa -->
@@ -240,27 +274,33 @@
                                     <ul class="list-group" style="margin-bottom:0;">
                                     <li class="list-group-item">
                                             <strong>Title:</strong><br>
-                                            <span class="form-control-static">{$house->getTitle()}</span>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getTitle();?>
+</span>
                                         </li>
                                         <li class="list-group-item">
                                             <strong>Description:</strong><br>
-                                            <span class="form-control-static">{$house->getDescription()}</span>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getDescription();?>
+</span>
                                         </li>
                                         <li class="list-group-item">
                                             <strong>Address:</strong><br>
-                                            <span class="form-control-static">{$house->getAddress()}</span>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getAddress();?>
+</span>
                                         </li>
                                         <li class="list-group-item">
                                             <strong>Province:</strong><br>
-                                            <span class="form-control-static">{$house->getProvince()}</span>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getProvince();?>
+</span>
                                         </li>
                                         <li class="list-group-item">
                                             <strong>City:</strong><br>
-                                            <span class="form-control-static">{$house->getCity()}</span>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getCity();?>
+</span>
                                         </li>
                                         <li class="list-group-item">
                                             <strong>Country:</strong><br>
-                                            <span class="form-control-static">{$house->getCountry()}</span>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getCountry();?>
+</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -367,20 +407,24 @@
                 <div class="inner-wrapper">
                     <div class="clear">
                         <div class="col-xs-4 col-sm-4 dealer-face">
-                            {assign var="owner" value=$house->getOwner()}
-                            {if $owner->getProfilePicture()}
+                            <?php $_smarty_tpl->assign('owner', $_smarty_tpl->getValue('house')->getOwner(), false, NULL);?>
+                            <?php if ($_smarty_tpl->getValue('owner')->getProfilePicture()) {?>
                                 <a href="/PetHouse/user/profile/">
-                                    <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
+                                    <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('owner')->getProfilePicture()->getId();?>
+" class="img-circle" alt="Owner profile picture">
                                 </a>
-                            {else}
+                            <?php } else { ?>
                                                         <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
-                                                    {/if}
+                                                    <?php }?>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
                                                     <a href="#">
-                                                        {if $owner->getName()}{$owner->getName()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                        {if $owner->getSurname()} {$owner->getSurname()}{else} <span style="color:#aaa;">Missing field</span>{/if}
+                                                        <?php if ($_smarty_tpl->getValue('owner')->getName()) {
+echo $_smarty_tpl->getValue('owner')->getName();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                        <?php if ($_smarty_tpl->getValue('owner')->getSurname()) {?> <?php echo $_smarty_tpl->getValue('owner')->getSurname();
+} else { ?> <span style="color:#aaa;">Missing field</span><?php }?>
                                                     </a>
                                                     
                                                 </h3>
@@ -390,11 +434,15 @@
                                             <ul class="dealer-contacts">
                                                 <li>
                                                     <i class="pe-7s-mail strong"></i>
-                                                    {if $owner->getEmail()}{$owner->getEmail()}{else}<span style="color:#aaa;">Missing field</span>{/if}
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getEmail()) {
+echo $_smarty_tpl->getValue('owner')->getEmail();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
                                                 </li>
                                                 <li>
                                                     <i class="pe-7s-call strong"></i>
-                                                    {if $owner->getTel()}{$owner->getTel()}{else}<span style="color:#aaa;">Missing field</span>{/if}
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getTel()) {
+echo $_smarty_tpl->getValue('owner')->getTel();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
                                                 </li>
                                             </ul>
                                         </div>
@@ -793,21 +841,48 @@
           
         
         
-        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
-        <script type="text/javascript" src="/PetHouse/App/templates/assets/js/lightslider.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="/PetHouse/App/templates/assets/js/lightslider.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
 
-        <script>
+        <?php echo '<script'; ?>
+>
             $(document).ready(function () {
 
                 $('#image-gallery').lightSlider({
@@ -823,7 +898,9 @@
                     }
                 });
             });
-        </script>
+        <?php echo '</script'; ?>
+>
 
     </body>
-</html>
+</html><?php }
+}
