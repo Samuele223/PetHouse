@@ -277,7 +277,7 @@
                                                         <div class="dealer-action pull-right">                                        
                                                             <a href="/PetHouse/Post/edit/{$post->getId()}" class="button">Edit</a>
                                                             <a href="/PetHouse/Post/delete/{$post->getId()}" class="button delete_user_car">Delete</a>
-                                                            <a href="/PetHouse/Post/view/{$post->getId()}" class="button">View</a>
+                                                            <a href="/PetHouse/managerequest/viewoffers/{$post->getId()}" class="button">View</a>
                                                         </div>
                                                     </div>
                                                 </div>

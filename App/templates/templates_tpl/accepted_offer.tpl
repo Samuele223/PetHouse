@@ -1,18 +1,19 @@
+<<<<<<<< HEAD:App/templates/templates_c/c37fcb9cfe1c87d51e78a83c29dbb8c2a777c3c7_0.file_post_before_house_error.tpl.php
 <?php
-/* Smarty version 5.5.0, created on 2025-06-25 15:20:47
-  from 'file:user-properties.tpl' */
+/* Smarty version 5.5.0, created on 2025-06-25 15:33:30
+  from 'file:post_before_house_error.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685bf7af23f276_80922829',
+  'unifunc' => 'content_685bfaaa5df7a3_05482481',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd09cbbe3e560ee6358a1b718b9b989f8791da06d' => 
+    'c37fcb9cfe1c87d51e78a83c29dbb8c2a777c3c7' => 
     array (
-      0 => 'user-properties.tpl',
-      1 => 1750845489,
+      0 => 'post_before_house_error.tpl',
+      1 => 1750756551,
       2 => 'file',
     ),
   ),
@@ -20,19 +21,22 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685bf7af23f276_80922829 (\Smarty\Template $_smarty_tpl) {
+function content_685bfaaa5df7a3_05482481 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
+========
+<!DOCTYPE html>
+>>>>>>>> 69f747c2bf00ed8b9ed935dd946c9c4e5c8208ab:App/templates/templates_tpl/accepted_offer.tpl
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> 
 <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="utf-8">
+ <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | User properties Page</title>
-        <meta name="description" content="GARO is a real-estate template">
+        <title>GARO ESTATE | 404 page</title>
+        <meta name="description" content="company is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,7 +70,6 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
         </div>
         <!-- Body content -->
 
-       
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -92,7 +95,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                     </div>
                 </div>
             </div>
-        </div>         
+        </div>           
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -105,21 +108,17 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://localhost/PetHouse"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <form method="post" action="/PetHouse/user/logout" style="display:inline;">
-                                <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
-                            </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.4s">Login</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
-                            
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -134,16 +133,19 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                                 <h5>Home pages</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="index_1.html">Home Style 1</a>
+                                                        <a href="index.html">Home Style 1</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index_2.html">Home Style 2</a>
+                                                        <a href="index-2.html">Home Style 2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index_3.html">Home Style 3</a>
+                                                        <a href="index-3.html">Home Style 3</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index_4.html">Home Style 4</a>
+                                                        <a href="index-4.html">Home Style 4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-5.html">Home Style 5</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -164,16 +166,16 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                             <div class="col-sm-3">
                                                 <h5>Property</h5>
                                                 <ul>
-                                                    <li><a href="property-pages_1.html">Property pages (1)</a> </li>
-                                                    <li><a href="property-pages_2.html">Property pages (2)</a> </li>
-                                                    <li><a href="property-pages_3.html">Property pages (3)</a> </li>
+                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
+                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
+                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
                                                 </ul>
 
                                                 <h5>Properties list</h5>
                                                 <ul>
-                                                    <li><a href="property-list_1.html">Properties list (1)</a> </li> 
-                                                    <li><a href="property-list_2.html">Properties list (2)</a> </li> 
-                                                    <li><a href="property-list_3.html">Properties list (3)</a> </li> 
+                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
+                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
+                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
                                                 </ul>                                               
                                             </div>
                                             <div class="col-sm-3">
@@ -205,128 +207,20 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
             </div><!-- /.container-fluid -->
         </nav>
         <!-- End of nav bar -->
-
-        <div class="page-head"> 
+      
+        <div class="content-area error-page" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
-                    <div class="page-head-content">
-                        <h1 class="page-title">Your Houses</h1>               
+                    <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
+                        <h2 class="error-title">Credenziali non corrette!</h2>
+                        <p>Le tue credenziali sembrano essere errate... forse hai dimenticato qualcosa?</p>
+                        <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
                     </div>
-                </div>
+                </div> 
             </div>
-        </div>
-        <!-- End page header -->
+        </div> 
 
-        <!-- property area -->
-        <div class="content-area recent-property" style="background-color: #FFF;">
-            <div class="container">   
-                <div class="row">
-
-                    <div class="col-md-9 pr-30 padding-top-40 properties-page user-properties">
-
-                        <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('houses')) > 0) {?>
-                                    <?php
-$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('houses'), 'house');
-$foreach0DoElse = true;
-foreach ($_from ?? [] as $_smarty_tpl->getVariable('house')->value) {
-$foreach0DoElse = false;
-?>
-                                        <div class="col-md-4 p0">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-thumb">
-                                                    <?php $_smarty_tpl->assign('photos', $_smarty_tpl->getValue('house')->getPhotos(), false, NULL);?>
-                                                    <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('photos')) > 0) {?>
-                                                        <a href="/PetHouse/user/viewMyHousesDetails/<?php echo $_smarty_tpl->getValue('house')->getId();?>
-">
-                                                            <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photos')[0]->getId();?>
-" alt="Property Image">
-                                                        </a>
-                                                    <?php } else { ?>
-                                                        <a href="/PetHouse/House/view/<?php echo $_smarty_tpl->getValue('house')->getId();?>
-">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
-                                                    <?php }?>
-                                                </div>
-                                                <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/House/view/<?php echo $_smarty_tpl->getValue('house')->getId();?>
-"><?php echo $_smarty_tpl->getValue('house')->getTitle();?>
-</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('truncate')($_smarty_tpl->getValue('house')->getDescription(),20);?>
-</span>
-                                                    <span class="proerty-price pull-right"></span>
-                                                    <p style="display: none;"><?php echo $_smarty_tpl->getSmarty()->getModifierCallback('truncate')($_smarty_tpl->getValue('house')->getAddress(),100);?>
-</p>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/House/edit/<?php echo $_smarty_tpl->getValue('house')->getId();?>
-" class="button">Edit</a>
-                                                            <a href="/PetHouse/House/delete/<?php echo $_smarty_tpl->getValue('house')->getId();?>
-" class="button delete_user_car">Delete</a>
-                                                            <a href="/PetHouse/user/viewMyHousesDetails/<?php echo $_smarty_tpl->getValue('house')->getId();?>
-" class="button">View</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?php
-}
-$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
-                                <?php } else { ?>
-                                    <div class="col-md-12">
-                                        <p>Non hai ancora creato case. <a href="/PetHouse/user/addHouse">Crea la tua prima casa</a>.</p>
-                                    </div>
-                                <?php }?>
-                            </div>
-                        </div>
-
-                        <div class="section"> 
-                            <div class="pull-right">
-                                <div class="pagination">
-                                    <ul>
-                                        <li><a href="#">Prev</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">Next</a></li>
-                                    </ul>
-                                </div>
-                            </div>                
-                        </div>
-
-                    </div>       
-
-                    <div class="col-md-3 p0 padding-top-40">
-                        <div class="blog-asside-right">
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Hello Kimaro</h3>
-                                </div>
-                                <div class="panel-body search-widget">
-
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Recommended</h3>
-                                </div>
-                                <div class="panel-body recent-property-widget">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-          <!-- Footer area-->
+    <!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
@@ -430,11 +324,11 @@ $_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
 
                                 <div class="social pull-right"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
@@ -463,56 +357,24 @@ $_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
             </div>
 
         </div>
-          
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
-> 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
+
+        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
+
+        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
+
+        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
 
     </body>
-</html><?php }
-}
+</html>
