@@ -42,7 +42,7 @@ public function __construct(DateTime $dateofferin, DateTime $dateofferout, Mpost
 {
     $this->client = $client;
     $this->review = new ArrayCollection();
-    $this->state = stateoffer::PENDANT;
+    $this->state = stateoffer::PENDING;
     $this->dateofferin = $dateofferin;
     $this->dateofferout = $dateofferout;
     $this->post = $post;

@@ -31,7 +31,7 @@ class CManagerequest
             if($yesorno == 1)
             {
                 $offer->acceptOffer();
-                $offer->getPost()->setBooked(true);
+                $offer->getPost()->setBooked('booked');
             }
             else
             {
