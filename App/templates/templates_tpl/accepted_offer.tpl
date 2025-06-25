@@ -1,28 +1,4 @@
-<?php
-/* Smarty version 5.5.0, created on 2025-06-24 19:51:11
-  from 'file:post_before_house_error.tpl' */
-
-/* @var \Smarty\Template $_smarty_tpl */
-if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.0',
-  'unifunc' => 'content_685ae58f2400a0_46537286',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '13532b83ebad489668089c39f941e384efcdf521' => 
-    array (
-      0 => 'post_before_house_error.tpl',
-      1 => 1750772516,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-))) {
-function content_685ae58f2400a0_46537286 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -110,10 +86,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <form method="post" action="/PetHouse/user/logout" style="display:inline;">
-                                <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
-                            </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.4s">Login</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -211,9 +184,9 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
-                        <h2 class="error-title">Non puoi creare un'offerta prima di aver inserito una casa ☹️</h2>
-                        <p>Non puoi ospitare qualcuno se non hai una casa, giusto?</p>
-                        <a href="https://localhost/PetHouse/user/addHouse" class="btn btn-default">Registra la tua casa qui</a>                        
+                        <h2 class="error-title">Credenziali non corrette!</h2>
+                        <p>Le tue credenziali sembrano essere errate... forse hai dimenticato qualcosa?</p>
+                        <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
                     </div>
                 </div> 
             </div>
@@ -357,48 +330,23 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
 
         </div>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
-> 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
+        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
->
+        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
 
     </body>
-</html><?php }
-}
+</html>

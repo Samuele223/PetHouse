@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 18:08:57
+/* Smarty version 5.5.0, created on 2025-06-25 11:29:42
   from 'file:user_posts.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685acd9989d396_07946897',
+  'unifunc' => 'content_685bc186301313_27063148',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dda611ce0898327d5c25ee9caa00d2dc1deb247e' => 
     array (
       0 => 'user_posts.tpl',
-      1 => 1750750239,
+      1 => 1750841289,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685acd9989d396_07946897 (\Smarty\Template $_smarty_tpl) {
+function content_685bc186301313_27063148 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -316,7 +316,7 @@ $foreach0DoElse = false;
 " class="button">Edit</a>
                                                             <a href="/PetHouse/Post/delete/<?php echo $_smarty_tpl->getValue('post')->getId();?>
 " class="button delete_user_car">Delete</a>
-                                                            <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('post')->getId();?>
+                                                            <a href="/PetHouse/managerequest/viewoffers/<?php echo $_smarty_tpl->getValue('post')->getId();?>
 " class="button">View</a>
                                                         </div>
                                                     </div>

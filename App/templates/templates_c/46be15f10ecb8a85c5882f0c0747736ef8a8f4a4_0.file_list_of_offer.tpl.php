@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 19:21:22
-  from 'file:formOffer.tpl' */
+/* Smarty version 5.5.0, created on 2025-06-25 11:37:59
+  from 'file:list_of_offer.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685ade92daa703_00872376',
+  'unifunc' => 'content_685bc377b52084_47475062',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c17016e8608c30b6d733a1ac3bf215253358099c' => 
+    '46be15f10ecb8a85c5882f0c0747736ef8a8f4a4' => 
     array (
-      0 => 'formOffer.tpl',
-      1 => 1750785680,
+      0 => 'list_of_offer.tpl',
+      1 => 1750844275,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685ade92daa703_00872376 (\Smarty\Template $_smarty_tpl) {
+function content_685bc377b52084_47475062 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -31,7 +31,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Submit property Page</title>
+        <title>GARO ESTATE | Properties  page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -48,15 +48,14 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontello.css">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
-        <link href="css/animate.css" rel="stylesheet" media="screen">
+        <link href="/PetHouse/App/templates/assets/css/animate.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/bootstrap-select.min.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/price-range.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css"> 
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
     </head>
@@ -66,7 +65,8 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             <div id="status">&nbsp;</div>
         </div>
         <!-- Body content -->
-
+    
+       
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -92,7 +92,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                     </div>
                 </div>
             </div>
-        </div>              
+        </div>       
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -105,18 +105,32 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
-                    </div>
+                        <div class="button navbar-right">
+                            <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
+                        </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="index-2.html">Home Style 2</a>
+                                </li>
+                                <li>
+                                    <a href="index-3.html">Home Style 3</a>
+                                </li>
+                                <li>
+                                    <a href="index-4.html">Home Style 4</a>
+                                </li>
+                                <li>
+                                    <a href="index-5.html">Home Style 5</a>
+                                </li>
+
+                            </ul>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -210,7 +224,7 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Find your host</h1>               
+                        <h1 class="page-title">List Layout With Sidebar</h1>               
                     </div>
                 </div>
             </div>
@@ -218,85 +232,129 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
         <!-- End page header -->
 
         <!-- property area -->
-        <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
-            <div class="container">
-                <div class="clearfix" > 
-                    <div class="wizard-container"> 
+        <div class="properties-area recent-property" style="background-color: #FFF;">
+            <div class="container">  
+                <div class="row">
+                     
 
-                        <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form id="houseForm" action="/PetHouse/findhosting/createOffer/<?php echo $_smarty_tpl->getValue('post')->getId();?>
-" method="post" enctype="multipart/form-data">                        
-                                <div class="wizard-header">
-                                    <h3>
-                                        <b>Take care</b> of your Pets<br>
-                                    </h3>
-                                </div>
 
-                                <ul>
-                                    <li><a href="#step1" data-toggle="tab">Create Your Offer  </a></li>
-                                </ul>
+                <div class="col-md-9  pr0 padding-top-40 properties-page">
+                    <div class="col-md-12 clear"> 
+                        <div class="col-xs-10 page-subheader sorting pl0">
+                            <ul class="sort-by-list">
+                                <li class="active">
+                                    <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
+                                        Property Date <i class="fa fa-sort-amount-asc"></i>					
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
+                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
+                                    </a>
+                                </li>
+                            </ul><!--/ .sort-by-list-->
 
-                                <div class="tab-content">
-                                    <!-- Step 1: Dates and required pets -->
-                                    <div class="tab-pane active" id="step1">
-                                        <div class="row p-b-15">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Start date (Check-in):</label>
-                                                    <input type="date" name="datein" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>End date (Check-out):</label>
-                                                    <input type="date" name="dateout" class="form-control" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Required pets:</label>
-                                            <div id="requiredPetsFields">
-                                                <div class="input-group pet-group" style="margin-bottom:5px;">
-                                                    <select name="required_pets[]" class="form-control" required>
-                                                        <option value="">Select pet</option>
-                                                        <option value="DOG">Dog</option>
-                                                        <option value="CAT">Cat</option>
-                                                        <option value="BIRD">Bird</option>
-                                                        <option value="RABBIT">Rabbit</option>
-                                                        <option value="PARROT">Parrot</option>
-                                                    </select>
-                                                    <input type="number" name="required_pets_count[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty" required>
-                                                    <span class="input-group-btn">
-                                                        <button type="button" class="btn btn-success add-pet" tabindex="-1">+</button>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" required /> <strong>Accept terms and conditions.</strong>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <!-- End step 1 -->
-                                </div>
-
-                                <div class="wizard-footer">
-                                    <div class="pull-right">
-                                        <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' />
-                                    </div>
-
-                                    <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default' name='previous' value='Previous' />
-                                    </div>
-                                    <div class="clearfix"></div>                                            
-                                </div>	
-                            </form>
+                            <div class="items-per-page">
+                                <label for="items_per_page"><b>Property per page :</b></label>
+                                <div class="sel">
+                                    <select id="items_per_page" name="per_page">
+                                        <option value="3">3</option>
+                                        <option value="6">6</option>
+                                        <option value="9">9</option>
+                                        <option selected="selected" value="12">12</option>
+                                        <option value="15">15</option>
+                                        <option value="30">30</option>
+                                        <option value="45">45</option>
+                                        <option value="60">60</option>
+                                    </select>
+                                </div><!--/ .sel-->
+                            </div><!--/ .items-per-page-->
                         </div>
-                        <!-- End submit form -->
-                    </div> 
-                </div>
+
+                        <div class="col-xs-2 layout-switcher">
+                            <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
+                            <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
+                        </div><!--/ .layout-switcher-->
+                    </div>
+                    <div class="form-inline" style="margin-bottom:20px;">
+                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
+                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
+                        <span id="filter-price-value">100</span>
+                    </div>
+
+                    <div class="section"> 
+                        <div id="list-type" class="proerty-th-list">
+                            <?php if ($_smarty_tpl->getSmarty()->getModifierCallback('count')($_smarty_tpl->getValue('offers')) > 0) {?>
+                                <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('offers'), 'offer');
+$foreach0DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('offer')->value) {
+$foreach0DoElse = false;
+?>
+                                    <div class="col-md-4 p0">
+                                        <div class="box-two proerty-item">
+                                            <div class="item-entry overflow">
+                                                <h5>Offer for: <a href="/PetHouse/Post/view/<?php echo $_smarty_tpl->getValue('offer')->getPost()->getId();?>
+"><?php echo $_smarty_tpl->getValue('offer')->getPost()->getTitle();?>
+</a></h5>
+                                                <div class="dot-hr"></div>
+                                                <span class="pull-left"><b>Check-in:</b> <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('date_format')($_smarty_tpl->getValue('offer')->getDateofferin(),"%d/%m/%Y");?>
+</span><br>
+                                                <span class="pull-left"><b>Check-out:</b> <?php echo $_smarty_tpl->getSmarty()->getModifierCallback('date_format')($_smarty_tpl->getValue('offer')->getDateofferout(),"%d/%m/%Y");?>
+</span><br>
+                                                <span class="pull-left"><b>Required pets:</b>
+                                                    <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('offer')->getRequiredPet(), 'count', false, 'pet', 'pets', array (
+  'last' => true,
+  'iteration' => true,
+  'total' => true,
+));
+$foreach1DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('pet')->value => $_smarty_tpl->getVariable('count')->value) {
+$foreach1DoElse = false;
+$_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['iteration']++;
+$_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['last'] = $_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['iteration'] === $_smarty_tpl->tpl_vars['__smarty_foreach_pets']->value['total'];
+?>
+                                                        <?php echo $_smarty_tpl->getValue('pet');?>
+ (<?php echo $_smarty_tpl->getValue('count');?>
+)<?php if (!($_smarty_tpl->getValue('__smarty_foreach_pets')['last'] ?? null)) {?>, <?php }?>
+                                                    <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+                                                </span><br>
+                                                <span class="pull-left"><b>State:</b> <?php echo $_smarty_tpl->getValue('offer')->getState()->name;?>
+</span>
+                                                <div class="property-icon">
+                                                    <div class="dealer-action pull-right">                                        
+                                                        <a href="/PetHouse/Managerequest/accept_Deny_Offer/<?php echo $_smarty_tpl->getValue('offer')->getId();?>
+/1" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
+                                                            <i class="fa fa-search-plus"></i> Accept offer
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="property-icon">
+                                                    <div class="dealer-action pull-right">                                        
+                                                        <a href="/PetHouse/Managerequest/accept_Deny_Offer/<?php echo $_smarty_tpl->getValue('offer')->getId();?>
+/0" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
+                                                            <i class="fa fa-search-plus"></i> Deny offer 
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
+                            <?php } else { ?>
+                                <div class="col-md-12">
+                                    <p>No offers found.</p>
+                                </div>
+                            <?php }?>
+                        </div>
+                    </div>
+                </div>  
+                </div>              
             </div>
         </div>
 
@@ -438,11 +496,11 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
 
         </div>
 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+      <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
@@ -468,92 +526,36 @@ $_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_t
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
 >
-
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
-> 
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
->
-        <?php echo '<script'; ?>
- src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
->
-
         <?php echo '<script'; ?>
  src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
 >
-
-<?php echo '<script'; ?>
+        <?php echo '<script'; ?>
 >
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#requiredPetsFields').addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-pet')) {
-            e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
-            const newGroup = petGroup.cloneNode(true);
-            newGroup.querySelector('select').selectedIndex = 0;
-            newGroup.querySelector('input').value = 1;
-            // Cambia il bottone "+" in "-" per rimuovere
-            const btn = newGroup.querySelector('.add-pet');
-            btn.classList.remove('btn-success', 'add-pet');
-            btn.classList.add('btn-danger', 'remove-pet');
-            btn.textContent = '-';
-            document.querySelector('#requiredPetsFields').appendChild(newGroup);
-        } else if (e.target.classList.contains('remove-pet')) {
-            e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
-            if(document.querySelectorAll('#requiredPetsFields .pet-group').length > 1) {
-                petGroup.remove();
-            }
-        }
-    });
-});
-<?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
->
-document.addEventListener('DOMContentLoaded', function() {
-    // Gestione aggiunta/rimozione campi immagine
-    document.getElementById('imageFields').addEventListener('click', function(e) {
-        if (e.target.closest('.add-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            const newGroup = group.cloneNode(true);
-            newGroup.querySelector('input[type="file"]').value = '';
-            // Cambia il bottone "+" in "-" per rimuovere
-            const btn = newGroup.querySelector('.add-image-field');
-            btn.classList.remove('btn-warning');
-            btn.classList.add('btn-danger');
-            btn.innerHTML = '<i class="fa fa-minus"></i>';
-            btn.classList.remove('add-image-field');
-            btn.classList.add('remove-image-field');
-            document.getElementById('imageFields').appendChild(newGroup);
-        } else if (e.target.closest('.remove-image-field')) {
-            e.preventDefault();
-            const group = e.target.closest('.input-group');
-            if(document.querySelectorAll('#imageFields .input-group').length > 1) {
-                group.remove();
-            }
-        }
-    });
-});
-<?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
->
-document.addEventListener('DOMContentLoaded', function() {
-    var finishBtn = document.querySelector('.btn-finish');
-    if(finishBtn){
-        finishBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('houseForm').submit();
+        document.addEventListener('DOMContentLoaded', function() {
+            var input = document.getElementById('filter-price');
+            var valueSpan = document.getElementById('filter-price-value');
+            if (!input) return;
+            // Mostra il valore iniziale
+            valueSpan.textContent = input.value;
+            input.addEventListener('input', function() {
+                valueSpan.textContent = this.value;
+                var max = parseFloat(this.value) || Infinity;
+                document.querySelectorAll('.proerty-item').forEach(function(item) {
+                    var priceText = item.querySelector('.proerty-price');
+                    if (!priceText) return;
+                    var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
+                    if (isNaN(price) || price > max) {
+                        item.style.display = 'none';
+                    } else {
+                        item.style.display = '';
+                    }
+                });
+            });
         });
-    }
-});
-<?php echo '</script'; ?>
+        <?php echo '</script'; ?>
 >
     </body>
 </html><?php }

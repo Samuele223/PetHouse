@@ -1,30 +1,9 @@
-<?
+<?php
 
-class Cmanagerequest
+class CManagerequest
 {
-    public static function profile(int $id)
-    {
-        if(CUser::isLogged())
-        {
-            $profile = new Vmanagerequest();
-            $userProfile = FPersistentManager::retriveObj(Muser::getEntity(), $id);
-            $profile->showProfile($userProfile);
-        }
-        else{} 
-            //show login form to be implemented on a view
-    }
-    public static function yourPosts(int $user_id)
-    {
-        if(CUser::isLogged())
-        {
-            $listOfPost = FPersistentManager::listOfObj(Mpost::getEntity(),'selller',$user_id);
-            $view = new Vmanagerequest();
-            $view->showListOfPost($listOfPost);
-            
-        }
-        
-    }
-    public static function selectPost(int $post_id) 
+
+    public static function viewoffers(int $post_id) 
     {
         if(CUser::isLogged()){
         $view = new Vmanagerequest();
@@ -32,8 +11,9 @@ class Cmanagerequest
         $listOfOffer = $postSelected->getOffers();
         $view->showOffers($listOfOffer); //mostra una lista di offerte relative al post
         }
+        
     }
-    public static function selectOffer(int $offer_id)
+    /*public static function selectOffer(int $offer_id)
     {
         if(CUser::isLogged()){
         
@@ -42,13 +22,13 @@ class Cmanagerequest
             $view->showOffer($offer);
         }
 
-    }
+    }*/
     public static function accept_Deny_Offer(int $offer_id, bool $yesorno) //get request
 
     {
         if(CUser::isLogged()){
             $offer = FPersistentManager::retriveObj(Moffer::getEntity(), $offer_id);
-            if($yesorno == true)
+            if($yesorno == 1)
             {
                 $offer->acceptOffer();
                 $offer->getPost()->setBooked(true);
@@ -57,7 +37,10 @@ class Cmanagerequest
             {
                 $offer->denyOffer();
             }
+            FPersistentManager::saveObj($offer);
             $view = new Vmanagerequest();
+            $view->showAcceptDenyOffer($yesorno); //mostra una schermata che dice bravo hai accettato o rifiutato
+             //salva l'offerta aggiornata
             // mostra una schermata che dice bravo hai accettato o rifiutato
         }
     }
