@@ -240,7 +240,7 @@
                                                 <div class="col-sm-12"> 
                                                     <div class="form-group">
                                                         <label>Property Description :</label>
-                                                        <textarea name="description" class="form-control" value="{$house->getDescription()}"></textarea>
+                                                        <textarea name="description" class="form-control">{$house->getDescription()}</textarea>
                                                     </div> 
                                                 </div> 
                                             </div>

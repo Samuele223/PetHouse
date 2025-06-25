@@ -390,11 +390,48 @@ public static function updateHouse(int $id): void {
     $house->setCountry($_POST['country']);
     $house->setAddress($_POST['address']);
 
+    // --- GESTIONE FOTO ---
+    // 1. Controlla se sono state caricate nuove foto
+    $hasNewPhotos = false;
+    if (isset($_FILES['img']) && is_array($_FILES['img']['error'])) {
+        foreach ($_FILES['img']['error'] as $err) {
+            if ($err === UPLOAD_ERR_OK) {
+                $hasNewPhotos = true;
+                break;
+            }
+        }
+    }
 
-    // Salva le modifiche
-    $house = FPersistentManager::saveObj($house);  
+    // 2. Se ci sono nuove foto, cancella le vecchie e aggiungi le nuove
+    if ($hasNewPhotos) {
+        // Cancella le vecchie foto associate alla casa
+        $oldPhotos = $house->getPhotos();
+        if ($oldPhotos) {
+            foreach ($oldPhotos as $photo) {
+                FPersistentManager::deleteObj($photo);
+            }
+        }
 
-    header('Location: /PetHouse/user/profile/myHouses');
+        // Aggiungi le nuove foto caricate
+        for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
+            if ($_FILES['img']['error'][$i] === UPLOAD_ERR_OK) {
+                $tmpName = $_FILES['img']['tmp_name'][$i];
+                $mime = $_FILES['img']['type'][$i];
+                $data = file_get_contents($tmpName);
+
+                $pic = new Mphoto($data, $mime);
+                $pic->setLocation($house);
+                FPersistentManager::saveObj($pic);
+                $house->addPhoto($pic); // aggiorna la relazione anche lato oggetto
+            }
+        }
+    }
+    // Se non ci sono nuove foto, non toccare le vecchie
+
+    // Salva le modifiche alla casa
+    FPersistentManager::saveObj($house);
+
+    header('Location: /PetHouse/user/myHouses');
     exit;
 }
 public static function deleteHouse(int $id) {
