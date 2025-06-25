@@ -66,13 +66,13 @@ public function setRating(rating $rating): void
 {
     $this->rating = $rating;
 }
-public function __construct(string $description, rating $rating, Muser $reviewer, Muser $reviewed, Moffer $offer)
+public function __construct(string $description, rating $rating, Muser $reviewer, Muser $reviewed)
 {
     $this->description = $description;
     $this->rating = $rating;
     $this->reviewed = $reviewed;
     $this->reviewer = $reviewer;
-    $this->offer = $offer;
+    
 }
 public static function getEntity(): string
 {

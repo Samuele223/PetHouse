@@ -17,8 +17,8 @@ class CFindhosting{
         $num = UHTTPMethods::post('pet_counts');
         $acceptedPets = array_combine($Pets, $num);
 
-        $result = FPersistentManager::filterPost($acceptedPets,$province, $City, $datain->format('Y-m-d'), $dataout->format('Y-m-d'));
-        //$result = FPersistentManager::serachPost($City, $province, $datain, $dataout, $acceptedPets);
+        //$result = FPersistentManager::filterPost($acceptedPets,$province, $City, $datain->format('Y-m-d'), $dataout->format('Y-m-d'));
+        $result = FPersistentManager::serachPost($City, $province, $datain, $dataout, $acceptedPets);
         $view = new Vfindhosting();
  
             $view->showPostList($result);

@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
         <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
         <a href="https://localhost/PetHouse/user/addHouse" class="btn btn-default">Add your house + </a>  
-        <a href="https://localhost/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Crea un'offerta +</a> 
+        <a href="https://localhost/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Create an offer +</a> 
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">

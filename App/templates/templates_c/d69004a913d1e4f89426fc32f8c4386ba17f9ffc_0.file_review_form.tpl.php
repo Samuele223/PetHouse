@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-25 19:03:19
+  from 'file:review_form.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685c2bd70db843_94027217',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd69004a913d1e4f89426fc32f8c4386ba17f9ffc' => 
+    array (
+      0 => 'review_form.tpl',
+      1 => 1750870996,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685c2bd70db843_94027217 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -7,7 +31,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Properties  page</title>
+        <title>GARO ESTATE | Submit property Page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -24,14 +48,15 @@
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontello.css">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
-        <link href="/PetHouse/App/templates/assets/css/animate.css" rel="stylesheet" media="screen">
+        <link href="css/animate.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/bootstrap-select.min.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/price-range.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css"> 
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
     </head>
@@ -41,8 +66,7 @@
             <div id="status">&nbsp;</div>
         </div>
         <!-- Body content -->
-    
-       
+
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -68,7 +92,7 @@
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>              
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -81,32 +105,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
-                        <div class="button navbar-right">
-                            <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
-                        </div>
+                    <div class="button navbar-right">
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
+                    </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -200,7 +210,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                        <h1 class="page-title">Find your host</h1>               
                     </div>
                 </div>
             </div>
@@ -208,179 +218,93 @@
         <!-- End page header -->
 
         <!-- property area -->
-        <div class="properties-area recent-property" style="background-color: #FFF;">
-            <div class="container">  
-                <div class="row">
-                     
+        <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
+            <div class="container">
+                <div class="clearfix" > 
+                    <div class="wizard-container"> 
+                    <!-- Info utente recensito -->
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Sidebar sinistra: profilo recensito -->
+                                    <div class="col-md-3">
+                                        <div class="panel panel-default" style="margin-bottom: 30px;">
+                                            <div class="panel-heading">
+                                                <strong>Leave a review:</strong>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="text-center">
+                                                    <?php if ($_smarty_tpl->getValue('user')->getProfilePicture()) {?>
+                                                        <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('user')->getProfilePicture()->getId();?>
+" alt="Profile Picture" class="img-circle" style="width:80px;height:80px;">
+                                                    <?php } else { ?>
+                                                        <img src="/PetHouse/App/templates/assets/img/default-user.png" alt="Profile Picture" class="img-circle" style="width:80px;height:80px;">
+                                                    <?php }?>
+                                                </div>
+                                                <p><b>Nome:</b> <?php echo $_smarty_tpl->getValue('user')->getName();?>
+ <?php echo $_smarty_tpl->getValue('user')->getSurname();?>
+</p>
+                                                <p><b>Email:</b> <?php echo $_smarty_tpl->getValue('user')->getEmail();?>
+</p>
+                                                <p><b>Username:</b> <?php echo $_smarty_tpl->getValue('user')->getUsername();?>
+</p>
+                                                <?php if ($_smarty_tpl->getValue('user')->getTel()) {?>
+                                                    <p><b>Telefono:</b> <?php echo $_smarty_tpl->getValue('user')->getTel();?>
+</p>
+                                                <?php }?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Colonna destra: form recensione -->
+                                    <div class="col-md-9">
+                                        <!-- Qui metti il form di recensione già presente -->
+                                        <!-- ...form recensione... -->
+                                    </div>
+                                </div>
+                            </div>
 
+                        <div class="wizard-card ct-wizard-orange" id="wizardProperty">
+                            <form id="reviewForm" action="/PetHouse/Review/sendreview" method="post" enctype="multipart/form-data">
+                                <div class="wizard-header">
+                                    <h3>
+                                        <b>Leave a review</b>
+                                    </h3>
+                                </div>
 
-                <div class="col-md-9  pr0 padding-top-40 properties-page">
-                    <div class="col-md-12 clear"> 
-                        <div class="col-xs-10 page-subheader sorting pl0">
-                            <ul class="sort-by-list">
-                                <li class="active">
-                                    <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                        Property Date <i class="fa fa-sort-amount-asc"></i>					
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
-                                    </a>
-                                </li>
-                            </ul><!--/ .sort-by-list-->
-
-                            <div class="items-per-page">
-                                <label for="items_per_page"><b>Property per page :</b></label>
-                                <div class="sel">
-                                    <select id="items_per_page" name="per_page">
-                                        <option value="3">3</option>
-                                        <option value="6">6</option>
-                                        <option value="9">9</option>
-                                        <option selected="selected" value="12">12</option>
-                                        <option value="15">15</option>
-                                        <option value="30">30</option>
-                                        <option value="45">45</option>
-                                        <option value="60">60</option>
-                                    </select>
-                                </div><!--/ .sel-->
-                            </div><!--/ .items-per-page-->
-                        </div>
-
-                        <div class="col-xs-2 layout-switcher">
-                            <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
-                            <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
-                        </div><!--/ .layout-switcher-->
-                    </div>
-                    <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
-                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
-                        <span id="filter-price-value">100</span>
-                    </div>
-                    <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-status" style="margin-right:10px;">Filter by status:</label>
-                        <select id="filter-status" class="form-control" style="width:200px;">
-                            <option value="all">All</option>
-                            <option value="accepted">Accepted</option>
-                            <option value="pending">Pending</option>
-                            <option value="finished">Finished</option>
-                        </select>
-                    </div>
-                    <div class="form-inline" style="margin-bottom:20px;" id="post-filter-bar">
-                        <label for="filter-post-status" style="margin-right:10px;">Filter posts by status:</label>
-                        <select id="filter-post-status" class="form-control" style="width:200px;">
-                            <option value="all">All</option>
-                            <option value="booked">Booked</option>
-                            <option value="open">Open</option>
-                            <option value="finished">Finished</option>
-                        </select>
-                    </div>
-
-                    <!-- Pulsanti toggle in alto -->
-                    <div class="text-center" style="margin-bottom: 25px;">
-                        <button id="show-offers" class="btn btn-primary active" style="margin-right:10px;">Offers</button>
-                        <button id="show-posts" class="btn btn-primary">Posts</button>
-                    </div>
-
-                    <!-- Lista offerte -->
-                    <div id="offers-list">
-                        <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                {if $offers|@count > 0}
-                                    {foreach from=$offers item=offer}
-                                        <div class="col-md-4 p0 offer-item status-{$offer->getState()->name|lower}">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-entry overflow">
-                                                    <h5>Offer for: <a href="/PetHouse/Post/view/{$offer->getPost()->getId()}">{$offer->getPost()->getTitle()}</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Check-in:</b> {$offer->getDateofferin()|date_format:"%d/%m/%Y"}</span><br>
-                                                    <span class="pull-left"><b>Check-out:</b> {$offer->getDateofferout()|date_format:"%d/%m/%Y"}</span><br>
-                                                    <span class="pull-left"><b>Required pets:</b>
-                                                        {foreach from=$offer->getRequiredPet() key=pet item=count name=pets}
-                                                            {$pet} ({$count}){if !$smarty.foreach.pets.last}, {/if}
-                                                        {/foreach}
-                                                    </span><br>
-                                                    <span class="pull-left"><b>State:</b> {$offer->getState()->name}</span>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/1" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
-                                                                <i class="fa fa-search-plus"></i> Accept offer
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/0" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
-                                                                <i class="fa fa-search-plus"></i> Deny offer 
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                <div class="tab-content">
+                                    <!-- Step 1: Rating and comment -->
+                                    <div class="tab-pane active" id="step1">
+                                        <div class="row p-b-15">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="rating">Rating (1-5):</label>
+                                                    <select name="rating" id="rating" class="form-control" required>
+                                                        <option value="">Select</option>
+                                                        <option value="1">1 - Terrible</option>
+                                                        <option value="2">2 - Poor</option>
+                                                        <option value="3">3 - Fair</option>
+                                                        <option value="4">4 - Good</option>
+                                                        <option value="5">5 - Excellent</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="comment">Comment:</label>
+                                                    <textarea name="comment" id="comment" class="form-control" rows="4" placeholder="Write your review here..." required></textarea>
                                                 </div>
                                             </div>
                                         </div>
-                                    {/foreach}
-                                {else}
-                                    <div class="col-md-12">
-                                        <p>No offers found.</p>
                                     </div>
-                                {/if}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lista post (inizialmente nascosta) -->
-                    <div id="posts-list" style="display:none;">
-                        <div class="section">
-                            <div class="row">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
-                                        <div class="col-md-4 p0 post-item status-{$post->getBooked()|lower}">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-thumb">
-                                                    {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
-                                                        </a>
-                                                    {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
-                                                    {/if}
-                                                </div>
-                                                <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
-                                                                    <i class="fa fa-search-plus"></i> See more
-                                                                </a>
-                                                                {if $post->getBooked()|lower == 'finished'}
-                                                                    <a href="/PetHouse/Review/makereview/{$post->getSeller()->getId()}" class="btn btn-success btn-block" style="border-radius: 25px; font-weight: bold; margin-top: 8px;">
-                                                                        <i class="fa fa-star"></i> Leave a review
-                                                                    </a>
-                                                                {/if}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/foreach}
-                                {else}
-                                    <div class="col-md-12">
-                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
+                                    <div class="wizard-footer">
+                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' />
                                     </div>
-                                {/if}
-                            </div>
+                                    <!-- End step 1 -->	
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                </div>  
-                </div>              
+                        <!-- End submit form -->
+                    </div> 
+                </div>
             </div>
         </div>
 
@@ -475,7 +399,7 @@
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
                                 <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
+                                
                                 <form>
                                     <div class="input-group">
                                         <input class="form-control" type="text" placeholder="E-mail ... ">
@@ -522,116 +446,53 @@
 
         </div>
 
-      <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var input = document.getElementById('filter-price');
-            var valueSpan = document.getElementById('filter-price-value');
-            if (!input) return;
-            // Mostra il valore iniziale
-            valueSpan.textContent = input.value;
-            input.addEventListener('input', function() {
-                valueSpan.textContent = this.value;
-                var max = parseFloat(this.value) || Infinity;
-                document.querySelectorAll('.proerty-item').forEach(function(item) {
-                    var priceText = item.querySelector('.proerty-price');
-                    if (!priceText) return;
-                    var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
-                    if (isNaN(price) || price > max) {
-                        item.style.display = 'none';
-                    } else {
-                        item.style.display = '';
-                    }
-                });
-            });
-        });
-        </script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var select = document.getElementById('filter-status');
-            select.addEventListener('change', function() {
-                var value = this.value;
-                document.querySelectorAll('.offer-item').forEach(function(item) {
-                    if (value === 'all') {
-                        item.style.display = '';
-                    } else if (item.classList.contains('status-' + value)) {
-                        item.style.display = '';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        </script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var btnOffers = document.getElementById('show-offers');
-            var btnPosts = document.getElementById('show-posts');
-            var offersList = document.getElementById('offers-list');
-            var postsList = document.getElementById('posts-list');
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
 
-            btnOffers.addEventListener('click', function() {
-                btnOffers.classList.add('active');
-                btnPosts.classList.remove('active');
-                offersList.style.display = '';
-                postsList.style.display = 'none';
-            });
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
+>
 
-            btnPosts.addEventListener('click', function() {
-                btnPosts.classList.add('active');
-                btnOffers.classList.remove('active');
-                offersList.style.display = 'none';
-                postsList.style.display = '';
-            });
-        });
-        </script>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var select = document.getElementById('filter-post-status');
-            if (!select) return;
-            select.addEventListener('change', function() {
-                var value = this.value;
-                document.querySelectorAll('.post-item').forEach(function(item) {
-                    if (value === 'all') {
-                        item.style.display = '';
-                    } else if (item.classList.contains('status-' + value)) {
-                        item.style.display = '';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-
-            // Mostra/nasconde il filtro post in base al toggle
-            var btnOffers = document.getElementById('show-offers');
-            var btnPosts = document.getElementById('show-posts');
-            var postFilterBar = document.getElementById('post-filter-bar');
-            if (btnOffers && btnPosts && postFilterBar) {
-                btnOffers.addEventListener('click', function() {
-                    postFilterBar.style.display = 'none';
-                });
-                btnPosts.addEventListener('click', function() {
-                    postFilterBar.style.display = '';
-                });
-                // Nascondi di default se non sono visibili i post
-                if (btnOffers.classList.contains('active')) {
-                    postFilterBar.style.display = 'none';
-                } else {
-                    postFilterBar.style.display = '';
-                }
-            }
-        });
-        </script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
     </body>
-</html>
+</html><?php }
+}

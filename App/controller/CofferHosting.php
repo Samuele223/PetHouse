@@ -105,7 +105,7 @@ class CofferHosting {
                 $dateIn,
                 $dateOut
             );
-            $post->setBooked(false);
+            $post->setBooked('open');
             FPersistentManager::saveObj($post);
 
             // Redirect to success page
