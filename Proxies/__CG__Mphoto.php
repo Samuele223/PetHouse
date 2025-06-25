@@ -7,7 +7,7 @@ namespace DoctrineProxies\__CG__;
  */
 class Mphoto extends \Mphoto implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -29,6 +29,7 @@ class Mphoto extends \Mphoto implements \Doctrine\ORM\Proxy\InternalProxy
         "\0".parent::class."\0".'size' => [parent::class, 'size', null, 16],
         "\0".parent::class."\0".'types' => [parent::class, 'types', null, 16],
         "\0".parent::class."\0".'user' => [parent::class, 'user', null, 16],
+        "\0".parent::class."\0".'verification' => [parent::class, 'verification', null, 16],
         'id' => [parent::class, 'id', null, 16],
         'imageData' => [parent::class, 'imageData', null, 16],
         'location' => [parent::class, 'location', null, 16],
@@ -36,7 +37,8 @@ class Mphoto extends \Mphoto implements \Doctrine\ORM\Proxy\InternalProxy
         'size' => [parent::class, 'size', null, 16],
         'types' => [parent::class, 'types', null, 16],
         'user' => [parent::class, 'user', null, 16],
-    ];
+        'verification' => [parent::class, 'verification', null, 16],
+    ];
 
     public function __isInitialized(): bool
     {

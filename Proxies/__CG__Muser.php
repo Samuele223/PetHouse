@@ -7,7 +7,7 @@ namespace DoctrineProxies\__CG__;
  */
 class Muser extends \Muser implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -37,6 +37,7 @@ class Muser extends \Muser implements \Doctrine\ORM\Proxy\InternalProxy
         "\0".parent::class."\0".'surname' => [parent::class, 'surname', null, 16],
         "\0".parent::class."\0".'tel' => [parent::class, 'tel', null, 16],
         "\0".parent::class."\0".'username' => [parent::class, 'username', null, 16],
+        "\0".parent::class."\0".'verification' => [parent::class, 'verification', null, 16],
         "\0".parent::class."\0".'verified' => [parent::class, 'verified', null, 16],
         'email' => [parent::class, 'email', null, 16],
         'houses' => [parent::class, 'houses', null, 16],
@@ -53,8 +54,9 @@ class Muser extends \Muser implements \Doctrine\ORM\Proxy\InternalProxy
         'surname' => [parent::class, 'surname', null, 16],
         'tel' => [parent::class, 'tel', null, 16],
         'username' => [parent::class, 'username', null, 16],
+        'verification' => [parent::class, 'verification', null, 16],
         'verified' => [parent::class, 'verified', null, 16],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

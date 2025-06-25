@@ -76,7 +76,18 @@ public function showUserHousesEdit($house) {
     $this->smarty->assign('house', $house);
     $this->smarty->display('house_edit.tpl');
 
+<<<<<<< HEAD
 
 
 
     }}
+=======
+/**
+ * Shows the verification form
+ */
+public function showVerificationForm($user) {
+    $this->smarty->assign('user', $user);
+    $this->smarty->display('formVerification.tpl');
+}
+    }
+>>>>>>> f0172aefeb0ec320fdde0c23c24569f817350e86

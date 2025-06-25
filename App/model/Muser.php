@@ -36,7 +36,7 @@ class Muser
     private string $password;
 
     #[ORM\Column(nullable: true)]
-    private bool $verified;
+    private bool $verified = false;
 
     #[ORM\Column(enumType: rating::class, nullable: true)]
     private ?rating $rating = null;
@@ -65,6 +65,9 @@ class Muser
 
     #[ORM\OneToMany(targetEntity: Moffer::class, mappedBy: 'client')] 
     private ?Collection $listOfOffers = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Mverification $verification = null;
 
     private static string $entity = Muser::class;
 
@@ -270,5 +273,23 @@ class Muser
     public function getListOfOffers()
     {
         return $this->listOfOffers;
+    }
+
+    public function getVerification(): ?Mverification
+    {
+        return $this->verification;
+    }
+
+    public function setVerification(?Mverification $verification): self
+    {
+        // Semplifica la logica per evitare errori
+        $this->verification = $verification;
+        
+        // Aggiorna automaticamente anche il flag booleano
+        if ($verification !== null && $verification->isApproved()) {
+            $this->verified = true;
+        }
+        
+        return $this;
     }
 }

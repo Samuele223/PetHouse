@@ -338,91 +338,106 @@ public static function viewMyHousesDetails(int $id) {
         $view = new Vuser();
         $view->showUserHousesDetails($house);
 }
+    /**
+     * Redirects user to verification form
+     */
+    public static function askVerification() {
+        // Ensure session is started
+        if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+            USession::getInstance();
+        }
 
-public static function editHouse(int $id) {
-    // Ensure session is started
-    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
-        USession::getInstance();
-    }
+        // Check if user is logged in
+        if (!USession::isSetSessionElement('user')) {
+            header('Location: /PetHouse/User/login');
+            exit;
+        }
 
-    // Check if user is logged in
-    if (!USession::isSetSessionElement('user')) {
-        header('Location: /PetHouse/User/login');
-        exit;
-    }
-
-    // Get current user ID from session
-    $userId = USession::getSessionElement('user');
-
-
-
-    // Recupera la casa
-    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
-
-    $view = new Vuser();
-    $view->showUserHousesEdit($house);
+        // Get current user ID from session
+        $userId = USession::getSessionElement('user');
         
+        // Get user object
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        
+        // Check if user is already verified
+        if ($user->getVerified()) {
+            // Redirect back to profile with message
+            USession::getInstance()->setSessionElement('success_message', 'Your account is already verified!');
+            header('Location: /PetHouse/user/profile');
+            exit;
+        }
+        
+        // Show verification form
+        $view = new VUser();
+        $view->showVerificationForm($user);
+    }
+    /**
+     * Process verification submission
+     */
+    public static function submitVerification() {
+        // Ensure session is started
+        if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+            USession::getInstance();
+        }
+
+        // Check if user is logged in
+        if (!USession::isSetSessionElement('user')) {
+            header('Location: /PetHouse/User/login');
+            exit;
+        }
+
+        // Get current user ID from session
+        $userId = USession::getSessionElement('user');
+        
+        // Get user object
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        
+        // Check if terms were accepted
+        if (!isset($_POST['terms_accepted'])) {
+            // Redirect back with error message
+            USession::getInstance()->setSessionElement('error_message', 'You must accept the terms to proceed.');
+            header('Location: /PetHouse/user/askVerification');
+            exit;
+        }
+        
+        // Process uploaded document
+        if (isset($_FILES['id_document']) && $_FILES['id_document']['error'] === UPLOAD_ERR_OK) {
+            $tmpName = $_FILES['id_document']['tmp_name'];
+            $mimeType = $_FILES['id_document']['type'];
+            $data = file_get_contents($tmpName);
+            
+            // Get any additional notes
+            $description = $_POST['verification_notes'] ?? null;
+            
+            // Create new verification request using the foundation class
+            $verification = new Mverification($user, $description);
+            
+            // Save document as photo
+            $document = new Mphoto($data, $mimeType);
+            $document->setName($_FILES['id_document']['name'] ?? 'verification_doc_' . uniqid());
+            
+            // First save the document
+            FPersistentManager::saveObj($document);
+            
+            // Associate document with verification
+            $verification->addDocument($document);
+            
+            // Save the verification
+            FPersistentManager::saveObj($verification);
+            
+            // Set user's verification status (the entity relation will be maintained)
+            $user->setVerification($verification);
+            FPersistentManager::saveObj($user);
+            
+            // Redirect with success message
+            USession::getInstance()->setSessionElement('success_message', 'Your verification request has been submitted successfully! We will review your documents soon.');
+            header('Location: /PetHouse/user/profile');
+            exit;
+        } else {
+            // Redirect with error message
+            USession::getInstance()->setSessionElement('error_message', 'Please upload a valid document.');
+            header('Location: /PetHouse/user/askVerification');
+            exit;
+        }
+    }
 }
-public static function updateHouse(int $id): void {
-    // Ensure session is started
-    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
-        USession::getInstance();
-    }
-
-    // Check if user is logged in
-    if (!USession::isSetSessionElement('user')) {
-        header('Location: /PetHouse/User/login');
-        exit;
-    }
-
-    // Get current user ID from session
-    $userId = USession::getSessionElement('user');
-
-    // Recupera la casa
-     $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
-
-
-    // Aggiorna i dati con quelli del POST
-    $house->setTitle($_POST['title']);
-    $house->setDescription($_POST['description']);
-    $house->setProvince($_POST['province']);
-    $house->setCity($_POST['city']);
-    $house->setCountry($_POST['country']);
-    $house->setAddress($_POST['address']);
-
-
-    // Salva le modifiche
-    $house = FPersistentManager::saveObj($house);  
-
-    header('Location: /PetHouse/user/profile/myHouses');
-    exit;
-}
-public static function deleteHouse(int $id) {
-    // Ensure session is started
-    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
-        USession::getInstance();
-    }
-
-    // Check if user is logged in
-    if (!USession::isSetSessionElement('user')) {
-        header('Location: /PetHouse/User/login');
-        exit;
-    }
-
-    // Get current user ID from session
-    $userId = USession::getSessionElement('user');
-
-    // Recupera la casa
-    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
-
-    if ($house && $house->getOwner()->getId() === $userId) {
-        FPersistentManager::deleteObj($house);
-        USession::setSessionElement('success_message', 'House deleted successfully.');
-    } else {
-        USession::setSessionElement('success_message', 'You do not have permission to delete this house.');
-    }
-
-    header('Location: /PetHouse/User/myHouses');
-    exit;
-
-}}
