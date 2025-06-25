@@ -379,17 +379,34 @@ public static function updateHouse(int $id): void {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    // Recupera la casa
-     $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+    // Retrieve the house
+    $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
 
-
-    // Aggiorna i dati con quelli del POST
-    $house->setTitle($_POST['title']);
-    $house->setDescription($_POST['description']);
-    $house->setProvince($_POST['province']);
-    $house->setCity($_POST['city']);
-    $house->setCountry($_POST['country']);
-    $house->setAddress($_POST['address']);
+    // Aggiorna solo i campi presenti nel POST, mantenendo i valori originali per quelli mancanti
+    if (isset($_POST['title'])) {
+        $house->setTitle($_POST['title']);
+    }
+    
+    if (isset($_POST['description'])) {
+        $house->setDescription($_POST['description']);
+    }
+    
+    // Solo se provincia e città sono presenti e non vuote, aggiornale
+    if (isset($_POST['province']) && !empty($_POST['province'])) {
+        $house->setProvince($_POST['province']);
+    }
+    
+    if (isset($_POST['city']) && !empty($_POST['city'])) {
+        $house->setCity($_POST['city']);
+    }
+    
+    if (isset($_POST['country'])) {
+        $house->setCountry($_POST['country']);
+    }
+    
+    if (isset($_POST['address'])) {
+        $house->setAddress($_POST['address']);
+    }
 
     // --- GESTIONE FOTO ---
     // 1. Controlla se sono state caricate nuove foto

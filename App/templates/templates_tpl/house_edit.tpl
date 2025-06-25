@@ -303,7 +303,9 @@
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property City :</label>
-                                                        <input type="text" name="city" id="city" class="form-control" placeholder="Enter city" autocomplete="off" required value="{$house->getCity()}">
+                                                        <input type="text" name="city" id="city" class="form-control" 
+                                                               placeholder="Enter city" autocomplete="off" required 
+                                                               value="{$house->getCity()}">
                                                         <div id="cityList" class="autocomplete-items"></div>
                                                     </div>
                                                 </div>
@@ -566,6 +568,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    
+    // Ensure the form always submits province and city values
+    document.getElementById('houseForm').addEventListener('submit', function(e) {
+        // Only if both province and city have values and are marked as selected
+        if (provinceInput && provinceInput.value && cityInput && cityInput.value) {
+            // No need to prevent default, just let the form submit with the existing values
+        } else if (provinceInput && provinceInput.value) {
+            // If only province has a value, ensure it's submitted even if city is empty
+            // You could optionally block submission here with e.preventDefault() if city is required
+        } else {
+            // If no province is selected, prevent form submission
+            e.preventDefault();
+            alert('Please select a province and city');
+        }
+    });
 });
 </script>
 <script>
