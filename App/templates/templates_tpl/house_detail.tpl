@@ -81,7 +81,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -94,7 +94,7 @@
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a></li>
                             
                         </li>
 
@@ -361,20 +361,20 @@
 
 
                     <div class="col-md-4 p0">
-                        <aside class="sidebar sidebar-property blog-asside-right">
-                            <div class="dealer-widget">
-                                <div class="dealer-content">
-                                    <div class="inner-wrapper">
-                                        <div class="clear">
-                                            <div class="col-xs-4 col-sm-4 dealer-face">
-                                                <a href="#">
-                                                    {assign var="owner" value=$house->getOwner()}
-                                                    {if $owner->getProfilePicture()}
-                                                        <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
-                                                    {else}
+    <aside class="sidebar sidebar-property blog-asside-right">
+        <div class="dealer-widget">
+            <div class="dealer-content">
+                <div class="inner-wrapper">
+                    <div class="clear">
+                        <div class="col-xs-4 col-sm-4 dealer-face">
+                            {assign var="owner" value=$house->getOwner()}
+                            {if $owner->getProfilePicture()}
+                                <a href="/PetHouse/user/profile/">
+                                    <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
+                                </a>
+                            {else}
                                                         <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
                                                     {/if}
-                                                </a>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">

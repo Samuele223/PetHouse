@@ -226,8 +226,8 @@
                                                     <p style="display: none;">{$house->getAddress()|truncate:100}</p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/House/edit/{$house->getId()}" class="button">Edit</a>
-                                                            <a href="/PetHouse/House/delete/{$house->getId()}" class="button delete_user_car">Delete</a>
+                                                            <a href="/PetHouse/user/editHouse/{$house->getId()}" class="button">Edit</a>
+                                                            <a href="/PetHouse/user/deleteHouse/{$house->getId()}" class="button delete_user_car" onclick="return confirm('Are you sure you want to delete this house? This action cannot be undone.');">Delete</a>
                                                             <a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}" class="button">View</a>
                                                         </div>
                                                     </div>

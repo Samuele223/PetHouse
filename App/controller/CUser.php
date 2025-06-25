@@ -339,6 +339,168 @@ public static function viewMyHousesDetails(int $id) {
         $view = new Vuser();
         $view->showUserHousesDetails($house);
 }
+
+public static function editHouse(int $id) {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+
+
+    // Recupera la casa
+    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+
+    $view = new Vuser();
+    $view->showUserHousesEdit($house);
+        
+}
+public static function updateHouse(int $id): void {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    // Recupera la casa
+     $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+
+
+    // Aggiorna i dati con quelli del POST
+    $house->setTitle($_POST['title']);
+    $house->setDescription($_POST['description']);
+    $house->setProvince($_POST['province']);
+    $house->setCity($_POST['city']);
+    $house->setCountry($_POST['country']);
+    $house->setAddress($_POST['address']);
+
+    // --- GESTIONE FOTO ---
+    // 1. Controlla se sono state caricate nuove foto
+    $hasNewPhotos = false;
+    if (isset($_FILES['img']) && is_array($_FILES['img']['error'])) {
+        foreach ($_FILES['img']['error'] as $err) {
+            if ($err === UPLOAD_ERR_OK) {
+                $hasNewPhotos = true;
+                break;
+            }
+        }
+    }
+
+    // 2. Se ci sono nuove foto, cancella le vecchie e aggiungi le nuove
+    if ($hasNewPhotos) {
+        // Cancella le vecchie foto associate alla casa
+        $oldPhotos = $house->getPhotos();
+        if ($oldPhotos) {
+            foreach ($oldPhotos as $photo) {
+                FPersistentManager::deleteObj($photo);
+            }
+        }
+
+        // Aggiungi le nuove foto caricate
+        for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
+            if ($_FILES['img']['error'][$i] === UPLOAD_ERR_OK) {
+                $tmpName = $_FILES['img']['tmp_name'][$i];
+                $mime = $_FILES['img']['type'][$i];
+                $data = file_get_contents($tmpName);
+
+                $pic = new Mphoto($data, $mime);
+                $pic->setLocation($house);
+                FPersistentManager::saveObj($pic);
+                $house->addPhoto($pic); // aggiorna la relazione anche lato oggetto
+            }
+        }
+    }
+    // Se non ci sono nuove foto, non toccare le vecchie
+
+    // Salva le modifiche alla casa
+    FPersistentManager::saveObj($house);
+
+    header('Location: /PetHouse/user/myHouses');
+    exit;
+}
+public static function deleteHouse(int $id) {
+    // Ensure session is started
+    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+        USession::getInstance();
+    }
+
+    // Check if user is logged in
+    if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
+
+    // Get current user ID from session
+    $userId = USession::getSessionElement('user');
+
+    try {
+        // Retrieve the house
+        $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+        
+        if (!$house) {
+            USession::setSessionElement('success_message', 'House not found.');
+            header('Location: /PetHouse/User/myHouses');
+            exit;
+        }
+        
+        if ($house->getOwner()->getId() != $userId) {
+            USession::setSessionElement('success_message', 'You do not have permission to delete this house.');
+            header('Location: /PetHouse/User/myHouses');
+            exit;
+        }
+        
+        // First, check for and delete any posts associated with this house
+        $em = FEntityManager::getInstance()::getEntityManager();
+        $posts = $em->getRepository(Mpost::getEntity())->findBy(['house' => $house->getId()]);
+        
+        foreach ($posts as $post) {
+            // Delete post-related entities first if any
+            FPersistentManager::deleteObj($post);
+        }
+        
+        // Delete related photos
+        $photos = $house->getPhotos();
+        if ($photos) {
+            foreach ($photos as $photo) {
+                FPersistentManager::deleteObj($photo);
+            }
+        }
+        
+        // Now delete the house
+        $result = FPersistentManager::deleteObj($house);
+        
+        if ($result) {
+            USession::setSessionElement('success_message', 'House deleted successfully.');
+        } else {
+            USession::setSessionElement('success_message', 'Failed to delete house. Please try again.');
+        }
+    } catch (Exception $e) {
+        // Log the error with more details
+        error_log('Error deleting house: ' . $e->getMessage() . ' - ' . $e->getTraceAsString());
+        USession::setSessionElement('success_message', 'An error occurred: ' . $e->getMessage());
+    }
+
+    header('Location: /PetHouse/User/myHouses');
+    exit;
+
+}
     /**
      * Redirects user to verification form
      */
