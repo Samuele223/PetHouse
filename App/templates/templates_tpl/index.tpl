@@ -224,21 +224,29 @@
     </div>
     <div class="form-group">
         <div class="input-group">
-            <input type="text" class="form-control" name="province" id="searchProvince" placeholder="Province" autocomplete="off">
+            <input type="text" class="form-control" name="province" id="searchProvince" placeholder="Select province" autocomplete="off" readonly>
             <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="caret"></span>
                 </button>
-                <ul id="searchProvinceDropdown" class="dropdown-menu dropdown-menu-right">
-                    <!-- Verrà popolato dinamicamente -->
+                <ul id="searchProvinceDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                    <!-- Will be populated dynamically -->
                 </ul>
             </div>
         </div>
-        <div id="searchProvinceList" class="autocomplete-items"></div>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="city" id="searchCity" placeholder="City" autocomplete="off">
-        <div id="searchCityList" class="autocomplete-items"></div>
+        <div class="input-group" id="searchCityDropdownContainer">
+            <input type="text" class="form-control" name="city" id="searchCity" placeholder="Select a province first" autocomplete="off" readonly disabled>
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                    <span class="caret"></span>
+                </button>
+                <ul id="searchCityDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                    <!-- Will be populated dynamically after province selection -->
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <input type="date" class="form-control" name="datain" placeholder="Date In">
@@ -255,7 +263,6 @@
                 <option value="BIRD">BIRD</option>
                 <option value="RABBIT">RABBIT</option>
                 <option value="PARROT">PARROT</option>
-                <!-- Add more pet types as needed -->
             </select>
             <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
             <span class="input-group-btn">

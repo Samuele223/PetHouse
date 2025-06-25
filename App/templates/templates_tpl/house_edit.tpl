@@ -64,6 +64,48 @@
     background-color: DodgerBlue !important;
     color: #ffffff;
 }
+
+.dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 8px 15px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+}
+
+.input-group .form-control[readonly] {
+    background-color: #fff;
+    cursor: default;
+}
+
+/* Customize scrollbar for better visibility */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 </style>
     </head>
     <body>
@@ -287,26 +329,32 @@
                                                     <div class="form-group">
                                                         <label>Property Province :</label>
                                                         <div class="input-group">
-                                                            <input type="text" name="province" id="province" class="form-control" placeholder="Enter province" autocomplete="off" required value="{$house->getProvince()}">
+                                                            <input type="text" name="province" id="province" class="form-control" placeholder="Select province" autocomplete="off" required value="{$house->getProvince()}">
                                                             <div class="input-group-btn">
                                                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                     <span class="caret"></span>
                                                                 </button>
-                                                                <ul id="provinceDropdown" class="dropdown-menu dropdown-menu-right">
+                                                                <ul id="provinceDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
                                                                     <!-- Will be populated dynamically -->
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        <div id="provinceList" class="autocomplete-items"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property City :</label>
-                                                        <input type="text" name="city" id="city" class="form-control" 
-                                                               placeholder="Enter city" autocomplete="off" required 
-                                                               value="{$house->getCity()}">
-                                                        <div id="cityList" class="autocomplete-items"></div>
+                                                        <div class="input-group" id="cityDropdownContainer">
+                                                            <input type="text" name="city" id="city" class="form-control" placeholder="Select city" autocomplete="off" required value="{$house->getCity()}" readonly>
+                                                            <div class="input-group-btn">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul id="cityDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                                                                    <!-- Will be populated dynamically after province selection -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
