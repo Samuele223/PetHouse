@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 5.5.0, created on 2025-06-25 17:01:37
+  from 'file:user-profile.tpl' */
+
+/* @var \Smarty\Template $_smarty_tpl */
+if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
+  'version' => '5.5.0',
+  'unifunc' => 'content_685c0f51048533_65511758',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'b05a076ccb1cd3eeaf58484c53a58c0ec85f14d3' => 
+    array (
+      0 => 'user-profile.tpl',
+      1 => 1750862441,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+))) {
+function content_685c0f51048533_65511758 (\Smarty\Template $_smarty_tpl) {
+$_smarty_current_dir = 'C:\\xampp\\htdocs\\PetHouse\\App\\templates\\templates_tpl';
+?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -189,7 +213,8 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">{$name}</span></h1>               
+                        <h1 class="page-title">Hello : <span class="orange strong"><?php echo $_smarty_tpl->getValue('name');?>
+</span></h1>               
                     </div>
                 </div>
             </div>
@@ -215,7 +240,9 @@
                                 <div class="col-sm-3 col-sm-offset-1">
                                     <div class="picture-container">
                                         <div class="picture">
-                                            <img src="/PetHouse/image/showImage/{$pic}" alt="Foto profilo di {$name}" style="pointer-events: none;">
+                                            <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('pic');?>
+" alt="Foto profilo di <?php echo $_smarty_tpl->getValue('name');?>
+" style="pointer-events: none;">
                                             <input type="file" id="wizard-picture">
                                         </div>
                                         <h6>YOUR PROFILE PICTURE</h6>
@@ -226,19 +253,23 @@
 
                                     <div class="form-group">
                                         <label>First Name <small>(required)</small></label>
-                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
+                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('name'), ENT_QUOTES, 'UTF-8', true);?>
+" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label>Last Name <small>(required)</small></label>
-                                        <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="{$surname|escape}" readonly>
+                                        <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('surname'), ENT_QUOTES, 'UTF-8', true);?>
+" readonly>
                                     </div> 
                                     <div class="form-group">
                                         <label>Email <small>(required)</small></label>
-                                        <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="{$email|escape}" readonly>
+                                        <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('email'), ENT_QUOTES, 'UTF-8', true);?>
+" readonly>
                                     </div> 
                                     <div class="form-group">
                                         <label>Phone :</label>
-                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
+                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('phone'), ENT_QUOTES, 'UTF-8', true);?>
+" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -250,26 +281,31 @@
                                 <div class="col-sm-5 col-sm-offset-1">
                                     <div class="form-group">
                                         <label>Facebook :</label>
-                                        <input name="Facebook" type="text" class="form-control" placeholder="https://facebook.com/user" value="{$facebook|escape}">
+                                        <input name="Facebook" type="text" class="form-control" placeholder="https://facebook.com/user" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('facebook'), ENT_QUOTES, 'UTF-8', true);?>
+">
                                     </div>
                                     <div class="form-group">
                                         <label>Twitter :</label>
-                                        <input name="Twitter" type="text" class="form-control" placeholder="https://Twitter.com/@user" value="{$twitter|escape}">
+                                        <input name="Twitter" type="text" class="form-control" placeholder="https://Twitter.com/@user" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('twitter'), ENT_QUOTES, 'UTF-8', true);?>
+">
                                     </div>
                                     <div class="form-group">
                                         <label>Website :</label>
-                                        <input name="website" type="text" class="form-control" placeholder="https://yoursite.com/" value="{$website|escape}">
+                                        <input name="website" type="text" class="form-control" placeholder="https://yoursite.com/" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('website'), ENT_QUOTES, 'UTF-8', true);?>
+">
                                     </div>
                                     <div class="form-group">
                                         <label>Public email :</label>
-                                        <input name="p-email" type="email" class="form-control" placeholder="p-email@rmail.com" value="{$pemail|escape}">
+                                        <input name="p-email" type="email" class="form-control" placeholder="p-email@rmail.com" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('pemail'), ENT_QUOTES, 'UTF-8', true);?>
+">
                                     </div>
                                 </div>  
 
                                 <div class="col-sm-5">
                                     <div class="form-group">
                                         <label>FAX :</label>
-                                        <input name="FAX" type="text" class="form-control" placeholder="+1 9090909090" value="{$fax|escape}">
+                                        <input name="FAX" type="text" class="form-control" placeholder="+1 9090909090" value="<?php echo htmlspecialchars((string)$_smarty_tpl->getValue('fax'), ENT_QUOTES, 'UTF-8', true);?>
+">
                                     </div>
                                 </div>
  
@@ -431,24 +467,55 @@
         </div>
 
 
-        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wow.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/icheck.min.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script> 
-        <script src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/price-range.js"><?php echo '</script'; ?>
+> 
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/wizard.js"><?php echo '</script'; ?>
+>
 
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <?php echo '<script'; ?>
+ src="/PetHouse/App/templates/assets/js/main.js"><?php echo '</script'; ?>
+>
 
 
 </body>
-</html>
+</html><?php }
+}

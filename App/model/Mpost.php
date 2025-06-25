@@ -17,7 +17,7 @@ require_once 'acceptedPet.php';
 class Mpost
 {
 #[ORM\Column]
-private bool $booked;
+private string $booked; //booked, finished, open
     
 
 #[ORM\Column, ORM\GeneratedValue , ORM\Id]
@@ -63,7 +63,7 @@ public function __construct(string $desc, array $acceptedPets, float $price, str
     $this->house = $house;
     $this->datein = $datein;
     $this->dateout = $dateout;
-    $this->booked = false;
+    $this->booked = 'open'; // inizialmente il post è aperto, quindi non prenotato
     
 }
 
@@ -254,7 +254,7 @@ public function getBooked()
 return $this->booked;
 }
 
-public function setBooked(bool $booked)
+public function setBooked(string $booked)
 {
 $this->booked = $booked;
 

@@ -2,6 +2,7 @@
 // stateoffer.php
 enum stateoffer: string
 {
+    case PENDING  = 'pending';
     case PENDANT  = 'pendant';
     case ACCEPTED = 'accepted';
     case FINISHED = 'finished';
