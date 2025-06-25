@@ -35,6 +35,35 @@
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
+        <style>
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+</style>
     </head>
     <body>
 
@@ -245,20 +274,34 @@
                                             <div class="col-sm-12">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
+                                                        <label>Country :</label>
+                                                        <select name="country" id="country" class="form-control" required>
+                                                            <option value="Italy">Italy</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
                                                         <label>Property Province :</label>
-                                                        <input type="text" name="province" class="form-control" placeholder="Enter Province">
+                                                        <div class="input-group">
+                                                            <input type="text" name="province" id="province" class="form-control" placeholder="Enter province" autocomplete="off" required>
+                                                            <div class="input-group-btn">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul id="provinceDropdown" class="dropdown-menu dropdown-menu-right">
+                                                                    <!-- Verrà popolato dinamicamente -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div id="provinceList" class="autocomplete-items"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property City :</label>
-                                                        <input type="text" name="city" class="form-control" placeholder="Enter city">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Country :</label>
-                                                        <input type="text" name="country" class="form-control" placeholder="Enter country">
+                                                        <input type="text" name="city" id="city" class="form-control" placeholder="Enter city" autocomplete="off" required>
+                                                        <div id="cityList" class="autocomplete-items"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -562,5 +605,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get location fields
+    const provinceField = document.querySelector('input[name="province"]');
+    const cityField = document.querySelector('input[name="city"]');
+    const countryField = document.querySelector('input[name="country"]');
+    
+    // Location field validation - only letters, spaces, hyphens, and apostrophes
+    const locationRegex = /^[A-Za-z\s\-']+$/;
+    
+    // Add HTML5 pattern validation
+    provinceField.pattern = "[A-Za-z\\s\\-']+";
+    cityField.pattern = "[A-Za-z\\s\\-']+";
+    countryField.pattern = "[A-Za-z\\s\\-']+";
+    
+    // Add title attribute for validation message on hover
+    provinceField.title = "Province should only contain letters, spaces, hyphens or apostrophes";
+    cityField.title = "City should only contain letters, spaces, hyphens or apostrophes";
+    countryField.title = "Country should only contain letters, spaces, hyphens or apostrophes";
+    
+    // Add input event listeners for real-time validation
+    [provinceField, cityField, countryField].forEach(field => {
+        field.addEventListener('input', function() {
+            validateLocationField(this);
+        });
+    });
+    
+    // Add form submit validation
+    const houseForm = document.getElementById('houseForm');
+    houseForm.addEventListener('submit', function(e) {
+        let isValid = true;
+        
+        // Validate each location field
+        [provinceField, cityField, countryField].forEach(field => {
+            if (!validateLocationField(field)) {
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            alert('Please correct the errors in the form before submitting.');
+        }
+    });
+    
+    function validateLocationField(field) {
+        if (field.value && !locationRegex.test(field.value)) {
+            field.style.borderColor = 'red';
+            return false;
+        } else {
+            field.style.borderColor = '';
+            return true;
+        }
+    }
+});
+</script>
+<!-- Aggiungi prima di </body> -->
+<script src="/PetHouse/App/templates/assets/js/italian-locations.js"></script>
     </body>
 </html>
