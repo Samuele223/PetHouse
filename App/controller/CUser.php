@@ -412,14 +412,51 @@ public static function deleteHouse(int $id) {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    // Recupera la casa
-    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
-
-    if ($house && $house->getOwner()->getId() === $userId) {
-        FPersistentManager::deleteObj($house);
-        USession::setSessionElement('success_message', 'House deleted successfully.');
-    } else {
-        USession::setSessionElement('success_message', 'You do not have permission to delete this house.');
+    try {
+        // Retrieve the house
+        $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+        
+        if (!$house) {
+            USession::setSessionElement('success_message', 'House not found.');
+            header('Location: /PetHouse/User/myHouses');
+            exit;
+        }
+        
+        if ($house->getOwner()->getId() != $userId) {
+            USession::setSessionElement('success_message', 'You do not have permission to delete this house.');
+            header('Location: /PetHouse/User/myHouses');
+            exit;
+        }
+        
+        // First, check for and delete any posts associated with this house
+        $em = FEntityManager::getInstance()::getEntityManager();
+        $posts = $em->getRepository(Mpost::getEntity())->findBy(['house' => $house->getId()]);
+        
+        foreach ($posts as $post) {
+            // Delete post-related entities first if any
+            FPersistentManager::deleteObj($post);
+        }
+        
+        // Delete related photos
+        $photos = $house->getPhotos();
+        if ($photos) {
+            foreach ($photos as $photo) {
+                FPersistentManager::deleteObj($photo);
+            }
+        }
+        
+        // Now delete the house
+        $result = FPersistentManager::deleteObj($house);
+        
+        if ($result) {
+            USession::setSessionElement('success_message', 'House deleted successfully.');
+        } else {
+            USession::setSessionElement('success_message', 'Failed to delete house. Please try again.');
+        }
+    } catch (Exception $e) {
+        // Log the error with more details
+        error_log('Error deleting house: ' . $e->getMessage() . ' - ' . $e->getTraceAsString());
+        USession::setSessionElement('success_message', 'An error occurred: ' . $e->getMessage());
     }
 
     header('Location: /PetHouse/User/myHouses');
