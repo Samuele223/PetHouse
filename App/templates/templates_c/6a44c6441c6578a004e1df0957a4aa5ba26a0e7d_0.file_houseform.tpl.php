@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 19:00:39
+/* Smarty version 5.5.0, created on 2025-06-25 15:33:33
   from 'file:houseform.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685ad9b7d5f073_00302948',
+  'unifunc' => 'content_685bfaaded1c66_57120444',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6a44c6441c6578a004e1df0957a4aa5ba26a0e7d' => 
     array (
       0 => 'houseform.tpl',
-      1 => 1750784399,
+      1 => 1750784554,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685ad9b7d5f073_00302948 (\Smarty\Template $_smarty_tpl) {
+function content_685bfaaded1c66_57120444 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -556,31 +556,23 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
 <?php echo '<script'; ?>
 >
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#petFields').addEventListener('click', function(e) {
-        const target = e.target;
-
-        if (target.classList.contains('add-pet')) {
+    document.querySelector('#acceptedPetsFields').addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-pet')) {
             e.preventDefault();
-            const petGroup = target.closest('.pet-group');
+            const petGroup = e.target.closest('.pet-group');
             const newGroup = petGroup.cloneNode(true);
-
             newGroup.querySelector('select').selectedIndex = 0;
             newGroup.querySelector('input').value = 1;
-
-            const addBtn = newGroup.querySelector('.add-pet');
-            addBtn.classList.remove('btn-success');
-            addBtn.classList.add('btn-danger');
-            addBtn.classList.remove('add-pet');
-            addBtn.classList.add('remove-pet'); 
-            addBtn.textContent = '-';
-
-            document.querySelector('#petFields').appendChild(newGroup);
-        }
-
-        else if (target.classList.contains('remove-pet')) { // ✅ Controlla nuova classe
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-pet');
+            btn.classList.remove('btn-success', 'add-pet');
+            btn.classList.add('btn-danger', 'remove-pet');
+            btn.textContent = '-';
+            document.querySelector('#acceptedPetsFields').appendChild(newGroup);
+        } else if (e.target.classList.contains('remove-pet')) {
             e.preventDefault();
-            const petGroup = target.closest('.pet-group');
-            if(document.querySelectorAll('#petFields .pet-group').length > 1) {
+            const petGroup = e.target.closest('.pet-group');
+            if(document.querySelectorAll('#acceptedPetsFields .pet-group').length > 1) {
                 petGroup.remove();
             }
         }

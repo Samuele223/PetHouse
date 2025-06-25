@@ -318,7 +318,7 @@ public static function myHouses() {
 }
 
 
-public static function viewMyHousesDetails($Id) {
+public static function viewMyHousesDetails(int $id) {
     // Ensure session is started
     if (USession::getSessionStatus() == PHP_SESSION_NONE) {
         USession::getInstance();
@@ -333,17 +333,9 @@ public static function viewMyHousesDetails($Id) {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    // Recupera la casa solo se appartiene all'utente loggato
-    $em = FEntityManager::getInstance()::getEntityManager();
-    $house = $em->getRepository(Mposition::getEntity())->findOneBy([
-        'id' => $Id,
-        'owner' => $userId
-    ]);
-
-    $view = new VUser();
-    if ($house) {
+    // Recupera la casa
+    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+        $view = new Vuser();
         $view->showUserHousesDetails($house);
-    } else {
-        echo "Casa non trovata o non autorizzato.";
-    }
-}}
+}
+}

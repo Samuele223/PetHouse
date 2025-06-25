@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.5.0, created on 2025-06-24 18:58:40
+/* Smarty version 5.5.0, created on 2025-06-25 15:22:57
   from 'file:house_detail.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.5.0',
-  'unifunc' => 'content_685ad940f3aa73_00749492',
+  'unifunc' => 'content_685bf831772116_99030462',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2139ef3621a689ac354bff1823634ffa7fe13a53' => 
     array (
       0 => 'house_detail.tpl',
-      1 => 1750784317,
+      1 => 1750857775,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_685ad940f3aa73_00749492 (\Smarty\Template $_smarty_tpl) {
+function content_685bf831772116_99030462 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -240,18 +240,20 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        <li data-thumb="assets/img/property-1/property1.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property1.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property2.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property3.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property4.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property4.jpg" />
-                                        </li>                                         
+                                        <?php
+$_from = $_smarty_tpl->getSmarty()->getRuntime('Foreach')->init($_smarty_tpl, $_smarty_tpl->getValue('photos'), 'photo');
+$foreach0DoElse = true;
+foreach ($_from ?? [] as $_smarty_tpl->getVariable('photo')->value) {
+$foreach0DoElse = false;
+?>
+                                            <li data-thumb="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photo')->getId();?>
+"> 
+                                                <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('photo')->getId();?>
+" alt="Property Image"/>
+                                            </li>
+                                        <?php
+}
+$_smarty_tpl->getSmarty()->getRuntime('Foreach')->restore($_smarty_tpl, 1);?>
                                     </ul>
                                 </div>
                             </div>
@@ -259,83 +261,49 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
 
                         <div class="single-property-wrapper">
                             <div class="single-property-header">                                          
-                                <h1 class="property-title pull-left">Villa in Coral Gables</h1>
-                                <span class="property-price pull-right">$825,000</span>
+                                <h1 class="property-title pull-left"><?php echo $_smarty_tpl->getValue('house')->getTitle();?>
+</h1>
                             </div>
 
-                            <div class="property-meta entry-meta clearfix ">   
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-tag">                                        
-                                        <img src="/PetHouse/App/templates/assets/img/icon/sale-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Status</span>
-                                        <span class="property-info-value">For Sale</span>
-                                    </span>
+                            <!-- Box con i dettagli della casa -->
+                            <div class="panel panel-default" style="margin-top:20px;">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">House Details</h4>
                                 </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info icon-area">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/room-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Area</span>
-                                        <span class="property-info-value">3500<b class="property-info-unit">Sq Ft</b></span>
-                                    </span>
+                                <div class="panel-body">
+                                    <ul class="list-group" style="margin-bottom:0;">
+                                    <li class="list-group-item">
+                                            <strong>Title:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getTitle();?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Description:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getDescription();?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Address:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getAddress();?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Province:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getProvince();?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>City:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getCity();?>
+</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Country:</strong><br>
+                                            <span class="form-control-static"><?php echo $_smarty_tpl->getValue('house')->getCountry();?>
+</span>
+                                        </li>
+                                    </ul>
                                 </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-bed">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/bed-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Bedrooms</span>
-                                        <span class="property-info-value">3</span>
-                                    </span>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-bed">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/cars-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Car garages</span>
-                                        <span class="property-info-value">1</span>
-                                    </span>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-bath">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/os-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Bathrooms</span>
-                                        <span class="property-info-value">3.5</span>
-                                    </span>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-garage">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/room-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Garages</span>
-                                        <span class="property-info-value">2</span>
-                                    </span>
-                                </div>
-                                
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-garage">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/shawer-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Garages</span>
-                                        <span class="property-info-value">2</span>
-                                    </span>
-                                </div>
-
-
                             </div>
                             <!-- .property-meta -->
 
@@ -437,51 +405,53 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                             <div class="dealer-widget">
                                 <div class="dealer-content">
                                     <div class="inner-wrapper">
-
                                         <div class="clear">
                                             <div class="col-xs-4 col-sm-4 dealer-face">
-                                                <a href="">
-                                                    <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle">
+                                                <a href="#">
+                                                    <?php $_smarty_tpl->assign('owner', $_smarty_tpl->getValue('house')->getOwner(), false, NULL);?>
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getProfilePicture()) {?>
+                                                        <img src="/PetHouse/image/showImage/<?php echo $_smarty_tpl->getValue('owner')->getProfilePicture()->getId();?>
+" class="img-circle" alt="Owner profile picture">
+                                                    <?php } else { ?>
+                                                        <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
+                                                    <?php }?>
                                                 </a>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
-                                                    <a href="">Nathan James</a>
-                                                    <span>Real Estate Agent</span>        
+                                                    <a href="#">
+                                                        <?php if ($_smarty_tpl->getValue('owner')->getName()) {
+echo $_smarty_tpl->getValue('owner')->getName();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                        <?php if ($_smarty_tpl->getValue('owner')->getSurname()) {?> <?php echo $_smarty_tpl->getValue('owner')->getSurname();
+} else { ?> <span style="color:#aaa;">Missing field</span><?php }?>
+                                                    </a>
+                                                    
                                                 </h3>
-                                                <div class="dealer-social-media">
-                                                    <a class="twitter" target="_blank" href="">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                    <a class="facebook" target="_blank" href="">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                    <a class="gplus" target="_blank" href="">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                    <a class="linkedin" target="_blank" href="">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a> 
-                                                    <a class="instagram" target="_blank" href="">
-                                                        <i class="fa fa-instagram"></i>
-                                                    </a>       
-                                                </div>
-
                                             </div>
                                         </div>
-
                                         <div class="clear">
-                                            <ul class="dealer-contacts">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                                <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                                <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                            <ul class="dealer-contacts">
+                                                <li>
+                                                    <i class="pe-7s-mail strong"></i>
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getEmail()) {
+echo $_smarty_tpl->getValue('owner')->getEmail();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                </li>
+                                                <li>
+                                                    <i class="pe-7s-call strong"></i>
+                                                    <?php if ($_smarty_tpl->getValue('owner')->getTel()) {
+echo $_smarty_tpl->getValue('owner')->getTel();
+} else { ?><span style="color:#aaa;">Missing field</span><?php }?>
+                                                </li>
                                             </ul>
-                                            <p>Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non…</p>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
+
+                        </aside>
+                    </div>
 
                             <div class="panel panel-default sidebar-menu similar-property-wdg wow fadeInRight animated">
                                 <div class="panel-heading">

@@ -25,7 +25,7 @@ private string $types;
 #[ORM\Column(name:'image_data',type:"blob")]
 private $imageData; //non so se è giusto salvare cosi un blob con doctrine poi vedo bene
 
-private static $entity = Mphoto::class;
+private static $entity = 'Mphoto';
 
 #[ORM\ManyToOne(inversedBy:"photos")]
 #[ORM\JoinColumn(name:"id_Position", referencedColumnName:"id")]

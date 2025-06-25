@@ -216,18 +216,11 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        <li data-thumb="assets/img/property-1/property1.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property1.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property2.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property3.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property3.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/img/property-1/property4.jpg"> 
-                                            <img src="/PetHouse/App/templates/assets/img/property-1/property4.jpg" />
-                                        </li>                                         
+                                        {foreach from=$photos item=photo}
+                                            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
+                                                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
+                                            </li>
+                                        {/foreach}
                                     </ul>
                                 </div>
                             </div>
@@ -235,83 +228,42 @@
 
                         <div class="single-property-wrapper">
                             <div class="single-property-header">                                          
-                                <h1 class="property-title pull-left">Villa in Coral Gables</h1>
-                                <span class="property-price pull-right">$825,000</span>
+                                <h1 class="property-title pull-left">{$house->getTitle()}</h1>
                             </div>
 
-                            <div class="property-meta entry-meta clearfix ">   
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-tag">                                        
-                                        <img src="/PetHouse/App/templates/assets/img/icon/sale-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Status</span>
-                                        <span class="property-info-value">For Sale</span>
-                                    </span>
+                            <!-- Box con i dettagli della casa -->
+                            <div class="panel panel-default" style="margin-top:20px;">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">House Details</h4>
                                 </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info icon-area">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/room-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Area</span>
-                                        <span class="property-info-value">3500<b class="property-info-unit">Sq Ft</b></span>
-                                    </span>
+                                <div class="panel-body">
+                                    <ul class="list-group" style="margin-bottom:0;">
+                                    <li class="list-group-item">
+                                            <strong>Title:</strong><br>
+                                            <span class="form-control-static">{$house->getTitle()}</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Description:</strong><br>
+                                            <span class="form-control-static">{$house->getDescription()}</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Address:</strong><br>
+                                            <span class="form-control-static">{$house->getAddress()}</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Province:</strong><br>
+                                            <span class="form-control-static">{$house->getProvince()}</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>City:</strong><br>
+                                            <span class="form-control-static">{$house->getCity()}</span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Country:</strong><br>
+                                            <span class="form-control-static">{$house->getCountry()}</span>
+                                        </li>
+                                    </ul>
                                 </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-bed">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/bed-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Bedrooms</span>
-                                        <span class="property-info-value">3</span>
-                                    </span>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-bed">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/cars-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Car garages</span>
-                                        <span class="property-info-value">1</span>
-                                    </span>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-bath">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/os-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Bathrooms</span>
-                                        <span class="property-info-value">3.5</span>
-                                    </span>
-                                </div>
-
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-garage">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/room-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Garages</span>
-                                        <span class="property-info-value">2</span>
-                                    </span>
-                                </div>
-                                
-                                <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
-                                    <span class="property-info-icon icon-garage">
-                                        <img src="/PetHouse/App/templates/assets/img/icon/shawer-orange.png">
-                                    </span>
-                                    <span class="property-info-entry">
-                                        <span class="property-info-label">Garages</span>
-                                        <span class="property-info-value">2</span>
-                                    </span>
-                                </div>
-
-
                             </div>
                             <!-- .property-meta -->
 
@@ -413,51 +365,45 @@
                             <div class="dealer-widget">
                                 <div class="dealer-content">
                                     <div class="inner-wrapper">
-
                                         <div class="clear">
                                             <div class="col-xs-4 col-sm-4 dealer-face">
-                                                <a href="">
-                                                    <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle">
+                                                <a href="#">
+                                                    {assign var="owner" value=$house->getOwner()}
+                                                    {if $owner->getProfilePicture()}
+                                                        <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
+                                                    {else}
+                                                        <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
+                                                    {/if}
                                                 </a>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
-                                                    <a href="">Nathan James</a>
-                                                    <span>Real Estate Agent</span>        
+                                                    <a href="#">
+                                                        {if $owner->getName()}{$owner->getName()}{else}<span style="color:#aaa;">Missing field</span>{/if}
+                                                        {if $owner->getSurname()} {$owner->getSurname()}{else} <span style="color:#aaa;">Missing field</span>{/if}
+                                                    </a>
+                                                    
                                                 </h3>
-                                                <div class="dealer-social-media">
-                                                    <a class="twitter" target="_blank" href="">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                    <a class="facebook" target="_blank" href="">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </a>
-                                                    <a class="gplus" target="_blank" href="">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                    <a class="linkedin" target="_blank" href="">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a> 
-                                                    <a class="instagram" target="_blank" href="">
-                                                        <i class="fa fa-instagram"></i>
-                                                    </a>       
-                                                </div>
-
                                             </div>
                                         </div>
-
                                         <div class="clear">
-                                            <ul class="dealer-contacts">                                       
-                                                <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                                <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                                <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                            <ul class="dealer-contacts">
+                                                <li>
+                                                    <i class="pe-7s-mail strong"></i>
+                                                    {if $owner->getEmail()}{$owner->getEmail()}{else}<span style="color:#aaa;">Missing field</span>{/if}
+                                                </li>
+                                                <li>
+                                                    <i class="pe-7s-call strong"></i>
+                                                    {if $owner->getTel()}{$owner->getTel()}{else}<span style="color:#aaa;">Missing field</span>{/if}
+                                                </li>
                                             </ul>
-                                            <p>Duis mollis  blandit tempus porttitor curabiturDuis mollis  blandit tempus porttitor curabitur , est non…</p>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
+
+                        </aside>
+                    </div>
 
                             <div class="panel panel-default sidebar-menu similar-property-wdg wow fadeInRight animated">
                                 <div class="panel-heading">

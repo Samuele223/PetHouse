@@ -209,11 +209,11 @@
                                                 <div class="item-thumb">
                                                     {assign var="photos" value=$house->getPhotos()}
                                                     {if $photos|@count > 0}
-                                                        <a href="/PetHouse/user/viewMyHousesDetails">
-                                                            <img src="/PetHouse/user/viewMyHousesDetails" alt="Property Image">
+                                                        <a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}">
+                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
                                                         </a>
                                                     {else}
-                                                        <a href="/PetHouse/House/view/">
+                                                        <a href="/PetHouse/House/view/{$house->getId()}">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
                                                     {/if}
