@@ -161,6 +161,7 @@ class CUser {
     }
     public static function home()
     {   
+        FPersistentManager::expireOldPosts(); // Call to expire old posts
         if (USession::getSessionStatus() == PHP_SESSION_NONE) {
         USession::getInstance();
     } 

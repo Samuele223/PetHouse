@@ -15,6 +15,12 @@ class VReview
         //$this->smarty->assign('client_posts', $client_posts);
         $this->smarty->display('history_of_offer.tpl');
     }
+    public function showformreview($user)
+    {
+        $this->smarty->assign('user_id', $user->getId());
+        $this->smarty->assign('user', $user);
+        $this->smarty->display('form_rev.tpl');
+    }
 
 
 }
