@@ -92,4 +92,12 @@ public function showEditForm($post,$houses) {
     $this->smarty->assign('positions', $houses);
     $this->smarty->display('edit_post.tpl');    
 }
+public function showReviews($reviews) {
+    $this->smarty->assign('reviews', $reviews);
+    $this->smarty->display('user_reviews.tpl');
+}
+public function showPost($post) {
+    $this->smarty->assign('post', $post);
+    $this->smarty->display('user_post_detail.tpl');
+}
 }
