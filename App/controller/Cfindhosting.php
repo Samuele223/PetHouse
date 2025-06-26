@@ -132,7 +132,7 @@ class CFindhosting{
         $id_user = USession::getSessionElement('user');
         //fetching arguments from post request
         $datein = new DateTime(UHTTPMethods::post('datein'));
-        $dateout = new DateTime(UHTTPMethods::post('dataout'));
+        $dateout = new DateTime(UHTTPMethods::post('dateout'));
         
         
         $requiredPetss = UHTTPMethods::post('required_pets');
