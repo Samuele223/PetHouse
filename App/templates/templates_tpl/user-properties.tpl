@@ -99,7 +99,7 @@
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="property.html">Property</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -219,7 +219,7 @@
                                                     {/if}
                                                 </div>
                                                 <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/House/view/{$house->getId()}">{$house->getTitle()}</a></h5>
+                                                    <h5><a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}">{$house->getTitle()}</a></h5>
                                                     <div class="dot-hr"></div>
                                                     <span class="pull-left"><b>Description:</b> {$house->getDescription()|truncate:50}</span>
                                                     <span class="proerty-price pull-right"></span>

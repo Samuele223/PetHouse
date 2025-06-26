@@ -102,10 +102,6 @@ public function setDescription(string $description): void
     $this->description = $description;
 }
 
-public function setAddres(string $addres): void
-{
-    $this->address = $addres;
-}
 
 public function setLongitude(float $longitude): void
 {
