@@ -86,7 +86,6 @@
                 <button class="navbar-btn nav-button wow fadeInLeft" onclick="window.location.href='/PetHouse/Admin/login'" data-wow-delay="0.40s">Login Admin</button>
             </div>
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -94,107 +93,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="PetHouse logo"></a>
                 </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
                         {if isset($username) && $username|@strlen > 0}
-                                <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
-                                <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
-                            </form>
+                            <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
+                            <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                         {else}
                             <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
                         {/if}
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
-                            
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.3s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.4s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="/PetHouse/">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="/PetHouse/App/templates/templates_tpl/register.tpl">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contact.html">Contact</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="http://localhost/PetHouse/">Home</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -211,11 +122,13 @@
 
                 </div>
             </div>
-            <div class="slider-content">
-                <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12">
-                        <h2>Take care of your Pets they matter</h2>
-                        <p>For a world full of good creature</p>
+            <div class="slider-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; display: flex; align-items: center; justify-content: center;">
+                <div class="row" style="width: 100%;">
+                    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 text-center">
+                        <div style="background: rgba(40,40,40,0.22); display: inline-block; padding: 28px 36px 20px 36px; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.13); margin-bottom: 18px; border: 1.5px solid rgba(80,80,80,0.10);">
+                            <h2 style="color: #fff; font-size: 2.5em; font-weight: 800; letter-spacing: 1px; text-shadow: 0 2px 8px #222; margin-bottom: 10px;">TAKE CARE OF YOUR PETS, THEY MATTER</h2>
+                            <p style="color: #ffd700; font-size: 1.3em; font-weight: 600; letter-spacing: 0.5px; text-shadow: 0 1px 4px #222; margin-bottom: 0;">Petsitting by loving homeowners, at affordable prices</p>
+                        </div>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
                             <!-- Modifica il form di ricerca nella home -->
@@ -325,29 +238,30 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
         <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
         <a href="https://localhost/PetHouse/user/addHouse" class="btn btn-default">Add your house + </a>  
-        <a href="https://localhost/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Create an offer +</a> 
+        <a href="https://localhost/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Create a post +</a> 
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
                         <h2>Top PetHouses</h2>
-                        <p>Best verified PetHouse's profile. </p>
+                        <p>Best Pethouses in the last 30 days </p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="proerty-th">
+
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Sunny Loft</a></h5>
                                     <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                    <span class="pull-left"><b>Price per day:</b> €30</span>
+                                    <span class="proerty-price pull-right"></span>
                                 </div>
                             </div>
                         </div>
@@ -355,13 +269,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-2.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-2.html" >Super nice villa </a></h5>
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Cozy Den</a></h5>
                                     <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                    <span class="pull-left"><b>Price per day:</b> €40</span>
+                                    <span class="proerty-price pull-right"></span>
                                 </div>
                             </div>
                         </div>
@@ -369,14 +283,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-3.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-3.html" >Super nice villa </a></h5>
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Urban Nest</a></h5>
                                     <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                    <span class="pull-left"><b>Price per day:</b> €50</span>
+                                    <span class="proerty-price pull-right"></span>
                                 </div>
                             </div>
                         </div>
@@ -384,29 +297,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
-
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Pet Retreat</a></h5>
                                     <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="property-3.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="property-3.html" >Super nice villa </a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                    <span class="pull-left"><b>Price per day:</b> €60</span>
+                                    <span class="proerty-price pull-right"></span>
                                 </div>
                             </div>
                         </div>
@@ -414,13 +311,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-2.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-2.html" >Super nice villa </a></h5>
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Garden Flat</a></h5>
                                     <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                    <span class="pull-left"><b>Price per day:</b> €35</span>
+                                    <span class="proerty-price pull-right"></span>
                                 </div>
                             </div>
                         </div>
@@ -428,13 +325,27 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="col-sm-6 col-md-3 p0">
                             <div class="box-two proerty-item">
                                 <div class="item-thumb">
-                                    <a href="property-1.html" ><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
                                 </div>
                                 <div class="item-entry overflow">
-                                    <h5><a href="property-1.html" >Super nice villa </a></h5>
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Tiny Studio</a></h5>
                                     <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Area :</b> 120m </span>
-                                    <span class="proerty-price pull-right">$ 300,000</span>
+                                    <span class="pull-left"><b>Price per day:</b> €45</span>
+                                    <span class="proerty-price pull-right"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-3 p0">
+                            <div class="box-two proerty-item">
+                                <div class="item-thumb">
+                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
+                                </div>
+                                <div class="item-entry overflow">
+                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Lakeview Room</a></h5>
+                                    <div class="dot-hr"></div>
+                                    <span class="pull-left"><b>Price per day:</b> €55</span>
+                                    <span class="proerty-price pull-right"></span>
                                 </div>
                             </div>
                         </div>
@@ -446,8 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="more-entry overflow">
                                     <h5><a href="property-1.html" >CAN'T DECIDE ? </a></h5>
-                                    <h5 class="tree-sub-ttl">Show all properties</h5>
-                                    <button class="btn border-btn more-black" value="All properties">All properties</button>
+                                    <h5 class="tree-sub-ttl">START SEARCHING FOR THE PERFECT HOUSE TODAY</h5>
                                 </div>
                             </div>
                         </div>
@@ -467,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div class="row">
                                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                                         <!-- /.feature title -->
-                                        <h2>GARO ESTATE </h2>
+                                        <h2>PET HOUSE </h2>
                                     </div>
                                 </div>
                             </div>
@@ -538,8 +448,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div id="testimonial-slider">
                                 <div class="item">
                                     <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                        <p>"Great service!"</p>
+                                        <h4><strong>Luca Bianchi, </strong><i>Pet Owner</i></h4>
                                     </div>
                                     <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
                                         <img src="/PetHouse/App/templates/assets/img/client-face1.png" alt="">
@@ -547,8 +457,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="item">
                                     <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                        <p>"Easy and safe."</p>
+                                        <h4><strong>Marco Verdi, </strong><i>House Owner</i></h4>
                                     </div>
                                     <div class="client-face">
                                         <img src="/PetHouse/App/templates/assets/img/client-face2.png" alt="">
@@ -556,8 +466,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="item">
                                     <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                        <p>"Found a sitter fast."</p>
+                                        <h4><strong>Giovanni Russo, </strong><i>Pet Owner</i></h4>
                                     </div>
                                     <div class="client-face">
                                         <img src="/PetHouse/App/templates/assets/img/client-face1.png" alt="">
@@ -565,8 +475,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </div>
                                 <div class="item">
                                     <div class="client-text">                                
-                                        <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                                        <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                        <p>"Will use again!"</p>
+                                        <h4><strong>Alessandro Neri, </strong><i>House Owner</i></h4>
                                     </div>
                                     <div class="client-face">
                                         <img src="/PetHouse/App/templates/assets/img/client-face2.png" alt="">
@@ -610,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <div class="chart" data-percent="12000">
                                         <h2 class="percent" id="counter1">0</h2>
-                                        <h5>Properties in stock</h5>
+                                        <h5>Properties REGISTERED</h5>
                                     </div>
                                 </div> 
                             </div> 
@@ -632,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </div>
                                     <div class="chart" data-percent="5000">
                                         <h2 class="percent"  id="counter3">5000</h2>
-                                        <h5>DEALER BRANCHES</h5>
+                                        <h5>POST CREATED</h5>
                                     </div>
                                 </div> 
 
@@ -654,8 +564,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span class="fa fa-search"></span>
                             </div>
                             <div class="asks-first-info">
-                                <h2>ARE YOU LOOKING FOR A Property?</h2>
-                                <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>                                        
+                                <h2>Are you looking for a place for your pet?</h2>
+                                <p>Find a loving and safe home for your pet while you are away. Search trusted hosts near you.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
                                 <a href="properties.html"><span class="fa fa-angle-right"></span></a>
@@ -668,17 +578,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span class="fa fa-usd"></span>
                             </div>
                             <div class="asks-first-info">
-                                <h2>DO YOU WANT TO SELL A Property?</h2>
-                                <p> varius od lio eget conseq uat blandit, lorem auglue comm lodo nisl no us nibh mas lsa</p>
+                                <h2>Do you have free time and a safe place?</h2>
+                                <p>Become a host and earn by caring for pets in your home. Help pet owners and enjoy great company.</p>
                             </div>
                             <div class="asks-first-arrow">
                                 <a href="properties.html"><span class="fa fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12">
-                        <p  class="asks-call">QUESTIONS? CALL US  : <span class="strong"> + 3-123- 424-5700</span></p>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -694,13 +602,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
-
-                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="PetHouse logo" class="wow pulse" data-wow-delay="1s">
+                                <p>PetHouse connects pet owners with trusted hosts for safe, loving pet care. Your pet's comfort is our mission.</p>
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 12, Roma</li>
+                                    <li><i class="pe-7s-mail strong"> </i> info@pethouse.com</li>
+                                    <li><i class="pe-7s-call strong"> </i> +39 06 1234 5678</li>
                                 </ul>
                             </div>
                         </div>
@@ -709,12 +616,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <h4>Quick links </h4>
                                 <div class="footer-title-line"></div>
                                 <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
+                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Find a Host</a></li>
+                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Become a Host</a></li>
+                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">How it Works</a></li>
+                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Support</a></li>
+                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Terms & Privacy</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -725,47 +631,40 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <ul class="footer-blog">
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
+                                            <a href="#" style="pointer-events: none; cursor: pointer;">
                                                 <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
-
+                                            <span class="blg-date">27-06-2025</span>
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                            <h6> <a href="#" style="pointer-events: none; cursor: pointer;">New host in Milan</a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">Now available for summer!</p>
                                         </div>
                                     </li> 
-
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
+                                            <a href="#" style="pointer-events: none; cursor: pointer;">
                                                 <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
-
+                                            <span class="blg-date">20-06-2025</span>
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                            <h6> <a href="#" style="pointer-events: none; cursor: pointer;">Pet care tips</a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">Traveling? Keep pets happy.</p>
                                         </div>
                                     </li> 
-
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
+                                            <a href="#" style="pointer-events: none; cursor: pointer;">
                                                 <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
-
+                                            <span class="blg-date">10-06-2025</span>
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                            <h6> <a href="#" style="pointer-events: none; cursor: pointer;">Summer bookings</a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">Book your pet's stay now!</p>
                                         </div>
                                     </li> 
-
-
                                 </ul>
                             </div>
                         </div>
@@ -773,25 +672,22 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
+                                <p>Subscribe for updates, pet care tips, and exclusive offers from PetHouse. Stay connected with our community!</p>
                                 <form>
                                     <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
+                                        <input class="form-control" type="text" placeholder="Your email address..." style="pointer-events: none; cursor: pointer;">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
+                                            <button class="btn btn-primary subscribe" type="button" style="pointer-events: none; cursor: pointer;"><i class="pe-7s-paper-plane pe-2x"></i></button>
                                         </span>
                                     </div>
-                                    <!-- /input-group -->
-                                </form> 
-
+                                </form>
                                 <div class="social pull-right"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
