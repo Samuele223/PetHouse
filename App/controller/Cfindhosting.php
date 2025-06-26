@@ -67,10 +67,16 @@ class CFindhosting{
                 }
             }
             
-            // Call the search function with our cleaned up parameters
+            // Call the search function with our parameters
             $startDate = $datain ? $datain->format('Y-m-d') : null;
             $endDate = $dataout ? $dataout->format('Y-m-d') : null;
-            $result = FPersistentManager::filterPost($acceptedPets, $province, $city, $startDate, $endDate);
+            $result = FPersistentManager::filterPost(
+                $acceptedPets,
+                $province, 
+                $city,
+                $startDate,
+                $endDate
+            );
             
             // Display results
             $view = new Vfindhosting();

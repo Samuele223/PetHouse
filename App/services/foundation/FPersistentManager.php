@@ -193,14 +193,14 @@ class FPersistentManager{
 
         
      public static function filterPost(
-        array $acceptedPets,
+        array $acceptedPets = [],
         ?string $province = null,
         ?string $city = null,
         ?string $startDate = null,
         ?string $endDate = null
      )
      {
-        $result = Fpost::filterPost( $province, $acceptedPets, $city, $startDate, $endDate);
+        $result = Fpost::filterPost($acceptedPets, $province, $city, $startDate, $endDate);
         return  $result;
      }
      
