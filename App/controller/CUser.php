@@ -630,6 +630,8 @@ public static function deleteHouse(int $id) {
     public static function delete_post($id_post)
     {
         FPersistentManager::deleteObj(FPersistentManager::retriveObj(Mpost::getEntity(), $id_post));
+        header('Location: /PetHouse/User/myPost');
+        exit;
     }
     public static function edit_post($id_post)
     {
