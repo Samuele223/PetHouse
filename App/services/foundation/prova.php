@@ -70,8 +70,13 @@ $offer = FPersistentManager::retriveObj(Moffer::getEntity(),1);
 $offer->acceptOffer();
 FPersistentManager::saveObj($offer);
 */
-$foto = FPersistentManager::retriveObj(Mphoto::getEntity(),1);
-echo stream_get_contents($foto->getImageData());
-echo $foto->getType(); 
+//$foto = FPersistentManager::retriveObj(Mphoto::getEntity(),1);
+//echo stream_get_contents($foto->getImageData());
+//echo $foto->getType(); 
+
+$admin = new Madmin("admin@example.com");
+$admin->setPassword("adpass");
+
+FPersistentManager::saveObj($admin);
 
 ?>

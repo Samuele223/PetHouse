@@ -53,6 +53,18 @@ class FPersistentManager{
         $result = FUser::getUserByUsername($username);
         return $result;
     }
+
+    public static function getModByEmail($email): object|null
+    {
+        $result = Fadmin::getModByEmail($email);
+        return $result;
+    }
+
+    public static function getVerificationsPending(): array|null
+    {
+        $result = FVerification::getPendingVerifications();
+        return $result;
+    }
  
 
 
