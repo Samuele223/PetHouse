@@ -100,4 +100,12 @@ public function showPost($post) {
     $this->smarty->display('user_post_detail.tpl');
     
 }
+public function showActiveOffers($offers) {
+    $this->smarty->assign('offers', $offers);
+    $this->smarty->display('user_active_offers.tpl');
+}
+public function showActivePosts($posts) {
+    $this->smarty->assign('posts', $posts);
+    $this->smarty->display('user_active_posts.tpl');
+}
 }

@@ -153,13 +153,13 @@
                                     <!-- Bottoni grandi -->
                                     <div class="row" style="margin-top:25px;">
                                         <div class="col-xs-12" style="margin-bottom:10px;">
-                                            <a href="/PetHouse/user/myPost" class="btn btn-lg btn-primary btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
-                                                <i class="fa fa-home"></i> Active Post
+                                            <a href="/PetHouse/user/activeposts" class="btn btn-lg btn-primary btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
+                                                <i class="fa fa-home"></i> Active Posts
                                             </a>
                                         </div>
                                         <div class="col-xs-12">
-                                            <a href="/PetHouse/managerequest/viewoffers" class="btn btn-lg btn-warning btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
-                                                <i class="fa fa-list"></i> Active Offer
+                                            <a href="/PetHouse/user/activeoffers" class="btn btn-lg btn-warning btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
+                                                <i class="fa fa-list"></i> Active Offers
                                             </a>
                                         </div>
                                     </div>

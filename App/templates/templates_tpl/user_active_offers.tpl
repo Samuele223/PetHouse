@@ -258,51 +258,46 @@
                         <span id="filter-price-value">100</span>
                     </div>
 
-                    <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
-                                        <div class="col-md-4 p0">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-thumb">
-                                                    {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
-                                                        </a>
+                    <div class="container">
+                        <h2 class="text-center" style="margin:30px 0;">Your Active Offers</h2>
+                        <div class="row">
+                            {if $offers|@count > 0}
+                                {foreach from=$offers item=offer}
+                                    <div class="col-md-6">
+                                        <div class="panel panel-default" style="margin-bottom:20px;">
+                                            <div class="panel-heading">
+                                                <strong>Offer #{$offer->getId()}</strong>
+                                                <span class="label label-info" style="float:right;">{$offer->getState()->value|capitalize}</span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>
+                                                    <b>Check-in:</b> {$offer->getDateofferin()|date_format:"%d/%m/%Y"}<br>
+                                                    <b>Check-out:</b> {$offer->getDateofferout()|date_format:"%d/%m/%Y"}<br>
+                                                    <b>Post:</b> {$offer->getPost()->getTitle()}<br>
+                                                    <b>Client:</b> {$offer->getClient()->getName()} {$offer->getClient()->getSurname()}<br>
+                                                    <b>Required Pets:</b>
+                                                    {assign var="pets" value=$offer->getRequiredPet()}
+                                                    {if $pets|@count > 0}
+                                                        <ul style="margin-bottom:0;">
+                                                            {foreach from=$pets key=petType item=petCount}
+                                                                <li>{$petType|capitalize} ({$petCount})</li>
+                                                            {/foreach}
+                                                        </ul>
                                                     {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
+                                                        None
                                                     {/if}
-                                                </div>
-                                                <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
-                                                                    <i class="fa fa-search-plus"></i> See more
-                                                                </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </p>
                                             </div>
                                         </div>
-                                    {/foreach}
-                                {else}
-                                    <div class="col-md-12">
-                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
                                     </div>
-                                {/if}
-                            </div>
+                                {/foreach}
+                            {else}
+                                <div class="col-md-12">
+                                    <p class="alert alert-info">No active offers found.</p>
+                                </div>
+                            {/if}
                         </div>
-                    
-                    <div class="col-md-12"> 
+                    </div>
                         <div class="pull-right">
                             <div class="pagination">
                                 <ul>

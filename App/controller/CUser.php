@@ -686,4 +686,20 @@ public static function deleteHouse(int $id) {
         $view = new VUser();
         $view->showPost($post);
     }
+    public static function activeoffers()
+    {
+        Usession::getInstance();
+        $id = Usession::getSessionElement('user');
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $offers = $user->getListOfOffers()->toArray();
+        $offers = array_filter($offers, function($offer) {
+            return $offer->getState() == stateoffer::ACCEPTED;
+        });
+        $view = new VUser();
+        $view->showActiveOffers($offers);
+    }
+    public static function activeposts()
+    {
+
+    }
 }
