@@ -161,6 +161,7 @@ class CUser {
     }
     public static function home()
     {   
+        FPersistentManager::expireOldPosts(); // Call to expire old posts
         if (USession::getSessionStatus() == PHP_SESSION_NONE) {
         USession::getInstance();
     } 
@@ -283,15 +284,52 @@ public static function myPost() {
 
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
-
-    // Query diretta al database - metodo più affidabile
-    $em = FEntityManager::getInstance()::getEntityManager();
-    $posts = $em->getRepository(Mpost::getEntity())
-        ->findBy(['seller' => $userId, 'booked' => false]); // Solo post attivi (non prenotati)
-
-    // Passa i post alla view
-    $view = new VUser();
-    $view->showUserPosts($posts);
+    
+    // Add debug information
+    error_log("Looking for posts for user ID: " . $userId);
+    
+    try {
+        // Get the user entity to ensure proper ID type
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        
+        if (!$user) {
+            error_log("User not found with ID: " . $userId);
+            $view = new VUser();
+            $view->showUserPosts([]);
+            return;
+        }
+        
+        // Query with the user entity object instead of just the ID
+        $em = FEntityManager::getInstance()::getEntityManager();
+        $qb = $em->createQueryBuilder();
+        $qb->select('p')
+           ->from(Mpost::getEntity(), 'p')
+           ->where('p.seller = :user')
+           ->andWhere('p.booked = :booked')
+           ->setParameter('user', $user)
+           ->setParameter('booked', false);
+        
+        $posts = $qb->getQuery()->getResult();
+        
+        // If that returns no results, try a different approach
+        if (empty($posts)) {
+            error_log("No posts found with user entity. Trying direct ID query...");
+            $posts = $em->getRepository(Mpost::getEntity())
+                ->findBy(['seller' => $user->getId(), 'booked' => false]);
+        }
+        
+        error_log("Found " . count($posts) . " posts for user " . $user->getUsername());
+        
+        // Display posts
+        $view = new VUser();
+        $view->showUserPosts($posts);
+        
+    } catch (Exception $e) {
+        error_log("Error fetching posts: " . $e->getMessage());
+        // Still show the template, just with empty posts
+        $view = new VUser();
+        $view->showUserPosts([]);
+    }
 }
 public static function myHouses() {
     // Ensure session is started
@@ -378,17 +416,34 @@ public static function updateHouse(int $id): void {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    // Recupera la casa
-     $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+    // Retrieve the house
+    $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
 
-
-    // Aggiorna i dati con quelli del POST
-    $house->setTitle($_POST['title']);
-    $house->setDescription($_POST['description']);
-    $house->setProvince($_POST['province']);
-    $house->setCity($_POST['city']);
-    $house->setCountry($_POST['country']);
-    $house->setAddress($_POST['address']);
+    // Aggiorna solo i campi presenti nel POST, mantenendo i valori originali per quelli mancanti
+    if (isset($_POST['title'])) {
+        $house->setTitle($_POST['title']);
+    }
+    
+    if (isset($_POST['description'])) {
+        $house->setDescription($_POST['description']);
+    }
+    
+    // Solo se provincia e città sono presenti e non vuote, aggiornale
+    if (isset($_POST['province']) && !empty($_POST['province'])) {
+        $house->setProvince($_POST['province']);
+    }
+    
+    if (isset($_POST['city']) && !empty($_POST['city'])) {
+        $house->setCity($_POST['city']);
+    }
+    
+    if (isset($_POST['country'])) {
+        $house->setCountry($_POST['country']);
+    }
+    
+    if (isset($_POST['address'])) {
+        $house->setAddress($_POST['address']);
+    }
 
     // --- GESTIONE FOTO ---
     // 1. Controlla se sono state caricate nuove foto

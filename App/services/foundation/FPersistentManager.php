@@ -193,16 +193,36 @@ class FPersistentManager{
 
         
      public static function filterPost(
-        array $acceptedPets,
+        array $acceptedPets = [],
         ?string $province = null,
         ?string $city = null,
         ?string $startDate = null,
         ?string $endDate = null
      )
      {
-        $result = Fpost::filterPost( $province, $acceptedPets, $city, $startDate, $endDate);
+        $result = Fpost::filterPost($acceptedPets, $province, $city, $startDate, $endDate);
         return  $result;
-     }   
+     }
+     
+public static function expireOldPosts()
+{
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $today = new DateTime('today');
+
+    // Recupera tutti i post ancora "open" o "booked"
+    $posts = $em->getRepository(Mpost::getEntity())->findBy([
+        // Se vuoi solo quelli non già finished
+        'booked' => ['open', 'booked']
+    ]);
+
+    foreach ($posts as $post) {
+        if ($post->getDateOut() < $today) {
+            $post->setBooked('finished');
+            $em->persist($post);
+        }
+    }
+    $em->flush();
+}   
       
     
 }

@@ -215,38 +215,63 @@
                         <p>For a world full of good creature</p>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                            <form action="/PetHouse/Findhosting/searchHost" method="post" class="form-inline" id="customSearchForm">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="city" placeholder="City">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="province" placeholder="Province">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control" name="datain" placeholder="Date In">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control" name="dataout" placeholder="Date Out">
-                                </div>
-                                <div class="form-group" id="petFields">
-                                    <div class="input-group pet-group" style="margin-bottom:5px;">
-                                        <select name="pets[]" class="form-control">
-                                            <option value="">Select pet</option>
-                                            <option value="DOG">DOG</option>
-                                            <option value="CAT">CAT</option>
-                                            <option value="BIRD">BIRD</option>
-                                            <option value="RABBIT">RABBIT</option>
-                                            <option value="PARROT">PARROT</option>
-                                            <!-- Add more pet types as needed -->
-                                        </select>
-                                        <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-success add-pet">+</button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </form>
+                            <!-- Modifica il form di ricerca nella home -->
+<form action="/PetHouse/Findhosting/searchHost" method="post" class="form-inline" id="customSearchForm">
+    <div class="form-group">
+        <select name="country" id="searchCountry" class="form-control">
+            <option value="Italy">Italy</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" name="province" id="searchProvince" placeholder="Select province" autocomplete="off" readonly>
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
+                <ul id="searchProvinceDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                    <!-- Will be populated dynamically -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group" id="searchCityDropdownContainer">
+            <input type="text" class="form-control" name="city" id="searchCity" placeholder="Select a province first" autocomplete="off" readonly disabled>
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                    <span class="caret"></span>
+                </button>
+                <ul id="searchCityDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                    <!-- Will be populated dynamically after province selection -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" name="datain" placeholder="Date In">
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" name="dataout" placeholder="Date Out">
+    </div>
+    <div class="form-group" id="petFields">
+        <div class="input-group pet-group" style="margin-bottom:5px;">
+            <select name="pets[]" class="form-control">
+                <option value="">Select pet</option>
+                <option value="DOG">DOG</option>
+                <option value="CAT">CAT</option>
+                <option value="BIRD">BIRD</option>
+                <option value="RABBIT">RABBIT</option>
+                <option value="PARROT">PARROT</option>
+            </select>
+            <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-success add-pet">+</button>
+            </span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -807,5 +832,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
 
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get location fields in search form
+    const cityField = document.querySelector('form#customSearchForm input[name="city"]');
+    const provinceField = document.querySelector('form#customSearchForm input[name="province"]');
+    
+    // Location field validation - only letters, spaces, hyphens, and apostrophes
+    const locationRegex = /^[A-Za-z\s\-']*$/;
+    
+    // Add HTML5 pattern validation
+    provinceField.pattern = "[A-Za-z\\s\\-']*";
+    cityField.pattern = "[A-Za-z\\s\\-']*";
+    
+    // Add title attribute for validation message on hover
+    provinceField.title = "Province should only contain letters, spaces, hyphens or apostrophes";
+    cityField.title = "City should only contain letters, spaces, hyphens or apostrophes";
+    
+    // Add input event listeners for real-time validation
+    [provinceField, cityField].forEach(field => {
+        field.addEventListener('input', function() {
+            validateLocationField(this);
+        });
+    });
+    
+    // Add form submit validation
+    const searchForm = document.getElementById('customSearchForm');
+    searchForm.addEventListener('submit', function(e) {
+        let isValid = true;
+        
+        // Validate location fields
+        [provinceField, cityField].forEach(field => {
+            if (field.value && !locationRegex.test(field.value)) {
+                isValid = false;
+                validateLocationField(field);
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            alert('Please enter valid location information.');
+        }
+    });
+    
+    function validateLocationField(field) {
+        if (field.value && !locationRegex.test(field.value)) {
+            field.style.borderColor = 'red';
+            return false;
+        } else {
+            field.style.borderColor = '';
+            return true;
+        }
+    }
+});
+</script>
+
+<?php
+// Add this function to a utilities file or directly in your controller
+function validateLocationString($string) {
+    // Allow only letters, spaces, hyphens and apostrophes
+    return preg_match('/^[A-Za-z\s\-\']+$/', $string);
+}
+
+// Then in your controller methods that handle form submissions:
+$city = UHTTPMethods::post('city');
+$province = UHTTPMethods::post('province');
+$country = UHTTPMethods::post('country');
+
+// Validate all location fields
+if (!empty($city) && !validateLocationString($city)) {
+    // Return error or set default
+    $city = null;
+}
+
+if (!empty($province) && !validateLocationString($province)) {
+    // Return error or set default
+    $province = null;
+}
+
+if (!empty($country) && !validateLocationString($country)) {
+    // Return error or set default
+    $country = null;
+}
+?>
+<script src="/PetHouse/App/templates/assets/js/italian-locations.js"></script>
     </body>
 </html>

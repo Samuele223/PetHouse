@@ -213,7 +213,7 @@
                                                             <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
                                                         </a>
                                                     {else}
-                                                        <a href="/PetHouse/House/view/{$house->getId()}">
+                                                        <a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
                                                     {/if}
@@ -221,9 +221,8 @@
                                                 <div class="item-entry overflow">
                                                     <h5><a href="/PetHouse/user/viewMyHousesDetails/{$house->getId()}">{$house->getTitle()}</a></h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="pull-left"><b>Description:</b> {$house->getDescription()|truncate:50}</span>
                                                     <span class="proerty-price pull-right"></span>
-                                                    <p style="display: none;">{$house->getAddress()|truncate:100}</p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
                                                             <a href="/PetHouse/user/editHouse/{$house->getId()}" class="button">Edit</a>

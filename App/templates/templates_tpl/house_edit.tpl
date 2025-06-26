@@ -35,6 +35,78 @@
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
+        
+        <style>
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 8px 15px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+}
+
+.input-group .form-control[readonly] {
+    background-color: #fff;
+    cursor: default;
+}
+
+/* Customize scrollbar for better visibility */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+</style>
     </head>
     <body>
 
@@ -247,26 +319,48 @@
                                             <div class="col-sm-12">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
+                                                        <label>Country :</label>
+                                                        <select name="country" id="country" class="form-control" required>
+                                                            <option value="Italy">Italy</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group">
                                                         <label>Property Province :</label>
-                                                        <input type="text" name="province" class="form-control" value="{$house->getProvince()}"">
+                                                        <div class="input-group">
+                                                            <input type="text" name="province" id="province" class="form-control" placeholder="Select province" autocomplete="off" required value="{$house->getProvince()}">
+                                                            <div class="input-group-btn">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul id="provinceDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                                                                    <!-- Will be populated dynamically -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Property City :</label>
-                                                        <input type="text" name="city" class="form-control" value="{$house->getCity()}"">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="form-group">
-                                                        <label>Country :</label>
-                                                        <input type="text" name="country" class="form-control" value="{$house->getCountry()}"">
+                                                        <div class="input-group" id="cityDropdownContainer">
+                                                            <input type="text" name="city" id="city" class="form-control" placeholder="Select city" autocomplete="off" required value="{$house->getCity()}" readonly>
+                                                            <div class="input-group-btn">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul id="cityDropdown" class="dropdown-menu dropdown-menu-right" style="max-height: 300px; overflow-y: auto;">
+                                                                    <!-- Will be populated dynamically after province selection -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
                                                         <label>Address :</label>
-                                                        <input type="text" name="address" class="form-control" value="{$house->getAddress()}"">
+                                                        <input type="text" name="address" class="form-control" value="{$house->getAddress()}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -500,7 +594,45 @@
         <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
 
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-
+<script src="/PetHouse/App/templates/assets/js/italian-locations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize with the existing province/city values
+    const provinceInput = document.getElementById('province');
+    const cityInput = document.getElementById('city');
+    
+    if (provinceInput && provinceInput.value) {
+        // Mark the province as selected so validation passes
+        provinceInput.dataset.selected = "true";
+        
+        // Enable the city field if province is already set
+        if (cityInput) {
+            cityInput.disabled = false;
+            cityInput.placeholder = 'Enter city name';
+            
+            // If city is already populated, mark it as selected too
+            if (cityInput.value) {
+                cityInput.dataset.selected = "true";
+            }
+        }
+    }
+    
+    // Ensure the form always submits province and city values
+    document.getElementById('houseForm').addEventListener('submit', function(e) {
+        // Only if both province and city have values and are marked as selected
+        if (provinceInput && provinceInput.value && cityInput && cityInput.value) {
+            // No need to prevent default, just let the form submit with the existing values
+        } else if (provinceInput && provinceInput.value) {
+            // If only province has a value, ensure it's submitted even if city is empty
+            // You could optionally block submission here with e.preventDefault() if city is required
+        } else {
+            // If no province is selected, prevent form submission
+            e.preventDefault();
+            alert('Please select a province and city');
+        }
+    });
+});
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#acceptedPetsFields').addEventListener('click', function(e) {

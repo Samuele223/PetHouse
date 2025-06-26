@@ -144,8 +144,8 @@ public static function findPostsByAcceptedPets(array $requiredPets): array  //fu
     return $posts;
 }
 public static function filterPost(
-    ?string $province = null, //funziona
-    array $acceptedPets,
+    array $acceptedPets = [],
+    ?string $province = null,
     ?string $city = null,
     ?string $startDate = null,
     ?string $endDate = null
@@ -168,7 +168,7 @@ public static function filterPost(
         $conditions[] = 'city = :city';
         $params[':city'] = $city;
     }
-        if ($province !== null) {
+    if ($province !== null) {
         $conditions[] = 'province = :province';
         $params[':province'] = $province;
     }
@@ -181,9 +181,11 @@ public static function filterPost(
     }
 
     // Costruisci la query
-    $sql = 'SELECT * FROM post join position on post.house = position.id' ;
+    $sql = 'SELECT * FROM post join position on post.house = position.id';
     if (!empty($conditions)) {
-        $sql .= ' WHERE ' . implode(' AND ', $conditions) .' AND booked = FALSE '; //non so se funge
+        $sql .= ' WHERE ' . implode(' AND ', $conditions) .' AND booked = FALSE ';
+    } else {
+        $sql .= ' WHERE booked = FALSE';
     }
 
     $stmt = $conn->prepare($sql);

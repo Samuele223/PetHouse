@@ -20,7 +20,7 @@ public function showForm()
 public function noPostFound()
 {
     $this->smarty->assign('message', 'No posts found for your search criteria.');
-    $this->smarty->display('.tpl'); //da fare   aaaaa
+    $this->smarty->display('no_posts_found.tpl'); // Use an actual template name
 }
 public function showPost($post)
 {
@@ -36,6 +36,12 @@ public function showFormOffer($post)
 public function showok()
 {
     $this->smarty->display('offer_created.tpl');
+}
+// Add an error method
+public function showError($message)
+{
+    $this->smarty->assign('message', $message);
+    $this->smarty->display('error.tpl'); 
 }
 }
 ?>
