@@ -284,15 +284,52 @@ public static function myPost() {
 
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
-
-    // Query diretta al database - metodo più affidabile
-    $em = FEntityManager::getInstance()::getEntityManager();
-    $posts = $em->getRepository(Mpost::getEntity())
-        ->findBy(['seller' => $userId, 'booked' => false]); // Solo post attivi (non prenotati)
-
-    // Passa i post alla view
-    $view = new VUser();
-    $view->showUserPosts($posts);
+    
+    // Add debug information
+    error_log("Looking for posts for user ID: " . $userId);
+    
+    try {
+        // Get the user entity to ensure proper ID type
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        
+        if (!$user) {
+            error_log("User not found with ID: " . $userId);
+            $view = new VUser();
+            $view->showUserPosts([]);
+            return;
+        }
+        
+        // Query with the user entity object instead of just the ID
+        $em = FEntityManager::getInstance()::getEntityManager();
+        $qb = $em->createQueryBuilder();
+        $qb->select('p')
+           ->from(Mpost::getEntity(), 'p')
+           ->where('p.seller = :user')
+           ->andWhere('p.booked = :booked')
+           ->setParameter('user', $user)
+           ->setParameter('booked', false);
+        
+        $posts = $qb->getQuery()->getResult();
+        
+        // If that returns no results, try a different approach
+        if (empty($posts)) {
+            error_log("No posts found with user entity. Trying direct ID query...");
+            $posts = $em->getRepository(Mpost::getEntity())
+                ->findBy(['seller' => $user->getId(), 'booked' => false]);
+        }
+        
+        error_log("Found " . count($posts) . " posts for user " . $user->getUsername());
+        
+        // Display posts
+        $view = new VUser();
+        $view->showUserPosts($posts);
+        
+    } catch (Exception $e) {
+        error_log("Error fetching posts: " . $e->getMessage());
+        // Still show the template, just with empty posts
+        $view = new VUser();
+        $view->showUserPosts([]);
+    }
 }
 public static function myHouses() {
     // Ensure session is started

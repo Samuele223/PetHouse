@@ -270,9 +270,9 @@
                                                 <div class="item-entry overflow">
                                                     <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="pull-left"><b>Description:</b> {$house->getDescription()|truncate:50}</span>
                                                     <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <p style="margin-top: 10px;">{$post->getMoreinfo()|truncate:100}</p>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
                                                             <a href="/PetHouse/Post/edit/{$post->getId()}" class="button">Edit</a>
