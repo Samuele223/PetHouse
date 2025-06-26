@@ -189,7 +189,7 @@ public static function profile()
     $pic = $user->getProfilePicture();
     if (!$pic) {
         // If no profile picture, set a default or handle accordingly
-        $picid = 1; // or set to a default image ID if you have one
+        $picid = 0; // or set to a default image ID if you have one
     } else {
         // If there is a profile picture, get its ID
         $picid = $pic->getId();

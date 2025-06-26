@@ -126,7 +126,8 @@
                                 <div class="col-sm-3 col-sm-offset-1">
                                     <div class="picture-container">
                                         <div class="picture">
-                                            <img src="/PetHouse/image/showImage/{$pic}" alt="Foto profilo di {$name}" style="pointer-events: none;">
+                                            <img src="{if $pic == 0}/PetHouse/App/templates/assets/img/mauro.png{else}/PetHouse/image/showImage/{$pic}{/if}" alt="Foto profilo di {$name}" style="pointer-events: none;">
+                                            
                                         </div>
                                         <h6>YOUR PROFILE PICTURE</h6>
                                     </div>

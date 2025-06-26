@@ -246,6 +246,8 @@
                             <option value="accepted">Accepted</option>
                             <option value="pending">Pending</option>
                             <option value="finished">Finished</option>
+                            <option value="deied">Denied</option>
+                            <option value="expired">Expired</option>
                         </select>
                     </div>
                     <div class="form-inline" style="margin-bottom:20px;" id="post-filter-bar">
@@ -255,6 +257,7 @@
                             <option value="booked">Booked</option>
                             <option value="open">Open</option>
                             <option value="finished">Finished</option>
+                            <option value="expired">Expired</option>
                         </select>
                     </div>
 

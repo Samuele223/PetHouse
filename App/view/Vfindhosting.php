@@ -51,7 +51,11 @@ public function showError($message)
 public function showforeignprofile($user)
 {
     $this->smarty->assign('user', $user);
-    $this->smarty->assign('pic', $user->getProfilePicture()->getId());
+    if ($user->getProfilePicture() === null) {
+        $this->smarty->assign('pic', 0); // Use a default picture if none exists
+    } else {
+        $this->smarty->assign('pic', $user->getProfilePicture()->getId());
+    }
     $this->smarty->assign('name', $user->getName());
     $this->smarty->assign('surname', $user->getSurname());
     $this->smarty->assign('email', $user->getEmail());
