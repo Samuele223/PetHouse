@@ -263,9 +263,13 @@
                 <option value="">Select pet</option>
                 <option value="DOG">DOG</option>
                 <option value="CAT">CAT</option>
-                <option value="BIRD">BIRD</option>
-                <option value="RABBIT">RABBIT</option>
                 <option value="PARROT">PARROT</option>
+                <option value="FISH">FISH</option>
+                <option value="HAMSTER">HAMSTER</option>
+                <option value="MOUSE">MOUSE</option>
+                <option value="SNAKE">SNAKE</option>
+                <option value="RABBIT">RABBIT</option>
+                <option value="TURTLE">TURTLE</option>
             </select>
             <input type="number" name="pet_counts[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty">
             <span class="input-group-btn">
@@ -919,5 +923,40 @@ if (!empty($country) && !validateLocationString($country)) {
 }
 ?>
 <script src="/PetHouse/App/templates/assets/js/italian-locations.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get date input fields
+    const dateInField = document.querySelector('input[name="datain"]');
+    const dateOutField = document.querySelector('input[name="dataout"]');
+    
+    // Set min date to today for both fields
+    const today = new Date().toISOString().split('T')[0];
+    dateInField.min = today;
+    dateOutField.min = today;
+    
+    // When start date changes, update min value of end date
+    dateInField.addEventListener('change', function() {
+        if (dateInField.value) {
+            dateOutField.min = dateInField.value;
+            
+            // If end date is now before start date, clear it
+            if (dateOutField.value && dateOutField.value < dateInField.value) {
+                dateOutField.value = '';
+            }
+        }
+    });
+    
+    // Validate dates before form submission
+    document.getElementById('customSearchForm').addEventListener('submit', function(e) {
+        if (dateInField.value && dateOutField.value) {
+            if (new Date(dateOutField.value) < new Date(dateInField.value)) {
+                e.preventDefault();
+                alert('End date cannot be before start date');
+                return false;
+            }
+        }
+    });
+});
+</script>
     </body>
 </html>
