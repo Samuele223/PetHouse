@@ -193,9 +193,9 @@ public static function filterPost(
     // Costruisci la query
     $sql = 'SELECT * FROM post join position on post.house = position.id';
     if (!empty($conditions)) {
-        $sql .= ' WHERE ' . implode(' AND ', $conditions) .' AND booked = FALSE ';
+        $sql .= ' WHERE ' . implode(' AND ', $conditions) .' AND booked = "open" ';
     } else {
-        $sql .= ' WHERE booked = FALSE';
+        $sql .= ' WHERE booked = "open"';
     }
 
     $stmt = $conn->prepare($sql);

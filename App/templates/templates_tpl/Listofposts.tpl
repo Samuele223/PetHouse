@@ -253,7 +253,7 @@
                         </div><!--/ .layout-switcher-->
                     </div>
                     <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
+                        <label for="filter-price" style="margin-right:10px;">Max price (€):</label>
                         <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
                         <span id="filter-price-value">100</span>
                     </div>
@@ -280,9 +280,9 @@
                                                 <div class="item-entry overflow">
                                                     <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
+                                                    <span class="pull-left"><b>Description house:</b> {$house->getDescription()}</span>
                                                     <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <span class="pull-left"><b>Post Info:</b> {$post->getMoreinfo()} </span>
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">                                        
                                                                 <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">

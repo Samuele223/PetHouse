@@ -344,8 +344,7 @@
                                     <div class="inner-wrapper">
                                         <div class="clear">
                                             <div class="col-xs-4 col-sm-4 dealer-face">
-                                                <a href="#">
-                                                    {assign var="owner" value=$post->getSeller()}
+                                                <a href="/PetHouse/findhosting/viewprofile/{$owner->getId()}">
                                                     {if $owner->getProfilePicture()}
                                                         <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
                                                     {else}

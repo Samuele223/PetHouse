@@ -251,51 +251,69 @@ public static function filterPost($acceptedPets = [], $province = null, $city = 
     $qb->select('p')
        ->from(Mpost::getEntity(), 'p')
        ->where('p.booked = :booked')
-       ->setParameter('booked', false);
+       ->setParameter('booked', 'open');
     
-    // Location filters
-    if ($province !== null && !empty($province)) {
-        $qb->andWhere('p.position.province = :province')
-           ->setParameter('province', $province);
+    // Location filters - add JOIN when needed
+    if (($province !== null && !empty($province)) || ($city !== null && !empty($city))) {
+        $qb->join('p.house', 'h');
+        
+        if ($province !== null && !empty($province)) {
+            $qb->andWhere('h.province = :province')
+               ->setParameter('province', $province);
+        }
+        
+        if ($city !== null && !empty($city)) {
+            $qb->andWhere('h.city = :city')
+               ->setParameter('city', $city);
+        }
     }
     
-    if ($city !== null && !empty($city)) {
-        $qb->andWhere('p.position.city = :city')
-           ->setParameter('city', $city);
-    }
-    
-    // Date range filter - improved logic
+    // Date range filter - corrected logic
     if ($startDate !== null && $endDate !== null) {
-        // Only return posts where search dates are completely within the post's available dates
-        // Start date is on or after post's start date AND end date is on or before post's end date
+        // Search dates must fall within the post's available dates
+        // Post start date <= search start date AND Post end date >= search end date
         $qb->andWhere('p.datein <= :startDate AND p.dateout >= :endDate')
            ->setParameter('startDate', $startDate)
            ->setParameter('endDate', $endDate);
     } else if ($startDate !== null) {
-        // If only start date is provided, post must be available from that date
+        // If only start date is provided, post must be available from that date onwards
+        // We assume the search is for just that one day, so post must contain that date
         $qb->andWhere('p.datein <= :startDate AND p.dateout >= :startDate')
            ->setParameter('startDate', $startDate);
     } else if ($endDate !== null) {
         // If only end date is provided, post must be available until that date
-        $qb->andWhere('p.dateout >= :endDate')
+        // We assume the search is for just that one day, so post must contain that date
+        $qb->andWhere('p.datein <= :endDate AND p.dateout >= :endDate')
            ->setParameter('endDate', $endDate);
     }
     
-    // Pet filter - maintain existing logic
+    // Get all posts that match location and date criteria
+    $posts = $qb->getQuery()->getResult();
+    
+    // Filter by pets in PHP if needed
     if (!empty($acceptedPets)) {
-        foreach ($acceptedPets as $pet => $count) {
-            // Build a DQL expression to check pet types and counts
-            $qb->andWhere("JSON_CONTAINS_PATH(p.acceptedpets, 'one', :path{$pet}) = 1")
-               ->setParameter("path{$pet}", "$.{$pet}");
-               
-            // Also check if the count is sufficient
-            $qb->andWhere("CAST(JSON_EXTRACT(p.acceptedpets, :pathValue{$pet}) AS INTEGER) >= :count{$pet}")
-               ->setParameter("pathValue{$pet}", "$.{$pet}")
-               ->setParameter("count{$pet}", $count);
+        $filteredPosts = [];
+        foreach ($posts as $post) {
+            $postAcceptedPets = $post->getAcceptedPets();
+            $matchesPetRequirements = true;
+            
+            // Check if post can accommodate all required pets with sufficient counts
+            foreach ($acceptedPets as $requiredPet => $requiredCount) {
+                if (!isset($postAcceptedPets[$requiredPet]) || 
+                    $postAcceptedPets[$requiredPet] < $requiredCount) {
+                    $matchesPetRequirements = false;
+                    break;
+                }
+            }
+            
+            if ($matchesPetRequirements) {
+                $filteredPosts[] = $post;
+            }
         }
+        return $filteredPosts;
     }
     
-    return $qb->getQuery()->getResult();
+    return $posts;
 }
 
 public static function expireOldPosts()
@@ -304,9 +322,13 @@ public static function expireOldPosts()
     $today = new DateTime('today');
 
     // Recupera tutti i post ancora "open" o "booked"
-    $posts = $em->getRepository(Mpost::getEntity())->findBy([
-        'booked' => ['open', 'booked']
-    ]);
+    $qb = $em->createQueryBuilder();
+    $posts = $qb->select('p')
+        ->from(Mpost::getEntity(), 'p')
+        ->where('p.booked IN (:statuses)')
+        ->setParameter('statuses', ['open', 'booked'])
+        ->getQuery()
+        ->getResult();
 
     foreach ($posts as $post) {
         if ($post->getDateOut() < $today) {
