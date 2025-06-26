@@ -1,31 +1,103 @@
 <?php
 
-class CReport{
-
-
+class CReport {
     /**
-    * this method is called when a user report a Post, si rubacchia di nuovo ad Agora, yeeee, anche se non ho ben capito come funziona il login
-    * @param int $idPost Refers to the id of a post 
-    */
-    public static function reportPost($idPost){
-        if(CUser::isLogged()){
+     * This method is called when a user reports a Post
+     * @param int $idPost Refers to the id of a post 
+     */
+    public static function reportPost($idPost) {
+        if (CUser::isLogged()) {
             $idUser = USession::getInstance()->getSessionElement('user');
-            $reporter = FPersistentManager::getInstance()->retriveObj(Muser::getEntity(), $idUser); //aggiunto in quanto nel nostro costruttore ci sta anche chi ha reportato il post (che non so se bisogna lascia o meno)
+            $reporter = FPersistentManager::retriveObj(Muser::getEntity(), $idUser);
 
-            $reportedPost = FPersistentManager::getInstance()->retriveObj(Mpost::getEntity(), $idPost);
-            //cosa carina, qua si fa il controllo sull'id del post, che in verità a rigor di logica se sta nel db è sempre non nullo, però buh per sicurezza/robustezza è consigliato, metti che post viene cancellato ma non si aggiorna o cazzi
-            if($reportedPost !== null){
-                //create a new Report Obj and persist it, sta cosa un paio di dubbi mi crea
-                //UHTTPMethods::post('description') questa recuper comunque la descrizione del report inviato tramite un form html, che penso facciamo dopo,
-                //e type invece recupera il tipo di report (es. "spam", "offensivo", "altro") da una selezione o tipo input utente, non so se lo vogliamo implementare pure o lasciamo solo la descrizione, se è bisogna aggiungere il campo
-                //type dentro al nostro report, scherzone alla fine l'ho direttamente tolto
-                $report = new Mreport(UHTTPMethods::post('description'), $reporter, $reportedPost);
-                $report->setPost($reportedPost); //messa dentro a Mreport sta funzione, scritto anche la cose
-                FPersistentManager::getInstance()->saveObj($report);
-                header('Location: /PetHouse/Post/visit/' . $idPost); //poi volendo la possiamo modificare, è la url, ho lasciato così, l’importante è che il percorso corrisponda a una route effettiva della applicazione (gestita dal router, che non so che sia, o dal controller giusto)
-            }else{
+            $reportedPost = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+            
+            if ($reportedPost !== null) {
+                try {
+                    // Create a new report with the description from the form
+                    $description = UHTTPMethods::post('description');
+                    $report = new Mreport($description, $reporter, $reportedPost);
+                    
+                    // Save the report
+                    FPersistentManager::saveObj($report);
+                    
+                    // Increment the post's report counter
+                    $currentReports = $reportedPost->getNumReport() ?? 0;
+                    $reportedPost->setNumReport($currentReports + 1);
+                    FPersistentManager::saveObj($reportedPost);
+                    
+                    // Set success message and redirect
+                    USession::getInstance();
+                    USession::setSessionElement('success_message', 'Thank you for your report. We will review it shortly.');
+                    
+                    // Redirect back to the post view
+                    header('Location: /PetHouse/Post/view/' . $idPost);
+                    exit;
+                } catch (Exception $e) {
+                    // Log error
+                    error_log("Error reporting post: " . $e->getMessage());
+                    
+                    // Set error message and redirect
+                    USession::getInstance();
+                    USession::setSessionElement('error_message', 'An error occurred while submitting your report. Please try again.');
+                    header('Location: /PetHouse/Post/view/' . $idPost);
+                    exit;
+                }
+            } else {
+                // Post not found
                 header('Location: /PetHouse/User/home');
+                exit;
             }
-        }  
+        } else {
+            // User is not logged in, redirect to register page
+            header('Location: /PetHouse/User/login');
+            exit;
+        }
+    }
+    
+    /**
+     * Initial entry point for report functionality - checks login status
+     * @param int $idPost Refers to the id of a post 
+     */
+    public static function makeReport($idPost) {
+        // Direct session check without automatic redirect
+        if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+            USession::getInstance();
+        }
+        
+        // Simple check if user session exists
+        if (isset($_SESSION['user'])) {
+            // User is logged in, show report form
+            $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+            
+            if (!$post) {
+                // Post not found, redirect to home
+                header('Location: /PetHouse/');
+                exit;
+            }
+            
+            // Show report form
+            $view = new VReport();
+            $view->showReportForm($post);
+        } else {
+            // User not logged in, redirect to login
+            header('Location: /PetHouse/User/login');
+            exit;
+        }
+    }
+    
+    // You can keep a simplified version as a fallback
+    public static function showReportForm($idPost) {
+        // Get the post
+        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+        
+        if (!$post) {
+            header('Location: /PetHouse/');
+            exit;
+        }
+        
+        // Show the report form
+        $view = new VReport();
+        $view->showReportForm($post);
     }
 }

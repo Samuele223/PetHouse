@@ -207,6 +207,23 @@
         </div>
         <!-- End page header -->
 
+        <div class="container">
+            {if isset($smarty.session.success_message)}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {$smarty.session.success_message}
+                </div>
+            {/if}
+
+            {if isset($smarty.session.error_message)}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {$smarty.session.error_message}
+
+                </div>
+            {/if}
+        </div>
+
         <!-- property area -->
         <div class="content-area single-property" style="background-color: #FCFCFC;">&nbsp;
             <div class="container">   
@@ -338,6 +355,16 @@
                 <a href="/PetHouse/Findhosting/bookPost/{$post->getId()}" class="btn btn-warning btn-lg btn-block" style="border-radius: 30px; font-weight: bold;">
                     <i class="fa fa-calendar-check-o"></i> Book this post
                 </a>
+
+<!-- Replace the report button section in Post_detail.tpl with this -->
+
+<div class="row" style="margin-bottom: 15px;">
+    <div class="col-md-12">
+        <a href="/PetHouse/Report/makeReport/{$post->getId()}" class="btn btn-danger" style="border-radius: 30px;">
+            <i class="fa fa-flag"></i> Report this post
+        </a>
+    </div>
+</div>
 
             </div>
         </div>
@@ -517,3 +544,28 @@
 
     </body>
 </html>
+
+{if isset($smarty.session.user)}
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="reportModalLabel">Report Inappropriate Post</h4>
+            </div>
+            <form action="/PetHouse/Report/reportPost/{$post->getId()}" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="description">Please describe why you're reporting this post:</label>
+                        <textarea class="form-control" name="description" id="description" rows="4" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/if}
