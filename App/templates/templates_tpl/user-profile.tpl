@@ -134,7 +134,6 @@
                                 </div>
 
                                 <div class="col-sm-3 padding-top-25">
-
                                     <div class="form-group">
                                         <label>First Name <small>(required)</small></label>
                                         <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
@@ -151,6 +150,20 @@
                                         <label>Phone :</label>
                                         <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
                                     </div>
+                                    <!-- Bottoni grandi -->
+                                    <div class="row" style="margin-top:25px;">
+                                        <div class="col-xs-12" style="margin-bottom:10px;">
+                                            <a href="/PetHouse/user/myPost" class="btn btn-lg btn-primary btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
+                                                <i class="fa fa-home"></i> Active Post
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <a href="/PetHouse/managerequest/viewoffers" class="btn btn-lg btn-warning btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
+                                                <i class="fa fa-list"></i> Active Offer
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- Fine bottoni grandi -->
                                 </div>
                             </div>                    
                                 <div class="col-sm-10 col-sm-offset-1">

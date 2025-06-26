@@ -378,9 +378,11 @@
                                     </div>
                                 </div>
                             </div>
-                        <a href="/PetHouse/managerequest/viewoffers/{$post->getId()}" class="btn btn-warning btn-block" style="margin-bottom:15px; font-weight:bold;">
-                            <i class="fa fa-list"></i> View Offers
-                        </a>
+                            {if $post->getBooked() == 'open'}
+                            <a href="/PetHouse/managerequest/viewoffers/{$post->getId()}" class="btn btn-warning btn-block" style="margin-bottom:15px; font-weight:bold;">
+                                <i class="fa fa-list"></i> View Offers
+                            </a>
+                            {/if}
                         </aside>
                     </div>
                 </div>
