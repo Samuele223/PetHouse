@@ -184,8 +184,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
-                        <h2 class="error-title">Credenziali non corrette!</h2>
-                        <p>Le tue credenziali sembrano essere errate... forse hai dimenticato qualcosa?</p>
+                        <h2 class="error-title">Post not found</h2>
+                        <p>Your research didn' t produced any results</p>
                         <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
                     </div>
                 </div> 

@@ -9,6 +9,8 @@ enum stateoffer: string
 
     case DENIED = 'denied';
 
+    case EXPIRED = 'expired';
+
     /**
      * Converte una stringa in uno dei casi dell'enum.
      * Lancia un'eccezione se la stringa non è valida.

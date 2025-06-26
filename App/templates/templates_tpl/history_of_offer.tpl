@@ -217,19 +217,6 @@
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
                         <div class="col-xs-10 page-subheader sorting pl0">
-                            <ul class="sort-by-list">
-                                <li class="active">
-                                    <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                        Property Date <i class="fa fa-sort-amount-asc"></i>					
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
-                                    </a>
-                                </li>
-                            </ul><!--/ .sort-by-list-->
-
                             <div class="items-per-page">
                                 <label for="items_per_page"><b>Property per page :</b></label>
                                 <div class="sel">
@@ -251,11 +238,6 @@
                             <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
                             <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
                         </div><!--/ .layout-switcher-->
-                    </div>
-                    <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
-                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
-                        <span id="filter-price-value">100</span>
                     </div>
                     <div class="form-inline" style="margin-bottom:20px;">
                         <label for="filter-status" style="margin-right:10px;">Filter by status:</label>
@@ -302,17 +284,12 @@
                                                     </span><br>
                                                     <span class="pull-left"><b>State:</b> {$offer->getState()->name}</span>
                                                     <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/1" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
-                                                                <i class="fa fa-search-plus"></i> Accept offer
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/0" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
-                                                                <i class="fa fa-search-plus"></i> Deny offer 
-                                                            </a>
+                                                        <div class="dealer-action pull-right">
+                                                            {if $offer->getState()->name|lower == 'finished'}
+                                                                <a href="/PetHouse/Review/makereview/{$offer->getPost()->getSeller()->getId()}/offer" class="btn btn-success btn-block" style="border-radius: 25px; font-weight: bold; margin-top: 8px;">
+                                                                    <i class="fa fa-star"></i> Review
+                                                                </a>
+                                                            {/if}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -361,7 +338,7 @@
                                                                     <i class="fa fa-search-plus"></i> See more
                                                                 </a>
                                                                 {if $post->getBooked()|lower == 'finished'}
-                                                                    <a href="/PetHouse/Review/makereview/{$post->getSeller()->getId()}" class="btn btn-success btn-block" style="border-radius: 25px; font-weight: bold; margin-top: 8px;">
+                                                                    <a href="/PetHouse/Review/makereview/{$post->getId}/post" class="btn btn-success btn-block" style="border-radius: 25px; font-weight: bold; margin-top: 8px;">
                                                                         <i class="fa fa-star"></i> Leave a review
                                                                     </a>
                                                                 {/if}
@@ -580,20 +557,36 @@
             var btnPosts = document.getElementById('show-posts');
             var offersList = document.getElementById('offers-list');
             var postsList = document.getElementById('posts-list');
+            var offerFilterBar = document.getElementById('filter-status')?.closest('.form-inline');
+            var postFilterBar = document.getElementById('post-filter-bar');
 
-            btnOffers.addEventListener('click', function() {
+            function showOffers() {
                 btnOffers.classList.add('active');
                 btnPosts.classList.remove('active');
                 offersList.style.display = '';
                 postsList.style.display = 'none';
-            });
+                if (offerFilterBar) offerFilterBar.style.display = '';
+                if (postFilterBar) postFilterBar.style.display = 'none';
+            }
 
-            btnPosts.addEventListener('click', function() {
+            function showPosts() {
                 btnPosts.classList.add('active');
                 btnOffers.classList.remove('active');
                 offersList.style.display = 'none';
                 postsList.style.display = '';
-            });
+                if (offerFilterBar) offerFilterBar.style.display = 'none';
+                if (postFilterBar) postFilterBar.style.display = '';
+            }
+
+            btnOffers.addEventListener('click', showOffers);
+            btnPosts.addEventListener('click', showPosts);
+
+            // Imposta la vista iniziale
+            if (btnOffers.classList.contains('active')) {
+                showOffers();
+            } else {
+                showPosts();
+            }
         });
         </script>
         <script>

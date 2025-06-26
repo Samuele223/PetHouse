@@ -26,6 +26,10 @@ public function showPost($post)
 {
     $this->smarty->assign('photos', $post->getHouse()->getPhotos());
     $this->smarty->assign('post',$post);
+    $this->smarty->assign('city', $post->getHouse()->getCity());
+    $this->smarty->assign('address', $post->getHouse()->getAddress());
+    $this->smarty->assign('province', $post->getHouse()->getProvince());
+
     $this->smarty->display('Post_detail.tpl');
 }
 public function showFormOffer($post)

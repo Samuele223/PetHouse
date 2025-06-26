@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | User properties Page</title>
+        <title>GARO ESTATE | Submit property Page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -21,17 +21,18 @@
 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/ssets/css/fontello.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/fontello.css">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
         <link href="/PetHouse/App/templates/assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
-        <link href="/PetHouse/App/templates/assets/css/animate.css" rel="stylesheet" media="screen">
+        <link href="css/animate.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/bootstrap-select.min.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/price-range.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css"> 
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/style.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/responsive.css">
     </head>
@@ -42,7 +43,6 @@
         </div>
         <!-- Body content -->
 
-       
         <div class="header-connect">
             <div class="container">
                 <div class="row">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-        </div>         
+        </div>              
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
@@ -87,27 +87,12 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.4s">Login</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.5s">Submit</button>
+                        <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.45s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location('https://localhost/PetHouse/user/profile')" data-wow-delay="0.5s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index_1.html">Home Style 1</a>
-                                </li>
-                                <li>
-                                    <a href="index_2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index_3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index_4.html">Home Style 4</a>
-                                </li>
-
-                            </ul>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -122,16 +107,19 @@
                                                 <h5>Home pages</h5>
                                                 <ul>
                                                     <li>
-                                                        <a href="index_1.html">Home Style 1</a>
+                                                        <a href="index.html">Home Style 1</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index_2.html">Home Style 2</a>
+                                                        <a href="index-2.html">Home Style 2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index_3.html">Home Style 3</a>
+                                                        <a href="index-3.html">Home Style 3</a>
                                                     </li>
                                                     <li>
-                                                        <a href="index_4.html">Home Style 4</a>
+                                                        <a href="index-4.html">Home Style 4</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-5.html">Home Style 5</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -152,16 +140,16 @@
                                             <div class="col-sm-3">
                                                 <h5>Property</h5>
                                                 <ul>
-                                                    <li><a href="property-pages_1.html">Property pages (1)</a> </li>
-                                                    <li><a href="property-pages_2.html">Property pages (2)</a> </li>
-                                                    <li><a href="property-pages_3.html">Property pages (3)</a> </li>
+                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
+                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
+                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
                                                 </ul>
 
                                                 <h5>Properties list</h5>
                                                 <ul>
-                                                    <li><a href="property-list_1.html">Properties list (1)</a> </li> 
-                                                    <li><a href="property-list_2.html">Properties list (2)</a> </li> 
-                                                    <li><a href="property-list_3.html">Properties list (3)</a> </li> 
+                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
+                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
+                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
                                                 </ul>                                               
                                             </div>
                                             <div class="col-sm-3">
@@ -198,7 +186,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                        <h1 class="page-title">Submit new property</h1>               
                     </div>
                 </div>
             </div>
@@ -206,130 +194,163 @@
         <!-- End page header -->
 
         <!-- property area -->
-        <div class="content-area recent-property" style="background-color: #FFF;">
-            <div class="container">   
-                <div class="row">
+        <div class="content-area submit-property" style="background-color: #FCFCFC;">&nbsp;
+            <div class="container">
+                <div class="clearfix" > 
+                    <div class="wizard-container"> 
 
-                    <div class="col-md-9 pr-30 padding-top-40 properties-page user-properties">
+                        <div class="wizard-card ct-wizard-orange" id="wizardProperty">
+                            <form action="/PetHouse/user/savedit" method="post" enctype="multipart/form-data">
+    <!-- Hidden post ID -->
+    <input type="hidden" name="post_id" value="{$post->getId()}">
+                                <div class="wizard-header">
+                                    <h3>
+                                        <b>Submit</b> YOUR PROPERTY <br>
+                                        <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
+                                    </h3>
+                                </div>
 
-                        <div class="section"> 
-                            <div class="page-subheader sorting pl0 pr-10">
-
-
-                                <ul class="sort-by-list pull-left">
-                                    <li class="active">
-                                        <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                            Property Date <i class="fa fa-sort-amount-asc"></i>					
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                            Property Price <i class="fa fa-sort-numeric-desc"></i>						
-                                        </a>
-                                    </li>
-                                </ul><!--/ .sort-by-list-->
-
-                                <div class="items-per-page pull-right">
-                                    <label for="items_per_page"><b>Property per page :</b></label>
-                                    <div class="sel">
-                                        <select id="items_per_page" name="per_page">
-                                            <option value="3">3</option>
-                                            <option value="6">6</option>
-                                            <option value="9">9</option>
-                                            <option selected="selected" value="12">12</option>
-                                            <option value="15">15</option>
-                                            <option value="30">30</option>
-                                            <option value="45">45</option>
-                                            <option value="60">60</option>
-                                        </select>
-                                    </div><!--/ .sel-->
-                                </div><!--/ .items-per-page-->
-                            </div>
-
-                        </div>
-
-                        <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
-                                        <div class="col-md-4 p0">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-thumb">
-                                                    {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
-                                                        </a>
-                                                    {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
-                                                    {/if}
-                                                </div>
-                                                <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Description:</b> {$house->getDescription()|truncate:50}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="margin-top: 10px;">{$post->getMoreinfo()|truncate:100}</p>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                            <a href="/PetHouse/user/edit_post/{$post->getId()}" class="button">Edit</a>
-                                                            <a href="/PetHouse/user/delete_post/{$post->getId()}" class="button delete_user_car">Delete</a>
-                                                            <a href="/PetHouse/managerequest/viewoffers/{$post->getId()}" class="button">View</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/foreach}
-                                {else}
-                                    <div class="col-md-12">
-                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
-                                    </div>
+                                <!-- Aggiungi questo blocco per mostrare eventuali errori -->
+                                {if isset($error)}
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>Error!</strong> {$error}
+                                </div>
                                 {/if}
-                            </div>
-                        </div>
 
-                        <div class="section"> 
-                            <div class="pull-right">
-                                <div class="pagination">
-                                    <ul>
-                                        <li><a href="#">Prev</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">Next</a></li>
-                                    </ul>
-                                </div>
-                            </div>                
-                        </div>
+                                <ul>
+    <li><a href="#step1" data-toggle="tab">Step 1</a></li>
+    <li><a href="#step2" data-toggle="tab">Step 2</a></li>
+    <li><a href="#step3" data-toggle="tab">Step 3</a></li>
+    <li><a href="#step4" data-toggle="tab">Finished</a></li>
+</ul>
 
-                    </div>       
-
-                    <div class="col-md-3 p0 padding-top-40">
-                        <div class="blog-asside-right">
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated" >
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Hello Kimaro</h3>
-                                </div>
-                                <div class="panel-body search-widget">
-
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Recommended</h3>
-                                </div>
-                                <div class="panel-body recent-property-widget">
-
-                                </div>
-                            </div>
-                        </div>
+<div class="tab-content">
+    <!-- STEP 1 -->
+    <div class="tab-pane" id="step1">
+        <div class="row p-b-15">
+            <h4 class="info-text">Select your property</h4>
+            <div class="col-sm-12">
+                <div class="col-sm-7">
+                    <!-- Campo property -->
+                    <div class="form-group">
+                        <label>Select your property <small>(required)</small></label>
+                        <select name="idPosition" id="propertySelect" class="form-control" required>
+                            <option value="">-- Select a property --</option>
+                            {foreach from=$positions item=position}
+                                <option value="{$position->getId()}" {if $post->getHouse() && $post->getHouse()->getId() == $position->getId()}selected{/if}>
+                                    {$position->getTitle()}
+                                </option>
+                            {/foreach}
+                        </select>
                     </div>
+
+                    <!-- Campo moreInfo -->
+                    <div class="form-group">
+                        <label>Additional information <small>(required)</small></label>
+                        <textarea name="moreInfo" class="form-control" rows="4" placeholder="Add more details about this listing..." required>{$post->getMoreInfo()}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FINE STEP 1 -->
+
+    <!-- STEP 2 -->
+    <div class="tab-pane" id="step2">
+        <h4 class="info-text">Listing details</h4>
+        <div class="form-group">
+            <label>Price per night <span style="color:#FDC600;">€</span>:</label>
+            <div class="input-group" style="max-width: 300px;">
+                <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
+                    <i class="fa fa-eur"></i>
+                </span>
+                <input type="number" name="price" class="form-control" min="0" step="0.01"
+                       placeholder="Enter price" required value="{$post->getPrice()}">
+                <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
+                    /night
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Accepted pets:</label>
+            <div id="acceptedPetsFields">
+                {foreach from=$post->getAcceptedPets() key=petType item=petCount}
+                <div class="input-group pet-group" style="margin-bottom:5px; max-width:400px;">
+                    <select name="accepted_pets[]" class="form-control">
+                        <option value="">Select pet type</option>
+                        <option value="DOG" {if $petType == 'DOG'}selected{/if}>Dog</option>
+                        <option value="CAT" {if $petType == 'CAT'}selected{/if}>Cat</option>
+                        <option value="PARROT" {if $petType == 'PARROT'}selected{/if}>Parrot</option>
+                        <option value="FISH" {if $petType == 'FISH'}selected{/if}>Fish</option>
+                        <option value="HAMSTER" {if $petType == 'HAMSTER'}selected{/if}>Hamster</option>
+                        <option value="MOUSE" {if $petType == 'MOUSE'}selected{/if}>Mouse</option>
+                        <option value="SNAKE" {if $petType == 'SNAKE'}selected{/if}>Snake</option>
+                        <option value="RABBIT" {if $petType == 'RABBIT'}selected{/if}>Rabbit</option>
+                        <option value="TURTLE" {if $petType == 'TURTLE'}selected{/if}>Turtle</option>
+                    </select>
+                    <input type="number" name="accepted_pet_counts[]" class="form-control" min="1" value="{$petCount}" 
+                           style="width:80px;" placeholder="Qty">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger remove-pet">-</button>
+                    </span>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+    <!-- FINE STEP 2 -->
+
+    <!-- STEP 3 -->
+    <div class="tab-pane" id="step3">
+        <h4 class="info-text">Availability period</h4>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Start date:</label>
+                    <input type="date" name="date_in" class="form-control" required value="{$post->getDateIn()|date_format:'%Y-%m-%d'}">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>End date:</label>
+                    <input type="date" name="date_out" class="form-control" required value="{$post->getDateOut()|date_format:'%Y-%m-%d'}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FINE STEP 3 -->
+
+    <!-- STEP 4 -->
+    <div class="tab-pane" id="step4">
+        <h4 class="info-text">Terms and Conditions</h4>
+        <div class="alert alert-warning">
+            <p>Please review the terms and conditions before finalizing.</p>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="terms_accepted" id="terms_checkbox" required>
+            <strong>I accept the terms and conditions.</strong>
+        </div>
+    </div>
+    <!-- FINE STEP 4 -->
+</div>
+
+<!-- Footer con i pulsanti del Wizard -->
+<div class="wizard-footer">
+    <div class="pull-right">
+        <input type='button' class='btn btn-primary btn-next' name='next' value='Next'/>
+        <input type='button' class='btn btn-primary btn-finish' name='finish' value='Finish'/>
+    </div>
+    <div class="pull-left">
+        <input type='button' class='btn btn-default btn-previous' name='previous' value='Previous'/>
+    </div>
+    <div class="clearfix"></div>
+</div>
+                            </form>
+                        </div>
+                        <!-- End submit form -->
+                    </div> 
                 </div>
             </div>
         </div>
@@ -471,7 +492,6 @@
             </div>
 
         </div>
-          
 
         <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
@@ -490,18 +510,263 @@
         <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
 
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-        <script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.delete_user_car').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            var confirmed = confirm("Are you sure to proceed?\nYou're about to delete the selected post.");
-            if (!confirmed) {
-                e.preventDefault();
+    document.querySelector('#acceptedPetsFields').addEventListener('click', function(e) {
+        if (e.target.classList.contains('add-pet')) {
+            e.preventDefault();
+            const petGroup = e.target.closest('.pet-group');
+            const newGroup = petGroup.cloneNode(true);
+            newGroup.querySelector('select').selectedIndex = 0;
+            newGroup.querySelector('input').value = 1;
+            // Cambia il bottone "+" in "-" per rimuovere
+            const btn = newGroup.querySelector('.add-pet');
+            btn.classList.remove('btn-success', 'add-pet');
+            btn.classList.add('btn-danger', 'remove-pet');
+            btn.textContent = '-';
+            document.querySelector('#acceptedPetsFields').appendChild(newGroup);
+        } else if (e.target.classList.contains('remove-pet')) {
+            e.preventDefault();
+            const petGroup = e.target.closest('.pet-group');
+            if(document.querySelectorAll('#acceptedPetsFields .pet-group').length > 1) {
+                petGroup.remove();
             }
-        });
+        }
     });
 });
 </script>
+<!-- Aggiungi questo script prima della chiusura del body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestisce la selezione della proprietà e aggiorna l'immagine
+    const propertySelect = document.getElementById('propertySelect');
+    const imagePreview = document.getElementById('propertyImagePreview');
+    
+    propertySelect.addEventListener('change', function() {
+        const propertyId = this.value;
+        
+        if (!propertyId) {
+            // Se nessuna proprietà è selezionata, mostra l'immagine di default
+            imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+            return;
+        }
+        
+        // Esegui una richiesta AJAX per ottenere la prima foto della proprietà
+        fetch('/PetHouse/image/getPropertyFirstImage/' + propertyId)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Image data:', data); // Per debug
+                if (data.success && data.imageUrl) {
+                    // Precarica l'immagine
+                    const tempImg = new Image();
+                    tempImg.onload = function() {
+                        imagePreview.src = data.imageUrl;
+                    };
+                    tempImg.onerror = function() {
+                        console.error('Failed to load image:', data.imageUrl);
+                        imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+                    };
+                    tempImg.src = data.imageUrl;
+                } else {
+                    console.warn('No image found:', data.message);
+                    imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching property image:', error);
+                imagePreview.src = '/PetHouse/App/templates/assets/img/default-property.jpg';
+            });
+    });
+    
+    // Se c'è già un valore selezionato all'avvio, aggiorna l'immagine
+    if (propertySelect.value) {
+        propertySelect.dispatchEvent(new Event('change'));
+    }
+});
+</script>
+<!-- Aggiungi questo script prima della chiusura del body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Evento per aggiornare il riepilogo quando si passa allo step 3
+    document.querySelector('a[href="#step3"]').addEventListener('click', updateSummary);
+    
+    function updateSummary() {
+        // Proprietà selezionata
+        const propertySelect = document.getElementById('propertySelect');
+        const propertyText = propertySelect.options[propertySelect.selectedIndex]?.text || '-';
+        document.getElementById('summary-property').textContent = propertyText;
+        
+        // Informazioni aggiuntive
+        const moreInfo = document.querySelector('textarea[name="moreInfo"]').value || '-';
+        document.getElementById('summary-moreinfo').textContent = moreInfo;
+        
+        // Immagine
+        document.getElementById('summary-image').src = document.getElementById('propertyImagePreview').src;
+        
+        // Date e prezzo
+        const dateIn = document.querySelector('input[name="date_in"]').value;
+        document.getElementById('summary-datein').textContent = dateIn ? new Date(dateIn).toLocaleDateString() : '-';
+        
+        const dateOut = document.querySelector('input[name="date_out"]').value;
+        document.getElementById('summary-dateout').textContent = dateOut ? new Date(dateOut).toLocaleDateString() : '-';
+        
+        const price = document.querySelector('input[name="price"]').value;
+        document.getElementById('summary-price').textContent = price ? '€ ' + price + ' /notte' : '-';
+        
+        // Animali accettati
+        const petsList = document.getElementById('summary-pets');
+        petsList.innerHTML = '';
+        
+        const petSelects = document.querySelectorAll('select[name="accepted_pets[]"]');
+        const petCounts = document.querySelectorAll('input[name="accepted_pet_counts[]"]');
+        
+        let hasPets = false;
+        
+        for (let i = 0; i < petSelects.length; i++) {
+            if (petSelects[i].value) {
+                hasPets = true;
+                const petType = petSelects[i].options[petSelects[i].selectedIndex].text;
+                const petCount = petCounts[i].value;
+                
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.textContent = petType + ' (' + petCount + ')';
+                petsList.appendChild(li);
+            }
+        }
+        
+        if (!hasPets) {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = 'Nessun animale selezionato';
+            petsList.appendChild(li);
+        }
+    }
+});
+</script>
+<!-- Sostituisci il vecchio script del riepilogo con questo -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Imposta date predefinite quando si carica la pagina
+    const today = new Date();
+    const nextMonth = new Date();
+    nextMonth.setMonth(today.getMonth() + 1);
+    
+    // Formatta le date in YYYY-MM-DD per il campo input type="date"
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return year + '-' + month + '-' + day;
+    };
+    
+    // Imposta i valori predefiniti se l'utente non ha già inserito date
+    document.querySelector('a[href="#step3"]').addEventListener('click', function() {
+        const dateInField = document.querySelector('input[name="date_in"]');
+        const dateOutField = document.querySelector('input[name="date_out"]');
+        
+        if (!dateInField.value) {
+            dateInField.value = formatDate(today);
+        }
+        
+        if (!dateOutField.value) {
+            dateOutField.value = formatDate(nextMonth);
+        }
+    });
+});
+</script>
+<style>
+.picture::before,
+.picture::after {
+  content: none !important;
+}
+</style>
+<!-- Aggiungi questo prima della chiusura del body -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Aggiunge validazione al bottone Finish
+    const finishBtn = document.querySelector('.btn-finish');
+    const form = document.querySelector('form');
+    
+    finishBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Previeni l'invio automatico
+        
+        // Verifica che i termini siano stati accettati
+        const termsCheckbox = document.getElementById('terms_checkbox');
+        if (!termsCheckbox.checked) {
+            alert('You must accept the terms and conditions to continue.');
+            return false;
+        }
+        
+        // Assicurati che il prezzo sia valido
+        const priceField = document.querySelector('input[name="price"]');
+        if (!priceField.value || isNaN(parseFloat(priceField.value))) {
+            alert('Please enter a valid price.');
+            return false;
+        }
+        
+        // Se tutto è ok, invia il form
+        form.submit();
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const steps = document.querySelectorAll('.tab-pane');
+    const nextBtn = document.querySelector('.btn-next');
+    const prevBtn = document.querySelector('.btn-previous');
+    const finishBtn = document.querySelector('.btn-finish');
 
+    function updateButtons() {
+        const activeIndex = [...steps].findIndex(step => step.classList.contains('active'));
+
+        if (activeIndex === 0) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'inline-block';
+            finishBtn.style.display = 'none';
+        } else if (activeIndex === steps.length - 1) {
+            prevBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'none';
+            finishBtn.style.display = 'inline-block';
+        } else {
+            prevBtn.style.display = 'inline-block';
+            nextBtn.style.display = 'inline-block';
+            finishBtn.style.display = 'none';
+        }
+    }
+
+    updateButtons();
+
+    nextBtn.addEventListener('click', function() {
+        const active = document.querySelector('.tab-pane.active');
+        const nextStep = active.nextElementSibling;
+        if (nextStep) {
+            const nextTabId = nextStep.id;
+            // Usa concatenazione classica anziché i backtick:
+            document.querySelector('a[href="#' + nextTabId + '"]').click();
+        }
+    });
+
+    prevBtn.addEventListener('click', function() {
+        const active = document.querySelector('.tab-pane.active');
+        const prevStep = active.previousElementSibling;
+        if (prevStep) {
+            const prevTabId = prevStep.id;
+            document.querySelector('a[href="#' + prevTabId + '"]').click();
+        }
+    });
+
+    // Ricalcola i pulsanti ogni volta che si cambia tab
+    document.querySelectorAll('a[data-toggle="tab"]').forEach(link => {
+        link.addEventListener('shown.bs.tab', updateButtons);
+    });
+});
+</script>
     </body>
 </html>

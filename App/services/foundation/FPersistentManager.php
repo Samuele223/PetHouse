@@ -211,18 +211,45 @@ public static function expireOldPosts()
 
     // Recupera tutti i post ancora "open" o "booked"
     $posts = $em->getRepository(Mpost::getEntity())->findBy([
-        // Se vuoi solo quelli non già finished
         'booked' => ['open', 'booked']
     ]);
 
     foreach ($posts as $post) {
         if ($post->getDateOut() < $today) {
-            $post->setBooked('finished');
-            $em->persist($post);
+            $currentState = strtolower(is_object($post->getBooked()) ? $post->getBooked()->name : $post->getBooked());
+            if ($currentState === 'open' || $currentState === 'booked') {
+                $post->setBooked('finished');
+                $em->persist($post);
+            }
         }
     }
     $em->flush();
-}   
+}
+
+public static function expireOldOffers()
+{
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $today = new DateTime('today');
+
+    // Recupera tutte le offerte in stato pending o accepted
+    $offers = $em->getRepository(Moffer::getEntity())->findBy([
+        'state' => ['pending', 'accepted']
+    ]);
+
+    foreach ($offers as $offer) {
+        if ($offer->getDateofferout() < $today) {
+            $currentState = strtolower(is_object($offer->getState()) ? $offer->getState()->name : $offer->getState());
+            if ($currentState === 'pending') {
+                $offer->setState('expired');
+            } elseif ($currentState === 'accepted') {
+                $offer->setState('finished');
+            }
+            $em->persist($offer);
+        }
+    }
+    $em->flush();
+} 
+         
       
     
 }
