@@ -87,5 +87,9 @@ public function showVerificationForm($user) {
     $this->smarty->assign('user', $user);
     $this->smarty->display('formVerification.tpl');
 }
-    
+public function showEditForm($post,$houses) {
+    $this->smarty->assign('post', $post);
+    $this->smarty->assign('positions', $houses);
+    $this->smarty->display('edit_post.tpl');    
+}
 }

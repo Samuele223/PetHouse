@@ -634,4 +634,43 @@ public static function deleteHouse(int $id) {
             exit;
         }
     }
+    public static function delete_post($id_post)
+    {
+        FPersistentManager::deleteObj(FPersistentManager::retriveObj(Mpost::getEntity(), $id_post));
+    }
+    public static function edit_post($id_post)
+    {
+        $view = new VUser();
+        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+        USession::getInstance();
+        $id = USession::getSessionElement('user');
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $houses = $user->getHouses();
+        $view->showeditform($post, $houses);
+        
+    }
+    public static function savedit()
+    {
+            // Gather fields from the form - CORRETTO con i nomi effettivi del form
+            $idPosition   = UHTTPMethods::post('idPosition') ?? null;
+            $moreInfo     = UHTTPMethods::post('moreInfo') ?? '';
+            $price        = UHTTPMethods::post('price');
+            $price = floatval(str_replace(',', '.', $price));
+            $dateInStr    = UHTTPMethods::post('date_in') ?? ''; 
+            $dateOutStr   = UHTTPMethods::post('date_out') ?? ''; 
+            $acceptedPets = UHTTPMethods::post('accepted_pets') ?? []; 
+            $petCounts    = UHTTPMethods::post('accepted_pet_counts') ?? [];
+            $id_post = UHTTPMethods::post('post_id') ?? null;
+            $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+            $post->setMoreInfo($moreInfo);
+            $post->setPrice($price);
+            $post->setDateIn(new DateTime($dateInStr));
+            $post->setDateOut(new DateTime($dateOutStr));
+            $post->addAcceptedPets(array_combine($acceptedPets, $petCounts));
+            $post->setHouse(FPersistentManager::retriveObj(Mposition::getEntity(), $idPosition));
+            $check = FPersistentManager::saveObj($post);
+            header('Location: /PetHouse/User/myPost');
+            
+            
+    }
 }

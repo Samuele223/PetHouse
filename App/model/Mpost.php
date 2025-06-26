@@ -82,7 +82,7 @@ private ?Collection $reportreceived = null;
 #[ORM\JoinColumn(name:'house',referencedColumnName:'id')]
 private MPosition $house;
 
-#[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post')]
+#[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post', cascade:['persist', 'remove'])]
 private ?Collection $offers=null;
 
 private static $entity = Mpost::class;
