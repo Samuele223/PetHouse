@@ -52,5 +52,16 @@ public function showUserProfileWithVerification($user, $verification)
     $this->smarty->assign('verification', $verification);
     $this->smarty->display('user_profile_verification.tpl');
 }
+public function showReportedPosts($posts)
+{
+    $this->smarty->assign('posts', $posts);
+    $this->smarty->display('list_of_reported_posts.tpl');
+}
+
+public function showReportedPostDetail($post)
+{
+    $this->smarty->assign('post', $post);
+    $this->smarty->display('reported_post_detail.tpl');
+}
 
 }

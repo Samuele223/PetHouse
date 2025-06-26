@@ -106,6 +106,34 @@ public static function rejectVerification($verificationId)
     header('Location: /PetHouse/Admin/listVerificationRequests');
     exit;
 }
+public static function listReportedPosts()
+{
+    // Recupera tutti i post con almeno 1 report
+    $posts = FPersistentManager::getReportedPosts(); // Da implementare: restituisce array di Mpost con numreport > 0
+    $view = new VAdmin();
+    $view->showReportedPosts($posts);
+}
+
+public static function reportedPostDetail($postId)
+{
+    $post = FPersistentManager::retriveObj(Mpost::getEntity(), $postId);
+    $view = new VAdmin();
+    $view->showReportedPostDetail($post);
+}
+
+public static function approveReportedPost($postId)
+{
+    FPersistentManager::resetPostReports($postId); 
+    header('Location: /PetHouse/Admin/listReportedPosts');
+    exit;
+}
+
+public static function deleteReportedPost($postId)
+{
+    FPersistentManager::deletePost($postId); 
+    header('Location: /PetHouse/Admin/listReportedPosts');
+    exit;
+}
 
 
 

@@ -200,7 +200,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                        <h1 class="page-title">Lista Post Reportati</h1>               
                     </div>
                 </div>
             </div>
@@ -252,20 +252,16 @@
                             <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
                         </div><!--/ .layout-switcher-->
                     </div>
-                    <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
-                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
-                        <span id="filter-price-value">100</span>
-                    </div>
 
-                    <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
-                                        <div class="col-md-4 p0">
-                                            <div class="box-two proerty-item">
-                                                <div class="item-thumb">
-                                                    {assign var="house" value=$post->getHouse()}
+
+                    <div class="container">
+    <div class="row">
+        {if $posts|@count > 0}
+            {foreach from=$posts item=post}
+                <div class="col-md-4">
+    <div class="box-two proerty-item">
+        <div class="item-thumb text-center">
+           {assign var="house" value=$post->getHouse()}
                                                     {assign var="photos" value=$house->getPhotos()}
                                                     {if $photos|@count > 0}
                                                         <a href="/PetHouse/Post/view/{$post->getId()}">
@@ -276,32 +272,22 @@
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
                                                     {/if}
-                                                </div>
-                                                <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
-                                                    <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
-                                                                    <i class="fa fa-search-plus"></i> See more
-                                                                </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/foreach}
-                                {else}
-                                    <div class="col-md-12">
-                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
-                                    </div>
-                                {/if}
-                            </div>
-                        </div>
-                    
+        </div>
+        <div class="item-entry">
+            <h5>{$post->getTitle()}</h5>
+            <p>Segnalazioni: {$post->getNumReport()}</p>
+            <a href="/PetHouse/Admin/reportedPostDetail/{$post->getId()}" class="btn btn-warning">Vedi dettagli</a>
+        </div>
+    </div>
+</div>
+            {/foreach}
+        {else}
+            <div class="col-md-12">
+                <p>Nessun post riportato.</p>
+            </div>
+        {/if}
+    </div>
+</div>
                     <div class="col-md-12"> 
                         <div class="pull-right">
                             <div class="pagination">

@@ -112,6 +112,16 @@ public static function findPostsByAcceptedPet(string $pet): array  //sembra funz
 
     
 }
+
+public static function getReportedPosts(): array
+{
+    $em = FEntityManager::getInstance()::getEntityManager();
+    // Usa DQL per prendere tutti i post con numreport > 0
+    $query = $em->createQuery(
+        'SELECT p FROM ' . Mpost::getEntity() . ' p WHERE p.numreport > 0'
+    );
+    return $query->getResult();
+}
 public static function findPostsByAcceptedPets(array $requiredPets): array  //funziona solo se requiredpets è un array associativo con chiavi i nomi di pet in all caps
 {
     $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();

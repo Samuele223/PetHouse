@@ -65,6 +65,42 @@ class FPersistentManager{
         $result = FVerification::getPendingVerifications();
         return $result;
     }
+
+    public static function getReportedPosts()
+{
+    $result = Fpost::getReportedPosts();
+    return $result;
+}
+
+public static function resetPostReports($postId)
+{
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $post = $em->getRepository(Mpost::getEntity())->find($postId);
+    if ($post) {
+        // Elimina tutti i report associati a questo post
+        $reports = $em->getRepository(Mreport::getEntity())->findBy(['postreported' => $postId]);
+        foreach ($reports as $report) {
+            $em->remove($report);
+        }
+        $post->setNumReport(0);
+        $em->flush();
+    }
+}
+
+public static function deletePost($postId)
+{
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $post = $em->getRepository(Mpost::getEntity())->find($postId);
+    if ($post) {
+        // Elimina tutti i report associati a questo post
+        $reports = $em->getRepository(Mreport::getEntity())->findBy(['postreported' => $postId]);
+        foreach ($reports as $report) {
+            $em->remove($report);
+        }
+        $em->remove($post);
+        $em->flush();
+    }
+}
  
 
 
