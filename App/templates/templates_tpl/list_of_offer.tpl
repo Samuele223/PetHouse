@@ -275,6 +275,23 @@
                                                     {/foreach}
                                                 </span><br>
                                                 <span class="pull-left"><b>State:</b> {$offer->getState()->name}</span>
+                                                <hr>
+                                                <!-- Client info -->
+                                                {assign var="client" value=$offer->getClient()}
+                                                <div class="media" style="margin-top:10px;">
+                                                    <div class="media-left">
+                                                        {if $client->getProfilePicture()}
+                                                            <img src="/PetHouse/image/showImage/{$client->getProfilePicture()->getId()}" class="media-object img-circle" style="width:60px;height:60px;" alt="Client photo">
+                                                        {else}
+                                                            <img src="/PetHouse/App/templates/assets/img/default-user.png" class="media-object img-circle" style="width:60px;height:60px;" alt="Default photo">
+                                                        {/if}
+                                                    </div>
+                                                    <div class="media-body" style="vertical-align:middle;">
+                                                        <b>{$client->getName()} {$client->getSurname()}</b><br>
+                                                        <span><i class="fa fa-phone"></i> {$client->getTel()}</span>
+                                                    </div>
+                                                </div>
+                                                <!-- End client info -->
                                                 <div class="property-icon">
                                                     <div class="dealer-action pull-right">                                        
                                                         <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/1" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">

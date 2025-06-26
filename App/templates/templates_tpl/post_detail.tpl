@@ -292,6 +292,36 @@
                                             <strong>Additional Info:</strong><br>
                                             <span class="form-control-static">{$post->getMoreInfo()}</span>
                                         </li>
+                                        <li class="list-group-item">
+                                            <strong>Address:</strong><br>
+                                            <span class="form-control-static">
+                                                {if $address}
+                                                    {$address}
+                                                {else}
+                                                    <span style="color:#aaa;">Missing field</span>
+                                                {/if}
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>City:</strong><br>
+                                            <span class="form-control-static">
+                                                {if $city}
+                                                    {$city}
+                                                {else}
+                                                    <span style="color:#aaa;">Missing field</span>
+                                                {/if}
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong>Province:</strong><br>
+                                            <span class="form-control-static">
+                                                {if $province}
+                                                    {$province}
+                                                {else}
+                                                    <span style="color:#aaa;">Missing field</span>
+                                                {/if}
+                                            </span>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
