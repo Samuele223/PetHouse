@@ -99,7 +99,7 @@ public function getId(): int
     return $this->id;
 }
 
-public function getNUmReport(): int
+public function getNUmReport(): ?int
 {
     return $this->numreport;
 }

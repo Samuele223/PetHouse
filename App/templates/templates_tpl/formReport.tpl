@@ -109,6 +109,9 @@
                             </div>
 
                             <form action="/PetHouse/Report/reportPost/{$post->getId()}" method="post">
+                                <!-- Add a hidden field to capture the redirect URL -->
+                                <input type="hidden" name="redirect_url" value="{$smarty.session.report_redirect_url|default:"/PetHouse/Post/view/{$post->getId()}"}">
+                                
                                 <div class="row p-b-15">
                                     <div class="col-sm-12">
                                         <div class="form-group">
@@ -139,7 +142,9 @@
                                         <input type='submit' class='btn btn-finish btn-danger' name='finish' value='Submit Report' />
                                     </div>
                                     <div class="pull-left">
-                                        <a href="/PetHouse/Post/view/{$post->getId()}" class='btn btn-default'>Cancel</a>
+                                        <a href="/PetHouse/Post/view/{$post->getId()}" class='btn btn-default'>
+                                            <i class="fa fa-arrow-left"></i> Cancel & Return to Post
+                                        </a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

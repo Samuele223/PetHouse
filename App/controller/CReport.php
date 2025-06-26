@@ -22,16 +22,26 @@ class CReport {
                     FPersistentManager::saveObj($report);
                     
                     // Increment the post's report counter
-                    $currentReports = $reportedPost->getNumReport() ?? 0;
-                    $reportedPost->setNumReport($currentReports + 1);
+                    $currentReports = $reportedPost->getNumReport();
+                    $reportedPost->setNumReport($currentReports !== null ? $currentReports + 1 : 1);
                     FPersistentManager::saveObj($reportedPost);
                     
-                    // Set success message and redirect
+                    // Set success message
                     USession::getInstance();
                     USession::setSessionElement('success_message', 'Thank you for your report. We will review it shortly.');
                     
-                    // Redirect back to the post view
-                    header('Location: /PetHouse/Post/view/' . $idPost);
+                    // Get the stored redirect URL or default to post view
+                    $redirectUrl = USession::isSetSessionElement('report_redirect_url') ? 
+                        USession::getSessionElement('report_redirect_url') : 
+                        "/PetHouse/Post/view/{$idPost}";
+                    
+                    // Clear the stored URL
+                    if (USession::isSetSessionElement('report_redirect_url')) {
+                        USession::unsetSessionElement('report_redirect_url');
+                    }
+                    
+                    // Redirect back to original page
+                    header("Location: {$redirectUrl}");
                     exit;
                 } catch (Exception $e) {
                     // Log error
@@ -64,6 +74,10 @@ class CReport {
         if (USession::getSessionStatus() == PHP_SESSION_NONE) {
             USession::getInstance();
         }
+        
+        // Store the referring URL for redirect after submission
+        $referer = $_SERVER['HTTP_REFERER'] ?? "/PetHouse/Post/view/{$idPost}";
+        USession::setSessionElement('report_redirect_url', $referer);
         
         // Simple check if user session exists
         if (isset($_SESSION['user'])) {
