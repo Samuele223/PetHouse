@@ -67,6 +67,17 @@ class CFindhosting{
                 }
             }
             
+            // Add this validation before calling the filter method
+            if ($datain && $dataout) {
+                // No need to create new DateTime objects - $datain and $dataout are already DateTime objects
+                // Ensure end date is not before start date
+                if ($dataout < $datain) {
+                    $view = new Vfindhosting();
+                    $view->showError('End date cannot be before start date. Please select valid dates.');
+                    return [];
+                }
+            }
+            
             // Call the search function with our parameters
             $startDate = $datain ? $datain->format('Y-m-d') : null;
             $endDate = $dataout ? $dataout->format('Y-m-d') : null;
@@ -121,7 +132,7 @@ class CFindhosting{
         $id_user = USession::getSessionElement('user');
         //fetching arguments from post request
         $datein = new DateTime(UHTTPMethods::post('datein'));
-        $dateout = new DateTime(UHTTPMethods::post('dateout'));
+        $dateout = new DateTime(UHTTPMethods::post('dataout'));
         
         
         $requiredPetss = UHTTPMethods::post('required_pets');
