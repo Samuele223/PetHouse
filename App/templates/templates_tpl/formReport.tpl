@@ -142,7 +142,7 @@
                                         <input type='submit' class='btn btn-finish btn-danger' name='finish' value='Submit Report' />
                                     </div>
                                     <div class="pull-left">
-                                        <a href="/PetHouse/Post/view/{$post->getId()}" class='btn btn-default'>
+                                        <a href="{$smarty.session.report_redirect_url|default:"/PetHouse/Findhosting/selectpost/{$post->getId()}"}" class='btn btn-default'>
                                             <i class="fa fa-arrow-left"></i> Cancel & Return to Post
                                         </a>
                                     </div>
