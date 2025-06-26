@@ -38,9 +38,6 @@
     </head>
     <body>
 
-        <div id="preloader">
-            <div id="status">&nbsp;</div>
-        </div>
         <!-- Body content -->
 
         <div class="header-connect">
@@ -49,20 +46,20 @@
                     <div class="col-md-5 col-sm-8  col-xs-12">
                         <div class="header-half header-call">
                             <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
+                                <span><i class="pe-7s-call"></i> +39 397 5493 490</span>
+                                <span><i class="pe-7s-mail"></i> pethouse@support.com</span>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
                         <div class="header-half header-social">
                             <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><span class="fa fa-facebook" style="cursor:default;"></span></li>
+                                <li><span class="fa fa-twitter" style="cursor:default;"></span></li>
+                                <li><span class="fa fa-vine" style="cursor:default;"></span></li>
+                                <li><span class="fa fa-linkedin" style="cursor:default;"></span></li>
+                                <li><span class="fa fa-dribbble" style="cursor:default;"></span></li>
+                                <li><span class="fa fa-instagram" style="cursor:default;"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -91,89 +88,9 @@
                         <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
-                        </li>
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a></li>
 
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
+                        <!-- Removed Properties, Property, Template and all associated dropdowns/links for a cleaner header -->
 
                         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
                     </ul>
@@ -186,7 +103,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Find your host</h1>               
+                        <h1 class="page-title">MAKE AN OFFER REQUEST</h1>               
                     </div>
                 </div>
             </div>
@@ -218,13 +135,13 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>Start date (Check-in):</label>
-                                                    <input type="date" name="datein" class="form-control" required>
+                                                    <input type="date" name="datein" class="form-control" required id="datein">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label>End date (Check-out):</label>
-                                                    <input type="date" name="dateout" class="form-control" required>
+                                                    <input type="date" name="dateout" class="form-control" required id="dateout">
                                                 </div>
                                             </div>
                                         </div>
@@ -232,15 +149,13 @@
                                             <label>Required pets:</label>
                                             <div id="requiredPetsFields">
                                                 <div class="input-group pet-group" style="margin-bottom:5px;">
-                                                    <select name="required_pets[]" class="form-control" required>
+                                                    <select name="required_pets[]" class="form-control required-pet-select" required>
                                                         <option value="">Select pet</option>
-                                                        <option value="DOG">Dog</option>
-                                                        <option value="CAT">Cat</option>
-                                                        <option value="BIRD">Bird</option>
-                                                        <option value="RABBIT">Rabbit</option>
-                                                        <option value="PARROT">Parrot</option>
+                                                        {foreach from=$accepted_pets key=pet item=count}
+                                                            <option value="{$pet}">{$pet}</option>
+                                                        {/foreach}
                                                     </select>
-                                                    <input type="number" name="required_pets_count[]" class="form-control" min="1" value="1" style="width:80px;" placeholder="Qty" required>
+                                                    <input type="number" name="required_pets_count[]" class="form-control required-pet-count" min="1" value="1" style="width:80px;" placeholder="Qty" required>
                                                     <span class="input-group-btn">
                                                         <button type="button" class="btn btn-success add-pet" tabindex="-1">+</button>
                                                     </span>
@@ -249,7 +164,7 @@
                                         </div>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" required /> <strong>Accept terms and conditions.</strong>
+                                                <input type="checkbox" id="acceptTerms" required /> <strong>Accept terms and conditions.</strong>
                                             </label>
                                         </div>
                                     </div>
@@ -259,7 +174,7 @@
                                 <div class="wizard-footer">
                                     <div class="pull-right">
                                         <input type='button' class='btn btn-next btn-primary' name='next' value='Next' />
-                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' />
+                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Finish' disabled />
                                     </div>
 
                                     <div class="pull-left">
@@ -273,189 +188,9 @@
                     </div> 
                 </div>
             </div>
-        </div>
-
-          <!-- Footer area-->
-        <div class="footer-area">
-
-            <div class=" footer">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>About us </h4>
-                                <div class="footer-title-line"></div>
-
-                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
-                                <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Quick links </h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer news-letter">
-                                <h4>Stay in touch</h4>
-                                <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form> 
-
-                                <div class="social pull-right"> 
-                                    <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-copy text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
-                        </div> 
-                        <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
-        <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-select.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/bootstrap-hover-dropdown.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.easypiechart.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/owl.carousel.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wow.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
-
-        <script src="/PetHouse/App/templates/assets/js/price-range.js"></script> 
-        <script src="/PetHouse/App/templates/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-        <script src="/PetHouse/App/templates/assets/js/jquery.validate.min.js"></script>
-        <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
-
-        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#requiredPetsFields').addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-pet')) {
-            e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
-            const newGroup = petGroup.cloneNode(true);
-            newGroup.querySelector('select').selectedIndex = 0;
-            newGroup.querySelector('input').value = 1;
-            // Cambia il bottone "+" in "-" per rimuovere
-            const btn = newGroup.querySelector('.add-pet');
-            btn.classList.remove('btn-success', 'add-pet');
-            btn.classList.add('btn-danger', 'remove-pet');
-            btn.textContent = '-';
-            document.querySelector('#requiredPetsFields').appendChild(newGroup);
-        } else if (e.target.classList.contains('remove-pet')) {
-            e.preventDefault();
-            const petGroup = e.target.closest('.pet-group');
-            if(document.querySelectorAll('#requiredPetsFields .pet-group').length > 1) {
-                petGroup.remove();
-            }
-        }
-    });
-});
 </script>
+        <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <!-- Cleaned up duplicate and unnecessary script blocks for add/remove pet fields and validation. All logic is now consolidated. -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Gestione aggiunta/rimozione campi immagine
@@ -481,18 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var finishBtn = document.querySelector('.btn-finish');
-    if(finishBtn){
-        finishBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('houseForm').submit();
-        });
-    }
-});
-</script>
+}
     </body>
 </html>

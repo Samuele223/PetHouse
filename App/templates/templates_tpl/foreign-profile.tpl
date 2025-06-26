@@ -131,6 +131,16 @@
                                             <img src="{if $pic == 0}/PetHouse/App/templates/assets/img/mauro.png{else}/PetHouse/image/showImage/{$pic}{/if}" alt="Foto profilo di {$name}" style="pointer-events: none;">
                                         </div>
                                         <h6>PROFILE PICTURE</h6>
+                                        {if isset($user) && $user->getVerified()}
+                                            <div class="verified-user" style="margin-top: 10px; text-align: center;">
+                                                <span style="color: #28a745; font-size: 1.5em; vertical-align: middle;">
+                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                </span>
+                                                <span style="color: #28a745; font-weight: bold; margin-left: 8px; font-size: 1.1em; vertical-align: middle;">
+                                                    User has been verified
+                                                </span>
+                                            </div>
+                                        {/if}
                                     </div>
                                 </div>
 

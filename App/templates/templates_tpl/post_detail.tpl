@@ -235,14 +235,11 @@
                             <!-- Galleria immagini dinamica -->
                             <div class="light-slide-item">            
                                 <div class="clearfix">
-                                    <div class="favorite-and-print">
-                                        <a class="add-to-fav" href="#login-modal" data-toggle="modal">
-                                            <i class="fa fa-star-o"></i>
-                                        </a>
-                                        <a class="printer-icon " href="javascript:window.print()">
-                                            <i class="fa fa-print"></i> 
-                                        </a>
-                                    </div> 
+                                        <div class="favorite-and-print">
+                                            <a class="printer-icon " href="javascript:window.print()">
+                                                <i class="fa fa-print"></i> 
+                                            </a>
+                                        </div>
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
                                         {foreach from=$photos item=photo}
@@ -258,7 +255,7 @@
                         <div class="single-property-wrapper">
                             <div class="single-property-header">                                          
                                 <h1 class="property-title pull-left">{$post->getTitle()}</h1>
-                                <span class="property-price pull-right">€ {$post->getPrice()}</span>
+                                <span class="property-price pull-right">€ {$post->getPrice()}<span style="font-size: 16px; font-weight: normal;">&nbsp;/day</span></span>
                             </div>
 
                             <!-- Box con i dettagli del post -->
@@ -269,7 +266,7 @@
                                 <div class="panel-body">
                                     <ul class="list-group" style="margin-bottom:0;">
                                         <li class="list-group-item">
-                                            <strong>Description:</strong><br>
+                                            <strong>Title:</strong><br>
                                             <span class="form-control-static">{$post->getDescription()}</span>
                                         </li>
                                         <li class="list-group-item">
@@ -288,10 +285,7 @@
                                                 {/foreach}
                                             </span>
                                         </li>
-                                        <li class="list-group-item">
-                                            <strong>Additional Info:</strong><br>
-                                            <span class="form-control-static">{$post->getMoreInfo()}</span>
-                                        </li>
+
                                         <li class="list-group-item">
                                             <strong>Address:</strong><br>
                                             <span class="form-control-static">
@@ -328,9 +322,9 @@
                             <!-- Fine box dettagli -->
 
                             <div class="section">
-                                <h4 class="s-property-title">Description: </h4>
+                                <h4 class="s-property-title">Additional info: </h4>
                                 <div class="s-property-content">
-                                    <p>{$post->getDescription()}</p>
+                                    <p>{$post->getMoreInfo()}</p>
                                 </div>
                             </div>
                         </div>
@@ -381,19 +375,21 @@
                         </aside>
                     </div>
                 </div>
-                <a href="/PetHouse/Findhosting/bookPost/{$post->getId()}" class="btn btn-warning btn-lg btn-block" style="border-radius: 30px; font-weight: bold;">
-                    <i class="fa fa-calendar-check-o"></i> Book this post
-                </a>
 
-<!-- Replace the report button section in Post_detail.tpl with this -->
 
-<div class="row" style="margin-bottom: 15px;">
-    <div class="col-md-12">
-        <a href="/PetHouse/Report/makeReport/{$post->getId()}" class="btn btn-danger" style="border-radius: 30px;">
-            <i class="fa fa-flag"></i> Report this post
-        </a>
-    </div>
-</div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <a href="/PetHouse/Findhosting/bookPost/{$post->getId()}" class="btn btn-warning btn-lg btn-block" style="border-radius: 30px; font-weight: bold;">
+                            <i class="fa fa-calendar-check-o"></i> Book this post
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/PetHouse/Report/makeReport/{$post->getId()}" class="btn btn-danger btn-lg btn-block" style="border-radius: 30px; font-weight: bold; margin-top: 0;">
+                            <i class="fa fa-flag"></i> Report this post
+                        </a>
+                    </div>
+                </div>
 
             </div>
         </div>

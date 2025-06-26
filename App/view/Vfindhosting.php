@@ -33,11 +33,16 @@ public function showPost($post)
 
     $this->smarty->display('Post_detail.tpl');
 }
-public function showFormOffer($post)
-{
-    $this->smarty->assign('post', $post);
-    $this->smarty->display('formOffer.tpl');
-}
+    public function showFormOffer($post)
+    {
+        $this->smarty->assign('post', $post);
+        // Pass post start and end dates for JS validation
+        $this->smarty->assign('post_start', $post->getDateIn()->format('Y-m-d'));
+        $this->smarty->assign('post_end', $post->getDateOut()->format('Y-m-d'));
+        // Pass accepted pets for JS validation
+        $this->smarty->assign('accepted_pets', $post->getAcceptedPets());
+        $this->smarty->display('formOffer.tpl');
+    }
 public function showok()
 {
     $this->smarty->display('offer_created.tpl');

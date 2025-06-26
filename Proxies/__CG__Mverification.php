@@ -7,7 +7,7 @@ namespace DoctrineProxies\__CG__;
  */
 class Mverification extends \Mverification implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -34,7 +34,7 @@ class Mverification extends \Mverification implements \Doctrine\ORM\Proxy\Intern
         'id' => [parent::class, 'id', null, 16],
         'requestDate' => [parent::class, 'requestDate', null, 16],
         'user' => [parent::class, 'user', null, 16],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

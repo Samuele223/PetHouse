@@ -81,101 +81,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.45s">Logout</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location('https://localhost/PetHouse/user/profile')" data-wow-delay="0.5s">Profile</button>
+                        <button type="submit" class="navbar-btn nav-button wow bounceInRight logout" onclick="window.location.href='/PetHouse/user/logout'" data-wow-delay="0.45s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -253,7 +169,7 @@
 
                     <!-- Campo moreInfo -->
                     <div class="form-group">
-                        <label>Additional information <small>(required)</small></label>
+                        <label>Post Title <small>(required)</small></label>
                         <textarea name="moreInfo" class="form-control" rows="4" placeholder="Add more details about this listing..." required></textarea>
                     </div>
                 </div>
@@ -271,7 +187,7 @@
         <h4 class="info-text">Listing details</h4>
 
         <div class="form-group">
-            <label>Price per night <span style="color:#FDC600;">€</span>:</label>
+            <label>Price per day <span style="color:#FDC600;">€</span>:</label>
             <div class="input-group" style="max-width: 300px;">
                 <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
                     <i class="fa fa-eur"></i>
@@ -279,7 +195,7 @@
                 <input type="number" name="price" class="form-control" min="0" step="0.50"
                        placeholder="Enter price" required>
                 <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
-                    /night
+                    /day
                 </span>
             </div>
         </div>
@@ -318,13 +234,13 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Start date:</label>
-                    <input type="date" name="date_in" class="form-control" required>
+                    <input type="date" name="date_in" id="date_in" class="form-control" required>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>End date:</label>
-                    <input type="date" name="date_out" class="form-control" required>
+                    <input type="date" name="date_out" id="date_out" class="form-control" required>
                 </div>
             </div>
         </div>
@@ -367,143 +283,7 @@
             </div>
         </div>
 
-          <!-- Footer area-->
-        <div class="footer-area">
 
-            <div class=" footer">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>About us </h4>
-                                <div class="footer-title-line"></div>
-
-                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
-                                <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Quick links </h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer news-letter">
-                                <h4>Stay in touch</h4>
-                                <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form> 
-
-                                <div class="social pull-right"> 
-                                    <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-copy text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
-                        </div> 
-                        <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
         <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js//jquery-1.10.2.min.js"></script>
@@ -607,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const today = new Date();
     const nextMonth = new Date();
     nextMonth.setMonth(today.getMonth() + 1);
-    
+
     // Formatta le date in YYYY-MM-DD per il campo input type="date"
     const formatDate = (date) => {
         const year = date.getFullYear();
@@ -615,20 +395,45 @@ document.addEventListener('DOMContentLoaded', function() {
         const day = date.getDate().toString().padStart(2, '0');
         return year + '-' + month + '-' + day;
     };
-    
+
     // Imposta i valori predefiniti se l'utente non ha già inserito date
     document.querySelector('a[href="#step3"]').addEventListener('click', function() {
-        const dateInField = document.querySelector('input[name="date_in"]');
-        const dateOutField = document.querySelector('input[name="date_out"]');
-        
+        const dateInField = document.getElementById('date_in');
+        const dateOutField = document.getElementById('date_out');
+
         if (!dateInField.value) {
             dateInField.value = formatDate(today);
         }
-        
+
         if (!dateOutField.value) {
             dateOutField.value = formatDate(nextMonth);
         }
     });
+
+    // Validazione incrociata tra start date e end date
+    const dateInField = document.getElementById('date_in');
+    const dateOutField = document.getElementById('date_out');
+
+    function validateDates() {
+        if (dateInField.value && dateOutField.value) {
+            if (dateInField.value > dateOutField.value) {
+                dateOutField.setCustomValidity('End date must be after or equal to start date.');
+            } else {
+                dateOutField.setCustomValidity('');
+            }
+            if (dateOutField.value < dateInField.value) {
+                dateInField.setCustomValidity('Start date must be before or equal to end date.');
+            } else {
+                dateInField.setCustomValidity('');
+            }
+        } else {
+            dateInField.setCustomValidity('');
+            dateOutField.setCustomValidity('');
+        }
+    }
+
+    dateInField.addEventListener('change', validateDates);
+    dateOutField.addEventListener('change', validateDates);
 });
 </script>
 <style>
@@ -678,9 +483,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateButtons() {
         const activeIndex = getActiveStepIndex();
-        prevBtn.style.display = (activeIndex > 0) ? 'inline-block' : 'none';
-        nextBtn.style.display = (activeIndex >= 0 && activeIndex < steps.length - 1) ? 'inline-block' : 'none';
-        finishBtn.style.display = (activeIndex === steps.length - 1) ? 'inline-block' : 'none';
+        // Always show previous button except on the first step
+        prevBtn.style.display = (activeIndex > 0) ? '' : 'none';
+        nextBtn.style.display = (activeIndex >= 0 && activeIndex < steps.length - 1) ? '' : 'none';
+        finishBtn.style.display = (activeIndex === steps.length - 1) ? '' : 'none';
     }
 
     updateButtons();
@@ -705,6 +511,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[data-toggle="tab"]').forEach(link => {
         link.addEventListener('shown.bs.tab', updateButtons);
     });
+
+    // Initial state: ensure previous button is hidden only on first step
+    updateButtons();
 });
 </script>
 <script>

@@ -130,6 +130,16 @@
                                             
                                         </div>
                                         <h6>YOUR PROFILE PICTURE</h6>
+                                        {if isset($user) && $user->getVerified()}
+                                            <div class="verified-user" style="margin-top: 10px; text-align: center;">
+                                                <span style="color: #28a745; font-size: 1.5em; vertical-align: middle;">
+                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                </span>
+                                                <span style="color: #28a745; font-weight: bold; margin-left: 8px; font-size: 1.1em; vertical-align: middle;">
+                                                    User has been verified
+                                                </span>
+                                            </div>
+                                        {/if}
                                     </div>
                                 </div>
 
@@ -262,11 +272,20 @@
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
                                             <h6> <a href="single.html">Add news functions </a></h6> 
                                             <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
+</div>
                                     </li> 
 
-
                                 </ul>
+                                {if isset($user) && $user->getVerified()}
+                                    <div class="verified-user" style="margin-top: 20px; text-align: center;">
+                                        <span style="color: #28a745; font-size: 1.5em; vertical-align: middle;">
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </span>
+                                        <span style="color: #28a745; font-weight: bold; margin-left: 8px; font-size: 1.1em; vertical-align: middle;">
+                                            User has been verified
+                                        </span>
+                                    </div>
+                                {/if}
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">

@@ -7,7 +7,7 @@ namespace DoctrineProxies\__CG__;
  */
 class Mpost extends \Mpost implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -50,7 +50,7 @@ class Mpost extends \Mpost implements \Doctrine\ORM\Proxy\InternalProxy
         'reportreceived' => [parent::class, 'reportreceived', null, 16],
         'seller' => [parent::class, 'seller', null, 16],
         'title' => [parent::class, 'title', null, 16],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

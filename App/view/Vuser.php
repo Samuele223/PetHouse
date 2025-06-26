@@ -41,7 +41,8 @@ public function profile($user, $picid )
         $this->smarty->assign('surname', $user->getsurname());
         $this->smarty->assign('email', $user->getemail());
         $this->smarty->assign('pic', $picid);
-        $this->smarty->assign('phone', $user->getTel());        
+        $this->smarty->assign('phone', $user->getTel());
+        $this->smarty->assign('user', $user); // Make user object available to template
         $this->smarty->display('user-profile.tpl');
     }
   
