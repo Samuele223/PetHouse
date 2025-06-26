@@ -194,16 +194,9 @@ public static function profile()
         // If there is a profile picture, get its ID
         $picid = $pic->getId();
     }
-    
-    // Controlla se c'è un messaggio di successo
-    $successMessage = USession::getSessionElement('success_message');
-    if ($successMessage) {
-        $view->profile($user, $picid, $successMessage);
-        // Rimuovi il messaggio dopo averlo mostrato
-        USession::unsetSessionElement('success_message');
-    } else {
         $view->profile($user, $picid);
-    }
+
+
 }
 public static function addHouse()
 {

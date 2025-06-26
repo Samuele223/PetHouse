@@ -35,17 +35,13 @@ class VUser {
         $this->smarty->display('index.tpl');
     }
 }
-public function profile($user, $picid, $successMessage = null)
+public function profile($user, $picid )
     {
         $this->smarty->assign('name', $user->getName());
         $this->smarty->assign('surname', $user->getsurname());
         $this->smarty->assign('email', $user->getemail());
         $this->smarty->assign('pic', $picid);
-        
-        if ($successMessage) {
-            $this->smarty->assign('success_message', $successMessage);
-        }
-        
+        $this->smarty->assign('phone', $user->getTel());        
         $this->smarty->display('user-profile.tpl');
     }
   
@@ -98,6 +94,10 @@ public function showReviews($reviews) {
 }
 public function showPost($post) {
     $this->smarty->assign('post', $post);
+    $this->smarty->assign('city', $post->getHouse()->getCity());
+    $this->smarty->assign('address', $post->getHouse()->getAddress());
+    $this->smarty->assign('province', $post->getHouse()->getProvince());
     $this->smarty->display('user_post_detail.tpl');
+    
 }
 }
