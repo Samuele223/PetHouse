@@ -36,10 +36,12 @@ public function setId(int $id): void
 {
     $this->id = $id;
 }
-public function setPassword(string $password): void
-{
-    $this->password = $password;
-}
+public function setPassword($password): static
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+
+        return $this;
+    }
 public function setEmail(string $email): void
 {
     $this->email = $email;
@@ -49,9 +51,8 @@ public static function getEntity(): mixed
 {
 return self::$entity;
 }
-public function  __construct(string $password,string $Email)
+public function  __construct(string $Email)
 {
-        $this->password = $password;
         $this->email = $Email;
 }
 }

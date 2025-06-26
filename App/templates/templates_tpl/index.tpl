@@ -82,6 +82,9 @@
         <!--End top header -->
 
         <nav class="navbar navbar-default ">
+            <div style="position: absolute; left: 10px; top: 10px; z-index: 9999;">
+                <button class="navbar-btn nav-button wow fadeInLeft" onclick="window.location.href='/PetHouse/Admin/login'" data-wow-delay="0.40s">Login Admin</button>
+            </div>
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">

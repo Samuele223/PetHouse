@@ -91,7 +91,7 @@
                         <form method="post" action="/PetHouse/user/logout" style="display:inline;">
                                 <button button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
                             </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='/PetHouse/admin/profile'" data-wow-delay="0.5s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
@@ -189,7 +189,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">{$name}</span></h1>               
+                        <h1 class="page-title">Hello : <span class="orange strong">Admin!</span></h1>               
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                                 <div class="col-sm-3 col-sm-offset-1">
                                     <div class="picture-container">
                                         <div class="picture">
-                                            <img src="/PetHouse/image/showImage/{$pic}" alt="Foto profilo di {$name}" style="pointer-events: none;">
+                                            <img src="/PetHouse/App/templates/assets/img/admin.png" alt="Foto profilo dell'Admin" style="pointer-events: none;">
                                             <input type="file" id="wizard-picture">
                                         </div>
                                         <h6>YOUR PROFILE PICTURE</h6>
@@ -226,20 +226,12 @@
 
                                     <div class="form-group">
                                         <label>First Name <small>(required)</small></label>
-                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
+                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="ADMIN" readonly>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Last Name <small>(required)</small></label>
-                                        <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="{$surname|escape}" readonly>
-                                    </div> 
                                     <div class="form-group">
                                         <label>Email <small>(required)</small></label>
                                         <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="{$email|escape}" readonly>
                                     </div> 
-                                    <div class="form-group">
-                                        <label>Phone :</label>
-                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
-                                    </div>
                                 </div>
                             </div>
 
@@ -277,13 +269,14 @@
                     
                             <div class="col-sm-10 col-sm-offset-1">
                                 <br>
-                                <a href="https://localhost/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
+                                <a href="/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
                                 <a href="/PetHouse/user/myHouses" class="btn btn-primary" style="margin-right:10px;">Your Houses</a>
                                 <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
                                 <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
                                 <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
                                 <a href="/PetHouse/Review/Deals" class="btn btn-primary" style="margin-right:10px;">History Deals</a>
-                                <a href="/PetHouse/user/askVerification" class="btn btn-success" style="margin-right:10px;">Ask Verification</a>
+                                <a href="/PetHouse/Admin/listVerificationRequests" class="btn btn-success" style="margin-right:10px;">Check Reported Posts</a>
+                                <a href="/PetHouse/Admin/listVerificationRequests" class="btn btn-success" style="margin-right:10px;">Check Verification Requests</a>
                             </div>
                             <br>
                     </form>

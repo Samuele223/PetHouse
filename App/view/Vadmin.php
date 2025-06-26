@@ -1,0 +1,56 @@
+<?php
+require_once __DIR__ . '/../../config/startsmarty.php';
+
+class VAdmin {
+    public $smarty;
+
+    public function __construct() {
+        $this->smarty = StartSmarty::configuration();
+    }
+
+    // Mostra il form di login admin
+    public function showLoginForm($error = null) {
+        if ($error) {
+            $this->smarty->assign('error', $error);
+        }
+        $this->smarty->display('login_admin.tpl');
+    }
+
+    // Mostra la pagina di errore credenziali admin
+    public function showInvalidCredentials($error = 'Credenziali non valide') {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('invalid_credentials_admin.tpl');
+    }
+
+    // Mostra la home dell'admin
+    public function home($email = null) {
+        $this->smarty->assign('isAdmin', true);
+        if ($email) {
+            $this->smarty->assign('username', $email);
+        }
+        $this->smarty->display('index.tpl');
+    }
+
+
+public function profile($admin)
+{
+    $this->smarty->assign('email', $admin->getEmail());
+    // Aggiungi altri campi se servono
+    $this->smarty->display('admin_profile.tpl');
+}
+
+public function showVerificationRequests($verifiche)
+{
+    $this->smarty->assign('verifiche', $verifiche);
+    $this->smarty->display('list_of_users.tpl');
+}
+
+
+public function showUserProfileWithVerification($user, $verification)
+{
+    $this->smarty->assign('user', $user);
+    $this->smarty->assign('verification', $verification);
+    $this->smarty->display('user_profile_verification.tpl');
+}
+
+}
