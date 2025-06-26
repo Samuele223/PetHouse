@@ -26,6 +26,7 @@ public function showPost($post)
 {
     $this->smarty->assign('photos', $post->getHouse()->getPhotos());
     $this->smarty->assign('post',$post);
+    $this->smarty->assign('owner', $post->getSeller());
     $this->smarty->assign('city', $post->getHouse()->getCity());
     $this->smarty->assign('address', $post->getHouse()->getAddress());
     $this->smarty->assign('province', $post->getHouse()->getProvince());
@@ -46,6 +47,17 @@ public function showError($message)
 {
     $this->smarty->assign('message', $message);
     $this->smarty->display('error.tpl'); 
+}
+public function showforeignprofile($user)
+{
+    $this->smarty->assign('user', $user);
+    $this->smarty->assign('pic', $user->getProfilePicture()->getId());
+    $this->smarty->assign('name', $user->getName());
+    $this->smarty->assign('surname', $user->getSurname());
+    $this->smarty->assign('email', $user->getEmail());
+    $this->smarty->assign('phone', $user->getTel());
+    // Se vuoi mostrare anche altre info, aggiungile qui
+    $this->smarty->display('foreign-profile.tpl');
 }
 }
 ?>

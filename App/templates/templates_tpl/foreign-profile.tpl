@@ -49,6 +49,8 @@
                 <div class="row">
                     <div class="col-md-5 col-sm-8  col-xs-12">
                         <div class="header-half header-call">
+                            <p>
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
@@ -116,8 +118,8 @@
                         <form action="" method="">
                             <div class="profiel-header">
                                 <h3>
-                                    <b></b> YOUR PROFILE <br>
-                                    <small>All about you</small>
+                                    <b></b> profile of {$name} <br>
+                                    <small>All about {$name}</small>
                                 </h3>
                                 <hr>
                             </div>
@@ -128,7 +130,7 @@
                                         <div class="picture">
                                             <img src="/PetHouse/image/showImage/{$pic}" alt="Foto profilo di {$name}" style="pointer-events: none;">
                                         </div>
-                                        <h6>YOUR PROFILE PICTURE</h6>
+                                        <h6>PROFILE PICTURE</h6>
                                     </div>
                                 </div>
 
@@ -152,15 +154,6 @@
                                     </div>
                                 </div>
                             </div>                    
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <br>
-                                    <a href="https://localhost/PetHouse/" class="btn btn-primary btn-block" style="margin-bottom:10px;">Home</a>
-                                    <a href="/PetHouse/user/myHouses" class="btn btn-primary btn-block" style="margin-bottom:10px;">Your Houses</a>
-                                    <a href="/PetHouse/user/myPost" class="btn btn-primary btn-block" style="margin-bottom:10px;">Your Posts</a>
-                                    <a href="/PetHouse/user/review" class="btn btn-primary btn-block" style="margin-bottom:10px;">Your Review</a>
-                                    <a href="/PetHouse/Review/Deals" class="btn btn-primary btn-block" style="margin-bottom:10px;">History Deals</a>
-                                    <a href="/PetHouse/user/askVerification" class="btn btn-success btn-block" style="margin-bottom:10px;">Ask Verification</a>
-                                </div>
                             <br>
                     </form>
 

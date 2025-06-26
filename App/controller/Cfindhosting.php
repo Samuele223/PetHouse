@@ -152,7 +152,20 @@ class CFindhosting{
         }
         //show riepilogo
     }
-   
+    public static function viewprofile($id_user)
+    {
+        if(CUser::isLogged())
+        {
+            
+            $user = FPersistentManager::retriveObj(Muser::getEntity(),$id_user);
+            $view = new Vfindhosting();
+            $view->showforeignprofile($user);
+        }
+        else{
+            header('Location: PetHouse/user/login');
+        }
+    }
+
 
 
 }

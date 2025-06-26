@@ -25,7 +25,6 @@ class VOfferHosting {
             $this->smarty->assign('error', $error);
         }
         
-        // render the form template (to be created later)
         $this->smarty->display('offer_hosting.tpl');
     }
 

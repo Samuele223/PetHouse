@@ -186,7 +186,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Submit new property</h1>               
+                        <h1 class="page-title">create your Post</h1>               
                     </div>
                 </div>
             </div>
@@ -203,8 +203,8 @@
                             <form action="/PetHouse/offerHosting/createOffer" method="post" enctype="multipart/form-data">                        
                                 <div class="wizard-header">
                                     <h3>
-                                        <b>Submit</b> YOUR PROPERTY <br>
-                                        <small>Lorem ipsum dolor sit amet, consectetur adipisicing.</small>
+                                        <b>Submit</b> your Post <br>
+                                        <small></small>
                                     </h3>
                                 </div>
 
@@ -227,7 +227,7 @@
     <!-- STEP 1 -->
     <div class="tab-pane" id="step1">
         <div class="row p-b-15">
-            <h4 class="info-text">Select your property</h4>
+            
 
             <div class="col-sm-12">
                 <div class="col-sm-7">
@@ -260,12 +260,6 @@
 
                 <!-- Anteprima immagine -->
                 <div class="col-sm-5">
-                    <div id="property-preview-container" style="margin-top: 20px; text-align: center;">
-                        <img src="/PetHouse/App/templates/assets/img/default-property.jpg" 
-                             id="propertyImagePreview"
-                             style="max-width: 100%; max-height: 200px; border:1px solid #ddd; padding:3px; border-radius:4px;" />
-                        <p style="margin-top:10px;">Selected property image</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -282,7 +276,7 @@
                 <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
                     <i class="fa fa-eur"></i>
                 </span>
-                <input type="number" name="price" class="form-control" min="0" step="0.01"
+                <input type="number" name="price" class="form-control" min="0" step="0.50"
                        placeholder="Enter price" required>
                 <span class="input-group-addon" style="background:#FDC600; color:#fff; border:1px solid #FDC600;">
                     /night
@@ -294,7 +288,7 @@
             <label>Accepted pets:</label>
             <div id="acceptedPetsFields">
                 <div class="input-group pet-group" style="margin-bottom:5px; max-width:400px;">
-                    <select name="accepted_pets[]" class="form-control">
+                    <select name="accepted_pets[]" class="form-control" required>
                         <option value="">Select pet type</option>
                         <option value="DOG">Dog</option>
                         <option value="CAT">Cat</option>
@@ -554,7 +548,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-<!-- Aggiungi questo script prima della chiusura del body -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Gestisce la selezione della proprietà e aggiorna l'immagine
@@ -608,67 +601,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-<!-- Aggiungi questo script prima della chiusura del body -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Evento per aggiornare il riepilogo quando si passa allo step 3
-    document.querySelector('a[href="#step3"]').addEventListener('click', updateSummary);
-    
-    function updateSummary() {
-        // Proprietà selezionata
-        const propertySelect = document.getElementById('propertySelect');
-        const propertyText = propertySelect.options[propertySelect.selectedIndex]?.text || '-';
-        document.getElementById('summary-property').textContent = propertyText;
-        
-        // Informazioni aggiuntive
-        const moreInfo = document.querySelector('textarea[name="moreInfo"]').value || '-';
-        document.getElementById('summary-moreinfo').textContent = moreInfo;
-        
-        // Immagine
-        document.getElementById('summary-image').src = document.getElementById('propertyImagePreview').src;
-        
-        // Date e prezzo
-        const dateIn = document.querySelector('input[name="date_in"]').value;
-        document.getElementById('summary-datein').textContent = dateIn ? new Date(dateIn).toLocaleDateString() : '-';
-        
-        const dateOut = document.querySelector('input[name="date_out"]').value;
-        document.getElementById('summary-dateout').textContent = dateOut ? new Date(dateOut).toLocaleDateString() : '-';
-        
-        const price = document.querySelector('input[name="price"]').value;
-        document.getElementById('summary-price').textContent = price ? '€ ' + price + ' /notte' : '-';
-        
-        // Animali accettati
-        const petsList = document.getElementById('summary-pets');
-        petsList.innerHTML = '';
-        
-        const petSelects = document.querySelectorAll('select[name="accepted_pets[]"]');
-        const petCounts = document.querySelectorAll('input[name="accepted_pet_counts[]"]');
-        
-        let hasPets = false;
-        
-        for (let i = 0; i < petSelects.length; i++) {
-            if (petSelects[i].value) {
-                hasPets = true;
-                const petType = petSelects[i].options[petSelects[i].selectedIndex].text;
-                const petCount = petCounts[i].value;
-                
-                const li = document.createElement('li');
-                li.className = 'list-group-item';
-                li.textContent = petType + ' (' + petCount + ')';
-                petsList.appendChild(li);
-            }
-        }
-        
-        if (!hasPets) {
-            const li = document.createElement('li');
-            li.className = 'list-group-item';
-            li.textContent = 'Nessun animale selezionato';
-            petsList.appendChild(li);
-        }
-    }
-});
-</script>
-<!-- Sostituisci il vecchio script del riepilogo con questo -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Imposta date predefinite quando si carica la pagina
@@ -705,7 +637,6 @@ document.addEventListener('DOMContentLoaded', function() {
   content: none !important;
 }
 </style>
-<!-- Aggiungi questo prima della chiusura del body -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Aggiunge validazione al bottone Finish
@@ -729,60 +660,78 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        // Se tutto è ok, invia il form
+        
         form.submit();
     });
 });
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const steps = document.querySelectorAll('.tab-pane');
+    const steps = Array.from(document.querySelectorAll('.tab-pane'));
     const nextBtn = document.querySelector('.btn-next');
     const prevBtn = document.querySelector('.btn-previous');
     const finishBtn = document.querySelector('.btn-finish');
 
-    function updateButtons() {
-        const activeIndex = [...steps].findIndex(step => step.classList.contains('active'));
+    function getActiveStepIndex() {
+        return steps.findIndex(step => step.classList.contains('active'));
+    }
 
-        if (activeIndex === 0) {
-            prevBtn.style.display = 'none';
-            nextBtn.style.display = 'inline-block';
-            finishBtn.style.display = 'none';
-        } else if (activeIndex === steps.length - 1) {
-            prevBtn.style.display = 'inline-block';
-            nextBtn.style.display = 'none';
-            finishBtn.style.display = 'inline-block';
-        } else {
-            prevBtn.style.display = 'inline-block';
-            nextBtn.style.display = 'inline-block';
-            finishBtn.style.display = 'none';
-        }
+    function updateButtons() {
+        const activeIndex = getActiveStepIndex();
+        prevBtn.style.display = (activeIndex > 0) ? 'inline-block' : 'none';
+        nextBtn.style.display = (activeIndex >= 0 && activeIndex < steps.length - 1) ? 'inline-block' : 'none';
+        finishBtn.style.display = (activeIndex === steps.length - 1) ? 'inline-block' : 'none';
     }
 
     updateButtons();
 
     nextBtn.addEventListener('click', function() {
-        const active = document.querySelector('.tab-pane.active');
-        const nextStep = active.nextElementSibling;
-        if (nextStep) {
-            const nextTabId = nextStep.id;
-            // Usa concatenazione classica anziché i backtick:
+        const activeIndex = getActiveStepIndex();
+        if (activeIndex < steps.length - 1) {
+            const nextTabId = steps[activeIndex + 1].id;
             document.querySelector('a[href="#' + nextTabId + '"]').click();
         }
     });
 
     prevBtn.addEventListener('click', function() {
-        const active = document.querySelector('.tab-pane.active');
-        const prevStep = active.previousElementSibling;
-        if (prevStep) {
-            const prevTabId = prevStep.id;
+        const activeIndex = getActiveStepIndex();
+        if (activeIndex > 0) {
+            const prevTabId = steps[activeIndex - 1].id;
             document.querySelector('a[href="#' + prevTabId + '"]').click();
         }
     });
 
-    // Ricalcola i pulsanti ogni volta che si cambia tab
+    // Aggiorna i bottoni ogni volta che si cambia tab
     document.querySelectorAll('a[data-toggle="tab"]').forEach(link => {
         link.addEventListener('shown.bs.tab', updateButtons);
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const finishBtn = document.querySelector('.btn-finish');
+    const form = document.querySelector('form');
+
+    finishBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Previeni l'invio automatico
+
+        // Verifica che i termini siano stati accettati
+        const termsCheckbox = document.getElementById('terms_checkbox');
+        if (!termsCheckbox.checked) {
+            alert('You must accept the terms and conditions to continue.');
+            termsCheckbox.focus();
+            return false;
+        }
+
+        // Assicurati che il prezzo sia valido
+        const priceField = document.querySelector('input[name="price"]');
+        if (!priceField.value || isNaN(parseFloat(priceField.value))) {
+            alert('Please enter a valid price.');
+            priceField.focus();
+            return false;
+        }
+
+        form.submit();
     });
 });
 </script>
