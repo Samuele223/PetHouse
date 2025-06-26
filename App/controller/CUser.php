@@ -673,4 +673,22 @@ public static function deleteHouse(int $id) {
             
             
     }
+    public static function review()
+    {
+    // Ensure session is started
+    Usession::getInstance();
+    $id = Usession::getSessionElement('user');
+    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $reviews = $user->getReviewToMe();
+    $view = new VUser();
+    $view->showReviews($reviews);
+    
+    }
+    public static function yourpost($id)
+    {
+        Usession::getInstance();
+        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id);
+        $view = new VUser();
+        $view->showPost($post);
+    }
 }
