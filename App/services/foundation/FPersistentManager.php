@@ -192,18 +192,64 @@ class FPersistentManager{
     }
 
         
-     public static function filterPost(
-        array $acceptedPets = [],
-        ?string $province = null,
-        ?string $city = null,
-        ?string $startDate = null,
-        ?string $endDate = null
-     )
-     {
-        $result = Fpost::filterPost($acceptedPets, $province, $city, $startDate, $endDate);
-        return  $result;
-     }
-     
+     /**
+ * Filter posts based on search criteria, ensuring proper date range matching
+ */
+public static function filterPost($acceptedPets = [], $province = null, $city = null, $startDate = null, $endDate = null)
+{
+    $em = FEntityManager::getInstance()::getEntityManager();
+    $qb = $em->createQueryBuilder();
+    
+    $qb->select('p')
+       ->from(Mpost::getEntity(), 'p')
+       ->where('p.booked = :booked')
+       ->setParameter('booked', false);
+    
+    // Location filters
+    if ($province !== null && !empty($province)) {
+        $qb->andWhere('p.position.province = :province')
+           ->setParameter('province', $province);
+    }
+    
+    if ($city !== null && !empty($city)) {
+        $qb->andWhere('p.position.city = :city')
+           ->setParameter('city', $city);
+    }
+    
+    // Date range filter - improved logic
+    if ($startDate !== null && $endDate !== null) {
+        // Only return posts where search dates are completely within the post's available dates
+        // Start date is on or after post's start date AND end date is on or before post's end date
+        $qb->andWhere('p.datein <= :startDate AND p.dateout >= :endDate')
+           ->setParameter('startDate', $startDate)
+           ->setParameter('endDate', $endDate);
+    } else if ($startDate !== null) {
+        // If only start date is provided, post must be available from that date
+        $qb->andWhere('p.datein <= :startDate AND p.dateout >= :startDate')
+           ->setParameter('startDate', $startDate);
+    } else if ($endDate !== null) {
+        // If only end date is provided, post must be available until that date
+        $qb->andWhere('p.dateout >= :endDate')
+           ->setParameter('endDate', $endDate);
+    }
+    
+    // Pet filter - maintain existing logic
+    if (!empty($acceptedPets)) {
+        foreach ($acceptedPets as $pet => $count) {
+            // Build a DQL expression to check pet types and counts
+            $qb->andWhere("JSON_CONTAINS_PATH(p.acceptedpets, 'one', :path{$pet}) = 1")
+               ->setParameter("path{$pet}", "$.{$pet}");
+               
+            // Also check if the count is sufficient
+            $qb->andWhere("CAST(JSON_EXTRACT(p.acceptedpets, :pathValue{$pet}) AS INTEGER) >= :count{$pet}")
+               ->setParameter("pathValue{$pet}", "$.{$pet}")
+               ->setParameter("count{$pet}", $count);
+        }
+    }
+    
+    return $qb->getQuery()->getResult();
+}
+
 public static function expireOldPosts()
 {
     $em = FEntityManager::getInstance()::getEntityManager();

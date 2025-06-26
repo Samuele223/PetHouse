@@ -110,7 +110,7 @@
 
                             <form action="/PetHouse/Report/reportPost/{$post->getId()}" method="post">
                                 <!-- Add a hidden field to capture the redirect URL -->
-                                <input type="hidden" name="redirect_url" value="{$smarty.session.report_redirect_url|default:"/PetHouse/Post/view/{$post->getId()}"}">
+                                <input type="hidden" name="redirect_url" value="{$smarty.session.report_redirect_url|default:"/PetHouse/Findhosting/selectpost/{$post->getId()}"}">
                                 
                                 <div class="row p-b-15">
                                     <div class="col-sm-12">
