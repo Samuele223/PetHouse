@@ -269,12 +269,6 @@
                     
                             <div class="col-sm-10 col-sm-offset-1">
                                 <br>
-                                <a href="/PetHouse/" class="btn btn-primary" style="margin-right:10px;">Home</a>
-                                <a href="/PetHouse/user/myHouses" class="btn btn-primary" style="margin-right:10px;">Your Houses</a>
-                                <a href="/PetHouse/user/myPost" class="btn btn-primary" style="margin-right:10px;">Your Posts</a>
-                                <a href="/PetHouse/user/offer" class="btn btn-primary" style="margin-right:10px;">Your Offers</a>
-                                <a href="/PetHouse/user/review" class="btn btn-primary" style="margin-right:10px;">Your Review</a>
-                                <a href="/PetHouse/Review/Deals" class="btn btn-primary" style="margin-right:10px;">History Deals</a>
                                 <a href="/PetHouse/Admin/listReportedPosts" class="btn btn-success" style="margin-right:10px;">Check Reported Posts</a>
                                 <a href="/PetHouse/Admin/listVerificationRequests"class="btn btn-success" style="margin-right:10px;">Check Verification Requests</a>
                             </div>

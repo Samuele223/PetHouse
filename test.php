@@ -1,2 +1,5 @@
 <?php
-echo "OK";
+$admin = new Madmin("admin@example.com");
+$admin->setPassword("adpass");
+
+FPersistentManager::saveObj($admin);
