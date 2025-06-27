@@ -64,4 +64,17 @@ public function showReportedPostDetail($post)
     $this->smarty->display('reported_post_detail.tpl');
 }
 
-}
+public function showUserProfile($user)
+{
+    $this->smarty->assign('user', $user);
+    $this->smarty->assign('name', $user->getName());
+    $this->smarty->assign('surname', $user->getSurname());
+    $this->smarty->assign('email', $user->getEmail());
+    $pic = $user->getProfilePicture();
+    $this->smarty->assign('pic', $pic ? $pic->getId() : 0);
+    $this->smarty->assign('phone', $user->getTel());
+
+
+    $this->smarty->display('foreign_profile_admin.tpl');
+
+}}

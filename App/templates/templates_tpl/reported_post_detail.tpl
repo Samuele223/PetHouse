@@ -206,13 +206,13 @@
                     {assign var="reporter" value=$report->getReporter()}
                     <li class="list-group-item" style="display: flex; align-items: center;">
                         {if $reporter}
-                            <a href="/PetHouse/findhosting/viewprofile/{$reporter->getId()}" style="display:inline-block;">
-                                {if $reporter->getProfilePicture()}
-                                    <img src="/PetHouse/image/showImage/{$reporter->getProfilePicture()->getId()}" alt="Reporter profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
-                                {else}
-                                    <img src="/PetHouse/App/templates/assets/img/mauro.png" alt="Default profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
-                                {/if}
-                            </a>
+                            <a href="/PetHouse/Admin/showuserProfile/{$reporter->getId()}" style="display:inline-block;">
+    {if $reporter->getProfilePicture()}
+        <img src="/PetHouse/image/showImage/{$reporter->getProfilePicture()->getId()}" alt="Reporter profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
+    {else}
+        <img src="/PetHouse/App/templates/assets/img/mauro.png" alt="Default profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
+    {/if}
+</a>
                         {else}
                             <img src="/PetHouse/App/templates/assets/img/mauro.png" alt="Default profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
                         {/if}
@@ -263,13 +263,13 @@
                                         <div class="clear">
                                            <div class="col-xs-4 col-sm-4 dealer-face">
     {assign var="owner" value=$post->getSeller()}
-    <a href="/PetHouse/findhosting/viewprofile/{$owner->getId()}">
-        {if $owner->getProfilePicture()}
-            <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
-        {else}
-            <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
-        {/if}
-    </a>
+   <a href="/PetHouse/Admin/showuserProfile/{$owner->getId()}">
+    {if $owner->getProfilePicture()}
+        <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
+    {else}
+        <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
+    {/if}
+</a>
 </div>
                                             <div class="col-xs-8 col-sm-8 ">
                                                 <h3 class="dealer-name">
