@@ -78,7 +78,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- RIMOSSO: tutti i menu a tendina e link Home, Property, Properties, Template -->
@@ -177,7 +177,7 @@
                             </div>                    
                                 <div class="col-sm-10 col-sm-offset-1">
                                     <br>
-                                    <a href="https://localhost/PetHouse/" class="btn btn-primary btn-block" style="margin-bottom:10px;">Home</a>
+                                    <a href="/PetHouse/" class="btn btn-primary btn-block" style="margin-bottom:10px;">Home</a>
                                     <a href="/PetHouse/user/myHouses" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Houses</a>
                                     <a href="/PetHouse/user/myPost" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Posts</a>
                                     <a href="/PetHouse/user/review" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Review</a>
