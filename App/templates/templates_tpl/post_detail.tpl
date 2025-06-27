@@ -200,7 +200,12 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Super nice villa </h1>               
+                        <div style="margin-bottom: 15px;">
+                            <a href="{$backUrl}" class="btn btn-default" style="background: #f8f9fa; border: 1px solid #ddd; color: #333; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                                <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back to Search Results
+                            </a>
+                        </div>
+                        <h1 class="page-title">{$post->getTitle()}</h1>               
                     </div>
                 </div>
             </div>

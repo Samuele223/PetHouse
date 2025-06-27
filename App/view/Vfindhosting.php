@@ -22,7 +22,7 @@ public function noPostFound()
     $this->smarty->assign('message', 'No posts found for your search criteria.');
     $this->smarty->display('no_posts_found.tpl'); // Use an actual template name
 }
-public function showPost($post)
+public function showPost($post, $backUrl = '/PetHouse/')
 {
     $this->smarty->assign('photos', $post->getHouse()->getPhotos());
     $this->smarty->assign('post',$post);
@@ -30,6 +30,7 @@ public function showPost($post)
     $this->smarty->assign('city', $post->getHouse()->getCity());
     $this->smarty->assign('address', $post->getHouse()->getAddress());
     $this->smarty->assign('province', $post->getHouse()->getProvince());
+    $this->smarty->assign('backUrl', $backUrl);
 
     $this->smarty->display('Post_detail.tpl');
 }

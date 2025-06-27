@@ -14,70 +14,66 @@ class CFindhosting{
             $datain = null;
             $dataout = null;
             $acceptedPets = [];
-            
+
             // Get inputs only if they exist and aren't empty
             if (isset($_POST['city']) && !empty($_POST['city'])) {
                 $city = UHTTPMethods::post('city');
             }
-            
+
             if (isset($_POST['province']) && !empty($_POST['province'])) {
                 $province = UHTTPMethods::post('province');
             }
-            
+
             // Handle dates - only create DateTime objects if values are provided
             if (isset($_POST['datain']) && !empty($_POST['datain'])) {
                 try {
                     $datain = new DateTime(UHTTPMethods::post('datain'));
                 } catch (Exception $e) {
-                    // If date parsing fails, leave as null
                     $datain = null;
                 }
             }
-            
+
             if (isset($_POST['dataout']) && !empty($_POST['dataout'])) {
                 try {
                     $dataout = new DateTime(UHTTPMethods::post('dataout'));
                 } catch (Exception $e) {
-                    // If date parsing fails, leave as null
                     $dataout = null;
                 }
             }
-            
+
             // Handle pets - only process if the arrays exist and aren't empty
             if (isset($_POST['pets']) && is_array($_POST['pets']) && !empty($_POST['pets']) &&
                 isset($_POST['pet_counts']) && is_array($_POST['pet_counts']) && !empty($_POST['pet_counts'])) {
-                
+
                 $pets = UHTTPMethods::post('pets');
                 $counts = UHTTPMethods::post('pet_counts');
-                
+
                 // Filter out empty values
                 $filteredPets = [];
                 $filteredCounts = [];
-                
+
                 foreach ($pets as $index => $pet) {
                     if (!empty($pet) && isset($counts[$index]) && is_numeric($counts[$index]) && $counts[$index] > 0) {
                         $filteredPets[] = $pet;
                         $filteredCounts[] = $counts[$index];
                     }
                 }
-                
+
                 // Only combine if we have valid entries
                 if (!empty($filteredPets) && !empty($filteredCounts)) {
                     $acceptedPets = array_combine($filteredPets, $filteredCounts);
                 }
             }
-            
+
             // Add this validation before calling the filter method
             if ($datain && $dataout) {
-                // No need to create new DateTime objects - $datain and $dataout are already DateTime objects
-                // Ensure end date is not before start date
                 if ($dataout < $datain) {
                     $view = new Vfindhosting();
                     $view->showError('End date cannot be before start date. Please select valid dates.');
                     return [];
                 }
             }
-            
+
             // Call the search function with our parameters
             $startDate = $datain ? $datain->format('Y-m-d') : null;
             $endDate = $dataout ? $dataout->format('Y-m-d') : null;
@@ -88,32 +84,37 @@ class CFindhosting{
                 $startDate,
                 $endDate
             );
-            
-            // Display results
-            $view = new Vfindhosting();
-            if (empty($result)) {
-                $view->noPostFound();
-            } else {
-                $view->showPostList($result);
+
+            // Always assign posts as an array, even if empty
+            if (!is_array($result)) {
+                $result = [];
             }
-            
+
+            // Display results (always show the list, even if empty)
+            $view = new Vfindhosting();
+            $view->showPostList($result);
+
             return $result;
         } catch (Exception $e) {
-            // Log the error
             error_log("Search error: " . $e->getMessage());
-            
-            // Show a user-friendly error
             $view = new Vfindhosting();
-            $view->showError("Sorry, we encountered an error while searching. Please try again.");
+            // Show the list as empty instead of error page
+            $view->showPostList([]);
             return [];
         }
     }
     public static function selectPost(int $id)
     {
         $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //cosi prendo dalla query string della url l' id del post
+        
+        // Check if user came from search results and preserve search parameters
+        $backUrl = '/PetHouse/';
+        if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'searchHost') !== false) {
+            $backUrl = $_SERVER['HTTP_REFERER'];
+        }
+        
         $view = new Vfindhosting();
-        $view->showPost($post);
-
+        $view->showPost($post, $backUrl);
     }
 
     public static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post

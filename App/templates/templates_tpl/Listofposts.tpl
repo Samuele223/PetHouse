@@ -90,106 +90,7 @@
                             <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
                         </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+                        <!-- Navigation items removed for cleaner interface -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -200,7 +101,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                        <h1 class="page-title">POST SEARCH RESULTS</h1>               
                     </div>
                 </div>
             </div>
@@ -217,34 +118,7 @@
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
                         <div class="col-xs-10 page-subheader sorting pl0">
-                            <ul class="sort-by-list">
-                                <li class="active">
-                                    <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                        Property Date <i class="fa fa-sort-amount-asc"></i>					
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
-                                    </a>
-                                </li>
-                            </ul><!--/ .sort-by-list-->
-
-                            <div class="items-per-page">
-                                <label for="items_per_page"><b>Property per page :</b></label>
-                                <div class="sel">
-                                    <select id="items_per_page" name="per_page">
-                                        <option value="3">3</option>
-                                        <option value="6">6</option>
-                                        <option value="9">9</option>
-                                        <option selected="selected" value="12">12</option>
-                                        <option value="15">15</option>
-                                        <option value="30">30</option>
-                                        <option value="45">45</option>
-                                        <option value="60">60</option>
-                                    </select>
-                                </div><!--/ .sel-->
-                            </div><!--/ .items-per-page-->
+                            <!-- Removed sorting and per-page options -->
                         </div>
 
                         <div class="col-xs-2 layout-switcher">
@@ -260,8 +134,21 @@
 
                     <div class="section"> 
                             <div id="list-type" class="proerty-th-list">
-                                {if $posts|@count > 0}
-                                    {foreach from=$posts item=post}
+                                {assign var="postsPerPage" value=6}
+                                {if isset($smarty.post.page)}
+                                    {assign var="currentPage" value=$smarty.post.page+0}
+                                    {if $currentPage < 1}
+                                        {assign var="currentPage" value=1}
+                                    {/if}
+                                {else}
+                                    {assign var="currentPage" value=1}
+                                {/if}
+                                {assign var="totalPosts" value=$posts|@count}
+                                {math assign="totalPages" equation="ceil(x/y)" x=$totalPosts y=$postsPerPage}
+                                {assign var="startIndex" value=($currentPage-1)*$postsPerPage}
+                                {if $totalPosts > 0}
+                                    {section name=idx start=$startIndex loop=$posts max=$postsPerPage}
+                                        {assign var="post" value=$posts[idx]}
                                         <div class="col-md-4 p0">
                                             <div class="box-two proerty-item">
                                                 <div class="item-thumb">
@@ -269,31 +156,119 @@
                                                     {assign var="photos" value=$house->getPhotos()}
                                                     {if $photos|@count > 0}
                                                         <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}">
                                                         </a>
                                                     {else}
                                                         <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
+                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg">
                                                         </a>
                                                     {/if}
                                                 </div>
                                                 <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
+                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}" style="color: #2c3e50; font-weight: 600; text-decoration: none;">{$post->getTitle()}</a></h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Description house:</b> {$house->getDescription()}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <span class="pull-left"><b>Post Info:</b> {$post->getMoreinfo()} </span>
-                                                    <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
-                                                                    <i class="fa fa-search-plus"></i> See more
-                                                                </a>
+                                                    
+                                                    <!-- Price -->
+                                                    <div style="text-align: right; margin-bottom: 10px;">
+                                                        <span class="proerty-price" style="background: #27ae60; color: white; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 14px;">€ {$post->getPrice()}/day</span>
+                                                    </div>
+                                                    
+                                                    <!-- Location -->
+                                                    <div style="margin-bottom: 8px; padding: 6px 8px; background: #e8f4f8; border-radius: 5px; border-left: 3px solid #3498db;">
+                                                        <span style="color: #666; font-size: 11px; font-weight: 600;">
+                                                            <i class="fa fa-map-marker" style="color: #3498db; margin-right: 4px;"></i>
+                                                            {$house->getCity()}, {$house->getProvince()}
+                                                        </span>
+                                                    </div>
+                                                    
+                                                    <!-- House Description -->
+                                                    <div style="margin-bottom: 8px; padding: 6px 8px; background: #f8f9fa; border-radius: 5px; border-left: 3px solid #3498db;">
+                                                        <span style="color: #666; font-size: 11px; font-weight: 600;">
+                                                            <i class="fa fa-home" style="color: #3498db; margin-right: 4px;"></i>
+                                                            House
+                                                        </span>
+                                                        <p style="margin: 3px 0 0 0; color: #2c3e50; font-size: 12px; line-height: 1.3;">{$house->getDescription()|truncate:60:"..."}</p>
+                                                    </div>
+                                                    
+                                                    <!-- Post Info -->
+                                                    {if $post->getMoreinfo()}
+                                                    <div style="margin-bottom: 8px; padding: 6px 8px; background: #fff8e7; border-radius: 5px; border-left: 3px solid #f39c12;">
+                                                        <span style="color: #666; font-size: 11px; font-weight: 600;">
+                                                            <i class="fa fa-info-circle" style="color: #f39c12; margin-right: 4px;"></i>
+                                                            Post Info
+                                                        </span>
+                                                        <p style="margin: 3px 0 0 0; color: #2c3e50; font-size: 12px; line-height: 1.3;">{$post->getMoreinfo()|truncate:50:"..."}</p>
+                                                    </div>
+                                                    {/if}
+                                                    
+                                                    <!-- Dates -->
+                                                    <div style="margin-bottom: 8px; padding: 6px 8px; background: #fef5e7; border-radius: 5px; border-left: 3px solid #e74c3c;">
+                                                        <span style="color: #666; font-size: 11px; font-weight: 600;">
+                                                            <i class="fa fa-calendar" style="color: #e74c3c; margin-right: 4px;"></i>
+                                                            Available Period
+                                                        </span>
+                                                        <div style="margin-top: 4px; display: flex; justify-content: space-between; gap: 8px;">
+                                                            <span style="background: white; padding: 3px 6px; border-radius: 8px; font-size: 10px; font-weight: 600; color: #2c3e50; border: 1px solid #ecf0f1;">
+                                                                <i class="fa fa-sign-in" style="color: #27ae60; margin-right: 3px; font-size: 10px;"></i>
+                                                                {$post->getDateIn()->format('d/m/Y')}
+                                                            </span>
+                                                            <span style="background: white; padding: 3px 6px; border-radius: 8px; font-size: 10px; font-weight: 600; color: #2c3e50; border: 1px solid #ecf0f1;">
+                                                                <i class="fa fa-sign-out" style="color: #e74c3c; margin-right: 3px; font-size: 10px;"></i>
+                                                                {$post->getDateOut()->format('d/m/Y')}
+                                                            </span>
                                                         </div>
+                                                    </div>
+                                                    
+                                                    <!-- Accepted Pets -->
+                                                    {assign var="acceptedPets" value=$post->getAcceptedPets()}
+                                                    {if $acceptedPets|@count > 0}
+                                                    <div style="margin-bottom: 10px; padding: 6px 8px; background: #f3e5f5; border-radius: 5px; border-left: 3px solid #8e44ad;">
+                                                        <span style="color: #666; font-size: 11px; font-weight: 600;">
+                                                            <i class="fa fa-paw" style="color: #8e44ad; margin-right: 4px;"></i>
+                                                            Accepted Pets
+                                                        </span>
+                                                        <div style="margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px;">
+                                                            {foreach $acceptedPets as $petType => $count}
+                                                                {if $petType == 'DOG'}
+                                                                    <span style="background: #3498db; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;">
+                                                                        Dog ({$count})
+                                                                    </span>
+                                                                {elseif $petType == 'CAT'}
+                                                                    <span style="background: #9b59b6; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;">
+                                                                        Cat ({$count})
+                                                                    </span>
+                                                                {elseif $petType == 'BIRD'}
+                                                                    <span style="background: #f39c12; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;">
+                                                                        Bird ({$count})
+                                                                    </span>
+                                                                {elseif $petType == 'FISH'}
+                                                                    <span style="background: #1abc9c; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;">
+                                                                        Fish ({$count})
+                                                                    </span>
+                                                                {elseif $petType == 'RABBIT'}
+                                                                    <span style="background: #e67e22; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;">
+                                                                        Rabbit ({$count})
+                                                                    </span>
+                                                                {else}
+                                                                    <span style="background: #95a5a6; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;">
+                                                                        {$petType} ({$count})
+                                                                    </span>
+                                                                {/if}
+                                                            {/foreach}
+                                                        </div>
+                                                    </div>
+                                                    {/if}
+                                                    
+                                                    <!-- Action Button -->
+                                                    <div style="text-align: center; margin-top: 10px;">
+                                                        <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" class="btn btn-primary btn-sm" style="background: #3498db; border: none; border-radius: 15px; font-weight: 600; padding: 6px 20px; text-decoration: none; font-size: 11px; text-transform: uppercase;">
+                                                            <i class="fa fa-search-plus" style="margin-right: 5px;"></i>View Details
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    {/foreach}
+                                    {/section}
                                 {else}
                                     <div class="col-md-12">
                                         <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
@@ -305,159 +280,67 @@
                     <div class="col-md-12"> 
                         <div class="pull-right">
                             <div class="pagination">
-                                <ul>
-                                    <li><a href="#">Prev</a></li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">Next</a></li>
+                                <ul style="display: flex; gap: 8px;">
+                                    {assign var="prevPage" value=$currentPage-1}
+                                    {assign var="nextPage" value=$currentPage+1}
+                                    <li>
+                                        {if $currentPage > 1}
+                                            <form method="post" action="/PetHouse/Findhosting/searchHost" style="display:inline;">
+                                                <input type="hidden" name="page" value="{$prevPage}">
+                                                <input type="hidden" name="city" value="{$smarty.post.city|default:''}">
+                                                <input type="hidden" name="province" value="{$smarty.post.province|default:''}">
+                                                <input type="hidden" name="datain" value="{$smarty.post.datain|default:''}">
+                                                <input type="hidden" name="dataout" value="{$smarty.post.dataout|default:''}">
+                                                {if isset($smarty.post.pets)}
+                                                    {foreach $smarty.post.pets as $key => $pet}
+                                                        <input type="hidden" name="pets[{$key}]" value="{$pet}">
+                                                    {/foreach}
+                                                {/if}
+                                                {if isset($smarty.post.pet_counts)}
+                                                    {foreach $smarty.post.pet_counts as $key => $count}
+                                                        <input type="hidden" name="pet_counts[{$key}]" value="{$count}">
+                                                    {/foreach}
+                                                {/if}
+                                                <button type="submit" style="background:none;border:none;color:#337ab7;text-decoration:underline;cursor:pointer;">Prev</button>
+                                            </form>
+                                        {else}
+                                            <span style="color: #aaa; cursor: not-allowed;">Prev</span>
+                                        {/if}
+                                    </li>
+                                    <li>
+                                        {if $currentPage < $totalPages}
+                                            <form method="post" action="/PetHouse/Findhosting/searchHost" style="display:inline;">
+                                                <input type="hidden" name="page" value="{$nextPage}">
+                                                <input type="hidden" name="city" value="{$smarty.post.city|default:''}">
+                                                <input type="hidden" name="province" value="{$smarty.post.province|default:''}">
+                                                <input type="hidden" name="datain" value="{$smarty.post.datain|default:''}">
+                                                <input type="hidden" name="dataout" value="{$smarty.post.dataout|default:''}">
+                                                {if isset($smarty.post.pets)}
+                                                    {foreach $smarty.post.pets as $key => $pet}
+                                                        <input type="hidden" name="pets[{$key}]" value="{$pet}">
+                                                    {/foreach}
+                                                {/if}
+                                                {if isset($smarty.post.pet_counts)}
+                                                    {foreach $smarty.post.pet_counts as $key => $count}
+                                                        <input type="hidden" name="pet_counts[{$key}]" value="{$count}">
+                                                    {/foreach}
+                                                {/if}
+                                                <button type="submit" style="background:none;border:none;color:#337ab7;text-decoration:underline;cursor:pointer;">Next</button>
+                                            </form>
+                                        {else}
+                                            <span style="color: #aaa; cursor: not-allowed;">Next</span>
+                                        {/if}
+                                    </li>
                                 </ul>
                             </div>
-                        </div>                
+                        </div>
                     </div>
                 </div>  
                 </div>              
             </div>
         </div>
 
-          <!-- Footer area-->
-        <div class="footer-area">
 
-            <div class=" footer">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>About us </h4>
-                                <div class="footer-title-line"></div>
-
-                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
-                                <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Quick links </h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer news-letter">
-                                <h4>Stay in touch</h4>
-                                <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
-
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form> 
-
-                                <div class="social pull-right"> 
-                                    <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-copy text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
-                        </div> 
-                        <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
 
       <script src="/PetHouse/App/templates/assets/js/modernizr-2.6.2.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
@@ -473,25 +356,26 @@
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Price filter
             var input = document.getElementById('filter-price');
             var valueSpan = document.getElementById('filter-price-value');
-            if (!input) return;
-            // Mostra il valore iniziale
-            valueSpan.textContent = input.value;
-            input.addEventListener('input', function() {
-                valueSpan.textContent = this.value;
-                var max = parseFloat(this.value) || Infinity;
-                document.querySelectorAll('.proerty-item').forEach(function(item) {
-                    var priceText = item.querySelector('.proerty-price');
-                    if (!priceText) return;
-                    var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
-                    if (isNaN(price) || price > max) {
-                        item.style.display = 'none';
-                    } else {
-                        item.style.display = '';
-                    }
+            if (input && valueSpan) {
+                valueSpan.textContent = input.value;
+                input.addEventListener('input', function() {
+                    valueSpan.textContent = this.value;
+                    var max = parseFloat(this.value) || Infinity;
+                    document.querySelectorAll('.proerty-item').forEach(function(item) {
+                        var priceText = item.querySelector('.proerty-price');
+                        if (!priceText) return;
+                        var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
+                        if (isNaN(price) || price > max) {
+                            item.style.display = 'none';
+                        } else {
+                            item.style.display = '';
+                        }
+                    });
                 });
-            });
+            }
         });
         </script>
     </body>
