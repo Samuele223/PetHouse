@@ -44,6 +44,12 @@
         </div>
         <!-- Body content -->
 
+        {if isset($smarty.session.success_message) && ($smarty.session.success_message == 'Your verification request has been submitted successfully! We will review your documents soon.' || $smarty.session.success_message == 'Your account is already verified!')}
+        <div class="alert alert-success" style="margin: 20px auto; max-width: 600px;">
+            {$smarty.session.success_message}
+        </div>
+        {/if}
+
         <div class="header-connect">
             <div class="container">
                 <div class="row">
