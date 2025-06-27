@@ -75,7 +75,7 @@ class CUser {
 
                 // Ora puoi associare $foto all'utente o salvarla come preferisci
             } else {
-                echo 'skibidi';
+                // No profile picture uploaded, do nothing
             }
 
             $check = FPersistentManager::saveObj($user);
