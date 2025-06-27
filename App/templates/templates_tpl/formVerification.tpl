@@ -48,10 +48,7 @@
                 <div class="row">
                     <div class="col-md-5 col-sm-8  col-xs-12">
                         <div class="header-half header-call">
-                            <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
-                            </p>
+                            <!-- Telephone and email removed for minimal header -->
                         </div>
                     </div>
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
@@ -90,92 +87,9 @@
                         <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
                         <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
+                    <!-- Navigation cleaned: removed Home, Properties, Property, Template, and Contact links -->
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
-                        <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="yamm-content">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Pages and blog</h5>
-                                                <ul>
-                                                    <li><a href="blog.html">Blog listing</a>  </li>
-                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
-                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
-                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
-                                                    <li><a href="contact.html">Contact style (1)</a> </li>
-                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
-                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
-                                                    <li><a href="faq.html">FAQ page</a> </li> 
-                                                    <li><a href="404.html">404 page</a>  </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property</h5>
-                                                <ul>
-                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
-                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
-                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
-                                                </ul>
-
-                                                <h5>Properties list</h5>
-                                                <ul>
-                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
-                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
-                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
-                                                </ul>                                               
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <h5>Property process</h5>
-                                                <ul> 
-                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
-                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
-                                                </ul>
-                                                <h5>User account</h5>
-                                                <ul>
-                                                    <li><a href="register.html">Register / login</a>   </li>
-                                                    <li><a href="user-properties.html">Your properties</a>  </li>
-                                                    <li><a href="submit-property.html">Submit property</a>  </li>
-                                                    <li><a href="change-password.html">Change password</a> </li>
-                                                    <li><a href="user-profile.html">Your profile</a>  </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.yamm-content -->
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
+                        <!-- No navigation links for minimal header -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -236,7 +150,7 @@
                                                 
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" name="terms_accepted" required /> 
+                                                        <input type="checkbox" name="terms_accepted" id="terms_accepted" required /> 
                                                         <strong>I confirm that the information provided is accurate and belongs to me.</strong>
                                                     </label>
                                                 </div>
@@ -247,7 +161,7 @@
 
                                 <div class="wizard-footer">
                                     <div class="pull-right">
-                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Submit Verification' />
+                                        <input type='submit' class='btn btn-finish btn-primary' name='finish' value='Submit Verification' id="submitVerificationBtn" disabled />
                                     </div>
                                     <div class="pull-left">
                                         <a href="/PetHouse/user/profile" class='btn btn-default'>Cancel</a>
@@ -263,7 +177,64 @@
 
         <!-- Footer area-->
         <div class="footer-area">
-            <!-- Footer content here -->
+            <div class="footer">
+                <div class="container">
+                    <div class="row justify-content-center" style="display: flex; justify-content: center;">
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>About us </h4>
+                                <div class="footer-title-line"></div>
+                                <a href="/PetHouse/">
+                                    <img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="" class="wow pulse" data-wow-delay="1s">
+                                </a>
+                                <p>Sadly, none of this is real. It's just a project... sorry 🥸</p>
+                                <ul class="footer-adress">
+                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 13, Roma</li>
+                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
+                                    <li><i class="pe-7s-call strong"> </i> +123 456 789</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Quick links </h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-menu">
+                                    <li><a href="/PetHouse/">Home</a>  </li> 
+                                    <li><a href="/PetHouse/Findhosting/searchHost">Properties</a>  </li> 
+                                    <li><a href="/PetHouse/user/createHouse">Register your house </a></li> 
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer news-letter">
+                                <h4>Stay in touch</h4>
+                                <div class="footer-title-line"></div>
+                                <p>Even tho none of this is real, we can still keep in touch! </p>
+                                <div class="social pull-center"> 
+                                    <ul>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="pull-center">
+                            <span> (C) <a href="/PetHouse/App/templates/assets/img/cfe88934-bb52-41be-95a3-9f63f0cca6df.jpg">UNIVAQ</a> , Tutti i diritti sono riservati  </span> 
+                        </div> 
+                        <div class="bottom-menu pull-right"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -288,23 +259,31 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize form submission
             var form = document.getElementById('verificationForm');
+            var termsCheckbox = document.getElementById('terms_accepted');
+            var submitBtn = document.getElementById('submitVerificationBtn');
+            // Enable/disable submit button based on all required fields
+            function toggleSubmit() {
+                var fileInput = document.querySelector('input[name="id_document"]');
+                var fileOk = fileInput && fileInput.files && fileInput.files.length > 0;
+                submitBtn.disabled = !(termsCheckbox.checked && fileOk);
+            }
+            termsCheckbox.addEventListener('change', toggleSubmit);
+            var fileInput = document.querySelector('input[name="id_document"]');
+            fileInput.addEventListener('change', toggleSubmit);
+            toggleSubmit(); // Initial state
             form.addEventListener('submit', function(e) {
                 // Make sure required files are selected
                 var fileInput = document.querySelector('input[name="id_document"]');
-                var termsCheckbox = document.querySelector('input[name="terms_accepted"]');
-                
                 if (!fileInput.files || fileInput.files.length === 0) {
                     e.preventDefault();
                     alert('Please select a document to upload');
                     return false;
                 }
-                
                 if (!termsCheckbox.checked) {
                     e.preventDefault();
                     alert('You must agree to the terms');
                     return false;
                 }
-                
                 // Allow form submission
                 console.log('Form is being submitted');
             });
