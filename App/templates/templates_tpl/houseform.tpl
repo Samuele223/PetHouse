@@ -145,7 +145,7 @@
                     <div class="wizard-container"> 
 
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form id="houseForm" action="/PetHouse/user/createHouse" method="post" enctype="multipart/form-data">                        
+                            <form id="houseForm" action="/PetHouse/user/addHouse" method="post" enctype="multipart/form-data">                        
                                 <div class="wizard-header">
                                     <h3>
                                         <b>Submit</b> YOUR PROPERTY <br>

@@ -195,6 +195,12 @@ public static function profile()
     $id = USession::getSessionElement('user');
     $view = new VUser();
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    if (!$user) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $viewErr = new Verror();
+        $viewErr->show404();
+        return;
+    }
     $pic = $user->getProfilePicture();
     if (!$pic) {
         // If no profile picture, set a default or handle accordingly

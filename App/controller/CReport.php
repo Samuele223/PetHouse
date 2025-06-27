@@ -85,10 +85,11 @@ class CReport {
             $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
             
             if (!$post) {
-                // Post not found, redirect to home
-                header('Location: /PetHouse/');
-                exit;
-            }
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        exit;
+    }
             
             // Show report form
             $view = new VReport();

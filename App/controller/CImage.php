@@ -3,7 +3,6 @@
 class CImage
 {
     public static function showImage($id){
-        // No output before this point!
         $img = FPersistentManager::retriveObj(Mphoto::getEntity(), $id);
 
         if ($img) {
@@ -17,9 +16,11 @@ class CImage
             echo stream_get_contents($img->getImageData());
             exit; // Stop further output
         } else {
-            http_response_code(404);
-            echo "Immagine non trovata";
-        }
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        exit;
+    }
     }
     
     public static function getPropertyFirstImage($propertyId) {

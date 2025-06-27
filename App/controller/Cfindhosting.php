@@ -106,7 +106,12 @@ class CFindhosting{
     public static function selectPost(int $id)
     {
         $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //cosi prendo dalla query string della url l' id del post
-        
+         if (!$post) {
+             require_once __DIR__ . '/../view/Verror.php';
+            $view = new Verror();
+            $view->show404();
+             return;
+    }
         // Check if user came from search results and preserve search parameters
         $backUrl = '/PetHouse/';
         if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'searchHost') !== false) {
@@ -118,13 +123,17 @@ class CFindhosting{
     }
 
     public static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post
-    {
-
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id);
-        new Vfindhosting();
-        $view = new Vfindhosting();
-        $view->showFormOffer($post);  
+ {
+    $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id);
+    if (!$post) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        return;
     }
+    $view = new Vfindhosting();
+    $view->showFormOffer($post);  
+}
     public static function createOffer($id_post) //è una post  body json bisogna fare dei controlli alle date e qualcosina in javascript per tradurre i nomi dei pet
     {   
         if(CUser::isLogged())
@@ -191,17 +200,22 @@ class CFindhosting{
     }
     public static function viewprofile($id_user)
     {
-        if(CUser::isLogged())
-        {
-            
-            $user = FPersistentManager::retriveObj(Muser::getEntity(),$id_user);
-            $view = new Vfindhosting();
-            $view->showforeignprofile($user);
+    if(CUser::isLogged())
+    {
+        $user = FPersistentManager::retriveObj(Muser::getEntity(),$id_user);
+        if (!$user) {
+            require_once __DIR__ . '/../view/Verror.php';
+            $view = new Verror();
+            $view->show404();
+            return;
         }
-        else{
-            header('Location: PetHouse/user/login');
-        }
+        $view = new Vfindhosting();
+        $view->showforeignprofile($user);
     }
+    else{
+        header('Location: PetHouse/user/login');
+    }
+}
 
 
 
