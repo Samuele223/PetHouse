@@ -111,4 +111,8 @@ public function showActivePosts($posts) {
     $this->smarty->assign('posts', $posts);
     $this->smarty->display('user_active_posts.tpl');
 }
+public function showEditProfile($user) {
+    $this->smarty->assign('user', $user);
+    $this->smarty->display('edit_profile.tpl');
+}
 }

@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="/PetHouse/App/templates/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/icheck.min_all.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/price-range.css">
-        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">  
+        <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.carousel.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.theme.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/owl.transitions.css"> 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/wizard.css"> 
@@ -145,7 +145,6 @@
                                 </div>
 
                                 <div class="col-sm-3 padding-top-25">
-
                                     <div class="form-group">
                                         <label>First Name <small>(required)</small></label>
                                         <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
@@ -162,6 +161,26 @@
                                         <label>Phone :</label>
                                         <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Average Rating:</label>
+                                        <input type="text" class="form-control" value="{if isset($user) && $user->getRating() !== null}{$user->getRating()|number_format:2} / 5{else}N/A{/if}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 col-sm-offset-1">
+                                    <h4>Reviews received:</h4>
+                                    {if isset($user) && $user->getReviewToMe()|@count > 0}
+                                        <ul class="list-group">
+                                            {foreach from=$user->getReviewToMe() item=review}
+                                                <li class="list-group-item">
+                                                    <b>From:</b> {$review->getReviewer()->getName()} {$review->getReviewer()->getSurname()}<br>
+                                                    <b>Rating:</b> {$review->getRating()->value} / 5<br>
+                                                    <b>Description:</b> {$review->getDescription()|escape}
+                                                </li>
+                                            {/foreach}
+                                        </ul>
+                                    {else}
+                                        <p>No reviews received yet.</p>
+                                    {/if}
                                 </div>
                             </div>                    
                             <br>
