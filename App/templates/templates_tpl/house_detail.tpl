@@ -129,11 +129,17 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        {foreach from=$photos item=photo}
-                                            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
-                                                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
+                                        {if $photos && $photos|@count > 0}
+                                            {foreach from=$photos item=photo}
+                                                <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
+                                                    <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="House Image"/>
+                                                </li>
+                                            {/foreach}
+                                        {else}
+                                            <li> 
+                                                <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default House Image"/>
                                             </li>
-                                        {/foreach}
+                                        {/if}
                                     </ul>
                                 </div>
                             </div>
@@ -154,10 +160,6 @@
                                     <li class="list-group-item">
                                             <strong>Title:</strong><br>
                                             <span class="form-control-static">{$house->getTitle()}</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Description:</strong><br>
-                                            <span class="form-control-static">{$house->getDescription()}</span>
                                         </li>
                                         <li class="list-group-item">
                                             <strong>Address:</strong><br>
@@ -195,13 +197,11 @@
                             <div class="owner-info-box" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
                                 <div class="owner-header" style="text-align: center; margin-bottom: 15px;">
                                     <div class="owner-avatar" style="margin-bottom: 10px;">
-                                        <a href="/PetHouse/findhosting/viewprofile/{$owner->getId()}">
-                                            {if $owner->getProfilePicture()}
-                                                <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Owner profile picture">
-                                            {else}
-                                                <img src="/PetHouse/App/templates/assets/img/client-face1.png" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Default profile">
-                                            {/if}
-                                        </a>
+                                        {if $owner->getProfilePicture()}
+                                            <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Owner profile picture">
+                                        {else}
+                                            <img src="/PetHouse/App/templates/assets/img/client-face1.png" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Default profile">
+                                        {/if}
                                     </div>
                                     <h4 style="margin: 0; color: #333; font-weight: 600;">
                                         {if $owner->getName()}{$owner->getName()}{else}<span style="color:#aaa;">Missing field</span>{/if}
@@ -262,19 +262,24 @@
 
         <script>
             $(document).ready(function () {
-
-                $('#image-gallery').lightSlider({
-                    gallery: true,
-                    item: 1,
-                    thumbItem: 9,
-                    slideMargin: 0,
-                    speed: 500,
-                    auto: true,
-                    loop: true,
-                    onSliderLoad: function () {
-                        $('#image-gallery').removeClass('cS-hidden');
-                    }
-                });
+                // Initialize image gallery
+                if ($('#image-gallery li').length > 0) {
+                    $('#image-gallery').lightSlider({
+                        gallery: true,
+                        item: 1,
+                        thumbItem: 9,
+                        slideMargin: 0,
+                        speed: 500,
+                        auto: true,
+                        loop: true,
+                        onSliderLoad: function () {
+                            $('#image-gallery').removeClass('cS-hidden');
+                        }
+                    });
+                } else {
+                    // If no images, just show the gallery without slider
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
             });
         </script>
 
