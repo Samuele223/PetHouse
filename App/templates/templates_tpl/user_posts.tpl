@@ -137,11 +137,11 @@
                                                     {assign var="house" value=$post->getHouse()}
                                                     {assign var="photos" value=$house->getPhotos()}
                                                     {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                        <a href="/PetHouse/user/yourpost/{$post->getId()}">
                                                             <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
                                                         </a>
                                                     {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                        <a href="/PetHouse/user/yourpost/{$post->getId()}">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
                                                     {/if}

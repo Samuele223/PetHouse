@@ -44,6 +44,12 @@ class CManagerequest
     {
         if(CUser::isLogged()){
             $offer = FPersistentManager::retriveObj(Moffer::getEntity(), $offer_id);
+                if (!$offer) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $viewErr = new Verror();
+        $viewErr->show404();
+        return;
+    }
             if($yesorno == 1)
             {
                 $post = $offer->getPost();

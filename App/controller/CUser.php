@@ -358,6 +358,12 @@ public static function viewMyHousesDetails(int $id) {
 
     // Recupera la casa
     $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+        if (!$house) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $viewErr = new Verror();
+        $viewErr->show404();
+        return;
+    }
         $view = new Vuser();
         $view->showUserHousesDetails($house);
 }
@@ -381,6 +387,12 @@ public static function editHouse(int $id) {
 
     // Recupera la casa
     $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+    if (!$house) {
+    require_once __DIR__ . '/../view/Verror.php';
+    $viewErr = new Verror();
+    $viewErr->show404();
+    return;
+}
 
     $view = new Vuser();
     $view->showUserHousesEdit($house);
@@ -403,6 +415,12 @@ public static function updateHouse(int $id): void {
 
     // Retrieve the house
     $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+    if (!$house) {
+    require_once __DIR__ . '/../view/Verror.php';
+    $viewErr = new Verror();
+    $viewErr->show404();
+    exit;
+}
 
     // Aggiorna solo i campi presenti nel POST, mantenendo i valori originali per quelli mancanti
     if (isset($_POST['title'])) {
@@ -652,6 +670,12 @@ public static function deleteHouse(int $id) {
     {
         $view = new VUser();
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+        if (!$post) {
+            require_once __DIR__ . '/../view/Verror.php';
+             $viewErr = new Verror();
+             $viewErr->show404();
+             return;
+}
         USession::getInstance();
         $id = USession::getSessionElement('user');
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
@@ -712,6 +736,12 @@ public static function deleteHouse(int $id) {
     {
         Usession::getInstance();
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id);
+        if (!$post) {
+            require_once __DIR__ . '/../view/Verror.php';
+            $viewErr = new Verror();
+            $viewErr->show404();
+            return;
+}
         $view = new VUser();
         $view->showPost($post);
     }

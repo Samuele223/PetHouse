@@ -136,12 +136,18 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        {foreach from=$photos item=photo}
-                                            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
-                                                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
-                                            </li>
-                                        {/foreach}
-                                    </ul>
+                                        {if $photos|@count > 0}
+        {foreach from=$photos item=photo}
+            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
+                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
+            </li>
+        {/foreach}
+    {else}
+        <li>
+            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image"/>
+        </li>
+    {/if}
+</ul>
                                 </div>
                             </div>
                         </div>
