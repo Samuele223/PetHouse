@@ -125,16 +125,16 @@
     <div class="box-two proerty-item">
         <div class="item-thumb text-center">
            {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
-                                                        </a>
-                                                    {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
-                                                    {/if}
+          {assign var="photos" value=$house->getPhotos()}
+            {if $photos|@count > 0}
+                 <a href="/PetHouse/Admin/reportedPostDetail/{$post->getId()}">
+                    <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                     </a>
+             {else}
+          <a href="/PetHouse/Admin/reportedPostDetail/{$post->getId()}">
+        <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
+      </a>
+     {/if}
         </div>
         <div class="item-entry">
             <h5>{$post->getTitle()}</h5>

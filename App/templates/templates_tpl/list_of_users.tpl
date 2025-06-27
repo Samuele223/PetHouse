@@ -125,8 +125,10 @@
                     <div class="box-two proerty-item">
                         <div class="item-thumb text-center">
                             {if $user->getProfilePicture()}
+                            <a href="/PetHouse/Admin/userProfile/{$user->getId()}">
                                 <img src="/PetHouse/image/showImage/{$user->getProfilePicture()->getId()}" alt="Foto profilo" style="width:100px;height:100px;border-radius:50%;">
                             {else}
+                            <a href="/PetHouse/Admin/userProfile/{$user->getId()}">
                                 <img src="/PetHouse/App/templates/assets/img/default-profile.png" alt="Default" style="width:100px;height:100px;border-radius:50%;">
                             {/if}
                         </div>
