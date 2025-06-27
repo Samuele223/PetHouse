@@ -50,12 +50,11 @@ class CAdmin
 
 
 
-    public static function logout()
-    {
+    public static function logout() {
         USession::getInstance();
-        USession::unsetSessionElement('admin');
-        header('Location: /PetHouse/Admin/login');
-        exit;
+        USession::unsetSession();
+        USession::destroySession();
+        header('Location: /PetHouse/');
     }
 
 public static function profile()
