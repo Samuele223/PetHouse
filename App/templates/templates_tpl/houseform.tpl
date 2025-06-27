@@ -284,7 +284,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('houseForm');
     if (finishBtn && form) {
         finishBtn.addEventListener('click', function(e) {
-            // Check terms and conditions
             const termsCheckbox = document.getElementById('terms_checkbox');
             if (!termsCheckbox.checked) {
                 e.preventDefault();
@@ -292,9 +291,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 termsCheckbox.focus();
                 return false;
             }
-            // Let the browser handle the submit
+            // Only submit if checkbox is checked
+            form.submit();
         });
     }
+    // Prevent form submission by Enter key or other means if checkbox is not checked
+    form.addEventListener('submit', function(e) {
+        const termsCheckbox = document.getElementById('terms_checkbox');
+        if (!termsCheckbox.checked) {
+            e.preventDefault();
+            alert('You must accept the terms and conditions to continue.');
+            termsCheckbox.focus();
+            return false;
+        }
+    });
 });
 </script>
 
@@ -395,17 +405,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var finishBtn = document.querySelector('.btn-finish');
-    if(finishBtn){
-        finishBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('houseForm').submit();
-        });
-    }
 });
 </script>
 <script>
