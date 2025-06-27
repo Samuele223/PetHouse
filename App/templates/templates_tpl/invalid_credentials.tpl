@@ -80,17 +80,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('https://localhost/PetHouse/user/login')" data-wow-delay="0.4s">Login</button>
+                        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('/PetHouse/user/login')" data-wow-delay="0.4s">Login</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a></li>
+                            <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a></li>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -186,7 +186,7 @@
                     <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
                         <h2 class="error-title">Credenziali non corrette!</h2>
                         <p>Le tue credenziali sembrano essere errate... forse hai dimenticato qualcosa?</p>
-                        <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
+                        <a href="/PetHouse/user/login" class="btn btn-default">Torna alla pagina di login</a>                        
                     </div>
                 </div> 
             </div>

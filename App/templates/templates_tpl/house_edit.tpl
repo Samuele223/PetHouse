@@ -159,8 +159,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
+                        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">

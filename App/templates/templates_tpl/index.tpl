@@ -51,14 +51,6 @@
                     </div>
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
                         <div class="header-half header-social">
-                            <ul class="list-inline">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -70,9 +62,9 @@
                     <h1>
                         Welcome 
                         {if isset($username) && $username|@strlen > 0}
-                            {$username|escape}
+                            {$username|escape}! How have you been?
                         {else}
-                            to our website!
+                            to our website! Ready to love your pets?
                         {/if}
                     </h1>
                 </div>
@@ -93,19 +85,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="PetHouse logo"></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="PetHouse logo"></a>
                 </div>
                 <div class="collapse navbar-collapse yamm" id="navigation">
-                    <div class="button navbar-right">
-                        {if isset($username) && $username|@strlen > 0}
-                            <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
-                            <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
-                        {else}
-                            <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='https://localhost/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
-                        {/if}
-                    </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="http://localhost/PetHouse/">Home</a></li>
+                    <div class="button navbar-right" style="position: absolute; right: 50px; top: 10px; z-index: 9999;">
+    {if isset($username) && $username|@strlen > 0}
+        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/logout'" data-wow-delay="0.48s">Logout</button>
+        <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.48s">Profile</button>
+    {else}
+        <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
+    {/if}
+</div>
+                    <ul class="main-nav nav navbar-nav navbar-right" >
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -237,8 +229,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- property area -->
         <!-- Add this button where you want, for example above the "Top PetHouses" section -->
         <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
-        <a href="https://localhost/PetHouse/user/addHouse" class="btn btn-default">Add your house + </a>  
-        <a href="https://localhost/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Create a post +</a> 
+        <a href="/PetHouse/user/addHouse" class="btn btn-default">Add your house + </a>  
+        <a href="/PetHouse/offerHosting/showOfferForm" class="btn btn-default">Create a post +</a> 
         <div class="content-area home-area-1 recent-property" style="background-color: #FCFCFC; padding-bottom: 55px;">
             <div class="container">
                 <div class="row">
@@ -602,7 +594,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
-                                <img src="/PetHouse/App/templates/assets/img/icona_2.png" alt="PetHouse logo" class="wow pulse" data-wow-delay="1s">
+                                <img src="/PetHouse/App/templates/assets/img/icona_footer.png" alt="PetHouse logo" class="wow pulse" data-wow-delay="1s">
                                 <p>PetHouse connects pet owners with trusted hosts for safe, loving pet care. Your pet's comfort is our mission.</p>
                                 <ul class="footer-adress">
                                     <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 12, Roma</li>

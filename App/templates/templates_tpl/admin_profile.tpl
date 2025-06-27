@@ -82,7 +82,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="https://localhost/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_2.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,7 +95,7 @@
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="https://localhost/PetHouse/">Home</a>
+                             <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a>
                         </li>
 
                         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
@@ -236,43 +236,16 @@
                             </div>
 
                             <div class="clear">
-                                <br>
-                                <hr>
-                                <br>
-                                <div class="col-sm-5 col-sm-offset-1">
-                                    <div class="form-group">
-                                        <label>Facebook :</label>
-                                        <input name="Facebook" type="text" class="form-control" placeholder="https://facebook.com/user" value="{$facebook|escape}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Twitter :</label>
-                                        <input name="Twitter" type="text" class="form-control" placeholder="https://Twitter.com/@user" value="{$twitter|escape}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Website :</label>
-                                        <input name="website" type="text" class="form-control" placeholder="https://yoursite.com/" value="{$website|escape}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Public email :</label>
-                                        <input name="p-email" type="email" class="form-control" placeholder="p-email@rmail.com" value="{$pemail|escape}">
-                                    </div>
-                                </div>  
 
-                                <div class="col-sm-5">
-                                    <div class="form-group">
-                                        <label>FAX :</label>
-                                        <input name="FAX" type="text" class="form-control" placeholder="+1 9090909090" value="{$fax|escape}">
-                                    </div>
-                                </div>
  
                             </div>
                     
-                            <div class="col-sm-10 col-sm-offset-1">
-                                <br>
-                                <a href="/PetHouse/Admin/listReportedPosts" class="btn btn-success" style="margin-right:10px;">Check Reported Posts</a>
-                                <a href="/PetHouse/Admin/listVerificationRequests"class="btn btn-success" style="margin-right:10px;">Check Verification Requests</a>
-                            </div>
-                            <br>
+                            <div class="col-sm-10 col-sm-offset-1 text-center">
+    <br>
+    <a href="/PetHouse/Admin/listReportedPosts" class="btn btn-warning" style="margin: 0 10px 10px 10px; color: #333; font-weight: bold;">Check Reported Posts</a>
+    <a href="/PetHouse/Admin/listVerificationRequests" class="btn btn-warning" style="margin: 0 10px 10px 10px; color: #333; font-weight: bold;">Check Verification Requests</a>
+</div>
+<br>
                     </form>
 
                 </div>
