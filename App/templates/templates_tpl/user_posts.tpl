@@ -200,7 +200,7 @@
                                     {/section}
                                 {else}
                                     <div class="col-md-12">
-                                        <p>You haven't created any posts yet. <a href="/PetHouse/user/addPost">Create your first post</a>.</p>
+                                        <p>You haven't created any posts yet. <a href="/PetHouse/user/addHouse">Create your first post</a>.</p>
                                     </div>
                                 {/if}
                             </div>
