@@ -159,6 +159,10 @@
                                         <label>Phone :</label>
                                         <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Average Rating:</label>
+                                        <input type="text" class="form-control" value="{if isset($avg)}{$avg|number_format:2} / 5{else}N/A{/if}" readonly>
+                                    </div>
                                     <!-- Bottoni grandi -->
                                     <div class="row" style="margin-top:25px;">
                                         <div class="col-xs-12" style="margin-bottom:10px;">

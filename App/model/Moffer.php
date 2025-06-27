@@ -111,10 +111,6 @@ public function setState(StateOffer|string $state): void
         $this->state = $state;
     }
 
-//da vedere bene se funziona, mo famo la prova
-/**
-     * Accetta l'offerta: cambia stato, riserva le date sul post e persiste.
-     */
     public function acceptOffer(): void
     {
         $this->state = stateoffer::ACCEPTED;

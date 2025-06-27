@@ -1,32 +1,4 @@
-<<<<<<<< HEAD:App/templates/templates_c/0d48080d0a7963ca4922cfed1c18f5717ac07313_0.file_register.tpl.php
-<?php
-/* Smarty version 5.5.0, created on 2025-06-25 15:33:04
-  from 'file:register.tpl' */
-
-/* @var \Smarty\Template $_smarty_tpl */
-if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.0',
-  'unifunc' => 'content_685bfa9008b1f0_72904168',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '0d48080d0a7963ca4922cfed1c18f5717ac07313' => 
-    array (
-      0 => 'register.tpl',
-      1 => 1750763295,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-))) {
-function content_685bfa9008b1f0_72904168 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
-?><!DOCTYPE html>
-========
 <!DOCTYPE html>
->>>>>>>> 69f747c2bf00ed8b9ed935dd946c9c4e5c8208ab:App/templates/templates_tpl/offer_response.tpl
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -213,7 +185,7 @@ $_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templ
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-6 text-center page-title">
                         <h2 class="error-title">{$message}</h2>
-                        <a href="https://localhost/PetHouse/user/login" class="btn btn-default">Back to login page</a>                        
+                        <a href="https://localhost/PetHouse/" class="btn btn-primary">Torna alla Home</a>
                     </div>
                 </div> 
             </div>

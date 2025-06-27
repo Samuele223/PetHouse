@@ -268,7 +268,9 @@
                                                 <!-- End client info -->
                                                 <div class="property-icon">
                                                     <div class="dealer-action pull-right">                                        
-                                                        <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/1" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold;">
+                                                        <a href="/PetHouse/Managerequest/accept_Deny_Offer/{$offer->getId()}/1"
+                                                           class="btn btn-primary btn-block accept-offer-btn"
+                                                           style="border-radius: 25px; font-weight: bold;">
                                                             <i class="fa fa-search-plus"></i> Accept offer
                                                         </a>
                                                     </div>
@@ -465,6 +467,18 @@
                     } else {
                         item.style.display = '';
                     }
+                });
+            });
+        });
+        </script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Nascondi tutte le offerte dopo aver cliccato "Accept offer"
+            document.querySelectorAll('.accept-offer-btn').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    // Nasconde tutte le offerte subito dopo il click
+                    document.getElementById('list-type').style.display = 'none';
+                    // Permetti comunque la navigazione al link
                 });
             });
         });

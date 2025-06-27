@@ -687,7 +687,8 @@ public static function deleteHouse(int $id) {
         }
     }
     $average = $count > 0 ? $total / $count : 0;
-
+    $user->setRating($average);
+    FPersistentManager::saveObj($user); 
     $view = new VUser();
     $view->showReviews($reviewsArray, $average);
     

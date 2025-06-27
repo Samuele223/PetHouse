@@ -38,8 +38,8 @@ class Muser
     #[ORM\Column(nullable: true)]
     private bool $verified = false;
 
-    #[ORM\Column(enumType: rating::class, nullable: true)]
-    private ?rating $rating = null;
+    #[ORM\Column( nullable: true)]
+    private ?float $rating = 0.0;
 
     #[ORM\Column(nullable:true)]
     private ?int $tel; 
@@ -149,7 +149,7 @@ class Muser
         return $this;
     }
 
-    public function getRating(): rating
+    public function getRating()
     {
         return $this->rating;
     }

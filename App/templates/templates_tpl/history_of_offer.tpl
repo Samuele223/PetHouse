@@ -217,7 +217,7 @@
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
                         <div class="col-xs-10 page-subheader sorting pl0">
-                            <div class="items-per-page">
+                            <div class="items-per-page" style="display:inline-block; margin-right:20px;">
                                 <label for="items_per_page"><b>Property per page :</b></label>
                                 <div class="sel">
                                     <select id="items_per_page" name="per_page">
@@ -330,21 +330,39 @@
                                                     {/if}
                                                 </div>
                                                 <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a></h5>
+                                                    <h5>
+                                                        <a href="/PetHouse/Post/view/{$post->getId()}">{$post->getTitle()}</a>
+                                                    </h5>
                                                     <div class="dot-hr"></div>
-                                                    <span class="pull-left"><b>Area:</b> {$house->getDescription()|truncate:20}</span>
-                                                    <span class="proerty-price pull-right">€ {$post->getPrice()}</span>
-                                                    <p style="display: none;">{$post->getMoreinfo()|truncate:100}</p>
+                                                    <span class="pull-left"><b>Location:</b> 
+                                                        {$house->getAddress()}, {$house->getCity()}, {$house->getProvince()}, {$house->getCountry()}
+                                                    </span><br>
+                                                    <span class="pull-left"><b>Period:</b> 
+                                                        {$post->getDateIn()|date_format:"%d/%m/%Y"} - {$post->getDateOut()|date_format:"%d/%m/%Y"}
+                                                    </span><br>
+                                                    <span class="pull-left"><b>Accepted Pets:</b>
+                                                        {assign var="acceptedPets" value=$post->getAcceptedPets()}
+                                                        {if $acceptedPets|@count > 0}
+                                                            {foreach from=$acceptedPets key=petType item=count name=pets}
+                                                                {$petType|capitalize} (max {$count}){if !$smarty.foreach.pets.last}, {/if}
+                                                            {/foreach}
+                                                        {else}
+                                                            None
+                                                        {/if}
+                                                    </span><br>
+                                                    <span class="pull-left"><b>Price:</b> € {$post->getPrice()}</span><br>
+                                                    <span class="pull-left"><b>Status:</b> {$post->getBooked()|capitalize}</span><br>
+                                                    <span class="pull-left"><b>Description:</b> {$post->getDescription()|truncate:80}</span>
                                                     <div class="property-icon">
-                                                        <div class="dealer-action pull-right">                                        
-                                                                <a href="/PetHouse/user/yourpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
-                                                                    <i class="fa fa-search-plus"></i> See more
+                                                        <div class="dealer-action pull-right">
+                                                            <a href="/PetHouse/user/yourpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
+                                                                <i class="fa fa-search-plus"></i> See more
+                                                            </a>
+                                                            {if $post->getBooked()|lower == 'finished'}
+                                                                <a href="/PetHouse/Review/makereview/{$post->getId()}/post" class="btn btn-success btn-block" style="border-radius: 25px; font-weight: bold; margin-top: 8px;">
+                                                                    <i class="fa fa-star"></i> Leave a review
                                                                 </a>
-                                                                {if $post->getBooked()|lower == 'finished'}
-                                                                    <a href="/PetHouse/Review/makereview/{$post->getId}/post" class="btn btn-success btn-block" style="border-radius: 25px; font-weight: bold; margin-top: 8px;">
-                                                                        <i class="fa fa-star"></i> Leave a review
-                                                                    </a>
-                                                                {/if}
+                                                            {/if}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -359,7 +377,7 @@
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div> 
                 </div>              
             </div>
         </div>
@@ -370,6 +388,11 @@
             <div class=" footer">
                 <div class="container">
                     <div class="row">
+                        <div class="text-center" style="margin:20px 0;">
+                            <button id="prev-page" class="btn btn-default" disabled>Previous</button>
+                            <span id="page-info" style="margin:0 10px;">Page 1</span>
+                            <button id="next-page" class="btn btn-default">Next</button>
+                        </div> 
 
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
@@ -584,7 +607,6 @@
             btnOffers.addEventListener('click', showOffers);
             btnPosts.addEventListener('click', showPosts);
 
-            // Imposta la vista iniziale
             if (btnOffers.classList.contains('active')) {
                 showOffers();
             } else {
@@ -629,5 +651,92 @@
             }
         });
         </script>
-    </body>
-</html>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('items_per_page');
+    select.addEventListener('change', function() {
+        var perPage = parseInt(this.value, 10);
+        document.querySelectorAll('.offer-item, .post-item').forEach(function(item, idx) {
+            if (idx < perPage) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+    select.dispatchEvent(new Event('change'));
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('items_per_page');
+    var perPage = parseInt(select.value, 10);
+    var currentPage = 1;
+    var offerItems = Array.from(document.querySelectorAll('.offer-item'));
+    var postItems = Array.from(document.querySelectorAll('.post-item'));
+    var prevBtn = document.getElementById('prev-page');
+    var nextBtn = document.getElementById('next-page');
+    var pageInfo = document.getElementById('page-info');
+
+    function getVisibleItems() {
+        if (document.getElementById('offers-list').style.display !== 'none') {
+            return offerItems;
+        } else {
+            return postItems;
+        }
+    }
+
+    function showPage(page) {
+        var items = getVisibleItems();
+        var totalPages = Math.ceil(items.length / perPage);
+        items.forEach(function(item, idx) {
+            if (idx >= (page - 1) * perPage && idx < page * perPage) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        pageInfo.textContent = 'Page ' + page + ' of ' + (totalPages || 1);
+        prevBtn.disabled = page <= 1;
+        nextBtn.disabled = page >= totalPages;
+    }
+
+    function updateAndShowPage(resetPage) {
+        perPage = parseInt(select.value, 10);
+        if (resetPage) currentPage = 1;
+        showPage(currentPage);
+    }
+
+    select.addEventListener('change', function() {
+        updateAndShowPage(true);
+    });
+
+    prevBtn.addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        var items = getVisibleItems();
+        var totalPages = Math.ceil(items.length / perPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    document.getElementById('show-offers').addEventListener('click', function() {
+        currentPage = 1;
+        showPage(currentPage);
+    });
+    document.getElementById('show-posts').addEventListener('click', function() {
+        currentPage = 1;
+        showPage(currentPage);
+    });
+
+    updateAndShowPage(true);
+});
+</script>

@@ -9,7 +9,17 @@ class CManagerequest
         $view = new Vmanagerequest();
         $postSelected = FPersistentManager::retriveObj(Mpost::getEntity(),$post_id);
         $listOfOffer = $postSelected->getOffers();
-        $view->showOffers($listOfOffer); //mostra una lista di offerte relative al post
+
+        // Filtro solo le offerte con stato 'pending'
+        $pendingOffers = [];
+        foreach ($listOfOffer as $offer) {
+            if ($offer->getState()->value === 'pending')
+                {
+                $pendingOffers[] = $offer;
+                }
+        }
+
+        $view->showOffers($pendingOffers); // mostra solo offerte pending
         }
         
     }
@@ -23,7 +33,7 @@ class CManagerequest
         }
 
     }*/
-    public static function accept_Deny_Offer(int $offer_id, bool $yesorno) //get request
+    public static function accept_Deny_Offer(int $offer_id, int $yesorno) //get request
 
     {
         if(CUser::isLogged()){
@@ -40,8 +50,6 @@ class CManagerequest
             FPersistentManager::saveObj($offer);
             $view = new Vmanagerequest();
             $view->showAcceptDenyOffer($yesorno); //mostra una schermata che dice bravo hai accettato o rifiutato
-             //salva l'offerta aggiornata
-            // mostra una schermata che dice bravo hai accettato o rifiutato
         }
     }
 }
