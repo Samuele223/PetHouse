@@ -95,6 +95,19 @@ public static function userProfile($userId)
     $view->showUserProfileWithVerification($user, $verification);
 }
 
+public static function showuserProfile($userId)
+{
+    $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+    if (!$user) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        return;
+    }
+    $view = new VAdmin();
+    $view->showUserProfile($user);
+}
+
 // Metodo per accettare la richiesta
 public static function acceptVerification($verificationId)
 {
