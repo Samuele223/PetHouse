@@ -1,4 +1,4 @@
-    <?php
+<?php
     /**
      * class to access to the $_SESSION superglobal array, you Must use this class instead of using directly the array
      */
@@ -56,7 +56,7 @@
          * get element in the _SESSION superglobal
          */
         public static function getSessionElement($id){
-            return $_SESSION[$id];
+            return isset($_SESSION[$id]) ? $_SESSION[$id] : null;
         }
 
         /**

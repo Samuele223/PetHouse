@@ -292,8 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 termsCheckbox.focus();
                 return false;
             }
-            // Allow form submit
-            form.submit();
+            // Let the browser handle the submit
         });
     }
 });
