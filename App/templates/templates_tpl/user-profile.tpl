@@ -87,7 +87,6 @@
                         <form method="post" action="/PetHouse/user/logout" style="display:inline;">
                             <button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
                         </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='https://localhost/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
                     </div>
                     <!-- Menu vuoto -->
                     <ul class="main-nav nav navbar-nav navbar-right"></ul>
@@ -179,10 +178,10 @@
                                 <div class="col-sm-10 col-sm-offset-1">
                                     <br>
                                     <a href="https://localhost/PetHouse/" class="btn btn-primary btn-block" style="margin-bottom:10px;">Home</a>
-                                    <a href="/PetHouse/user/myHouses" class="btn btn-primary btn-block" style="margin-bottom:10px;">Your Houses</a>
-                                    <a href="/PetHouse/user/myPost" class="btn btn-primary btn-block" style="margin-bottom:10px;">Your Posts</a>
-                                    <a href="/PetHouse/user/review" class="btn btn-primary btn-block" style="margin-bottom:10px;">Your Review</a>
-                                    <a href="/PetHouse/Review/Deals" class="btn btn-primary btn-block" style="margin-bottom:10px;">History Deals</a>
+                                    <a href="/PetHouse/user/myHouses" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Houses</a>
+                                    <a href="/PetHouse/user/myPost" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Posts</a>
+                                    <a href="/PetHouse/user/review" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Review</a>
+                                    <a href="/PetHouse/Review/Deals" class="btn btn-primary btn-block" style="margin-bottom:10px;"> Activity</a>
                                     <a href="/PetHouse/user/askVerification" class="btn btn-success btn-block" style="margin-bottom:10px;">Ask Verification</a>
                                 </div>
                             <br>

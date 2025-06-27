@@ -89,54 +89,12 @@
                         <div class="button navbar-right">
                             <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
                         </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
+                    <ul class="main-nav nav navbar-nav navbar-right">                       
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="yamm-content">
                                         <div class="row">
-                                            <div class="col-sm-3">
-                                                <h5>Home pages</h5>
-                                                <ul>
-                                                    <li>
-                                                        <a href="index.html">Home Style 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-2.html">Home Style 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-3.html">Home Style 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-4.html">Home Style 4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index-5.html">Home Style 5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                             <div class="col-sm-3">
                                                 <h5>Pages and blog</h5>
                                                 <ul>
@@ -188,8 +146,6 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -200,7 +156,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                        <h1 class="page-title">Your active offers</h1>               
                     </div>
                 </div>
             </div>
@@ -216,50 +172,12 @@
 
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
-                        <div class="col-xs-10 page-subheader sorting pl0">
-                            <ul class="sort-by-list">
-                                <li class="active">
-                                    <a href="javascript:void(0);" class="order_by_date" data-orderby="property_date" data-order="ASC">
-                                        Property Date <i class="fa fa-sort-amount-asc"></i>					
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="javascript:void(0);" class="order_by_price" data-orderby="property_price" data-order="DESC">
-                                        Property Price <i class="fa fa-sort-numeric-desc"></i>						
-                                    </a>
-                                </li>
-                            </ul><!--/ .sort-by-list-->
-
-                            <div class="items-per-page">
-                                <label for="items_per_page"><b>Property per page :</b></label>
-                                <div class="sel">
-                                    <select id="items_per_page" name="per_page">
-                                        <option value="3">3</option>
-                                        <option value="6">6</option>
-                                        <option value="9">9</option>
-                                        <option selected="selected" value="12">12</option>
-                                        <option value="15">15</option>
-                                        <option value="30">30</option>
-                                        <option value="45">45</option>
-                                        <option value="60">60</option>
-                                    </select>
-                                </div><!--/ .sel-->
-                            </div><!--/ .items-per-page-->
-                        </div>
-
                         <div class="col-xs-2 layout-switcher">
                             <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
                             <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
                         </div><!--/ .layout-switcher-->
                     </div>
-                    <div class="form-inline" style="margin-bottom:20px;">
-                        <label for="filter-price" style="margin-right:10px;">Prezzo massimo (€):</label>
-                        <input type="range" id="filter-price" class="form-control" min="0" max="100" step="1" value="100" style="width:200px;">
-                        <span id="filter-price-value">100</span>
-                    </div>
-
                     <div class="container">
-                        <h2 class="text-center" style="margin:30px 0;">Your Active Offers</h2>
                         <div class="row">
                             {if $offers|@count > 0}
                                 {foreach from=$offers item=offer}
@@ -287,6 +205,21 @@
                                                         None
                                                     {/if}
                                                 </p>
+                                                <hr>
+                                                {* Dati del proprietario del post *}
+                                                {assign var="owner" value=$offer->getPost()->getSeller()}
+                                                <b>Service Owner:</b> {$owner->getName()} {$owner->getSurname()}<br>
+                                                <b>Email:</b> {$owner->getEmail()}<br>
+                                                <b>Phone:</b> {if $owner->getTel()}{$owner->getTel()}{else}<span style="color:#aaa;">Not provided</span>{/if}<br>
+                                                <b>Position:</b> 
+                                                    {$offer->getPost()->getHouse()->getCity()}, 
+                                                    {$offer->getPost()->getHouse()->getProvince()}, 
+                                                    {$offer->getPost()->getHouse()->getCountry()}<br>
+                                                <b>Address:</b> {$offer->getPost()->getHouse()->getAddress()}<br>
+                                                <!-- Bottone per visitare il profilo dell'host -->
+                                                <a href="/PetHouse/findhosting/viewprofile/{$owner->getId()}" class="btn btn-info btn-block" style="margin-top:10px;font-weight:bold;">
+                                                    <i class="fa fa-user"></i> Visit Host Profile
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -312,6 +245,10 @@
                         </div>                
                     </div>
                 </div>  
+                <div class="col-md-12" style="margin-bottom:20px;">
+                    <button class="btn btn-default btn-lg" style="width:100%;font-weight:bold;" onclick="window.history.back();">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
                 </div>              
             </div>
         </div>

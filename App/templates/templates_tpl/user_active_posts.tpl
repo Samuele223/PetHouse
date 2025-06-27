@@ -89,40 +89,63 @@
                         <div class="button navbar-right">
                             <button class="navbar-btn nav-button wow fadeInRight home" onclick="window.location.href='/PetHouse/'" data-wow-delay="0.5s">Home</button>
                         </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
-                            <a href="index.html" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Home <b class="caret"></b></a>
-                            <ul class="dropdown-menu navbar-nav">
-                                <li>
-                                    <a href="index-2.html">Home Style 2</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Home Style 3</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Home Style 4</a>
-                                </li>
-                                <li>
-                                    <a href="index-5.html">Home Style 5</a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="properties.html">Properties</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="/PetHouse/user/myHouses">Property</a></li>
+                    <ul class="main-nav nav navbar-nav navbar-right">                       
                         <li class="dropdown yamm-fw" data-wow-delay="0.1s">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="yamm-content">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h5>Pages and blog</h5>
+                                                <ul>
+                                                    <li><a href="blog.html">Blog listing</a>  </li>
+                                                    <li><a href="single.html">Blog Post (full)</a>  </li>
+                                                    <li><a href="single-right.html">Blog Post (Right)</a>  </li>
+                                                    <li><a href="single-left.html">Blog Post (left)</a>  </li>
+                                                    <li><a href="contact.html">Contact style (1)</a> </li>
+                                                    <li><a href="contact-3.html">Contact style (2)</a> </li>
+                                                    <li><a href="contact_3.html">Contact style (3)</a> </li>
+                                                    <li><a href="faq.html">FAQ page</a> </li> 
+                                                    <li><a href="404.html">404 page</a>  </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Property</h5>
+                                                <ul>
+                                                    <li><a href="property-1.html">Property pages style (1)</a> </li>
+                                                    <li><a href="property-2.html">Property pages style (2)</a> </li>
+                                                    <li><a href="property-3.html">Property pages style (3)</a> </li>
+                                                </ul>
+
+                                                <h5>Properties list</h5>
+                                                <ul>
+                                                    <li><a href="properties.html">Properties list style (1)</a> </li> 
+                                                    <li><a href="properties-2.html">Properties list style (2)</a> </li> 
+                                                    <li><a href="properties-3.html">Properties list style (3)</a> </li> 
+                                                </ul>                                               
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h5>Property process</h5>
+                                                <ul> 
+                                                    <li><a href="submit-property.html">Submit - step 1</a> </li>
+                                                    <li><a href="submit-property.html">Submit - step 2</a> </li>
+                                                    <li><a href="submit-property.html">Submit - step 3</a> </li> 
+                                                </ul>
+                                                <h5>User account</h5>
+                                                <ul>
+                                                    <li><a href="register.html">Register / login</a>   </li>
+                                                    <li><a href="user-properties.html">Your properties</a>  </li>
+                                                    <li><a href="submit-property.html">Submit property</a>  </li>
+                                                    <li><a href="change-password.html">Change password</a> </li>
+                                                    <li><a href="user-profile.html">Your profile</a>  </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- /.yamm-content -->
                                 </li>
                             </ul>
                         </li>
-
-                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -133,7 +156,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">List Layout With Sidebar</h1>               
+                        <h1 class="page-title">Your booked posts</h1>               
                     </div>
                 </div>
             </div>
@@ -144,63 +167,109 @@
         <div class="properties-area recent-property" style="background-color: #FFF;">
             <div class="container">  
                 <div class="row">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="margin: 30px 0;">
-                                    <h3>
-                                        Average Rating: 
-                                        <span style="color: #FFD600; font-weight: bold;">
-                                            {$avg|number_format:2} / 5
-                                        </span>
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>     
+                     
+
+
                 <div class="col-md-9  pr0 padding-top-40 properties-page">
                     <div class="col-md-12 clear"> 
-                        <div class="col-xs-10 page-subheader sorting pl0">
-
-                        <div class="col-xs-2 layout-switcher">
-                            <a class="layout-list" href="javascript:void(0);"> <i class="fa fa-th-list"></i>  </a>
-                            <a class="layout-grid active" href="javascript:void(0);"> <i class="fa fa-th"></i> </a>                          
-                        </div><!--/ .layout-switcher-->
                     </div>
-
-                    <div class="section"> 
-                        <div id="list-type" class="proerty-th-list">
-                            {if $reviews|@count > 0}
-                                {foreach from=$reviews item=review}
-                                    <div class="col-md-4 p0">
-                                        <div class="box-two proerty-item">
-                                            <div class="item-entry overflow">
-                                                <h5>
-                                                    Review for: 
-                                                    <b>{$review->getReviewed()->getName()} {$review->getReviewed()->getSurname()}</b>
-                                                </h5>
-                                                <div class="dot-hr"></div>
-                                                <span class="pull-left"><b>Rating:</b> {$review->getRating()->value} / 5</span><br>
-                                                <span class="pull-left"><b>Description:</b> {$review->getDescription()|escape}</span><br>
-                                                <span class="pull-left"><b>Reviewer:</b> {$review->getReviewer()->getName()} {$review->getReviewer()->getSurname()}</span><br>
+                    <div class="container">
+                        <div class="row">
+                            {if $posts|@count > 0}
+                                {foreach from=$posts item=post}
+                                    <div class="col-md-6">
+                                        <div class="panel panel-default" style="margin-bottom:20px;">
+                                            <div class="panel-heading">
+                                                <strong>Post: {$post->getTitle()}</strong>
+                                                <span class="label label-info" style="float:right;">{$post->getBooked()|capitalize}</span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <p>
+                                                    <b>Description:</b> {$post->getDescription()}<br>
+                                                    <b>Start Date:</b> {$post->getDateIn()|date_format:"%d/%m/%Y"}<br>
+                                                    <b>End Date:</b> {$post->getDateOut()|date_format:"%d/%m/%Y"}<br>
+                                                    <b>Accepted Pets:</b>
+                                                    {assign var="acceptedPets" value=$post->getAcceptedPets()}
+                                                    {if $acceptedPets|@count > 0}
+                                                        <ul style="margin-bottom:0;">
+                                                            {foreach from=$acceptedPets key=petType item=count}
+                                                                <li>{$petType|capitalize} (max {$count})</li>
+                                                            {/foreach}
+                                                        </ul>
+                                                    {else}
+                                                        None
+                                                    {/if}
+                                                </p>
+                                                <hr>
+                                                {* Offerte accettate per questo post *}
+                                                {assign var="acceptedOffers" value=[]}
+                                                {foreach from=$post->getOffers() item=offer}
+                                                    {if $offer->getState()->value == 'accepted'}
+                                                        {append var="acceptedOffers" value=$offer}
+                                                    {/if}
+                                                {/foreach}
+                                                <b>Your client:</b>
+                                                {if $acceptedOffers|@count > 0}
+                                                    <ul>
+                                                        {foreach from=$acceptedOffers item=offer}
+                                                            <li>
+                                                                <b>Check-in:</b> {$offer->getDateofferin()|date_format:"%d/%m/%Y"}<br>
+                                                                <b>Check-out:</b> {$offer->getDateofferout()|date_format:"%d/%m/%Y"}<br>
+                                                                <b>Client:</b> {$offer->getClient()->getName()} {$offer->getClient()->getSurname()}<br>
+                                                                <b>Client Phone:</b> {if $offer->getClient()->getTel()}{$offer->getClient()->getTel()}{else}<span style="color:#aaa;">Not provided</span>{/if}<br>
+                                                                <b>Required Pets:</b>
+                                                                {assign var="reqPets" value=$offer->getRequiredPet()}
+                                                                {if $reqPets|@count > 0}
+                                                                    <ul style="margin-bottom:0;">
+                                                                        {foreach from=$reqPets key=petType item=petCount}
+                                                                            <li>{$petType|capitalize} ({$petCount})</li>
+                                                                        {/foreach}
+                                                                    </ul>
+                                                                {else}
+                                                                    None
+                                                                {/if}
+                                                                <a href="/PetHouse/findhosting/viewprofile/{$offer->getClient()->getId()}" class="btn btn-info btn-xs" style="margin-top:5px;font-weight:bold;">
+                                                                    <i class="fa fa-user"></i> View Client Profile
+                                                                </a>
+                                                            </li>
+                                                        {/foreach}
+                                                    </ul>
+                                                {else}
+                                                    <span style="color:#aaa;">No accepted offers for this post.</span>
+                                                {/if}
                                             </div>
                                         </div>
                                     </div>
                                 {/foreach}
                             {else}
                                 <div class="col-md-12">
-                                    <p>No reviews found.</p>
+                                    <p class="alert alert-info">No posts found.</p>
                                 </div>
                             {/if}
                         </div>
                     </div>
-                </div>
+                        <div class="pull-right">
+                            <div class="pagination">
+                                <ul>
+                                    <li><a href="#">Prev</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>                
+                    </div>
+                </div>  
                 <div class="col-md-12" style="margin-bottom:20px;">
                     <button class="btn btn-default btn-lg" style="width:100%;font-weight:bold;" onclick="window.history.back();">
                         <i class="fa fa-arrow-left"></i> Back
                     </button>
-                </div>  
                 </div>              
             </div>
         </div>
+
           <!-- Footer area-->
         <div class="footer-area">
 
@@ -351,5 +420,28 @@
         <script src="/PetHouse/App/templates/assets/js/icheck.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js/price-range.js"></script>
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var input = document.getElementById('filter-price');
+            var valueSpan = document.getElementById('filter-price-value');
+            if (!input) return;
+            // Mostra il valore iniziale
+            valueSpan.textContent = input.value;
+            input.addEventListener('input', function() {
+                valueSpan.textContent = this.value;
+                var max = parseFloat(this.value) || Infinity;
+                document.querySelectorAll('.proerty-item').forEach(function(item) {
+                    var priceText = item.querySelector('.proerty-price');
+                    if (!priceText) return;
+                    var price = parseFloat(priceText.textContent.replace(/[^\d.]/g, ''));
+                    if (isNaN(price) || price > max) {
+                        item.style.display = 'none';
+                    } else {
+                        item.style.display = '';
+                    }
+                });
+            });
+        });
+        </script>
     </body>
 </html>

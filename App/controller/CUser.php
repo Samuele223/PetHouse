@@ -675,8 +675,21 @@ public static function deleteHouse(int $id) {
     $id = Usession::getSessionElement('user');
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
     $reviews = $user->getReviewToMe();
+        // Calcolo media rating
+    $reviewsArray = $reviews->toArray();
+    $total = 0;
+    $count = 0;
+    foreach ($reviewsArray as $review) {
+        $rating = $review->getRating();
+        if ($rating instanceof rating) {
+            $total += $rating->value; // enum int value
+            $count++;
+        }
+    }
+    $average = $count > 0 ? $total / $count : 0;
+
     $view = new VUser();
-    $view->showReviews($reviews);
+    $view->showReviews($reviewsArray, $average);
     
     }
     public static function yourpost($id)
@@ -700,6 +713,14 @@ public static function deleteHouse(int $id) {
     }
     public static function activeposts()
     {
-
+        Usession::getInstance();
+        $id = Usession::getSessionElement('user');
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $post = $user->getMyPost();
+        $post = array_filter($post->toArray(), callback: function($p) {
+            return $p->getBooked() == 'booked';
+        });
+        $view = new VUser();
+        $view->showActivePosts($post); 
     }
 }

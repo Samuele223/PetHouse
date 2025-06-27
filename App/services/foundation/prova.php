@@ -74,9 +74,8 @@ FPersistentManager::saveObj($offer);
 //echo stream_get_contents($foto->getImageData());
 //echo $foto->getType(); 
 
-$admin = new Madmin("admin@example.com");
-$admin->setPassword("adpass");
-
-FPersistentManager::saveObj($admin);
-
+$rev = FPersistentManager::retriveObj(Muser::getEntity(),1);
+$ved = FPersistentManager::retriveObj(Muser::getEntity(),2);
+$review = new Mreview('meh meh',rating::two,$ved,$rev);
+FPersistentManager::saveObj($review);
 ?>

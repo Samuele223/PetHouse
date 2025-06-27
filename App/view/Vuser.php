@@ -89,7 +89,8 @@ public function showEditForm($post,$houses) {
     $this->smarty->assign('positions', $houses);
     $this->smarty->display('edit_post.tpl');    
 }
-public function showReviews($reviews) {
+public function showReviews($reviews,$avg) {
+    $this->smarty->assign('avg', $avg);
     $this->smarty->assign('reviews', $reviews);
     $this->smarty->display('user_reviews.tpl');
 }
