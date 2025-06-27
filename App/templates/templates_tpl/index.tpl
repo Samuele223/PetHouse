@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <i class="fa fa-th"></i>
                                 </div>
                                 <div class="more-entry overflow">
-                                    <h5><a href="property-1.html" >CAN'T DECIDE ? </a></h5>
+                                    <h5><a href="/PetHouse/Findhosting/searchHost" >CAN'T DECIDE ? </a></h5>
                                     <h5 class="tree-sub-ttl">START SEARCHING FOR THE PERFECT HOUSE TODAY</h5>
                                 </div>
                             </div>
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>Our Customers Said  </h2> 
+                        <h2>Our Customers Said:  </h2> 
                     </div>
                 </div>
 
@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>You can trust Us </h2> 
+                        <h2>You can trust Us! </h2> 
                     </div>
                 </div>
                 <div class="row">
@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p>Find a loving and safe home for your pet while you are away. Search trusted hosts near you.</p>                                        
                             </div>
                             <div class="asks-first-arrow">
-                                <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                                <a href="/PetHouse/Findhosting/searchHost"><span class="fa fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -572,32 +572,35 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <p>Become a host and earn by caring for pets in your home. Help pet owners and enjoy great company.</p>
                             </div>
                             <div class="asks-first-arrow">
-                                <a href="properties.html"><span class="fa fa-angle-right"></span></a>
+                                <a href="/PetHouse/user/addHouse"><span class="fa fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>
                     
                 </div>
             </div>
-        </div>
+        </div> </div> 
 
         <!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
                 <div class="container">
-                    <div class="row">
+                    <div class="row justify-content-center" style="display: flex; justify-content: center;">
 
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
-                                <img src="/PetHouse/App/templates/assets/img/icona_footer.png" alt="PetHouse logo" class="wow pulse" data-wow-delay="1s">
-                                <p>PetHouse connects pet owners with trusted hosts for safe, loving pet care. Your pet's comfort is our mission.</p>
+
+                               <a href="/PetHouse/">
+    <img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="" class="wow pulse" data-wow-delay="1s">
+</a>
+                                <p>Sadly, none of this is real. It's just a project... sorry 🥸</p>
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 12, Roma</li>
-                                    <li><i class="pe-7s-mail strong"> </i> info@pethouse.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +39 06 1234 5678</li>
+                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 13, Roma</li>
+                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
+                                    <li><i class="pe-7s-call strong"> </i> +123 456 789</li>
                                 </ul>
                             </div>
                         </div>
@@ -606,78 +609,28 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <h4>Quick links </h4>
                                 <div class="footer-title-line"></div>
                                 <ul class="footer-menu">
-                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Find a Host</a></li>
-                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Become a Host</a></li>
-                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">How it Works</a></li>
-                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Support</a></li>
-                                    <li><a href="#" style="pointer-events: none; cursor: pointer;">Terms & Privacy</a></li>
+                                    <li><a href="/PetHouse/">Home</a>  </li> 
+                                    <li><a href="/PetHouse/Findhosting/searchHost">Properties</a>  </li> 
+                                    <li><a href="/PetHouse/user/createHouse">Register your house </a></li> 
+                                    <li><a href="contact.html">Contact us</a></li> 
+                                    <li><a href="faq.html">fqa</a>  </li> 
+                                    <li><a href="faq.html">Terms </a>  </li> 
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="#" style="pointer-events: none; cursor: pointer;">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">27-06-2025</span>
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="#" style="pointer-events: none; cursor: pointer;">New host in Milan</a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Now available for summer!</p>
-                                        </div>
-                                    </li> 
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="#" style="pointer-events: none; cursor: pointer;">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">20-06-2025</span>
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="#" style="pointer-events: none; cursor: pointer;">Pet care tips</a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Traveling? Keep pets happy.</p>
-                                        </div>
-                                    </li> 
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="#" style="pointer-events: none; cursor: pointer;">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">10-06-2025</span>
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="#" style="pointer-events: none; cursor: pointer;">Summer bookings</a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Book your pet's stay now!</p>
-                                        </div>
-                                    </li> 
-                                </ul>
-                            </div>
-                        </div>
+                        
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>Subscribe for updates, pet care tips, and exclusive offers from PetHouse. Stay connected with our community!</p>
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="Your email address..." style="pointer-events: none; cursor: pointer;">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button" style="pointer-events: none; cursor: pointer;"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                </form>
-                                <div class="social pull-right"> 
+                                <p>Even tho none of this is real, we can still keep in touch! </p>
+
+                                <div class="social pull-center"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="#" style="pointer-events: none; cursor: pointer;" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
@@ -690,16 +643,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                        <div class="pull-center">
+                            <span> (C) <a href="/PetHouse/App/templates/assets/img/cfe88934-bb52-41be-95a3-9f63f0cca6df.jpg">UNIVAQ</a> , Tutti i diritti sono riservati  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
+
                         </div>
                     </div>
                 </div>
