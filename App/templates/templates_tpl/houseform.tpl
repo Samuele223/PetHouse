@@ -275,7 +275,7 @@
 
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input type="checkbox" id="terms_checkbox" required /> <strong>I accept the terms and conditions.</strong>
+                                                            <input type="checkbox" id="terms_checkbox" name="terms_checkbox" required /> <strong>I accept the terms and conditions.</strong>
                                                         </label>
                                                     </div> 
 <script>

@@ -230,58 +230,54 @@ if ($id) {
 }
 public static function createHouse()
 {
-    if (USession::getSessionStatus() == PHP_SESSION_NONE) {
-        USession::getInstance();
-    }
-    $id = USession::getSessionElement('user');
-    $view = new VUser();
-    if ($id) {
-        // Check if terms and conditions are accepted
-        if (!isset($_POST['terms_checkbox'])) {
-            $view->showHomeForm('You must accept the terms and conditions to submit your house.');
-            return;
-        }
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
-        $title = UHTTPMethods::post('title') ?? null;
-        $city = UHTTPMethods::post('city') ?? null;
-        $description = UHTTPMethods::post('description') ?? null;
-        $address = UHTTPMethods::post('address') ?? null;
-        $province = UHTTPMethods::post('province') ?? null;
-        $country = UHTTPMethods::post('country') ?? null;
-        $position = new MPosition($address, $description,$city, $province, $country, $user,$title);
-        
-        $check = FPersistentManager::saveObj($position);
-        if (isset($_FILES['img']) && is_array($_FILES['img']['error'])) {
-            $uploaded = false;
-            for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
-                if ($_FILES['img']['error'][$i] === UPLOAD_ERR_OK) {
-                    $uploaded = true;
-                    $tmpName = $_FILES['img']['tmp_name'][$i];
-                    $mime = $_FILES['img']['type'][$i];
-                    $data = file_get_contents($tmpName);
+if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+    USession::getInstance();
+}
+$id = USession::getSessionElement('user');
+$view = new VUser();
+if ($id) {
+    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $title = UHTTPMethods::post('title') ?? null;
+    $city = UHTTPMethods::post('city') ?? null;
+    $description = UHTTPMethods::post('description') ?? null;
+    $address = UHTTPMethods::post('address') ?? null;
+    $province = UHTTPMethods::post('province') ?? null;
+    $country = UHTTPMethods::post('country') ?? null;
+    $position = new MPosition($address, $description,$city, $province, $country, $user,$title);
+    
+    $check = FPersistentManager::saveObj($position);
+    if (isset($_FILES['img']) && is_array($_FILES['img']['error'])) {
+        $uploaded = false;
+        for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
+            if ($_FILES['img']['error'][$i] === UPLOAD_ERR_OK) {
+                $uploaded = true;
+                $tmpName = $_FILES['img']['tmp_name'][$i];
+                $mime = $_FILES['img']['type'][$i];
+                $data = file_get_contents($tmpName);
 
-                    $pic = new Mphoto($data, $mime);
-                    $pic->setLocation($position);
-                    FPersistentManager::saveObj($pic);
-                }
+                $pic = new Mphoto($data, $mime);
+                $pic->setLocation($position);
+                FPersistentManager::saveObj($pic);
             }
-            if (!$uploaded) {
-                echo 'non si è caricato nulla';
-            }
-        } else {
+        }
+        if (!$uploaded) {
             echo 'non si è caricato nulla';
         }
-        if ($check) {
-            $view->home($user->getUsername());
-        } else {
-            $view->showHomeForm('Failed to create house. Please try again.');
-        }
+    } else {
+        echo 'non si è caricato nulla';
     }
-    else {
-        // Handle case where user is not logged in
-        header('Location: /PetHouse/User/login');
-        exit;
+    if ($check) {
+        $view->home($user->getUsername());
+    } else {
+        $view->showHomeForm('Failed to create house. Please try again.');
     }
+}
+else {
+    // Handle case where user is not logged in
+    header('Location: /PetHouse/User/login');
+    exit;
+}
+
 }
 public static function myPost() {
     // Ensure session is started
