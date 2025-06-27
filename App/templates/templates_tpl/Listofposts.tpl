@@ -48,10 +48,7 @@
                 <div class="row">
                     <div class="col-md-5 col-sm-8  col-xs-12">
                         <div class="header-half header-call">
-                            <p>
-                                <span><i class="pe-7s-call"></i> +1 234 567 7890</span>
-                                <span><i class="pe-7s-mail"></i> your@company.com</span>
-                            </p>
+                            <!-- Removed phone and email info from header -->
                         </div>
                     </div>
                     <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
@@ -81,7 +78,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt=""></a>
+                    <a class="navbar-brand" href="/PetHouse/"><img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt=""></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -155,11 +152,11 @@
                                                     {assign var="house" value=$post->getHouse()}
                                                     {assign var="photos" value=$house->getPhotos()}
                                                     {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                        <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}">
                                                             <img src="/PetHouse/image/showImage/{$photos[0]->getId()}">
                                                         </a>
                                                     {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                        <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg">
                                                         </a>
                                                     {/if}
