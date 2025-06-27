@@ -232,7 +232,7 @@ public static function deletePost($postId)
 
     /**
      * verify if exist a user with this username (also mod)
-     */
+    */ 
     public static function verifyUserUsername($username){
         $result = FUser::verify('username', $username);
 

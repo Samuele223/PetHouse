@@ -34,9 +34,9 @@ class CUser {
             }
 
             
-
+            /*
             // Check email and username uniqueness
-            /*if (FPersistentManager::verifyUserEmail($email)) {
+            if (FPersistentManager::verifyUserEmail($email)) {
                 $view->showRegisterForm('Email already registered.');
                 return;
             }
@@ -724,4 +724,55 @@ public static function deleteHouse(int $id) {
         $view = new VUser();
         $view->showActivePosts($post); 
     }
+    public static function editprofile()
+    {
+        Usession::getInstance();
+        $id = Usession::getSessionElement('user');
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $view = new VUser();
+        $view->showEditProfile($user);
+    }
+    public static function updateProfile()
+    {
+        Usession::getInstance();
+        $id = Usession::getSessionElement('user');
+        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $name = UHTTPMethods::post('name') ?? null;
+        $surname = UHTTPMethods::post('surname') ?? null;
+        $username = UHTTPMethods::post('username') ?? null;
+        $email = UHTTPMethods::post('email') ?? null;
+        $phone = UHTTPMethods::post('phone') ?? null; 
+        if ($name) {
+            $user->setName($name);
+        }
+        if ($surname) {
+            $user->setSurname($surname);
+        }
+        if ($username) {
+            $user->setUsername($username);
+        }
+        if ($email) {
+            $user->setEmail($email);
+        }
+        if ($phone) {
+            $user->setTel($phone);
+        }
+        
+        if ($_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
+            $tmpName = $_FILES['profile_pic']['tmp_name'];
+            $nomeFile = $_FILES['profile_pic']['name'];
+            $mimeType = $_FILES['profile_pic']['type'];
+            $dati = file_get_contents($tmpName);
+
+            $foto = new Mphoto( $dati,$mimeType );
+
+            
+            FPersistentManager::saveObj($foto); // Salva la foto nel database
+            $user->setProfilePicture($foto);
+             // Associa la foto all'utente  
+        }         
+        FPersistentManager::saveObj($user);        
+        header('Location: /PetHouse/user/profile');
+    
+}
 }

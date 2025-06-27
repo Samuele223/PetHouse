@@ -189,6 +189,11 @@
                                     <a href="/PetHouse/user/askVerification" class="btn btn-success btn-block" style="margin-bottom:10px;">Ask Verification</a>
                                 </div>
                             <br>
+                            <div class="col-xs-12" style="margin-bottom:10px;">
+                                <a href="/PetHouse/user/editprofile" class="btn btn-lg btn-info btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
+                                    <i class="fa fa-pencil"></i> Edit Profile
+                                </a>
+                            </div>
                     </form>
 
                 </div>
