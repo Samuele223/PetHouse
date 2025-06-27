@@ -192,6 +192,10 @@ public static function profile()
     if (USession::getSessionStatus() == PHP_SESSION_NONE) {
         USession::getInstance();
     } 
+        if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+    }
     $id = USession::getSessionElement('user');
     $view = new VUser();
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
@@ -668,6 +672,10 @@ public static function deleteHouse(int $id) {
     }
     public static function edit_post($id_post)
     {
+        if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+}
         $view = new VUser();
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
         if (!$post) {
@@ -685,6 +693,10 @@ public static function deleteHouse(int $id) {
     }
     public static function savedit()
     {
+        if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+}
             // Gather fields from the form - CORRETTO con i nomi effettivi del form
             $idPosition   = UHTTPMethods::post('idPosition') ?? null;
             $moreInfo     = UHTTPMethods::post('moreInfo') ?? '';
@@ -709,6 +721,10 @@ public static function deleteHouse(int $id) {
     }
     public static function review()
     {
+    if (!USession::isSetSessionElement('user')) {
+    header('Location: /PetHouse/User/login');
+    exit;
+}
     // Ensure session is started
     Usession::getInstance();
     $id = Usession::getSessionElement('user');
@@ -734,6 +750,10 @@ public static function deleteHouse(int $id) {
     }
     public static function yourpost($id)
     {
+        if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+}
         Usession::getInstance();
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id);
         if (!$post) {
@@ -747,6 +767,10 @@ public static function deleteHouse(int $id) {
     }
     public static function activeoffers()
     {
+        if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+}
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
@@ -759,6 +783,10 @@ public static function deleteHouse(int $id) {
     }
     public static function activeposts()
     {
+        if (!USession::isSetSessionElement('user')) {
+         header('Location: /PetHouse/User/login');
+        exit;
+}
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
@@ -771,6 +799,10 @@ public static function deleteHouse(int $id) {
     }
     public static function editprofile()
     {
+        if (!USession::isSetSessionElement('user')) {
+        header('Location: /PetHouse/User/login');
+        exit;
+}
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
@@ -779,6 +811,10 @@ public static function deleteHouse(int $id) {
     }
     public static function updateProfile()
     {
+        if (!USession::isSetSessionElement('user')) {
+         header('Location: /PetHouse/User/login');
+         exit;
+}
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);

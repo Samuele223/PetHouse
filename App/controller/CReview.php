@@ -2,7 +2,10 @@
 class CReview
 {
 public static function Deals()
-{
+{if (!USession::isSetSessionElement('user')) {
+    header('Location: /PetHouse/User/login');
+    exit;
+}
 
     USession::getInstance();
     $id_user = USession::getSessionElement('user');
@@ -15,6 +18,10 @@ public static function Deals()
 }
 public static function makereview($id_reviewed_or_id_post,$offer_or_post): void
 {
+    if (!USession::isSetSessionElement('user')) {
+    header('Location: /PetHouse/User/login');
+    exit;
+}
     if($offer_or_post === 'offer') {
         $id_reviewed = $id_reviewed_or_id_post;
     } else {
@@ -46,6 +53,10 @@ public static function makereview($id_reviewed_or_id_post,$offer_or_post): void
 }
 public static function savereview($id_reviewed)
 {
+    if (!USession::isSetSessionElement('user')) {
+    header('Location: /PetHouse/User/login');
+    exit;
+}
     USession::getInstance();
     $id_user = USession::getSessionElement('user');
     $reviewer = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);

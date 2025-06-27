@@ -103,6 +103,10 @@ class CReport {
     
     // You can keep a simplified version as a fallback
     public static function showReportForm($idPost) {
+        if (!USession::isSetSessionElement('user')) {
+    header('Location: /PetHouse/User/login');
+    exit;
+}
         // Get the post
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
         if (!$post) {

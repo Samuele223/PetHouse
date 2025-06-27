@@ -42,6 +42,9 @@ class CAdmin
                 USession::getInstance();
             }
             USession::setSessionElement('admin', $admin->getId());
+            if (USession::isSetSessionElement('user')) {
+            USession::unsetSessionElement('user');
+}
 
             header('Location: /PetHouse/Admin/profile');
             exit;
@@ -59,6 +62,10 @@ class CAdmin
 
 public static function profile()
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     if (USession::getSessionStatus() == PHP_SESSION_NONE) {
         USession::getInstance();
     }
@@ -74,6 +81,10 @@ public static function profile()
 }
 public static function listVerificationRequests()
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     // Recupera tutte le richieste di verifica non approvate
     $verifiche = FPersistentManager::getVerificationsPending(); // Questo metodo deve restituire array di Mverification
 
@@ -83,6 +94,10 @@ public static function listVerificationRequests()
 
 public static function userProfile($userId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
     if (!$user) {
         require_once __DIR__ . '/../view/Verror.php';
@@ -97,6 +112,10 @@ public static function userProfile($userId)
 
 public static function showuserProfile($userId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
     if (!$user) {
         require_once __DIR__ . '/../view/Verror.php';
@@ -111,6 +130,10 @@ public static function showuserProfile($userId)
 // Metodo per accettare la richiesta
 public static function acceptVerification($verificationId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     Fverification::approveVerification($verificationId);
     header('Location: /PetHouse/Admin/listVerificationRequests');
     exit;
@@ -119,12 +142,20 @@ public static function acceptVerification($verificationId)
 // Metodo per rifiutare la richiesta
 public static function rejectVerification($verificationId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     Fverification::rejectVerification($verificationId);
     header('Location: /PetHouse/Admin/listVerificationRequests');
     exit;
 }
 public static function listReportedPosts()
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     // Recupera tutti i post con almeno 1 report
     $posts = FPersistentManager::getReportedPosts(); // Da implementare: restituisce array di Mpost con numreport > 0
     $view = new VAdmin();
@@ -133,6 +164,10 @@ public static function listReportedPosts()
 
 public static function reportedPostDetail($postId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     $post = FPersistentManager::retriveObj(Mpost::getEntity(), $postId);
     if (!$post) {
         require_once __DIR__ . '/../view/Verror.php';
@@ -146,6 +181,10 @@ public static function reportedPostDetail($postId)
 
 public static function approveReportedPost($postId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     FPersistentManager::resetPostReports($postId); 
     header('Location: /PetHouse/Admin/listReportedPosts');
     exit;
@@ -153,6 +192,10 @@ public static function approveReportedPost($postId)
 
 public static function deleteReportedPost($postId)
 {
+    if (!USession::isSetSessionElement('admin')) {
+    header('Location: /PetHouse/Admin/login');
+    exit;
+}
     FPersistentManager::deletePost($postId); 
     header('Location: /PetHouse/Admin/listReportedPosts');
     exit;
