@@ -129,29 +129,65 @@ class CFindhosting{
     {   
         if(CUser::isLogged())
         {
-        Usession::getInstance();
-        $id_user = USession::getSessionElement('user');
-        //fetching arguments from post request
-        $datein = new DateTime(UHTTPMethods::post('datein'));
-        $dateout = new DateTime(UHTTPMethods::post('dateout'));
-        
-        
-        $requiredPetss = UHTTPMethods::post('required_pets');
-        $countPets = UHTTPMethods::post('required_pets_count');
+            try {
+                Usession::getInstance();
+                $id_user = USession::getSessionElement('user');
+                
+                //fetching arguments from post request
+                $datein = new DateTime(UHTTPMethods::post('datein'));
+                $dateout = new DateTime(UHTTPMethods::post('dateout'));
+                
+                // Validate dates
+                if ($dateout <= $datein) {
+                    USession::setSessionElement('error_message', 'End date must be after start date.');
+                    header('Location: /PetHouse/findhosting/bookPost/' . $id_post);
+                    exit;
+                }
+                
+                $requiredPetss = UHTTPMethods::post('required_pets');
+                $countPets = UHTTPMethods::post('required_pets_count');
 
-        $requiredPets = array_combine($requiredPetss, $countPets);
+                $requiredPets = array_combine($requiredPetss, $countPets);
 
-        $client = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
-        $offer = new Moffer($datein,$dateout,$post,$requiredPets, $client);
-        FPersistentManager::saveObj($offer);
-        $view = new Vfindhosting();
-        $view->showok();
+                $client = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
+                $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+                
+                // Validate dates against post availability
+                if ($datein < $post->getDateIn() || $dateout > $post->getDateOut()) {
+                    USession::setSessionElement('error_message', 'Selected dates are outside the available period for this post.');
+                    header('Location: /PetHouse/findhosting/bookPost/' . $id_post);
+                    exit;
+                }
+                
+                // Validate pets against post accepted pets
+                $postAcceptedPets = $post->getAcceptedPets();
+                foreach ($requiredPets as $petType => $count) {
+                    if (!isset($postAcceptedPets[$petType]) || $postAcceptedPets[$petType] < $count) {
+                        USession::setSessionElement('error_message', 'Invalid pet selection. Please check available pets and quantities.');
+                        header('Location: /PetHouse/findhosting/bookPost/' . $id_post);
+                        exit;
+                    }
+                }
+                
+                $offer = new Moffer($datein,$dateout,$post,$requiredPets, $client);
+                FPersistentManager::saveObj($offer);
+                
+                // Set success message and redirect to post detail
+                USession::setSessionElement('success_message', 'Offer submitted successfully! You will be notified of the response.');
+                header('Location: /PetHouse/findhosting/selectPost/' . $id_post);
+                exit;
+                
+            } catch (Exception $e) {
+                error_log("Offer creation error: " . $e->getMessage());
+                USession::setSessionElement('error_message', 'An error occurred while submitting your offer. Please try again.');
+                header('Location: /PetHouse/findhosting/bookPost/' . $id_post);
+                exit;
+            }
         }
         else{
-            header('Location: PetHouse/user/login');
+            header('Location: /PetHouse/user/login');
+            exit;
         }
-        //show riepilogo
     }
     public static function viewprofile($id_user)
     {
