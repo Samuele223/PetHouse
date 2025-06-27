@@ -15,9 +15,9 @@
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- Place /PetHouse/favicon1.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
+        <link rel="icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
@@ -136,12 +136,18 @@
                                     </div> 
 
                                     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-                                        {foreach from=$photos item=photo}
-                                            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
-                                                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
-                                            </li>
-                                        {/foreach}
-                                    </ul>
+                                        {if $photos|@count > 0}
+        {foreach from=$photos item=photo}
+            <li data-thumb="/PetHouse/image/showImage/{$photo->getId()}"> 
+                <img src="/PetHouse/image/showImage/{$photo->getId()}" alt="Property Image"/>
+            </li>
+        {/foreach}
+    {else}
+        <li>
+            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image"/>
+        </li>
+    {/if}
+</ul>
                                 </div>
                             </div>
                         </div>

@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | property User profile Page </title>
+        <title>PetHouse | property User profile Page </title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -15,9 +15,9 @@
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- Place /PetHouse/favicon1.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
+        <link rel="icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
 
         
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
@@ -183,33 +183,33 @@
                                         <div id="reviews-list">
                                             <ul class="list-group">
                                                 {foreach from=$user->getReviewToMe() item=review name=reviewLoop}
-    <li class="list-group-item review-item" style="display:none;">
-        <div style="display: flex; align-items: flex-start; gap: 12px;">
-            {assign var="reviewerPic" value=$review->getReviewer()->getProfilePicture()}
-            <div style="flex-shrink:0;">
-                {if $reviewerPic}
-                    <img src="/PetHouse/image/showImage/{$reviewerPic->getId()}" alt="Reviewer Pic"
-                         style="width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid #eee;">
-                {else}
-                    <img src="/PetHouse/App/templates/assets/img/mauro.png" alt="Reviewer Pic"
-                         style="width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid #eee;">
-                {/if}
-            </div>
-            <div>
-                <b>From:</b> {$review->getReviewer()->getName()} {$review->getReviewer()->getSurname()}<br>
-                <b>Rating:</b> {$review->getRating()->value} / 5<br>
-                <b>Description:</b> {$review->getDescription()|escape}
-            </div>
-        </div>
-    </li>
-{/foreach}
+                                                    <li class="list-group-item review-item" style="display:none;">
+                                                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                                            {assign var="reviewerPic" value=$review->getReviewer()->getProfilePicture()}
+                                                            <div style="flex-shrink:0;">
+                                                                {if $reviewerPic}
+                                                                    <img src="/PetHouse/image/showImage/{$reviewerPic->getId()}" alt="Reviewer Pic"
+                                                                        style="width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid #eee;">
+                                                                {else}
+                                                                    <img src="/PetHouse/App/templates/assets/img/mauro.png" alt="Reviewer Pic"
+                                                                        style="width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid #eee;">
+                                                                {/if}
+                                                            </div>
+                                                            <div>
+                                                                <b>From:</b> {$review->getReviewer()->getName()} {$review->getReviewer()->getSurname()}<br>
+                                                                <b>Rating:</b> {$review->getRating()->value} / 5<br>
+                                                                <b>Description:</b> {$review->getDescription()|escape}
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                {/foreach}
                                             </ul>
                                         </div>
                                         <!-- Paginazione -->
                                         <div class="text-center" style="margin:20px 0;">
-                                            <button id="prev-page" class="btn btn-default" disabled>Previous</button>
+                                            <button id="prev-page" class="btn btn-default" type="button" disabled>Previous</button>
                                             <span id="page-info" style="margin:0 10px;">Page 1</span>
-                                            <button id="next-page" class="btn btn-default">Next</button>
+                                            <button id="next-page" class="btn btn-default" type="button">Next</button>
                                             <select id="reviews-per-page" style="margin-left:20px;">
                                                 <option value="3">3 per page</option>
                                                 <option value="6" selected>6 per page</option>

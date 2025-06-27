@@ -15,9 +15,9 @@
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- Place /PetHouse/favicon1.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
+        <link rel="icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
@@ -137,11 +137,11 @@
                                                     {assign var="house" value=$post->getHouse()}
                                                     {assign var="photos" value=$house->getPhotos()}
                                                     {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                        <a href="/PetHouse/user/yourpost/{$post->getId()}">
                                                             <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
                                                         </a>
                                                     {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
+                                                        <a href="/PetHouse/user/yourpost/{$post->getId()}">
                                                             <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
                                                         </a>
                                                     {/if}

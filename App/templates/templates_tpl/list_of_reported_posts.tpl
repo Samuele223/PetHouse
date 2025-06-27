@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>GARO ESTATE | Properties  page</title>
+        <title>PetHouse | Properties  page</title>
         <meta name="description" content="GARO is a real-estate template">
         <meta name="author" content="Kimarotec">
         <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
@@ -15,9 +15,9 @@
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- Place /PetHouse/favicon1.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
+        <link rel="icon" href="/PetHouse/favicon1.ico" type="image/x-icon">
 
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/normalize.css">
         <link rel="stylesheet" href="/PetHouse/App/templates/assets/css/font-awesome.min.css">
@@ -125,16 +125,16 @@
     <div class="box-two proerty-item">
         <div class="item-thumb text-center">
            {assign var="house" value=$post->getHouse()}
-                                                    {assign var="photos" value=$house->getPhotos()}
-                                                    {if $photos|@count > 0}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
-                                                        </a>
-                                                    {else}
-                                                        <a href="/PetHouse/Post/view/{$post->getId()}">
-                                                            <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
-                                                        </a>
-                                                    {/if}
+          {assign var="photos" value=$house->getPhotos()}
+            {if $photos|@count > 0}
+                 <a href="/PetHouse/Admin/reportedPostDetail/{$post->getId()}">
+                    <img src="/PetHouse/image/showImage/{$photos[0]->getId()}" alt="Property Image">
+                     </a>
+             {else}
+          <a href="/PetHouse/Admin/reportedPostDetail/{$post->getId()}">
+        <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image">
+      </a>
+     {/if}
         </div>
         <div class="item-entry">
             <h5>{$post->getTitle()}</h5>
