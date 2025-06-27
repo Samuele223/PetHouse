@@ -150,25 +150,37 @@
 
                                 <!-- Dati profilo utente -->
                                 <div class="col-sm-5 padding-top-25">
-                                    <div class="form-group">
-                                        <label>First Name <small>(required)</small></label>
-                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Last Name <small>(required)</small></label>
-                                        <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="{$surname|escape}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email <small>(required)</small></label>
-                                        <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="{$email|escape}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone :</label>
-                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Average Rating:</label>
-                                        <input type="text" class="form-control" value="{if isset($avg)}{$avg|number_format:2} / 5{else}N/A{/if}" readonly>
+                                    <div>
+                                        <p><b>First Name:</b> <span style="user-select: text;">{$name|escape}</span></p>
+                                        <p><b>Last Name:</b> <span style="user-select: text;">{$surname|escape}</span></p>
+                                        <p><b>Email:</b> <span style="user-select: text;">{$email|escape}</span></p>
+                                        <p><b>Phone:</b> <span style="user-select: text;">{$phone|escape}</span></p>
+                                        <p><b>Average Rating:</b></p>
+                                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+                                            <span style="font-size:2em; color:#FFD600; white-space:nowrap;">
+                                                {assign var="ratingValue" value=0}
+                                                {if isset($avg)}
+                                                    {assign var="ratingValue" value=$avg}
+                                                {/if}
+                                                {section name=star loop=5}
+                                                    {assign var="starIndex" value=$smarty.section.star.index+1}
+                                                    {if $starIndex <= $ratingValue}
+                                                        <i class="fa fa-star"></i>
+                                                    {elseif $starIndex - 0.5 <= $ratingValue}
+                                                        <i class="fa fa-star-half-o"></i>
+                                                    {else}
+                                                        <i class="fa fa-star-o"></i>
+                                                    {/if}
+                                                {/section}
+                                            </span>
+                                            <span style="font-weight:bold; font-size:1.2em;">
+                                                {if $ratingValue > 0}
+                                                    {$ratingValue|number_format:2} / 5
+                                                {else}
+                                                    N/A
+                                                {/if}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 
