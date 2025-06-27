@@ -12,7 +12,6 @@ require_once __DIR__ . '/App/controller/CFrontController.php'; // <-- THIS IS NE
 $persistentManager = FPersistentManager::getInstance();
 
 $fc = new CFrontController();
-echo 'Current path: ' . __DIR__;
 $fc->run($_SERVER['REQUEST_URI']);
 
 ?>

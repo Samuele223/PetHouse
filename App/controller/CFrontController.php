@@ -30,13 +30,7 @@ class CFrontController {
         $controllerClass = 'C' . $controllerName;
         $controllerFile = __DIR__ . "/{$controllerClass}.php";
 
-        echo "<pre>";
-        echo "RequestUri: $requestUri\n";
-        print_r($uriParts);
-        echo "Controller class: $controllerClass\n";
-        echo "Controller file: $controllerFile\n";
-        echo "Method: $methodName\n";
-        echo "</pre>";
+
 
         // Check if controller file exists
         if (file_exists($controllerFile)) {
@@ -50,17 +44,15 @@ class CFrontController {
                 call_user_func_array([$controllerClass, $methodName], $params);
             } else {
                 // Method not found: redirect or show a 404 error
-                http_response_code(404);
-                echo "404 - Page not found.";
-                echo "Method: $methodName\n not found error"; //per debug
-                exit;
+                require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
             }
         } else {
             // Controller file not found: redirect or show a 404 error
-            http_response_code(404);
-            echo "404 - Page not found.";
-            echo "Controller file: $controllerFile\n not found, error";
-            exit;
+            require_once __DIR__ . '/../view/Verror.php';
+    $view = new Verror();
+    $view->show404();
         }
     }
 }

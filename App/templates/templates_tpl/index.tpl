@@ -96,9 +96,7 @@
         <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.location.href='/PetHouse/user/login'" data-wow-delay="0.45s">Login</button>
     {/if}
 </div>
-                    <ul class="main-nav nav navbar-nav navbar-right" >
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/PetHouse/">Home</a></li>
-                    </ul>
+
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
