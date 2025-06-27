@@ -45,7 +45,7 @@
         <!-- Body content -->
 
         {if isset($smarty.session.success_message) && ($smarty.session.success_message == 'Your verification request has been submitted successfully! We will review your documents soon.' || $smarty.session.success_message == 'Your account is already verified!')}
-        <div class="alert alert-success" style="margin: 20px auto; max-width: 600px;">
+        <div class="alert alert-success fadeout-message" style="margin: 20px auto; max-width: 600px;">
             {$smarty.session.success_message}
         </div>
         {/if}
@@ -213,5 +213,13 @@
         <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
         <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <script>
+        $(document).ready(function() {
+            // Fade out verification messages after 2 seconds
+            setTimeout(function() {
+                $(".fadeout-message").fadeOut(800);
+            }, 2000);
+        });
+        </script>
 </body>
 </html>
