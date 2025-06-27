@@ -142,7 +142,8 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-3 padding-top-25">
+                                <!-- Dati profilo utente -->
+                                <div class="col-sm-5 padding-top-25">
                                     <div class="form-group">
                                         <label>First Name <small>(required)</small></label>
                                         <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
@@ -150,11 +151,11 @@
                                     <div class="form-group">
                                         <label>Last Name <small>(required)</small></label>
                                         <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="{$surname|escape}" readonly>
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label>Email <small>(required)</small></label>
                                         <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="{$email|escape}" readonly>
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label>Phone :</label>
                                         <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
@@ -163,9 +164,12 @@
                                         <label>Average Rating:</label>
                                         <input type="text" class="form-control" value="{if isset($avg)}{$avg|number_format:2} / 5{else}N/A{/if}" readonly>
                                     </div>
-                                    <!-- Bottoni grandi -->
-                                    <div class="row" style="margin-top:25px;">
-                                        <div class="col-xs-12" style="margin-bottom:10px;">
+                                </div>
+
+                                <!-- Bottoni accanto ai dati -->
+                                <div class="col-sm-3 padding-top-25">
+                                    <div class="row" style="margin-top:0;">
+                                        <div class="col-xs-12" style="margin-bottom:15px;">
                                             <a href="/PetHouse/user/activeposts" class="btn btn-lg btn-primary btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
                                                 <i class="fa fa-home"></i> Active Posts
                                             </a>
@@ -176,7 +180,6 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- Fine bottoni grandi -->
                                 </div>
                             </div>                    
                                 <div class="col-sm-10 col-sm-offset-1">
@@ -190,7 +193,7 @@
                                 </div>
                             <br>
                             <div class="col-xs-12" style="margin-bottom:10px;">
-                                <a href="/PetHouse/user/editprofile" class="btn btn-lg btn-info btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
+                                <a href="/PetHouse/user/editprofile" class="btn btn-lg btn-primary btn-block" style="font-size:1.3em; font-weight:bold; border-radius: 25px;">
                                     <i class="fa fa-pencil"></i> Edit Profile
                                 </a>
                             </div>

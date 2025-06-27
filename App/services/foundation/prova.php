@@ -74,8 +74,15 @@ FPersistentManager::saveObj($offer);
 //echo stream_get_contents($foto->getImageData());
 //echo $foto->getType(); 
 $user = FPersistentManager::retriveObj(Muser::getEntity(), 1);
-$reviewed = FPersistentManager::retriveObj(Muser::getEntity(), 1);
-$review = new Mreview('meh meh', rating::five, $reviewed, $user);
-FPersistentManager::saveObj($review);
+$house = FPersistentManager::retriveObj(MPosition::getEntity(), 1);
+$post = FPersistentManager::retriveObj(Mpost::getEntity(), 1);
+$offer = FPersistentManager::retriveObj(Moffer::getEntity(), 1);
+$ppost = new Mpost('ao', ['DOG' => 1, 'CAT' => 1], 6.33, 'casa', 'romanina', $user, $house, new DateTime('2025-05-22'), new DateTime('2025-05-29'));
+$ppost->setBooked('booked');
+FPersistentManager::saveObj($ppost);
+$offer = new Moffer(new DateTime('2025-05-23'), new DateTime('2025-05-27'), $post, ['DOG' => 1], $user);
+$offer->setState(stateoffer::FINISHED);
+FPersistentManager::saveObj($offer);
+
 
 ?>

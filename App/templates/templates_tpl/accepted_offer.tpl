@@ -1,30 +1,3 @@
-<<<<<<<< HEAD:App/templates/templates_c/c37fcb9cfe1c87d51e78a83c29dbb8c2a777c3c7_0.file_post_before_house_error.tpl.php
-<?php
-/* Smarty version 5.5.0, created on 2025-06-25 15:33:30
-  from 'file:post_before_house_error.tpl' */
-
-/* @var \Smarty\Template $_smarty_tpl */
-if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
-  'version' => '5.5.0',
-  'unifunc' => 'content_685bfaaa5df7a3_05482481',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    'c37fcb9cfe1c87d51e78a83c29dbb8c2a777c3c7' => 
-    array (
-      0 => 'post_before_house_error.tpl',
-      1 => 1750756551,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-))) {
-function content_685bfaaa5df7a3_05482481 (\Smarty\Template $_smarty_tpl) {
-$_smarty_current_dir = '/Applications/XAMPP/xamppfiles/htdocs/PetHouse/App/templates/templates_tpl';
-?><!DOCTYPE html>
-========
 <!DOCTYPE html>
 >>>>>>>> 69f747c2bf00ed8b9ed935dd946c9c4e5c8208ab:App/templates/templates_tpl/accepted_offer.tpl
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->

@@ -228,10 +228,6 @@
                                         <img src="/PetHouse/image/showImage/{$user->getProfilePicture()->getId()}" alt="Profile Image" style="max-width:100px;margin-top:10px;">
                                     {/if}
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">New Password (leave blank to keep current)</label>
-                                    <input type="password" class="form-control" id="password" name="password">
-                                </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>
                                     <a href="/PetHouse/user/profile" class="btn btn-default" style="margin-left:10px;">Cancel</a>
