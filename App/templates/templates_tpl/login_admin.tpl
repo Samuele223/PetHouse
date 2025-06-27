@@ -151,10 +151,7 @@
                                 <ul class="footer-menu">
                                     <li><a href="/PetHouse/">Home</a>  </li> 
                                     <li><a href="/PetHouse/Findhosting/searchHost">Properties</a>  </li> 
-                                    <li><a href="/PetHouse/user/createHouse">Register your house </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
+                                    <li><a href="/PetHouse/user/addHouse">Register your house </a></li> 
                                 </ul>
                             </div>
                         </div>

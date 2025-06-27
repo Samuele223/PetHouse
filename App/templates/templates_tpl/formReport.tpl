@@ -55,10 +55,11 @@
                             <button class="navbar-btn nav-button" onclick="window.location.href='/PetHouse/user/register'">Register</button>
                         {/if}
                     </div>
-                    <ul class="main-nav nav navbar-nav navbar-right">
+                    <!-- Removed Home and Find Host buttons from navigation bar -->
+                    <!--<ul class="main-nav nav navbar-nav navbar-right">
                         <li><a href="/PetHouse/">Home</a></li>
                         <li><a href="/PetHouse/Findhosting/searchHost">Find Host</a></li>
-                    </ul>
+                    </ul>-->
                 </div>
             </div>
         </nav>
@@ -108,9 +109,9 @@
                                 </div>
                             </div>
 
-                            <form action="/PetHouse/Report/reportPost/{$post->getId()}" method="post">
+                            <form action="/PetHouse/Report/reportPost/{$post->getId()}" method="post" onsubmit="return handleReportSubmit(event);">
                                 <!-- Add a hidden field to capture the redirect URL -->
-                                <input type="hidden" name="redirect_url" value="{$smarty.session.report_redirect_url|default:"/PetHouse/Findhosting/selectpost/{$post->getId()}"}">
+                                <input type="hidden" name="redirect_url" value="{$smarty.session.report_redirect_url|default:'/PetHouse/Findhosting/selectpost/{$post->getId()}'}">
                                 
                                 <div class="row p-b-15">
                                     <div class="col-sm-12">
@@ -142,7 +143,7 @@
                                         <input type='submit' class='btn btn-finish btn-danger' name='finish' value='Submit Report' />
                                     </div>
                                     <div class="pull-left">
-                                        <a href="{$smarty.session.report_redirect_url|default:"/PetHouse/Findhosting/selectpost/{$post->getId()}"}" class='btn btn-default'>
+                                        <a href="{$smarty.session.report_redirect_url|default:'/PetHouse/Findhosting/selectpost/{$post->getId()}'}" class='btn btn-default' id="cancelReturnBtn">
                                             <i class="fa fa-arrow-left"></i> Cancel & Return to Post
                                         </a>
                                     </div>
@@ -155,6 +156,68 @@
             </div>
         </div>
 
+        <div class="footer-area">
+            <div class=" footer">
+                <div class="container">
+                    <div class="row justify-content-center" style="display: flex; justify-content: center;">
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>About us </h4>
+                                <div class="footer-title-line"></div>
+                               <a href="/PetHouse/">
+    <img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="" class="wow pulse" data-wow-delay="1s">
+</a>
+                                <p>Sadly, none of this is real. It's just a project... sorry 🥸</p>
+                                <ul class="footer-adress">
+                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 13, Roma</li>
+                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
+                                    <li><i class="pe-7s-call strong"> </i> +123 456 789</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Quick links </h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-menu">
+                                    <li><a href="/PetHouse/">Home</a>  </li> 
+                                    <li><a href="/PetHouse/Findhosting/searchHost">Properties</a>  </li> 
+                                    <li><a href="/PetHouse/user/createHouse">Register your house </a></li> 
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer news-letter">
+                                <h4>Stay in touch</h4>
+                                <div class="footer-title-line"></div>
+                                <p>Even tho none of this is real, we can still keep in touch! </p>
+                                <div class="social pull-center"> 
+                                    <ul>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="pull-center">
+                            <span> (C) <a href="/PetHouse/App/templates/assets/img/cfe88934-bb52-41be-95a3-9f63f0cca6df.jpg">UNIVAQ</a> , Tutti i diritti sono riservati  </span> 
+                        </div> 
+                        <div class="bottom-menu pull-right"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="/PetHouse/App/templates/assets/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="/PetHouse/App/templates/assets/js/jquery-1.10.2.min.js"></script>
         <script src="/PetHouse/App/templates/bootstrap/js/bootstrap.min.js"></script>
@@ -163,25 +226,34 @@
 
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize form submission
-            var form = document.querySelector('form');
-            form.addEventListener('submit', function(e) {
-                var reasonSelect = document.getElementById('description');
-                var termsCheckbox = document.querySelector('input[name="terms_accepted"]');
-                
-                if (reasonSelect.value === '') {
+            // Cancel & Return to Post button: go to the redirect_url
+            var cancelBtn = document.getElementById('cancelReturnBtn');
+            if (cancelBtn) {
+                cancelBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    alert('Please select a reason for reporting');
-                    return false;
-                }
-                
-                if (!termsCheckbox.checked) {
-                    e.preventDefault();
-                    alert('You must confirm that your report is truthful');
-                    return false;
-                }
-            });
+                    window.location.href = this.getAttribute('href');
+                });
+            }
         });
+
+        function handleReportSubmit(e) {
+            var reasonSelect = document.getElementById('description');
+            var termsCheckbox = document.querySelector('input[name="terms_accepted"]');
+            if (reasonSelect.value === '') {
+                alert('Please select a reason for reporting');
+                return false;
+            }
+            if (!termsCheckbox.checked) {
+                alert('You must confirm that your report is truthful');
+                return false;
+            }
+            // After successful submit, redirect to the post page
+            var redirectUrl = document.querySelector('input[name="redirect_url"]').value;
+            setTimeout(function() {
+                window.location.href = redirectUrl;
+            }, 100); // Give the form a moment to submit
+            return true;
+        }
         </script>
     </body>
 </html>

@@ -34,19 +34,28 @@ class CUser {
             }
 
             
-            /*
             // Check email and username uniqueness
-            if (FPersistentManager::verifyUserEmail($email)) {
-                $view->showRegisterForm('Email already registered.');
+            $existingUserByUsername = FPersistentManager::verifyUserUsername($username);
+            $existingUserByEmail = FPersistentManager::verifyUserEmail($email);
+
+            if ($existingUserByUsername !== null && $existingUserByEmail !== null) {
+                $view->showRegisterForm('Both username and email are already in use.');
+                return;
+            } elseif ($existingUserByUsername !== null) {
+                $view->showRegisterForm('Username already exists. Please choose another.');
+                return;
+            } elseif ($existingUserByEmail !== null) {
+                $view->showRegisterForm('Email already exists. Please use another.');
                 return;
             }
-            if (FPersistentManager::verifyUserUsername($username)) {
-                $view->showRegisterForm('Username already taken.');
+
+            // Phone validation
+            if ($phone && !is_numeric($phone)) {
+                $view->showRegisterForm('Phone number must contain only digits.');
                 return;
-            }*/
+            }
 
             // Create and hash password
-            
             $user = new MUser($name, $surname, $username, $email);
             if ($phone) {
                 $user->setTel($phone);
@@ -66,7 +75,7 @@ class CUser {
 
                 // Ora puoi associare $foto all'utente o salvarla come preferisci
             } else {
-                echo 'skibidi';
+                // No profile picture uploaded, do nothing
             }
 
             $check = FPersistentManager::saveObj($user);

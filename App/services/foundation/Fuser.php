@@ -24,10 +24,8 @@ class FUser{
         return $result;
     }
 
-      public static function verify($field, $id){
-        $result = FEntityManager::getInstance()->verifyAttributes('User', MUser::getEntity(), $field, $id);
-
-        return $result;
+      public static function verify($field, $value){
+        return FEntityManager::getInstance()->verifyAttributes(MUser::getEntity(), $field, $value);
     }
     /**
      * getHousesFromUser

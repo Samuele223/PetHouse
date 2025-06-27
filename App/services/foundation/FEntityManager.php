@@ -202,22 +202,22 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
     /**
      * verify if exist an object
      */
-    public static function verifyAttributes($fieldId, $table, $field, $id){
+    public static function verifyAttributes($table, $field, $value){
         try{
-            $dql = "SELECT u.id".$fieldId. " FROM " . $table . " u WHERE u." . $field . " = :attribute";
+            $dql = "SELECT u FROM $table u WHERE u.$field = :attribute";
             $query = self::$entityManager->createQuery($dql);
-            $query->setParameter('attribute', $id);
+            $query->setParameter('attribute', $value);
 
             $result = $query->getResult();
             if(count($result) > 0){
-                return true;
+                return $result[0]; // return the user object
             }else{
-                return false;
-            }
-        }catch(Exception $e){
-                echo "ERROR " . $e->getMessage();
                 return null;
             }
+        }catch(Exception $e){
+            echo "ERROR " . $e->getMessage();
+            return null;
+        }
     }
 }
 ?>
