@@ -50,6 +50,12 @@ public static function savereview($id_reviewed)
     $id_user = USession::getSessionElement('user');
     $reviewer = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
     $reviewed = FPersistentManager::retriveObj(Muser::getEntity(), $id_reviewed);
+    if (!$reviewed) {
+    require_once __DIR__ . '/../view/Verror.php';
+    $viewErr = new Verror();
+    $viewErr->show404();
+    return;
+}
     $view = new VReview();
     $rating = UHTTPMethods::post('rating');
     $ratingEnum = rating::from((string)$rating);

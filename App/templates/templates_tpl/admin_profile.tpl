@@ -106,7 +106,6 @@
                                     <div class="picture-container">
                                         <div class="picture">
                                             <img src="/PetHouse/App/templates/assets/img/admin.png" alt="Foto profilo dell'Admin" style="pointer-events: none;">
-                                            <input type="file" id="wizard-picture">
                                         </div>
                                         <h6>ADMIN PROFILE PICTURE </h6>
                                     </div>

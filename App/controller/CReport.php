@@ -105,6 +105,12 @@ class CReport {
     public static function showReportForm($idPost) {
         // Get the post
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+        if (!$post) {
+            require_once __DIR__ . '/../view/Verror.php';
+            $viewErr = new Verror();
+            $viewErr->show404();
+            exit;
+}
         
         if (!$post) {
             header('Location: /PetHouse/');
