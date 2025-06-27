@@ -69,7 +69,7 @@ $offer = new Moffer($in,$out,$post,['DOG'],$user);
 $offer = FPersistentManager::retriveObj(Moffer::getEntity(),1);
 $offer->acceptOffer();
 FPersistentManager::saveObj($offer);
-*/
+
 //$foto = FPersistentManager::retriveObj(Mphoto::getEntity(),1);
 //echo stream_get_contents($foto->getImageData());
 //echo $foto->getType(); 
@@ -82,7 +82,10 @@ $ppost->setBooked('booked');
 FPersistentManager::saveObj($ppost);
 $offer = new Moffer(new DateTime('2025-05-23'), new DateTime('2025-05-27'), $post, ['DOG' => 1], $user);
 $offer->setState(stateoffer::FINISHED);
-FPersistentManager::saveObj($offer);
-
+FPersistentManager::saveObj($offer);*/
+$reviewed = FPersistentManager::retriveObj(Muser::getEntity(), 1);
+$rv = FPersistentManager::retriveObj(Muser::getEntity(), 2);
+$review = new Mreview('molto puzzolente',rating::one, $rv, $reviewed);
+FPersistentManager::saveObj($review);
 
 ?>

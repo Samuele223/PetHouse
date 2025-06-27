@@ -102,7 +102,7 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
-                        <h1 class="page-title">Hello : <span class="orange strong">{$name}</span></h1>               
+                        <h1 class="page-title">House owner : <span class="orange strong">{$name}</span></h1>               
                     </div>
                 </div>
             </div>
@@ -145,39 +145,78 @@
                                 </div>
 
                                 <div class="col-sm-3 padding-top-25">
-                                    <div class="form-group">
-                                        <label>First Name <small>(required)</small></label>
-                                        <input name="firstname" type="text" class="form-control" placeholder="Andrew..." value="{$name|escape}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Last Name <small>(required)</small></label>
-                                        <input name="lastname" type="text" class="form-control" placeholder="Smith..." value="{$surname|escape}" readonly>
-                                    </div> 
-                                    <div class="form-group">
-                                        <label>Email <small>(required)</small></label>
-                                        <input name="email" type="email" class="form-control" placeholder="andrew@email@email.com.com" value="{$email|escape}" readonly>
-                                    </div> 
-                                    <div class="form-group">
-                                        <label>Phone :</label>
-                                        <input name="Phone" type="text" class="form-control" placeholder="+1 9090909090" value="{$phone|escape}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Average Rating:</label>
-                                        <input type="text" class="form-control" value="{if isset($user) && $user->getRating() !== null}{$user->getRating()|number_format:2} / 5{else}N/A{/if}" readonly>
+                                    <div>
+                                        <p><b>First Name:</b> <span style="user-select: text;">{$name|escape}</span></p>
+                                        <p><b>Last Name:</b> <span style="user-select: text;">{$surname|escape}</span></p>
+                                        <p><b>Email:</b> <span style="user-select: text;">{$email|escape}</span></p>
+                                        <p><b>Phone:</b> <span style="user-select: text;">{$phone|escape}</span></p>
+                                        <p><b>Average Rating:</b></p>
+                                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+                                            <span style="font-size:2em; color:#FFD600; white-space:nowrap;">
+                                                {assign var="ratingValue" value=0}
+                                                {if isset($user) && $user->getRating() !== null}
+                                                    {assign var="ratingValue" value=$user->getRating()}
+                                                {/if}
+                                                {section name=star loop=5}
+                                                    {if $smarty.section.star.index+1 <= $ratingValue|round:0}
+                                                        <i class="fa fa-star"></i>
+                                                    {elseif $smarty.section.star.index+1 <= $ratingValue+0.5}
+                                                        <i class="fa fa-star-half-o"></i>
+                                                    {else}
+                                                        <i class="fa fa-star-o"></i>
+                                                    {/if}
+                                                {/section}
+                                            </span>
+                                            <span style="font-weight:bold; font-size:1.2em;">
+                                                {if $ratingValue > 0}
+                                                    {$ratingValue|number_format:2} / 5
+                                                {else}
+                                                    N/A
+                                                {/if}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 col-sm-offset-1">
                                     <h4>Reviews received:</h4>
                                     {if isset($user) && $user->getReviewToMe()|@count > 0}
-                                        <ul class="list-group">
-                                            {foreach from=$user->getReviewToMe() item=review}
-                                                <li class="list-group-item">
-                                                    <b>From:</b> {$review->getReviewer()->getName()} {$review->getReviewer()->getSurname()}<br>
-                                                    <b>Rating:</b> {$review->getRating()->value} / 5<br>
-                                                    <b>Description:</b> {$review->getDescription()|escape}
-                                                </li>
-                                            {/foreach}
-                                        </ul>
+                                        <div id="reviews-list">
+                                            <ul class="list-group">
+                                                {foreach from=$user->getReviewToMe() item=review name=reviewLoop}
+    <li class="list-group-item review-item" style="display:none;">
+        <div style="display: flex; align-items: flex-start; gap: 12px;">
+            {assign var="reviewerPic" value=$review->getReviewer()->getProfilePicture()}
+            <div style="flex-shrink:0;">
+                {if $reviewerPic}
+                    <img src="/PetHouse/image/showImage/{$reviewerPic->getId()}" alt="Reviewer Pic"
+                         style="width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid #eee;">
+                {else}
+                    <img src="/PetHouse/App/templates/assets/img/mauro.png" alt="Reviewer Pic"
+                         style="width:40px; height:40px; object-fit:cover; border-radius:50%; border:2px solid #eee;">
+                {/if}
+            </div>
+            <div>
+                <b>From:</b> {$review->getReviewer()->getName()} {$review->getReviewer()->getSurname()}<br>
+                <b>Rating:</b> {$review->getRating()->value} / 5<br>
+                <b>Description:</b> {$review->getDescription()|escape}
+            </div>
+        </div>
+    </li>
+{/foreach}
+                                            </ul>
+                                        </div>
+                                        <!-- Paginazione -->
+                                        <div class="text-center" style="margin:20px 0;">
+                                            <button id="prev-page" class="btn btn-default" disabled>Previous</button>
+                                            <span id="page-info" style="margin:0 10px;">Page 1</span>
+                                            <button id="next-page" class="btn btn-default">Next</button>
+                                            <select id="reviews-per-page" style="margin-left:20px;">
+                                                <option value="3">3 per page</option>
+                                                <option value="6" selected>6 per page</option>
+                                                <option value="9">9 per page</option>
+                                                <option value="12">12 per page</option>
+                                            </select>
+                                        </div>
                                     {else}
                                         <p>No reviews received yet.</p>
                                     {/if}
@@ -191,24 +230,27 @@
 
         </div>
     </div>
-          <!-- Footer area-->
+    
+<!-- Footer area-->
         <div class="footer-area">
 
             <div class=" footer">
                 <div class="container">
-                    <div class="row">
+                    <div class="row justify-content-center" style="display: flex; justify-content: center;">
 
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer">
                                 <h4>About us </h4>
                                 <div class="footer-title-line"></div>
 
-                                <img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
+                               <a href="/PetHouse/">
+    <img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="" class="wow pulse" data-wow-delay="1s">
+</a>
+                                <p>Sadly, none of this is real. It's just a project... sorry 🥸</p>
                                 <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
+                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 13, Roma</li>
+                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
+                                    <li><i class="pe-7s-call strong"> </i> +123 456 789</li>
                                 </ul>
                             </div>
                         </div>
@@ -217,89 +259,25 @@
                                 <h4>Quick links </h4>
                                 <div class="footer-title-line"></div>
                                 <ul class="footer-menu">
-                                    <li><a href="properties.html">Properties</a>  </li> 
-                                    <li><a href="#">Services</a>  </li> 
-                                    <li><a href="submit-property.html">Submit property </a></li> 
-                                    <li><a href="contact.html">Contact us</a></li> 
-                                    <li><a href="faq.html">fqa</a>  </li> 
-                                    <li><a href="faq.html">Terms </a>  </li> 
+                                    <li><a href="/PetHouse/">Home</a>  </li> 
+                                    <li><a href="/PetHouse/Findhosting/searchHost">Properties</a>  </li> 
+                                    <li><a href="/PetHouse/user/createHouse">Register your house </a></li> 
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Last News</h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-blog">
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-                                    <li>
-                                        <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
-                                                <img src="/PetHouse/App/templates/assets/img/demo/small-proerty-2.jpg">
-                                            </a>
-                                            <span class="blg-date">12-12-2016</span>
-
-                                        </div>
-                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
-                                        </div>
-                                    </li> 
-
-
-                                </ul>
-                            </div>
-                        </div>
+                        
                         <div class="col-md-3 col-sm-6 wow fadeInRight animated">
                             <div class="single-footer news-letter">
                                 <h4>Stay in touch</h4>
                                 <div class="footer-title-line"></div>
-                                <p>Lorem ipsum dolor sit amet, nulla  suscipit similique quisquam molestias. Vel unde, blanditiis.</p>
+                                <p>Even tho none of this is real, we can still keep in touch! </p>
 
-                                <form>
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" placeholder="E-mail ... ">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
-                                        </span>
-                                    </div>
-                                    <!-- /input-group -->
-                                </form> 
-
-                                <div class="social pull-right"> 
+                                <div class="social pull-center"> 
                                     <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/kimarotec"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
                                     </ul> 
                                 </div>
                             </div>
@@ -312,16 +290,11 @@
             <div class="footer-copy text-center">
                 <div class="container">
                     <div class="row">
-                        <div class="pull-left">
-                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , All rights reserved 2016  </span> 
+                        <div class="pull-center">
+                            <span> (C) <a href="/PetHouse/App/templates/assets/img/cfe88934-bb52-41be-95a3-9f63f0cca6df.jpg">UNIVAQ</a> , Tutti i diritti sono riservati  </span> 
                         </div> 
                         <div class="bottom-menu pull-right"> 
-                            <ul> 
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s">Home</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.3s">Property</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s">Faq</a></li>
-                                <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.6s">Contact</a></li>
-                            </ul> 
+
                         </div>
                     </div>
                 </div>
@@ -347,6 +320,55 @@
         <script src="/PetHouse/App/templates/assets/js/wizard.js"></script>
 
         <script src="/PetHouse/App/templates/assets/js/main.js"></script>
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var reviews = Array.from(document.querySelectorAll('.review-item'));
+    var perPageSelect = document.getElementById('reviews-per-page');
+    var perPage = parseInt(perPageSelect.value, 10);
+    var currentPage = 1;
+    var prevBtn = document.getElementById('prev-page');
+    var nextBtn = document.getElementById('next-page');
+    var pageInfo = document.getElementById('page-info');
+
+    function showPage(page) {
+        var totalPages = Math.ceil(reviews.length / perPage) || 1;
+        reviews.forEach(function(item, idx) {
+            if (idx >= (page - 1) * perPage && idx < page * perPage) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        pageInfo.textContent = 'Page ' + page + ' of ' + totalPages;
+        prevBtn.disabled = page <= 1;
+        nextBtn.disabled = page >= totalPages;
+    }
+
+    perPageSelect.addEventListener('change', function() {
+        perPage = parseInt(this.value, 10);
+        currentPage = 1;
+        showPage(currentPage);
+    });
+
+    prevBtn.addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        var totalPages = Math.ceil(reviews.length / perPage) || 1;
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    // Inizializza la paginazione
+    showPage(currentPage);
+});
+</script>
 
 
 </body>

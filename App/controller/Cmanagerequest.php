@@ -40,16 +40,19 @@ class CManagerequest
             $offer = FPersistentManager::retriveObj(Moffer::getEntity(), $offer_id);
             if($yesorno == 1)
             {
+                $post = $offer->getPost();
                 $offer->acceptOffer();
-                $offer->getPost()->setBooked('booked');
+                $post->setBooked('booked');
+                FPersistentManager::saveObj($offer);     
+                FPersistentManager::saveObj($post); //salva il post aggiornato
+                header('location: /PetHouse/user/profile'); //reindirizza alla pagina del profilo dell'utente
             }
             else
             {
                 $offer->denyOffer();
-            }
-            FPersistentManager::saveObj($offer);
-            $view = new Vmanagerequest();
-            $view->showAcceptDenyOffer($yesorno); //mostra una schermata che dice bravo hai accettato o rifiutato
+                FPersistentManager::saveObj($offer);
+                header('location: /PetHouse/managerequest/viewoffers/' . $offer->getPost()->getId());
+            } 
         }
     }
 }
