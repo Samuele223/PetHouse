@@ -31,7 +31,7 @@ public static function retrieveObj($class, $id)
 
         $obj = self::$entityManager->find(className: $class, id: $id);
         if (!$obj) {
-            echo "oggetto non trovato "; //doctrine non crea eccezioni con find che ubriaco quello di agora
+
         }
 
         return $obj;

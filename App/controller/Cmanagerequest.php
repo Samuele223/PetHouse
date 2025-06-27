@@ -8,6 +8,12 @@ class CManagerequest
         if(CUser::isLogged()){
         $view = new Vmanagerequest();
         $postSelected = FPersistentManager::retriveObj(Mpost::getEntity(),$post_id);
+        if (!$postSelected) {
+            require_once __DIR__ . '/../view/Verror.php';
+            $viewErr = new Verror();
+            $viewErr->show404();
+            return;
+        }
         $listOfOffer = $postSelected->getOffers();
 
         // Filtro solo le offerte con stato 'pending'

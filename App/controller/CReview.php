@@ -19,6 +19,12 @@ public static function makereview($id_reviewed_or_id_post,$offer_or_post): void
         $id_reviewed = $id_reviewed_or_id_post;
     } else {
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_reviewed_or_id_post);
+        if (!$post) {
+            require_once __DIR__ . '/../view/Verror.php';
+            $view = new Verror();
+            $view->show404();
+            return;
+        }
         $offers = $post->getOffers();
         Foreach($offers as $offer) {
             if($offer->getState() === stateoffer::FINISHED) {
@@ -29,6 +35,12 @@ public static function makereview($id_reviewed_or_id_post,$offer_or_post): void
         
     }
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $id_reviewed);
+    if (!$user) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        return;
+    }
     $view = new VReview();
     $view->showformreview($user);
 }

@@ -84,8 +84,13 @@ public static function listVerificationRequests()
 public static function userProfile($userId)
 {
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+    if (!$user) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        return;
+    }
     $verification = Fverification::getUserVerification($userId);
-
     $view = new VAdmin();
     $view->showUserProfileWithVerification($user, $verification);
 }
@@ -116,6 +121,12 @@ public static function listReportedPosts()
 public static function reportedPostDetail($postId)
 {
     $post = FPersistentManager::retriveObj(Mpost::getEntity(), $postId);
+    if (!$post) {
+        require_once __DIR__ . '/../view/Verror.php';
+        $view = new Verror();
+        $view->show404();
+        return;
+    }
     $view = new VAdmin();
     $view->showReportedPostDetail($post);
 }
