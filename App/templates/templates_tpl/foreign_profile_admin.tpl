@@ -75,6 +75,9 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
+                    <a href="/PetHouse/Admin/reportedPostDetail/{$postId}" class="btn btn-default" style="margin-bottom: 15px; background: #f8f9fa; border: 1px solid #ddd; color: #333; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;">
+                              <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back to Reported Post
+                                </a>
                         <h1 class="page-title">House owner : <span class="orange strong">{$name}</span></h1>               
                     </div>
                 </div>

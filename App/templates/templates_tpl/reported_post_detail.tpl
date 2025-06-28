@@ -73,10 +73,13 @@
         </nav>
         <!-- End of nav bar -->
 
-        <div class="page-head"> 
+        <div class="page-head">
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
+                            <a href="/PetHouse/Admin/listReportedPosts" class="btn btn-default" style="margin-bottom: 15px; background: #f8f9fa; border: 1px solid #ddd; color: #333; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;">
+                                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back to Reported Posts
+                              </a>
                         <h1 class="page-title">Reported Post Details </h1>               
                     </div>
                 </div>
@@ -206,7 +209,7 @@
                     {assign var="reporter" value=$report->getReporter()}
                     <li class="list-group-item" style="display: flex; align-items: center;">
                         {if $reporter}
-                            <a href="/PetHouse/Admin/showuserProfile/{$reporter->getId()}" style="display:inline-block;">
+                            <a href="/PetHouse/Admin/showuserProfile/{$reporter->getId()}?postId={$post->getId()}" style="display:inline-block;">
     {if $reporter->getProfilePicture()}
         <img src="/PetHouse/image/showImage/{$reporter->getProfilePicture()->getId()}" alt="Reporter profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
     {else}
@@ -261,37 +264,39 @@
                                 <div class="dealer-content">
                                     <div class="inner-wrapper">
                                         <div class="clear">
-                                           <div class="col-xs-4 col-sm-4 dealer-face">
-    {assign var="owner" value=$post->getSeller()}
-   <a href="/PetHouse/Admin/showuserProfile/{$owner->getId()}">
-    {if $owner->getProfilePicture()}
-        <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" class="img-circle" alt="Owner profile picture">
-    {else}
-        <img src="/PetHouse/App/templates/assets/img/client-face1.png" class="img-circle" alt="Default profile">
-    {/if}
-</a>
-</div>
-                                            <div class="col-xs-8 col-sm-8 ">
-                                                <h3 class="dealer-name">
-                                                    <a href="#">
-                                                        {if $owner->getName()}{$owner->getName()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                        {if $owner->getSurname()} {$owner->getSurname()}{else} <span style="color:#aaa;">Missing field</span>{/if}
+                                           {assign var="owner" value=$post->getSeller()}
+                                        <div class="owner-info-box" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                                            <div class="owner-header" style="text-align: center; margin-bottom: 15px;">
+                                                <div class="owner-avatar" style="margin-bottom: 10px;">
+                                                    <a href="/PetHouse/Admin/showuserProfile/{$owner->getId()}?postId={$post->getId()}">
+                                                        {if $owner->getProfilePicture()}
+                                                            <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Owner profile picture">
+                                                        {else}
+                                                            <img src="/PetHouse/App/templates/assets/img/client-face1.png" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Default profile">
+                                                        {/if}
                                                     </a>
-                                                    
-                                                </h3>
+                                                </div>
+                                                <h4 style="margin: 0; color: #333; font-weight: 600;">
+                                                    {if $owner->getName()}{$owner->getName()}{else}<span style="color:#aaa;">Missing field</span>{/if}
+                                                    {if $owner->getSurname()} {$owner->getSurname()}{else} <span style="color:#aaa;">Missing field</span>{/if}
+                                                </h4>
+                                                <p style="margin: 5px 0 0 0; color: #666; font-size: 14px;">Property Owner</p>
+                                            </div>
+                                            <div class="owner-contact" style="border-top: 1px solid #f0f0f0; padding-top: 15px;">
+                                                <div class="contact-item" style="margin-bottom: 10px; display: flex; align-items: center;">
+                                                    <i class="fa fa-envelope" style="color: #666; width: 20px; margin-right: 10px;"></i>
+                                                    <span style="color: #333; font-size: 14px; word-break: break-all;">
+                                                        {if $owner->getEmail()}{$owner->getEmail()}{else}<span style="color:#aaa;">Not provided</span>{/if}
+                                                    </span>
+                                                </div>
+                                                <div class="contact-item" style="display: flex; align-items: center;">
+                                                    <i class="fa fa-phone" style="color: #666; width: 20px; margin-right: 10px;"></i>
+                                                    <span style="color: #333; font-size: 14px;">
+                                                        {if $owner->getTel()}{$owner->getTel()}{else}<span style="color:#aaa;">Not provided</span>{/if}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="clear">
-                                            <ul class="dealer-contacts">
-                                                <li>
-                                                    <i class="pe-7s-mail strong"></i>
-                                                    {if $owner->getEmail()}{$owner->getEmail()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                </li>
-                                                <li>
-                                                    <i class="pe-7s-call strong"></i>
-                                                    {if $owner->getTel()}{$owner->getTel()}{else}<span style="color:#aaa;">Missing field</span>{/if}
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
