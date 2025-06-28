@@ -52,9 +52,12 @@ public function showInvalidCredentials($error = null) {
         $this->smarty->display('invalid_credentials.tpl');   
 }
 public function showHomeForm($error = null) {
-        $this->smarty->assign('error', $error);
-        $this->smarty->display('houseform.tpl');
+    if ($error) {
+        echo '<div class="alert alert-danger" style="margin:20px;">' . htmlspecialchars($error) . '</div>';
     }
+    $this->smarty->assign('error', $error);
+    $this->smarty->display('houseform.tpl');
+}
 
 public function showUserPosts($posts) {
         $this->smarty->assign('posts', $posts);
