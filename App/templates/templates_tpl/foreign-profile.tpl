@@ -86,10 +86,14 @@
                 <!-- RIMOSSO: tutti i menu a tendina e link Home, Property, Properties, Template -->
                 <div class="collapse navbar-collapse yamm" id="navigation">
                     <div class="button navbar-right">
-                        <form method="post" action="/PetHouse/user/logout" style="display:inline;">
-                            <button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
-                        </form>
-                        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.location.href='/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
+                        {if $loggedUser}
+                            <form method="post" action="/PetHouse/user/logout" style="display:inline;">
+                                <button type="submit" class="navbar-btn nav-button wow bounceInRight logout" data-wow-delay="0.45s">Logout</button>
+                            </form>
+                            <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/profile'" data-wow-delay="0.5s">Profile</button>
+                        {else}
+                            <button class="navbar-btn nav-button wow fadeInRight" onclick="window.location.href='/PetHouse/user/login'" data-wow-delay="0.5s">Login/Register</button>
+                        {/if}
                     </div>
                     <!-- Menu vuoto -->
                     <ul class="main-nav nav navbar-nav navbar-right"></ul>

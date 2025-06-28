@@ -7,7 +7,7 @@ namespace DoctrineProxies\__CG__;
  */
 class MPosition extends \MPosition implements \Doctrine\ORM\Proxy\InternalProxy
 {
-    use \Symfony\Component\VarExporter\LazyGhostTrait {
+     use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -46,7 +46,7 @@ class MPosition extends \MPosition implements \Doctrine\ORM\Proxy\InternalProxy
         'post' => [parent::class, 'post', null, 16],
         'province' => [parent::class, 'province', null, 16],
         'title' => [parent::class, 'title', null, 16],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {
