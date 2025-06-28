@@ -218,7 +218,7 @@
                         {/if}
                         <div>
                             <strong>Report Description:</strong> {$report->getDescription()}<br>
-                            <strong>Segnalato da:</strong>
+                            <strong>Reported by:</strong>
                             {if $reporter}
                                 {$reporter->getName()} {$reporter->getSurname()} ({$reporter->getEmail()})
                             {else}
