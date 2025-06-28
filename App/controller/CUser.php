@@ -587,8 +587,7 @@ public static function deleteHouse(int $id) {
         
         // Check if user is already verified
         if ($user->getVerified()) {
-            // Redirect back to profile with message
-            USession::getInstance()->setSessionElement('success_message', 'Your account is already verified!');
+            // Redirect back to profile 
             header('Location: /PetHouse/user/profile');
             exit;
         }
@@ -655,13 +654,10 @@ public static function deleteHouse(int $id) {
             $user->setVerification($verification);
             FPersistentManager::saveObj($user);
             
-            // Redirect with success message
-            USession::getInstance()->setSessionElement('success_message', 'Your verification request has been submitted.');
+            // Redirect 
             header('Location: /PetHouse/user/profile');
             exit;
         } else {
-            // Redirect with error message
-            USession::getInstance()->setSessionElement('error_message', 'Please upload a valid document.');
             header('Location: /PetHouse/user/askVerification');
             exit;
         }
