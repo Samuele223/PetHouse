@@ -2,7 +2,10 @@
 class CReview
 {
 public static function Deals()
-{if (!USession::isSetSessionElement('user')) {
+
+{
+    USession::getInstance();
+    if (!USession::isSetSessionElement('user')) {
     header('Location: /PetHouse/User/login');
     exit;
 }
@@ -18,6 +21,7 @@ public static function Deals()
 }
 public static function makereview($id_reviewed_or_id_post,$offer_or_post): void
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('user')) {
     header('Location: /PetHouse/User/login');
     exit;
@@ -53,6 +57,7 @@ public static function makereview($id_reviewed_or_id_post,$offer_or_post): void
 }
 public static function savereview($id_reviewed)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('user')) {
     header('Location: /PetHouse/User/login');
     exit;

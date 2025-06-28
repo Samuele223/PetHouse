@@ -123,7 +123,11 @@ class CFindhosting{
     }
 
     public static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post
- {
+ {  
+    if (!CUser::isLogged()) {
+        header('Location: /PetHouse/user/login');
+        exit;
+    }
     $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id);
     if (!$post) {
         require_once __DIR__ . '/../view/Verror.php';

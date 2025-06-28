@@ -70,6 +70,7 @@ class CReport {
      * @param int $idPost Refers to the id of a post 
      */
     public static function makeReport($idPost) {
+        USession::getInstance();
         // Direct session check without automatic redirect
         if (USession::getSessionStatus() == PHP_SESSION_NONE) {
             USession::getInstance();
@@ -103,10 +104,11 @@ class CReport {
     
     // You can keep a simplified version as a fallback
     public static function showReportForm($idPost) {
+        USession::getInstance();
         if (!USession::isSetSessionElement('user')) {
-    header('Location: /PetHouse/User/login');
-    exit;
-}
+        header('Location: /PetHouse/User/login');
+        exit;
+        }
         // Get the post
         $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
         if (!$post) {

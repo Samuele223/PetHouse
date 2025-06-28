@@ -62,6 +62,8 @@ class CAdmin
 
 public static function profile()
 {
+    
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -81,6 +83,7 @@ public static function profile()
 }
 public static function listVerificationRequests()
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -94,6 +97,7 @@ public static function listVerificationRequests()
 
 public static function userProfile($userId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -112,6 +116,7 @@ public static function userProfile($userId)
 
 public static function showuserProfile($userId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -130,6 +135,7 @@ public static function showuserProfile($userId)
 // Metodo per accettare la richiesta
 public static function acceptVerification($verificationId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -142,6 +148,7 @@ public static function acceptVerification($verificationId)
 // Metodo per rifiutare la richiesta
 public static function rejectVerification($verificationId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -152,6 +159,7 @@ public static function rejectVerification($verificationId)
 }
 public static function listReportedPosts()
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -164,6 +172,7 @@ public static function listReportedPosts()
 
 public static function reportedPostDetail($postId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -181,6 +190,7 @@ public static function reportedPostDetail($postId)
 
 public static function approveReportedPost($postId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
@@ -192,6 +202,7 @@ public static function approveReportedPost($postId)
 
 public static function deleteReportedPost($postId)
 {
+    USession::getInstance();
     if (!USession::isSetSessionElement('admin')) {
     header('Location: /PetHouse/Admin/login');
     exit;
