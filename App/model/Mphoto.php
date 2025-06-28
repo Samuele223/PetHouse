@@ -23,7 +23,7 @@ private int $size;
 private string $types;
 
 #[ORM\Column(name:'image_data',type:"blob")]
-private $imageData; //non so se è giusto salvare cosi un blob con doctrine poi vedo bene
+private $imageData;
 
 private static $entity = 'Mphoto';
 
@@ -43,7 +43,7 @@ public function __construct($dati, $types)
     $this->imageData = $dati;
     $this->types = $types;
     $this->size = strlen($dati);
-    $this->name = 'photo_' . time() . '_' . uniqid(); // Nome generato automaticamente
+    $this->name = 'photo_' . time() . '_' . uniqid();
 }
 
 public static function getEntity(): string

@@ -19,7 +19,7 @@ private int $id;
 private string $description;
 
 #[ORM\Column]
-private string $address; // via e civico
+private string $address; 
 
 #[ORM\Column]
 private string $city;
@@ -34,9 +34,8 @@ private string $country;
 private ?float $longitude=null;
 
 #[ORM\Column(type: 'decimal', precision:10,scale:8, nullable:true)]
-private ?float $latitude=null;  //dont know if float is better
+private ?float $latitude=null;  
 
-//foto private
 
 #[ORM\ManyToOne(inversedBy:'houses')]
 #[ORM\JoinColumn(name:'owner',referencedColumnName:'id')]
@@ -90,7 +89,7 @@ public function getOwner(): Muser
 }
 
 
-public function getPosts(): array|Collection //cronologia riferita ad una casa di un utente
+public function getPosts(): array|Collection 
 {
     return $this->post;
 }
