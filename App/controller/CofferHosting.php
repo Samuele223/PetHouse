@@ -109,7 +109,6 @@ class CofferHosting {
             FPersistentManager::saveObj($post);
 
             // Redirect to success page
-            USession::getInstance()->setSessionElement('success_message', 'Post creato con successo!');
             header('Location: /PetHouse/user/profile');
             exit;
         } else {
