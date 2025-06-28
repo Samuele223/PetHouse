@@ -7,7 +7,7 @@ namespace DoctrineProxies\__CG__;
  */
 class Moffer extends \Moffer implements \Doctrine\ORM\Proxy\InternalProxy
 {
-     use \Symfony\Component\VarExporter\LazyGhostTrait {
+    use \Symfony\Component\VarExporter\LazyGhostTrait {
         initializeLazyObject as private;
         setLazyObjectAsInitialized as public __setInitialized;
         isLazyObjectInitialized as private;
@@ -38,7 +38,7 @@ class Moffer extends \Moffer implements \Doctrine\ORM\Proxy\InternalProxy
         'requiredPets' => [parent::class, 'requiredPets', null, 16],
         'review' => [parent::class, 'review', null, 16],
         'state' => [parent::class, 'state', null, 16],
-    ];
+    ];
 
     public function __isInitialized(): bool
     {

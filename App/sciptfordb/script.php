@@ -12,7 +12,7 @@ $admin->setPassword("adpass");
 
 // Set randomized telephone numbers for users
 function randomTel() {
-    return rand(3200000000, 3999999999); // Italian mobile range
+    return rand(320000000, 399999999); // Italian mobile range
 }
 
 // User 1
