@@ -10,7 +10,7 @@ class CAdmin
 
         // If admin is already logged in, redirect to home
         if (USession::isSetSessionElement('admin')) {
-            header('Location: /PetHouse'); //modified to redirect to post creation, should be HOME but I'm testing
+            header('Location: /PetHouse');
             exit;
         }
 
@@ -78,7 +78,7 @@ public static function profile()
     }
     $admin = FPersistentManager::retriveObj(Madmin::getEntity(), $id);
     $view = new VAdmin();
-    // Passa qui i dati che vuoi mostrare nel profilo admin
+
     $view->profile($admin);
 }
 public static function listVerificationRequests()
@@ -88,8 +88,7 @@ public static function listVerificationRequests()
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    // Recupera tutte le richieste di verifica non approvate
-    $verifiche = FPersistentManager::getVerificationsPending(); // Questo metodo deve restituire array di Mverification
+    $verifiche = FPersistentManager::getVerificationsPending(); 
 
     $view = new VAdmin();
     $view->showVerificationRequests($verifiche);
@@ -132,7 +131,7 @@ public static function showuserProfile($userId)
     $view->showUserProfile($user);
 }
 
-// Metodo per accettare la richiesta
+
 public static function acceptVerification($verificationId)
 {
     USession::getInstance();
@@ -145,7 +144,7 @@ public static function acceptVerification($verificationId)
     exit;
 }
 
-// Metodo per rifiutare la richiesta
+
 public static function rejectVerification($verificationId)
 {
     USession::getInstance();
@@ -164,8 +163,8 @@ public static function listReportedPosts()
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    // Recupera tutti i post con almeno 1 report
-    $posts = FPersistentManager::getReportedPosts(); // Da implementare: restituisce array di Mpost con numreport > 0
+    
+    $posts = FPersistentManager::getReportedPosts();
     $view = new VAdmin();
     $view->showReportedPosts($posts);
 }
