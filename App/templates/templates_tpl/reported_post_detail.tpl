@@ -121,7 +121,7 @@
                                 {/foreach}
                             {else}
                                 <li>
-                                    <img src="/PetHouse/App/templates/assets/img/default-property.png" alt="Default Property Image"/>
+                                    <img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg" alt="Default Property Image"/>
                                 </li>
                             {/if}
                         </ul>
