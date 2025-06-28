@@ -25,7 +25,7 @@
 4. **Configura il database**  
    Modifica `config/config.php` secondo le impostazioni del tuo XAMPP/MySQL.
 5. **Crea il database**  
-   Esegui il file `create_schema` (gestito dall'ORM Doctrine).
+   Esegui il file `create_schema.php` (gestito dall'ORM Doctrine).
 6. **Abilita la riscrittura URL in Apache**
    - Apri il file `httpd.conf` di Apache.
    - Assicurati che la riga:
