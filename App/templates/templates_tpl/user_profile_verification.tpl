@@ -78,6 +78,9 @@
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
+                    <a href="/PetHouse/Admin/listVerificationRequests" class="btn btn-default" style="margin-bottom: 15px; background: #f8f9fa; border: 1px solid #ddd; color: #333; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;">
+                      <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back to List of Users
+                         </a>
                         <h1 class="page-title">User Profile</span></h1>               
                     </div>
                 </div>
@@ -115,8 +118,36 @@
 </div>
             </div>
             <hr>
-            <p><strong>Name:</strong> {$user->getName()} {$user->getSurname()}</p>
-            <p><strong>Email:</strong> {$user->getEmail()}</p>
+            <div class="row" style="margin-top: 20px;">
+    <div class="col-md-6">
+        <ul class="list-group" style="font-size: 16px;">
+            <li class="list-group-item"><strong>Name:</strong> {$user->getName()} {$user->getSurname()}</li>
+                        <li class="list-group-item"><strong>Username:</strong> {$user->getUsername()}</li>
+            <li class="list-group-item"><strong>Email:</strong> {$user->getEmail()}</li>
+            <li class="list-group-item"><strong>Phone:</strong> {if $user->getTel()}{$user->getTel()}{else}-{/if}</li>
+
+            <li class="list-group-item">
+                <strong>Rating:</strong>
+                {if $user->getRating() !== null}
+                    <span style="color: #f39c12;">
+                        {assign var="rating" value=$user->getRating()}
+                        {math equation="round(x*10)/10" x=$rating assign="roundedRating"}
+                        {$roundedRating} / 5
+                        {section name=star loop=5}
+                            {if $smarty.section.star.index < $roundedRating}
+                                <i class="fa fa-star" style="color: #f39c12;"></i>
+                            {else}
+                                <i class="fa fa-star-o" style="color: #f39c12;"></i>
+                            {/if}
+                        {/section}
+                    </span>
+                {else}
+                    <span>-</span>
+                {/if}
+            </li>
+        </ul>
+    </div>
+</div>
             <h3>Info Verification Request</h3>
             <p><strong>Request Date:</strong> {$verification->getRequestDate()->format('d/m/Y')}</p>
             <p><strong>Description:</strong> {$verification->getDescription()|default:'-'}</p>
