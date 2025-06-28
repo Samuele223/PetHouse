@@ -19,7 +19,7 @@ class CUser {
 
         // If POST, process registration data
         if (UServer::getRequestMethod() === 'POST') {
-            $name     = UHTTPMethods::post('name') ?? null; //??null vuol dire vuol dire: “Se UHTTPMethods::post('name') restituisce un valore, assegnalo a $name. Se invece la chiave non esiste, o è null, allora $name sarà null.” Questo evita warning se il campo non è stato inviato, ed è sintassi molto usata nelle versioni moderne di PHP (>=7).
+            $name     = UHTTPMethods::post('name') ?? null; //??null means: “If UHTTPMethods::post('name') returns a value, assign it to $name. If the key does not exist, or is null, then $name will be null.
             $surname  = UHTTPMethods::post('surname') ?? null;
             $username = UHTTPMethods::post('username') ?? null;
             $email    = UHTTPMethods::post('email') ?? null;
@@ -60,7 +60,7 @@ class CUser {
             if ($phone) {
                 $user->setTel($phone);
             }
-            $user->setPassword($password); // <-- passa la password in chiaro
+            $user->setPassword($password); 
             if ($_FILES['profile_pic']['error'] === UPLOAD_ERR_OK) {
                 $tmpName = $_FILES['profile_pic']['tmp_name'];
                 $nomeFile = $_FILES['profile_pic']['name'];
@@ -69,11 +69,11 @@ class CUser {
 
                 $foto = new Mphoto( $dati,$mimeType );
 
-                // Assumi che $entityManager sia il manager di Doctrine
-                FPersistentManager::saveObj($foto); // Salva la foto nel database
-                $user->setProfilePicture($foto); // Associa la foto all'utente
+                
+                FPersistentManager::saveObj($foto); 
+                $user->setProfilePicture($foto); 
 
-                // Ora puoi associare $foto all'utente o salvarla come preferisci
+                
             } else {
                 // No profile picture uploaded, do nothing
             }
@@ -97,7 +97,7 @@ class CUser {
 
         // If user is already logged in, redirect to home
         if (USession::isSetSessionElement('user')) {
-            header('Location: /PetHouse'); //modified to redirect to post creation, should be HOME but I'm testing
+            header('Location: /PetHouse'); 
             exit;
         }
 
@@ -131,7 +131,7 @@ class CUser {
             USession::setSessionElement('user', $user->getId());
             
 
-            header('Location: /PetHouse'); //modified to redirect to post creation
+            header('Location: /PetHouse');
             exit;
         }
     }
@@ -303,7 +303,7 @@ public static function myPost() {
         // Get the user entity
         $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
 
-        // Recupera i post direttamente dal repository
+        
         $em = FEntityManager::getInstance()::getEntityManager();
         $posts = $em->getRepository(Mpost::getEntity())
             ->findBy(['seller' => $user, 'booked' => 'open']);
@@ -334,9 +334,8 @@ public static function myHouses() {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    // Query diretta al database - metodo più affidabile
     $em = FEntityManager::getInstance()::getEntityManager();
-    // Prende TUTTI gli oggetti dell'entità Position
+
     $houses = $em->getRepository(Mposition::getEntity())->findBy(['owner' => $userId]);
 
 
@@ -360,7 +359,7 @@ public static function viewMyHousesDetails(int $id) {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    // Recupera la casa
+    // Retrieve the house
     $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
         if (!$house) {
         require_once __DIR__ . '/../view/Verror.php';
@@ -389,7 +388,7 @@ public static function editHouse(int $id) {
 
 
 
-    // Recupera la casa
+    // Retrieve the house
     $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
     if (!$house) {
     require_once __DIR__ . '/../view/Verror.php';
@@ -426,7 +425,7 @@ public static function updateHouse(int $id): void {
     exit;
 }
 
-    // Aggiorna solo i campi presenti nel POST, mantenendo i valori originali per quelli mancanti
+
     if (isset($_POST['title'])) {
         $house->setTitle($_POST['title']);
     }
@@ -435,7 +434,7 @@ public static function updateHouse(int $id): void {
         $house->setDescription($_POST['description']);
     }
     
-    // Solo se provincia e città sono presenti e non vuote, aggiornale
+
     if (isset($_POST['province']) && !empty($_POST['province'])) {
         $house->setProvince($_POST['province']);
     }
@@ -452,8 +451,7 @@ public static function updateHouse(int $id): void {
         $house->setAddress($_POST['address']);
     }
 
-    // --- GESTIONE FOTO ---
-    // 1. Controlla se sono state caricate nuove foto
+
     $hasNewPhotos = false;
     if (isset($_FILES['img']) && is_array($_FILES['img']['error'])) {
         foreach ($_FILES['img']['error'] as $err) {
@@ -464,9 +462,9 @@ public static function updateHouse(int $id): void {
         }
     }
 
-    // 2. Se ci sono nuove foto, cancella le vecchie e aggiungi le nuove
+    // If there are new photos uploaded, handle them
     if ($hasNewPhotos) {
-        // Cancella le vecchie foto associate alla casa
+        // Delete old photos associated with the house
         $oldPhotos = $house->getPhotos();
         if ($oldPhotos) {
             foreach ($oldPhotos as $photo) {
@@ -474,7 +472,7 @@ public static function updateHouse(int $id): void {
             }
         }
 
-        // Aggiungi le nuove foto caricate
+        // Add the newly uploaded photos
         for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
             if ($_FILES['img']['error'][$i] === UPLOAD_ERR_OK) {
                 $tmpName = $_FILES['img']['tmp_name'][$i];
@@ -484,13 +482,13 @@ public static function updateHouse(int $id): void {
                 $pic = new Mphoto($data, $mime);
                 $pic->setLocation($house);
                 FPersistentManager::saveObj($pic);
-                $house->addPhoto($pic); // aggiorna la relazione anche lato oggetto
+                $house->addPhoto($pic); // Update the relationship on the object side
             }
         }
     }
-    // Se non ci sono nuove foto, non toccare le vecchie
+    // If there are no new photos, do not touch the old ones
 
-    // Salva le modifiche alla casa
+    // Save changes to the house
     FPersistentManager::saveObj($house);
 
     header('Location: /PetHouse/user/myHouses');
@@ -704,7 +702,7 @@ public static function deleteHouse(int $id) {
         header('Location: /PetHouse/User/login');
         exit;
 }
-            // Gather fields from the form - CORRETTO con i nomi effettivi del form
+            
             $idPosition   = UHTTPMethods::post('idPosition') ?? null;
             $moreInfo     = UHTTPMethods::post('moreInfo') ?? '';
             $price        = UHTTPMethods::post('price');
@@ -738,7 +736,7 @@ public static function deleteHouse(int $id) {
     $id = Usession::getSessionElement('user');
     $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
     $reviews = $user->getReviewToMe();
-        // Calcolo media rating
+        // Calculate average rating
     $reviewsArray = $reviews->toArray();
     $total = 0;
     $count = 0;
@@ -860,11 +858,11 @@ public static function deleteHouse(int $id) {
             $foto = new Mphoto( $dati,$mimeType );
 
             
-            FPersistentManager::saveObj($foto); // Salva la foto nel database
+            FPersistentManager::saveObj($foto); 
             $user->setProfilePicture($foto);
-             // Associa la foto all'utente  
-        }         
-        FPersistentManager::saveObj($user);        
+             // Associate the photo with the user
+        }
+        FPersistentManager::saveObj($user);
         header('Location: /PetHouse/user/profile');
     
 }
