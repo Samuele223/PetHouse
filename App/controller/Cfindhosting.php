@@ -187,7 +187,7 @@ class CFindhosting{
                 
                 // Set success message and redirect to post detail
                 USession::setSessionElement('success_message', 'Offer submitted successfully! You will be notified of the response.');
-                header('Location: /PetHouse/findhosting/selectPost/' . $id_post);
+                header('Location: /PetHouse/review/deals/' );
                 exit;
                 
             } catch (Exception $e) {

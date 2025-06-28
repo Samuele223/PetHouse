@@ -59,14 +59,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center" style="margin-top: 30px;">
-                    <h1>
-                        Welcome 
-                        {if isset($username) && $username|@strlen > 0}
-                            {$username|escape}! How have you been?
-                        {else}
-                            to our website! Ready to love your pets?
-                        {/if}
-                    </h1>
+                    <h1 style="font-size:2.5em; font-weight:900; letter-spacing:1px; color:#FFD600;">
+                    {if isset($username) && $username|@strlen > 0}
+                        <span style="color:#222;">Welcome back,</span> <span style="color:#FFD600;">{$username|escape}!</span> <br>
+                        <span style="font-size:0.7em; color:#555;">How have you been?</span>
+                    {else}                   
+                        <span style="color:#222;">Welcome to</span> <span style="color:#FFD600;">PetHouse!</span> <br>
+                        <span style="font-size:0.7em; color:#555;">Ready to love your pets?</span>
+                    {/if}
+                </h1>
                 </div>
             </div>
         </div>       

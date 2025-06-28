@@ -157,6 +157,20 @@
                                 <h1 class="property-title pull-left">{$post->getTitle()}</h1>
                                 <span class="property-price pull-right">€ {$post->getPrice()}<span style="font-size: 16px; font-weight: normal;">&nbsp;/day</span></span>
                             </div>
+                            <div style="margin-bottom: 15px;">
+                                <b>Status:</b>
+                                {if $post->getBooked() == 'open'}
+                                    <span class="label label-success">Open</span>
+                                {elseif $post->getBooked() == 'booked'}
+                                    <span class="label label-warning">Booked</span>
+                                {elseif $post->getBooked() == 'finished'}
+                                    <span class="label label-danger">Closed</span>
+                                {elseif $post->getBooked() == 'expired'}
+                                    <span class="label label-danger">Expired</span>
+                                {else}
+                                    <span class="label label-default">Unknown</span>
+                                {/if}
+                            </div>
 
                             <!-- Box con i dettagli del post -->
                             <div class="panel panel-default" style="margin-top:20px;">
