@@ -162,7 +162,11 @@
                                                     {/if}
                                                 </div>
                                                 <div class="item-entry overflow">
-                                                    <h5><a href="/PetHouse/Post/view/{$post->getId()}" style="color: #2c3e50; font-weight: 600; text-decoration: none;">{$post->getTitle()}</a></h5>
+                                                 <h5>
+                                                        <a href="/PetHouse/Findhosting/selectpost/{$post->getId()}" style="color: #2c3e50; font-weight: 600; text-decoration: none;">
+                                                            {$post->getTitle()}
+                                                        </a>
+                                                    </h5>
                                                     <div class="dot-hr"></div>
                                                     
                                                     <!-- Price -->
