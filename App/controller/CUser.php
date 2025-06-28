@@ -249,7 +249,7 @@ public static function createHouse()
         $country = UHTTPMethods::post('country') ?? null;
         // Backend validation for required fields
         if (empty($title) || empty($description) || empty($address)) {
-            $view->showHomeForm('Proprietà, descrizione e indirizzo sono obbligatori.');
+            $view->showHomeForm('House name, description and address are required.');
             return;
         }
         $position = new MPosition($address, $description, $city, $province, $country, $user, $title);
