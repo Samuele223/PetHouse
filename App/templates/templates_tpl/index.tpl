@@ -235,125 +235,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>Top PetHouses</h2>
-                        <p>Best Pethouses in the last 30 days </p>
+                        <h2></h2>
+                        <p></p>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="proerty-th">
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-1.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Sunny Loft</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €30</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Cozy Den</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €40</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Urban Nest</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €50</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Pet Retreat</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €60</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-2.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Garden Flat</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €35</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-4.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Tiny Studio</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €45</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-two proerty-item">
-                                <div class="item-thumb">
-                                    <a href="#" onclick="return false;" style="cursor: pointer;"><img src="/PetHouse/App/templates/assets/img/demo/property-3.jpg"></a>
-                                </div>
-                                <div class="item-entry overflow">
-                                    <h5><a href="#" onclick="return false;" style="cursor: pointer;">Lakeview Room</a></h5>
-                                    <div class="dot-hr"></div>
-                                    <span class="pull-left"><b>Price per day:</b> €55</span>
-                                    <span class="proerty-price pull-right"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6 col-md-3 p0">
-                            <div class="box-tree more-proerty text-center">
-                                <div class="item-tree-icon">
-                                    <i class="fa fa-th"></i>
-                                </div>
-                                <div class="more-entry overflow">
-                                    <h5><a href="/PetHouse/Findhosting/searchHost" >CAN'T DECIDE ? </a></h5>
-                                    <h5 class="tree-sub-ttl">START SEARCHING FOR THE PERFECT HOUSE TODAY</h5>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    
                 </div>
             </div>
         </div>
