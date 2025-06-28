@@ -1,32 +1,65 @@
-Requisiti:
+# PetHouse
 
-Requisiti per l’installazione su server locali:
+## Requisiti
 
-    -Installare xampp (XAMPP Download) sulla macchina (compresi php, phpMyAdmin);
-    -Installare composer(Composer Download) sulla macchina.
+### Per l’installazione su server locali
 
-Guida all’installazione
+- **XAMPP** (inclusi PHP e phpMyAdmin)  
+  [Scarica XAMPP](https://www.apachefriends.org/index.html)
+- **Composer**  
+  [Scarica Composer](https://getcomposer.org/)
 
-    -Scaricare la cartella git;
+---
 
-    -Spostare la cartella git nella cartella htdocs/ in Xampp;
+## Guida all’installazione
 
-    -Aprire il terminal nella cartella dell’applicazione che di default è xampp/htdocs/PetHouse per Windows ed eseguire il comando composer install;
+1. **Scarica la cartella del progetto** (via git o zip).
+2. **Sposta la cartella** nella directory `htdocs/` di XAMPP:
+   ```
+   C:\xampp\htdocs\PetHouse
+   ```
+3. **Apri il terminale** nella cartella dell’applicazione e lancia:
+   ```bash
+   composer install
+   ```
+4. **Configura il database**  
+   Modifica `config/config.php` secondo le impostazioni del tuo XAMPP/MySQL.
+5. **Crea il database**  
+   Esegui il file `create_schema` (gestito dall'ORM Doctrine).
+6. **Abilita la riscrittura URL in Apache**
+   - Apri il file `httpd.conf` di Apache.
+   - Assicurati che la riga:
+     ```
+     LoadModule rewrite_module modules/mod_rewrite.so
+     ```
+     **non** abbia `#` all’inizio.
+   - Verifica che sia presente:
+     ```
+     AllowOverride All
+     ```
+7. **Avvia XAMPP**  
+   Attiva **Apache** e **MySQL**.
+8. **Avvia l’applicazione**  
+   Apri il browser e vai su:
+   ```
+   http://localhost/PetHouse
+   ```
 
-    -Cambiare i parametri in config/config.php in base alle impostazioni del proprio Xampp (e MySQL);
+---
 
-    -eseguire il file create_schema per creare il database il tutto gestito dall' ORM di doctrine.
+### Nota per utenti Linux
 
-    -Prima di procedere con il lancio dell'applicazione, assicurarsi di avere attiva la riscrittura delle URL nel server di Apache. Per controllare, aprire il file di configurazione httpd.conf di Apache e ricercare la seguente linea: "LoadModule rewrite_module modules/mod_rewrite.so" e assicurarsi non ci sia "#" a inizio riga. Inoltre, sempre nel file di configurazione, assicurarsi vi sia "AllowOverride All"
+Per far funzionare l’applicazione, **abilita i permessi di lettura, scrittura ed esecuzione** su tutti i file del progetto.  
+Esegui nel terminale:
+```bash
+chmod -R a+rwe /percorso-alla-cartella-PetHouse
+```
+Assicurati che anche la cartella `smarty/libs/templates_c` abbia i permessi corretti.
 
-    -Aprire XAMPP: attivare Apache e MySQL.
+---
 
-    -Aprire il browser e digitare nella barra degli indirizzi localhost/PetHouse per utilizzare l’applicazione.
+## Autori
 
-    -(Solo per gli utenti Linux) Per fare in modo che l’applicazione funzioni, è necessario abilitare i permessi di scrittura, lettura ed esecuzione su tutti i file presenti nell’app tramite il terminale. Per farlo si consiglia di usare il comando chmod -R a+rwe /percorso-alla-cartella-PetHouse. Controllare che tutti i file nelle cartelle abbiano i permessi abilitati. In caso contrario, è consigliabile utilizzare il comando prima indicato direttamente nelle cartelle interessate (prestare particolare attenzione ai file contenuti nella cartella smarty/libs/templates_c). Impostati tutti i permessi correttamente, l’applicazione dovrebbe funzionare a dovere.
-
-Creata da:
-
-    - [@Samuele233](https://github.com/Samuele233)
-    - [@Frozzo](https://github.com/Frozzo)
-    - [@rarats13](https://github.com/rarats13)
+- [@Samuele233](https://github.com/Samuele233)
+- [@Frozzo](https://github.com/Frozzo)
+- [@rarats13](https://github.com/rarats13)
