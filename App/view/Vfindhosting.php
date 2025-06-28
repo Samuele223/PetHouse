@@ -20,7 +20,7 @@ public function showForm()
 public function noPostFound()
 {
     $this->smarty->assign('message', 'No posts found for your search criteria.');
-    $this->smarty->display('no_posts_found.tpl'); // Use an actual template name
+    $this->smarty->display('no_posts_found.tpl'); 
 }
 public function showPost($post, $backUrl = '/PetHouse/')
 {
@@ -37,10 +37,10 @@ public function showPost($post, $backUrl = '/PetHouse/')
     public function showFormOffer($post)
     {
         $this->smarty->assign('post', $post);
-        // Pass post start and end dates for JS validation
+        
         $this->smarty->assign('post_start', $post->getDateIn()->format('Y-m-d'));
         $this->smarty->assign('post_end', $post->getDateOut()->format('Y-m-d'));
-        // Pass accepted pets for JS validation
+        
         $this->smarty->assign('accepted_pets', $post->getAcceptedPets());
         $this->smarty->display('formOffer.tpl');
     }
@@ -67,7 +67,7 @@ public function showforeignprofile($user, $loggedUser = false)
     $this->smarty->assign('email', $user->getEmail());
     $this->smarty->assign('phone', $user->getTel());
     $this->smarty->assign('loggedUser', $loggedUser); // Pass login status to template
-    // Se vuoi mostrare anche altre info, aggiungile qui
+    
     $this->smarty->display('foreign-profile.tpl');
 }
 }

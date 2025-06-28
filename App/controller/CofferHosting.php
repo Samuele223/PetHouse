@@ -41,14 +41,14 @@ class CofferHosting {
      */
     public static function createOffer() {
         if (CUser::isLogged()) {
-            // Verifica che i termini siano stati accettati
+            
             $termsAccepted = UHTTPMethods::post('terms_accepted') ?? null;
             if (!$termsAccepted) {
                 CofferHosting::showErrorAndForm('Devi accettare i termini e le condizioni.', null);
                 return;
             }
             
-            // Gather fields from the form - CORRETTO con i nomi effettivi del form
+           
             $idPosition   = UHTTPMethods::post('idPosition') ?? null;
             $moreInfo     = UHTTPMethods::post('moreInfo') ?? '';
             $price        = UHTTPMethods::post('price');

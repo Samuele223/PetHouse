@@ -5,7 +5,7 @@ class Vmanagerequest
     private $smarty;
     public  function __construct()
     {
-        // You can customize Smarty configuration here (e.g., singleton StartSmarty)
+        
         $this->smarty = StartSmarty::configuration();
     }
     public function showProfile(Muser $user)

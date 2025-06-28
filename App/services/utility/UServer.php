@@ -5,9 +5,7 @@
  */
 class UServer
 {
-    /**
-     * singleton class
-     */
+
     private static $instance=null;
 
     static function getInstance(){

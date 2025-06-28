@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../config/startsmarty.php';
 class VUser {
     private $smarty;
     public function __construct(){
-        // You can customize Smarty configuration here (e.g., singleton StartSmarty)
+        
         $this->smarty = StartSmarty::configuration();
     }
 
