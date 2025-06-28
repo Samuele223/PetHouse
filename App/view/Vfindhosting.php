@@ -54,7 +54,7 @@ public function showError($message)
     $this->smarty->assign('message', $message);
     $this->smarty->display('error.tpl'); 
 }
-public function showforeignprofile($user)
+public function showforeignprofile($user, $loggedUser = false)
 {
     $this->smarty->assign('user', $user);
     if ($user->getProfilePicture() === null) {
@@ -66,6 +66,7 @@ public function showforeignprofile($user)
     $this->smarty->assign('surname', $user->getSurname());
     $this->smarty->assign('email', $user->getEmail());
     $this->smarty->assign('phone', $user->getTel());
+    $this->smarty->assign('loggedUser', $loggedUser); // Pass login status to template
     // Se vuoi mostrare anche altre info, aggiungile qui
     $this->smarty->display('foreign-profile.tpl');
 }

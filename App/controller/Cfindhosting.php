@@ -204,7 +204,6 @@ class CFindhosting{
     }
     public static function viewprofile($id_user) //shows the profile of a user, given the id_user, whothout having the costraint of being logged in
     {
-    
         $user = FPersistentManager::retriveObj(Muser::getEntity(),$id_user);
         if (!$user) {
             require_once __DIR__ . '/../view/Verror.php';
@@ -212,8 +211,13 @@ class CFindhosting{
             $view->show404();
             return;
         }
+        // Ensure session is started before checking
+        if (USession::getSessionStatus() == PHP_SESSION_NONE) {
+            USession::getInstance();
+        }
+        $loggedUser = USession::isSetSessionElement('user') && USession::getSessionElement('user') !== null;
         $view = new Vfindhosting();
-        $view->showforeignprofile($user);
+        $view->showforeignprofile($user, $loggedUser);
     }
 
 
