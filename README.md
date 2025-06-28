@@ -27,6 +27,6 @@ Guida all’installazione
 
 Creata da:
 
-    -Samuele233
-    -Frozzo
-    -rarats13
+    -@[Samuele233](https://github.com/Samuele233)
+    -@[Frozzo](https://github.com/Frozzo)
+    -@[rarats13](https://github.com/rarats13)
