@@ -272,7 +272,7 @@
                                     {/section}
                                 {else}
                                     <div class="col-md-12">
-                                        <p>Non hai ancora creato annunci. <a href="/PetHouse/user/addHouse">Crea il tuo primo annuncio</a>.</p>
+                                        <p>There are no corrisponding posts for your parameters. </p>
                                     </div>
                                 {/if}
                             </div>

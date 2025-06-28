@@ -186,7 +186,7 @@ class CFindhosting{
                 FPersistentManager::saveObj($offer);
                 
                 // Set success message and redirects to review/deals
-                USession::setSessionElement('success_message', 'Offer submitted successfully! You will be notified of the response.');
+               
                 header('Location: /PetHouse/review/deals/' );
                 exit;
                 

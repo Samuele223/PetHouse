@@ -269,10 +269,10 @@ public static function createHouse()
                 }
             }
             if (!$uploaded) {
-                echo 'non si è caricato nulla';
+                
             }
         } else {
-            echo 'non si è caricato nulla';
+           
         }
         if ($check) {
             $view->home($user->getUsername());
@@ -518,13 +518,13 @@ public static function deleteHouse(int $id) {
         $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
         
         if (!$house) {
-            USession::setSessionElement('success_message', 'House not found.');
+            
             header('Location: /PetHouse/User/myHouses');
             exit;
         }
         
         if ($house->getOwner()->getId() != $userId) {
-            USession::setSessionElement('success_message', 'You do not have permission to delete this house.');
+            
             header('Location: /PetHouse/User/myHouses');
             exit;
         }
@@ -550,14 +550,14 @@ public static function deleteHouse(int $id) {
         $result = FPersistentManager::deleteObj($house);
         
         if ($result) {
-            USession::setSessionElement('success_message', 'House deleted successfully.');
+            
         } else {
-            USession::setSessionElement('success_message', 'Failed to delete house. Please try again.');
+            
         }
     } catch (Exception $e) {
         // Log the error with more details
         error_log('Error deleting house: ' . $e->getMessage() . ' - ' . $e->getTraceAsString());
-        USession::setSessionElement('success_message', 'An error occurred: ' . $e->getMessage());
+        
     }
 
     header('Location: /PetHouse/User/myHouses');
@@ -656,7 +656,7 @@ public static function deleteHouse(int $id) {
             FPersistentManager::saveObj($user);
             
             // Redirect with success message
-            USession::getInstance()->setSessionElement('success_message', 'Your verification request has been submitted successfully! We will review your documents soon.');
+            USession::getInstance()->setSessionElement('success_message', 'Your verification request has been submitted.');
             header('Location: /PetHouse/user/profile');
             exit;
         } else {
