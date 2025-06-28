@@ -1,5 +1,7 @@
 # PetHouse
 
+![Logo PetHouse](App/templates/assets/img/icona_footer.png)
+
 ## Contenuti
 
 ## Cos'è PetHouse
