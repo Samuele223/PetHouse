@@ -1,70 +1,28 @@
-<!-- Footer area-->
-        <div class="footer-area">
+Requisiti:
 
-            <div class=" footer">
-                <div class="container">
-                    <div class="row justify-content-center" style="display: flex; justify-content: center;">
+Requisiti per l’installazione su server locali:
 
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>About us </h4>
-                                <div class="footer-title-line"></div>
+    Installare xampp (XAMPP Download) sulla macchina (compresi php, phpMyAdmin);
+    Installare composer(Composer Download) sulla macchina.
 
-                               <a href="/PetHouse/">
-    <img src="/PetHouse/App/templates/assets/img/icona_footer-3.png" alt="" class="wow pulse" data-wow-delay="1s">
-</a>
-                                <p>Sadly, none of this is real. It's just a project... sorry 🥸</p>
-                                <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> Via degli Animali 13, Roma</li>
-                                    <li><i class="pe-7s-mail strong"> </i> UNIVAQ@university</li>
-                                    <li><i class="pe-7s-call strong"> </i> +123 456 789</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer">
-                                <h4>Quick links </h4>
-                                <div class="footer-title-line"></div>
-                                <ul class="footer-menu">
-                                    <li><a href="/PetHouse/">Home</a>  </li> 
-                                    <li><a href="/PetHouse/Findhosting/searchHost">Properties</a>  </li> 
-                                    <li><a href="/PetHouse/user/createHouse">Register your house </a></li> 
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
-                            <div class="single-footer news-letter">
-                                <h4>Stay in touch</h4>
-                                <div class="footer-title-line"></div>
-                                <p>Even tho none of this is real, we can still keep in touch! </p>
+Guida all’installazione
 
-                                <div class="social pull-center"> 
-                                    <ul>
-                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://google.com/" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
-                                    </ul> 
-                                </div>
-                            </div>
-                        </div>
+    Scaricare la cartella git;
 
-                    </div>
-                </div>
-            </div>
+    Spostare la cartella git nella cartella htdocs/ in Xampp;
 
-            <div class="footer-copy text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-center">
-                            <span> (C) <a href="/PetHouse/App/templates/assets/img/cfe88934-bb52-41be-95a3-9f63f0cca6df.jpg">UNIVAQ</a> , Tutti i diritti sono riservati  </span> 
-                        </div> 
-                        <div class="bottom-menu pull-right"> 
+    Aprire il terminal nella cartella dell’applicazione che di default è xampp/htdocs/PetHouse per Windows ed eseguire il comando composer install;
 
-                        </div>
-                    </div>
-                </div>
-            </div>
+    Cambiare i parametri in config/config.php in base alle impostazioni del proprio Xampp (e MySQL);
 
-        </div>
+    eseguire il file create_schema per creare il database il tutto gestito dall' ORM di doctrine.
+
+    Prima di procedere con il lancio dell'applicazione, assicurarsi di avere attiva la riscrittura delle URL nel server di Apache. Per controllare, aprire il file di configurazione httpd.conf di Apache e ricercare la seguente linea: "LoadModule rewrite_module modules/mod_rewrite.so" e assicurarsi non ci sia "#" a inizio riga. Inoltre, sempre nel file di configurazione, assicurarsi vi sia "AllowOverride All"
+
+    Aprire XAMPP: attivare Apache e MySQL.
+
+    Aprire il browser e digitare nella barra degli indirizzi localhost/PetHouse per utilizzare l’applicazione.
+
+    (Solo per gli utenti Linux) Per fare in modo che l’applicazione funzioni, è necessario abilitare i permessi di scrittura, lettura ed esecuzione su tutti i file presenti nell’app tramite il terminale. Per farlo si consiglia di usare il comando chmod -R a+rwe /percorso-alla-cartella-PetHouse. Controllare che tutti i file nelle cartelle abbiano i permessi abilitati. In caso contrario, è consigliabile utilizzare il comando prima indicato direttamente nelle cartelle interessate (prestare particolare attenzione ai file contenuti nella cartella smarty/libs/templates_c). Impostati tutti i permessi correttamente, l’applicazione dovrebbe funzionare a dovere.
+
+Creata da:
