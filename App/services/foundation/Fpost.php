@@ -90,7 +90,7 @@ class Fpost
 
     return $posts;
 }*/
-public static function findPostsByAcceptedPet(string $pet): array  //sembra funzionare
+public static function findPostsByAcceptedPet(string $pet): array  
 {
     $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
 
@@ -98,7 +98,7 @@ public static function findPostsByAcceptedPet(string $pet): array  //sembra funz
     $sql = 'SELECT * FROM post WHERE JSON_CONTAINS_PATH(accepted_pets, \'one\', :json_path)';
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindValue(':json_path', '$."' . $pet . '"');  // Esempio: $.DOG
+    $stmt->bindValue(':json_path', '$."' . $pet . '"');  
     $resultSet = $stmt->executeQuery();
 
     $rows = $resultSet->fetchAllAssociative();
@@ -122,7 +122,7 @@ public static function getReportedPosts(): array
     );
     return $query->getResult();
 }
-public static function findPostsByAcceptedPets(array $requiredPets): array  //funziona solo se requiredpets è un array associativo con chiavi i nomi di pet in all caps
+public static function findPostsByAcceptedPets(array $requiredPets): array  
 {
     $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
 

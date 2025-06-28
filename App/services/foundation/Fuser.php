@@ -14,7 +14,6 @@ class FUser{
 
 
 
-    // immagino che sono verified perchè hanno la value impostata a 1
 
     public static function loadVerifiedUsers(): array|null{
 
@@ -35,7 +34,7 @@ class FUser{
      * @return MPosition[]|null  Array of MPosition objects, or null if none found
      */
     public static function getHousesFromUser(int $userId): ?array {
-        // Adjust the field name 'owner_id' if your DB uses a different FK column lmao chat gippitti
+        // Adjust the field name 'owner_id' if your DB uses a different FK column 
         $positions = FEntityManager::getInstance()
             ->listOfObj(MPosition::getEntity(), 'owner', $userId);
 

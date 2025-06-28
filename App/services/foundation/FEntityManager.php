@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../../../bootstrap.php');
-//Signleton da implementare per ora faccio tutto static
+
 class FEntityManager
 {
 private static $instance;
@@ -166,7 +166,7 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
         return null;
     }
 }
- public static function saveObject($obj) //non l ho controllata
+ public static function saveObject($obj) 
     {
         try{
             self::$entityManager->getConnection()->beginTransaction();
@@ -210,7 +210,7 @@ public static function getObjByTwoAttribute($class, $col1, $col2, $val1, $val2)
 
             $result = $query->getResult();
             if(count($result) > 0){
-                return $result[0]; // return the user object
+                return $result[0]; 
             }else{
                 return null;
             }

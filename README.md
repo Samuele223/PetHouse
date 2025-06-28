@@ -1,5 +1,31 @@
 # PetHouse
 
+![Logo PetHouse](App/templates/assets/img/icona_footer.png)
+
+## Contenuti
+
+## Cos'è PetHouse
+
+PetHouse è un’applicazione web progettata per l’esame di Programmazione per il Web del corso triennale di Ingegneria Informatica dell’Università degli Studi dell’Aquila.
+L’applicazione utilizza il pattern MVC (Model-View-Controller) e si serve di PHP e Smarty.
+
+## Funzioni Principali
+
+PetHouse permette di mettere in contatto proprietari di casa che mettono a disposizione il loro tempo e spazio per ospitare animali di compagnia,
+con chi ha necessità di lasciare il proprio animale per alcuni giorni.
+
+L' applicazione permette di:
+  -  Creare un accout e fare login.
+  -  Cercare un post con filtri come città e animali richiesti.
+  -  Offrire disponibilità per ospitare uno o più animali da compagia.
+  -  Lasciare recensioni.
+  -  Gestire richieste di prenotazioni.
+  -  L' admin gestisce reclami riguardanti i post.
+  -  L' admin assegna il verificato ad utenti che ne fanno richiesta.
+
+  
+
+
 ## Requisiti
 
 ### Per l’installazione su server locali
