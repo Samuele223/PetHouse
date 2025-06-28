@@ -73,10 +73,13 @@
         </nav>
         <!-- End of nav bar -->
 
-        <div class="page-head"> 
+        <div class="page-head">
             <div class="container">
                 <div class="row">
                     <div class="page-head-content">
+                            <a href="/PetHouse/Admin/listReportedPosts" class="btn btn-default" style="margin-bottom: 15px; background: #f8f9fa; border: 1px solid #ddd; color: #333; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;">
+                                 <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back to Reported Posts
+                              </a>
                         <h1 class="page-title">Reported Post Details </h1>               
                     </div>
                 </div>
@@ -206,7 +209,7 @@
                     {assign var="reporter" value=$report->getReporter()}
                     <li class="list-group-item" style="display: flex; align-items: center;">
                         {if $reporter}
-                            <a href="/PetHouse/Admin/showuserProfile/{$reporter->getId()}" style="display:inline-block;">
+                            <a href="/PetHouse/Admin/showuserProfile/{$reporter->getId()}?postId={$post->getId()}" style="display:inline-block;">
     {if $reporter->getProfilePicture()}
         <img src="/PetHouse/image/showImage/{$reporter->getProfilePicture()->getId()}" alt="Reporter profile" style="width:32px;height:32px;border-radius:50%;margin-right:10px;">
     {else}
@@ -265,7 +268,7 @@
                                         <div class="owner-info-box" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
                                             <div class="owner-header" style="text-align: center; margin-bottom: 15px;">
                                                 <div class="owner-avatar" style="margin-bottom: 10px;">
-                                                    <a href="/PetHouse/Admin/showuserProfile/{$owner->getId()}">
+                                                    <a href="/PetHouse/Admin/showuserProfile/{$owner->getId()}?postId={$post->getId()}">
                                                         {if $owner->getProfilePicture()}
                                                             <img src="/PetHouse/image/showImage/{$owner->getProfilePicture()->getId()}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #f8f9fa;" alt="Owner profile picture">
                                                         {else}

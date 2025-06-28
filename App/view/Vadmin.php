@@ -64,7 +64,7 @@ public function showReportedPostDetail($post)
     $this->smarty->display('reported_post_detail.tpl');
 }
 
-public function showUserProfile($user)
+public function showUserProfile($user,$postId = null)
 {
     $this->smarty->assign('user', $user);
     $this->smarty->assign('name', $user->getName());
@@ -73,7 +73,9 @@ public function showUserProfile($user)
     $pic = $user->getProfilePicture();
     $this->smarty->assign('pic', $pic ? $pic->getId() : 0);
     $this->smarty->assign('phone', $user->getTel());
-
+        if ($postId) {
+        $this->smarty->assign('postId', $postId);
+    }
 
     $this->smarty->display('foreign_profile_admin.tpl');
 

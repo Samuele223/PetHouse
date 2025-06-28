@@ -127,8 +127,9 @@ public static function showuserProfile($userId)
         $view->show404();
         return;
     }
+    $postId = isset($_GET['postId']) ? $_GET['postId'] : null;
     $view = new VAdmin();
-    $view->showUserProfile($user);
+    $view->showUserProfile($user, $postId);
 }
 
 

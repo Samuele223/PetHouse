@@ -90,6 +90,9 @@
 
                         <form action="" method="">
                             <div class="profiel-header">
+                            <a href="/PetHouse/Admin/reportedPostDetail/{$postId}" class="btn btn-default" style="margin-bottom: 15px; background: #f8f9fa; border: 1px solid #ddd; color: #333; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600;">
+                              <i class="fa fa-arrow-left" style="margin-right: 5px;"></i>Back to Reported Post
+                                </a>
                                 <h3>
                                     <b></b> profile of {$name} <br>
                                     <small>All about {$name}</small>
