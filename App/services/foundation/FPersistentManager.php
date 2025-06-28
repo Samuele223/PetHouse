@@ -25,10 +25,10 @@ class FPersistentManager{
         return self::$instance;
     }
 
-    // metodi che usa anche agorà
+    
 
 
-    public static function retriveObj($Mclass, $id): object|null // penso sia da validare l' imput delle funzioni che prendono in input il nome di una classe
+    public static function retriveObj($Mclass, $id): object|null 
     {
         $result = FEntityManager::getInstance()::retrieveObj($Mclass,$id);
         return $result;
@@ -105,8 +105,7 @@ public static function deletePost($postId)
 
 
 
-    // sta roba penso sia da toglie non la capisco poi mi spiega andrea: l'ho tolta tranquillo si duplica tutto e va ben così__________________-_______-----___--_-----_----_--_-_
-
+ 
      // ----- REPOSITORY ADMIN -----
 
 
@@ -114,7 +113,7 @@ public static function deletePost($postId)
 
 
 
-    // ----- REPOSITORY UTENTE (che sarebbero i metodi che sono utili) -----
+    // ----- REPOSITORY UTENTE  -----
 
      /**
      * getHousesFromUser
@@ -147,7 +146,7 @@ public static function deletePost($postId)
     {  
         $obj = FEntityManager::getInstance()->retrieveObj($Mclass,$id);
         if(!$obj){
-            throw new EntityNotFoundException("Oggetto di tipo $Mclass con id $id non trovato."); // faccio lanciare un eccezione perche se non esite l' ogetto non lo posso cancellare
+            throw new EntityNotFoundException("Oggetto di tipo $Mclass con id $id non trovato."); 
         }
         FEntityManager::getInstance()->deleteObj($obj);
     }
@@ -206,7 +205,6 @@ public static function deletePost($postId)
         return Fpost::listOfPostFilterDate($datain,$dataout); 
     }
     
-    //per far funzionare questo schifo accepted pet deve essere un array associativo dove ['ANIMALE'=>3(numero di volte che mi serve l' animale)]
     public static function serachPost(string $City, string $province, DateTime $datain, DateTime $dataout, array $acceptedPets)
     {
         
