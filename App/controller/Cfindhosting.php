@@ -8,7 +8,7 @@ class CFindhosting{
     public static function searchHost()  //post request 
     {
         try {
-            // Initialize variables with null/default values
+            // Initialize variables with null/default values, pet's included
             $city = null;
             $province = null;
             $datain = null;
@@ -43,7 +43,7 @@ class CFindhosting{
 
             // Handle pets - only process if the arrays exist and aren't empty
             if (isset($_POST['pets']) && is_array($_POST['pets']) && !empty($_POST['pets']) &&
-                isset($_POST['pet_counts']) && is_array($_POST['pet_counts']) && !empty($_POST['pet_counts'])) {
+                isset($_POST['pet_counts']) && is_array($_POST['pet_counts']) && !empty($_POST['pet_counts'])) { // Check if both arrays exist and are not empty
 
                 $pets = UHTTPMethods::post('pets');
                 $counts = UHTTPMethods::post('pet_counts');
@@ -65,7 +65,7 @@ class CFindhosting{
                 }
             }
 
-            // Add this validation before calling the filter method
+            // Add this validation before calling the filter method, so that end date cannot be before start date
             if ($datain && $dataout) {
                 if ($dataout < $datain) {
                     $view = new Vfindhosting();
@@ -77,7 +77,7 @@ class CFindhosting{
             // Call the search function with our parameters
             $startDate = $datain ? $datain->format('Y-m-d') : null;
             $endDate = $dataout ? $dataout->format('Y-m-d') : null;
-            $result = FPersistentManager::filterPost(
+            $result = FPersistentManager::filterPost( //call to the persistent manager
                 $acceptedPets,
                 $province, 
                 $city,
@@ -99,16 +99,16 @@ class CFindhosting{
             error_log("Search error: " . $e->getMessage());
             $view = new Vfindhosting();
             // Show the list as empty instead of error page
-            $view->showPostList([]);
+            $view->showPostList([]); //passes the parameter into the view function
             return [];
         }
     }
     public static function selectPost(int $id)
     {
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //cosi prendo dalla query string della url l' id del post
+        $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //so that I get the id of the post from the query string of the url
          if (!$post) {
              require_once __DIR__ . '/../view/Verror.php';
-            $view = new Verror();
+            $view = new Verror(); //shows error 404 post not found
             $view->show404();
              return;
     }
@@ -119,28 +119,28 @@ class CFindhosting{
         }
         
         $view = new Vfindhosting();
-        $view->showPost($post, $backUrl);
+        $view->showPost($post, $backUrl); //shows the post details and a back button to return to the search results
     }
 
-    public static function bookPost(int $id) //ritorna un form per la proposta relariva ad un post
+    public static function bookPost(int $id) //shows a form to create an offer related to a post
  {  
-    if (!CUser::isLogged()) {
+    if (!CUser::isLogged()) { //only works if user is logged in, if not it's redirected to the login page
         header('Location: /PetHouse/user/login');
         exit;
     }
     $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id);
     if (!$post) {
         require_once __DIR__ . '/../view/Verror.php';
-        $view = new Verror();
+        $view = new Verror(); //if user delets the post while another user is trying to book it, shows post not found error
         $view->show404();
         return;
     }
     $view = new Vfindhosting();
-    $view->showFormOffer($post);  
+    $view->showFormOffer($post);  //finally shows the form to create an offer related to the post
 }
-    public static function createOffer($id_post) //è una post  body json bisogna fare dei controlli alle date e qualcosina in javascript per tradurre i nomi dei pet
+    public static function createOffer($id_post) //function to actually create an offer related to a post, after the form is shown
     {   
-        if(CUser::isLogged())
+        if(CUser::isLogged()) //additional check to ensure user is logged in
         {
             try {
                 Usession::getInstance();
@@ -162,10 +162,10 @@ class CFindhosting{
 
                 $requiredPets = array_combine($requiredPetss, $countPets);
 
-                $client = FPersistentManager::retriveObj(Muser::getEntity(), $id_user);
-                $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+                $client = FPersistentManager::retriveObj(Muser::getEntity(), $id_user); //fetch the user who is creating the offer
+                $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post); //fetch the post related to the offer
                 
-                // Validate dates against post availability
+                // Validate dates against post availability, so tht the offer dates are within the post's available period
                 if ($datein < $post->getDateIn() || $dateout > $post->getDateOut()) {
                     USession::setSessionElement('error_message', 'Selected dates are outside the available period for this post.');
                     header('Location: /PetHouse/findhosting/bookPost/' . $id_post);
@@ -185,12 +185,12 @@ class CFindhosting{
                 $offer = new Moffer($datein,$dateout,$post,$requiredPets, $client);
                 FPersistentManager::saveObj($offer);
                 
-                // Set success message and redirect to post detail
+                // Set success message and redirects to review/deals
                 USession::setSessionElement('success_message', 'Offer submitted successfully! You will be notified of the response.');
                 header('Location: /PetHouse/review/deals/' );
                 exit;
                 
-            } catch (Exception $e) {
+            } catch (Exception $e) { //gives error if something goes wrong, like database connection or validation errors
                 error_log("Offer creation error: " . $e->getMessage());
                 USession::setSessionElement('error_message', 'An error occurred while submitting your offer. Please try again.');
                 header('Location: /PetHouse/findhosting/bookPost/' . $id_post);
@@ -202,10 +202,9 @@ class CFindhosting{
             exit;
         }
     }
-    public static function viewprofile($id_user)
+    public static function viewprofile($id_user) //shows the profile of a user, given the id_user, whothout having the costraint of being logged in
     {
-    if(CUser::isLogged())
-    {
+    
         $user = FPersistentManager::retriveObj(Muser::getEntity(),$id_user);
         if (!$user) {
             require_once __DIR__ . '/../view/Verror.php';
@@ -216,10 +215,8 @@ class CFindhosting{
         $view = new Vfindhosting();
         $view->showforeignprofile($user);
     }
-    else{
-        header('Location: PetHouse/user/login');
-    }
-}
+
+
 
 
 
