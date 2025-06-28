@@ -26,3 +26,7 @@ Guida all’installazione
     (Solo per gli utenti Linux) Per fare in modo che l’applicazione funzioni, è necessario abilitare i permessi di scrittura, lettura ed esecuzione su tutti i file presenti nell’app tramite il terminale. Per farlo si consiglia di usare il comando chmod -R a+rwe /percorso-alla-cartella-PetHouse. Controllare che tutti i file nelle cartelle abbiano i permessi abilitati. In caso contrario, è consigliabile utilizzare il comando prima indicato direttamente nelle cartelle interessate (prestare particolare attenzione ai file contenuti nella cartella smarty/libs/templates_c). Impostati tutti i permessi correttamente, l’applicazione dovrebbe funzionare a dovere.
 
 Creata da:
+
+    Samuele233
+    Frozzo
+    rarats13
