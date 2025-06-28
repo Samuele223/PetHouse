@@ -93,7 +93,7 @@ class Mverification
     public function removeDocument(Mphoto $document): self
     {
         if ($this->documents->removeElement($document)) {
-            // Imposta a null il lato proprietario
+            
             if ($document->getVerification() === $this) {
                 $document->setVerification(null);
             }

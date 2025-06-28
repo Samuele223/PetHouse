@@ -25,11 +25,6 @@ class CReport {
                     $currentReports = $reportedPost->getNumReport();
                     $reportedPost->setNumReport($currentReports !== null ? $currentReports + 1 : 1);
                     FPersistentManager::saveObj($reportedPost);
-                    
-                    // Set success message
-                    USession::getInstance();
-                    USession::setSessionElement('success_message', 'Thank you for your report. We will review it shortly.');
-                    
                     // Get the stored redirect URL or default to post view
                     $redirectUrl = USession::isSetSessionElement('report_redirect_url') ? 
                         USession::getSessionElement('report_redirect_url') : 

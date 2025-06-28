@@ -1,5 +1,4 @@
 <?php
-//DA SISTEMARE, non mi trova acceptedPet quindi da errore + fare verifica su prova, vedere anche per quanto riguarda la gestione delle date automatica che è UNTESTED
 
 
 
@@ -49,13 +48,13 @@ private DateTime $dateout;
 
 
 
-// 2) Nel costruttore inizializzo $this->date
+
 public function __construct(string $desc, array $acceptedPets, float $price, string $title, string $info, Muser $seller, MPosition $house, DateTime $datein, DateTime $dateout)
 {
     $this->reportreceived = new ArrayCollection();
     $this->offers = new ArrayCollection();
     $this->description = $desc;
-    $this->addAcceptedPets($acceptedPets); //è un array 
+    $this->addAcceptedPets($acceptedPets); 
     $this->price = $price;
     $this->title = $title;
     $this->moreinfo = $info;
@@ -63,8 +62,7 @@ public function __construct(string $desc, array $acceptedPets, float $price, str
     $this->house = $house;
     $this->datein = $datein;
     $this->dateout = $dateout;
-    $this->booked = 'open'; // inizialmente il post è aperto, quindi non prenotato
-    
+    $this->booked = 'open'; 
 }
 
 
@@ -91,7 +89,6 @@ private static $entity = Mpost::class;
 
 
 
-// 3) Metodo per validare le date forse serve
 
 
 public function getId(): int
@@ -177,12 +174,12 @@ public function setMoreInfo(string $info): void
     $this->moreinfo = $info;
 }
 
-public function setHouse(MPosition $house): void //new function to set the house after the creation of a post, and to connect it to the associated location
+public function setHouse(MPosition $house): void 
 {
     $this->house = $house;
 }
 
-public function setSeller(Muser $seller): void //seller because non so come stracazzo chiamarlo se no, position ha già getOwner, I don't have inventiva
+public function setSeller(Muser $seller): void 
 {
     $this->seller = $seller;
 }
@@ -218,7 +215,7 @@ public function addAcceptedPets(array $pets): void
             $counts[$petKey] = $n;
         }
     }
-    // sostituisci completamente l'array
+    
     $this->acceptedPets = $counts;
 }
 
@@ -226,7 +223,7 @@ public function addAcceptedPets(array $pets): void
     /**
      * Rimuove un AcceptedPet dalla lista.
      */
-    public function removeAcceptedPet(array $pet): void // non so da rivedere
+    public function removeAcceptedPet(array $pet): void 
     {
 
     }

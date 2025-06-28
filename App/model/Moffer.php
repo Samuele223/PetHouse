@@ -13,7 +13,7 @@ class Moffer
 #[ORM\Id, ORM\Column, ORM\GeneratedValue]
 private int $id;
 
-#[ORM\Column(enumType:stateoffer::class,name:'state')] //ok
+#[ORM\Column(enumType:stateoffer::class,name:'state')] 
 private stateoffer $state;
 
 #[ORM\Column(type:'datetime')]
