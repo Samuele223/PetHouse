@@ -16,7 +16,7 @@ con chi ha necessità di lasciare il proprio animale per alcuni giorni.
 
 L' applicazione permette di:
   -  Creare un accout e fare login.
-  -  Cercare un post con filtri come città e animamli richiesti.
+  -  Cercare un post con filtri come città e animali richiesti.
   -  Offrire disponibilità per ospitare uno o più animali da compagia.
   -  Lasciare recensioni.
   -  Gestire richieste di prenotazioni.
