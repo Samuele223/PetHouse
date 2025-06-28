@@ -12,7 +12,7 @@
         private static $instance;
 
         private function __construct() {
-            session_set_cookie_params(COOKIE_EXP_TIME); //set the duration of the session cookie, ora sta nel file di config come costante che prima non andav
+            session_set_cookie_params(COOKIE_EXP_TIME); 
             session_start(); //start the session
         }
     
