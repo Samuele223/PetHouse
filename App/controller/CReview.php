@@ -81,6 +81,6 @@ public static function savereview($id_reviewed)
     FpersistentManager::saveObj($review);
 
 
-    header('Location: /PetHouse/');
+    header('Location: /PetHouse/findhosting/viewprofile/' . $reviewed->getId());
 }
 }

@@ -266,7 +266,10 @@
                                         <div class="col-md-4 p0 offer-item status-{$offer->getState()->name|lower}">
                                             <div class="box-two proerty-item">
                                                 <div class="item-entry overflow">
-                                                    <h5>Offer for: <a href="/PetHouse/Post/view/{$offer->getPost()->getId()}">{$offer->getPost()->getTitle()}</a></h5>
+                                                    <h5>
+                                                        Offer for: 
+                                                        <a href="/PetHouse/Post/view/{$offer->getPost()->getId()}">{$offer->getPost()->getTitle()}</a>
+                                                    </h5>
                                                     <div class="dot-hr"></div>
                                                     <span class="pull-left"><b>Check-in:</b> {$offer->getDateofferin()|date_format:"%d/%m/%Y"}</span><br>
                                                     <span class="pull-left"><b>Check-out:</b> {$offer->getDateofferout()|date_format:"%d/%m/%Y"}</span><br>
@@ -275,7 +278,17 @@
                                                             {$pet} ({$count}){if !$smarty.foreach.pets.last}, {/if}
                                                         {/foreach}
                                                     </span><br>
-                                                    <span class="pull-left"><b>State:</b> {$offer->getState()->name}</span>
+                                                    <span class="pull-left"><b>State:</b> {$offer->getState()->name}</span><br>
+                                                    {* --- NUOVO BLOCCO: Owner username e tasto profilo --- *}
+                                                    {assign var="owner" value=$offer->getPost()->getSeller()}
+                                                    <span class="pull-left" style="margin-top:5px;">
+                                                        <b>Owner:</b> 
+                                                        <span style="color:#337ab7;">{$owner->getUsername()}</span>
+                                                        <a href="/PetHouse/findhosting/viewprofile/{$owner->getId()}" class="btn btn-info btn-xs" style="margin-left:8px; border-radius:15px;">
+                                                            <i class="fa fa-user"></i> View profile
+                                                        </a>
+                                                    </span>
+                                                    {* --- FINE BLOCCO --- *}
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">
                                                             {if $offer->getState()->name|lower == 'finished'}
@@ -343,6 +356,29 @@
                                                     <span class="pull-left"><b>Price:</b> € {$post->getPrice()}</span><br>
                                                     <span class="pull-left"><b>Status:</b> {$post->getBooked()|capitalize}</span><br>
                                                     <span class="pull-left"><b>Description:</b> {$post->getDescription()|truncate:80}</span>
+                                                    
+                                                    {* --- Mostra username e tasto profilo SOLO se booked o finished --- *}
+                                                    {if $post->getBooked()|lower == 'booked' || $post->getBooked()|lower == 'finished'}
+                                                        {assign var="bookedOffer" value=null}
+                                                        {foreach from=$post->getOffers() item=offer}
+                                                            {if $offer->getState()->name|lower == 'accepted' || $offer->getState()->name|lower == 'finished'}
+                                                                {assign var="bookedOffer" value=$offer}
+                                                                {break}
+                                                            {/if}
+                                                        {/foreach}
+                                                        {if $bookedOffer}
+                                                            {assign var="client" value=$bookedOffer->getClient()}
+                                                            <div style="margin-top:8px;">
+                                                                <b>Booked by:</b>
+                                                                <span style="color:#337ab7;">{$client->getUsername()}</span>
+                                                                <a href="/PetHouse/findhosting/viewprofile/{$client->getId()}" class="btn btn-info btn-xs" style="margin-left:8px; border-radius:15px;">
+                                                                    <i class="fa fa-user"></i> View profile
+                                                                </a>
+                                                            </div>
+                                                        {/if}
+                                                    {/if}
+                                                    {* --- FINE BLOCCO --- *}
+
                                                     <div class="property-icon">
                                                         <div class="dealer-action pull-right">
                                                             <a href="/PetHouse/user/yourpost/{$post->getId()}" class="btn btn-primary btn-block" style="border-radius: 25px; font-weight: bold; transition: background 0.2s;">
@@ -367,6 +403,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="text-center" style="margin:20px 0;">
+                    <button id="prev-page" class="btn btn-default" type="button" disabled>Previous</button>
+                    <span id="page-info" style="margin:0 10px;">Page 1</span>
+                    <button id="next-page" class="btn btn-default" type="button">Next</button>
                 </div> 
                 </div>              
             </div>
@@ -570,22 +611,6 @@
             }
         });
         </script>
-        <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var select = document.getElementById('items_per_page');
-    select.addEventListener('change', function() {
-        var perPage = parseInt(this.value, 10);
-        document.querySelectorAll('.offer-item, .post-item').forEach(function(item, idx) {
-            if (idx < perPage) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-    select.dispatchEvent(new Event('change'));
-});
-</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

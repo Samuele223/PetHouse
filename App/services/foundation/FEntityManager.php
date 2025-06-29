@@ -82,7 +82,7 @@ public static function retrieveObjNotOnId($class, $columnName, $attribute)
  * 
  * @return array|null An array of matching objects, or null if an error occurs.
  * 
- * mi fa ridere che invece di objectList da agora noi l'abbiamo chiamata listOfObj, spassoso
+ * 
  */ 
 public static function listOfObj($class, $columName, $value): array|null
 {

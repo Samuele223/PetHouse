@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if(finishBtn){
         finishBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            document.getElementById('houseForm').submit();
+            document.getElementById('houseform').submit();
         });
     }
 });
