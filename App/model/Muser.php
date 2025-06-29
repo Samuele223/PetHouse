@@ -53,7 +53,7 @@ class Muser
     #[ORM\OneToMany(targetEntity: Mreview::class, mappedBy: 'reviewer')]
     private ?Collection $meToReview=null;
 
-    #[ORM\OneToMany(targetEntity: MPosition::class, mappedBy: 'owner')]
+    #[ORM\OneToMany(targetEntity: Mposition::class, mappedBy: 'owner')]
     private ?Collection $houses=null;
 
     #[ORM\OneToMany(targetEntity: Mreport::class, mappedBy: 'reporter')]

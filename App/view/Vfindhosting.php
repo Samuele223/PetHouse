@@ -11,7 +11,7 @@ private $smarty;
 public function showPostList($result)
 {
     $this->smarty->assign('posts', $result);
-    $this->smarty->display('Listofposts.tpl');
+    $this->smarty->display('listofposts.tpl');
 }
 public function showForm()
 {
@@ -32,7 +32,7 @@ public function showPost($post, $backUrl = '/PetHouse/')
     $this->smarty->assign('province', $post->getHouse()->getProvince());
     $this->smarty->assign('backUrl', $backUrl);
 
-    $this->smarty->display('Post_detail.tpl');
+    $this->smarty->display('post_detail.tpl');
 }
     public function showFormOffer($post)
     {

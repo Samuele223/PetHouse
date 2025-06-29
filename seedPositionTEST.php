@@ -9,7 +9,7 @@ $userId = 12;
 
 // Retrieve the user by ID via the persistent manager
 /** @var Muser|null $user */
-$user = FPersistentManager::retriveObj('Muser', $userId);
+$user = FpersistentManager::retriveObj('Muser', $userId);
 if (!$user) {
     echo "Error: User with ID {$userId} not found.\n";
     exit(1);
@@ -36,7 +36,7 @@ $positionsData = [
 // Loop to create and persist positions
 foreach ($positionsData as $data) {
     // Note: class name is case-sensitive
-    $position = new MPosition(
+    $position = new Mposition(
         $data['address'],
         $data['description'],
         $data['city'],
@@ -45,7 +45,7 @@ foreach ($positionsData as $data) {
         $user
     );
 
-    $success = FPersistentManager::saveObj($position);
+    $success = FpersistentManager::saveObj($position);
     if ($success) {
         echo "Position created: ID = " . $position->getId() . " (" . $data['description'] . ")\n";
     } else {

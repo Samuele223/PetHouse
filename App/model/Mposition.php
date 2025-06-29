@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table('position')]
-class MPosition{
+class Mposition{
 #[ORM\Id, ORM\GeneratedValue]
 #[ORM\Column]
 private int $id;

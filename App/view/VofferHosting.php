@@ -1,9 +1,9 @@
 <?php
-// VOfferHosting.php
+// VofferHosting.php
 
 require_once __DIR__ . '/../../config/startsmarty.php';
 
-class VOfferHosting {
+class VofferHosting {
 
     private $smarty;
 
@@ -16,7 +16,7 @@ class VOfferHosting {
      * showPostForm
      * Display the form for creating a hosting offer, with the list of available positions.
      *
-     * @param array $positions  Array of MPosition objects
+     * @param array $positions  Array of Mposition objects
      */
     public function showPostForm($positions, $error = null) {
         $this->smarty->assign('positions', $positions);
@@ -33,7 +33,7 @@ class VOfferHosting {
      * Re-display the form with an error message and the same positions list.
      *
      * @param string $error      Error message to display
-     * @param array  $positions  Array of MPosition objects
+     * @param array  $positions  Array of Mposition objects
      */
     public function showPostFormError($error, $positions, $selectedPosition = null) {
         $this->smarty->assign('error', $error);

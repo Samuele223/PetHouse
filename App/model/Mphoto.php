@@ -100,7 +100,7 @@ public function setLocation(Mposition $location): void
     $this->location = $location;
 }
 
-public function getLocation(): ?MPosition
+public function getLocation(): ?Mposition
 {
     return $this->location;
 }

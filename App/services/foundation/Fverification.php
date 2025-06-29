@@ -14,13 +14,13 @@ class Fverification
     {
         try {
             // Recupera l'utente
-            $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+            $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
             if (!$user) {
                 return false;
             }
 
             // Verifica se l'utente ha già una richiesta di verifica
-            $em = FEntityManager::getInstance()::getEntityManager();
+            $em = FentityManager::getInstance()::getEntityManager();
             $existingVerification = $em->getRepository(Mverification::class)
                 ->findOneBy(['user' => $user]);
 
@@ -45,12 +45,12 @@ class Fverification
                     $verification->addDocument($document);
                     
                     // Salva il documento
-                    FPersistentManager::saveObj($document);
+                    FpersistentManager::saveObj($document);
                 }
             }
             
             // Salva la verifica
-            $result = FPersistentManager::saveObj($verification);
+            $result = FpersistentManager::saveObj($verification);
             
             return $result ? $verification : false;
         } catch (\Exception $e) {
@@ -68,12 +68,12 @@ class Fverification
      */
     public static function hasVerificationRequest(int $userId): bool
     {
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
         if (!$user) {
             return false;
         }
 
-        $em = FEntityManager::getInstance()::getEntityManager();
+        $em = FentityManager::getInstance()::getEntityManager();
         $existingVerification = $em->getRepository(Mverification::class)
             ->findOneBy(['user' => $user]);
 
@@ -88,7 +88,7 @@ class Fverification
      */
     public static function approveVerification(int $verificationId): bool
     {
-        $verification = FPersistentManager::retriveObj(Mverification::getEntity(), $verificationId);
+        $verification = FpersistentManager::retriveObj(Mverification::getEntity(), $verificationId);
         if (!$verification) {
             return false;
         }
@@ -101,8 +101,8 @@ class Fverification
         $user->setVerified(true);
         
         // Salva le modifiche
-        FPersistentManager::saveObj($verification);
-        FPersistentManager::saveObj($user);
+        FpersistentManager::saveObj($verification);
+        FpersistentManager::saveObj($user);
         
         return true;
     }
@@ -115,13 +115,13 @@ class Fverification
      */
     public static function rejectVerification(int $verificationId): bool
     {
-        $verification = FPersistentManager::retriveObj(Mverification::getEntity(), $verificationId);
+        $verification = FpersistentManager::retriveObj(Mverification::getEntity(), $verificationId);
         if (!$verification) {
             return false;
         }
 
         // Elimina la verifica
-        return FPersistentManager::deleteObj($verification);
+        return FpersistentManager::deleteObj($verification);
     }
 
     /**
@@ -131,7 +131,7 @@ class Fverification
      */
     public static function getPendingVerifications(): ?array
     {
-        $em = FEntityManager::getInstance()::getEntityManager();
+        $em = FentityManager::getInstance()::getEntityManager();
         $verifications = $em->getRepository(Mverification::class)
             ->findBy(['approved' => false]);
         
@@ -146,12 +146,12 @@ class Fverification
      */
     public static function getUserVerification(int $userId): ?Mverification
     {
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
         if (!$user) {
             return null;
         }
 
-        $em = FEntityManager::getInstance()::getEntityManager();
+        $em = FentityManager::getInstance()::getEntityManager();
         return $em->getRepository(Mverification::class)
             ->findOneBy(['user' => $user]);
     }

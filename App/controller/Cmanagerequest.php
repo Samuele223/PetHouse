@@ -1,13 +1,13 @@
 <?php
 
-class CManagerequest
+class Cmanagerequest
 {
 
     public static function viewoffers(int $post_id) 
     {
-        if(CUser::isLogged()){
+        if(Cuser::isLogged()){
         $view = new Vmanagerequest();
-        $postSelected = FPersistentManager::retriveObj(Mpost::getEntity(),$post_id);
+        $postSelected = FpersistentManager::retriveObj(Mpost::getEntity(),$post_id);
         if (!$postSelected) {
             require_once __DIR__ . '/../view/Verror.php';
             $viewErr = new Verror();
@@ -31,10 +31,10 @@ class CManagerequest
     }
     /*public static function selectOffer(int $offer_id)
     {
-        if(CUser::isLogged()){
+        if(Cuser::isLogged()){
         
             $view = new Vmanagerequest();
-            $offer = FPersistentManager::retriveObj(Moffer::getEntity(),$offer_id);
+            $offer = FpersistentManager::retriveObj(Moffer::getEntity(),$offer_id);
             $view->showOffer($offer);
         }
 
@@ -42,8 +42,8 @@ class CManagerequest
     public static function accept_Deny_Offer(int $offer_id, int $yesorno) //get request
 
     {
-        if(CUser::isLogged()){
-            $offer = FPersistentManager::retriveObj(Moffer::getEntity(), $offer_id);
+        if(Cuser::isLogged()){
+            $offer = FpersistentManager::retriveObj(Moffer::getEntity(), $offer_id);
                 if (!$offer) {
         require_once __DIR__ . '/../view/Verror.php';
         $viewErr = new Verror();
@@ -55,14 +55,14 @@ class CManagerequest
                 $post = $offer->getPost();
                 $offer->acceptOffer();
                 $post->setBooked('booked');
-                FPersistentManager::saveObj($offer);     
-                FPersistentManager::saveObj($post); //salva il post aggiornato
+                FpersistentManager::saveObj($offer);     
+                FpersistentManager::saveObj($post); //salva il post aggiornato
                 header('location: /PetHouse/user/profile'); //reindirizza alla pagina del profilo dell'utente
             }
             else
             {
                 $offer->denyOffer();
-                FPersistentManager::saveObj($offer);
+                FpersistentManager::saveObj($offer);
                 header('location: /PetHouse/managerequest/viewoffers/' . $offer->getPost()->getId());
             } 
         }

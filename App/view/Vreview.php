@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../config/startsmarty.php';
-class VReview
+class Vreview
 {
     private $smarty;
 

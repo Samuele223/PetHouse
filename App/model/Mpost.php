@@ -49,7 +49,7 @@ private DateTime $dateout;
 
 
 
-public function __construct(string $desc, array $acceptedPets, float $price, string $title, string $info, Muser $seller, MPosition $house, DateTime $datein, DateTime $dateout)
+public function __construct(string $desc, array $acceptedPets, float $price, string $title, string $info, Muser $seller, Mposition $house, DateTime $datein, DateTime $dateout)
 {
     $this->reportreceived = new ArrayCollection();
     $this->offers = new ArrayCollection();
@@ -78,7 +78,7 @@ private ?Collection $reportreceived = null;
 
 #[ORM\ManyToOne(inversedBy:'post')]
 #[ORM\JoinColumn(name:'house',referencedColumnName:'id')]
-private MPosition $house;
+private Mposition $house;
 
 #[ORM\OneToMany(targetEntity:Moffer::class, mappedBy:'post', cascade:['persist', 'remove'])]
 private ?Collection $offers=null;
@@ -141,7 +141,7 @@ public function getReport(): array|Collection
     return $this->reportreceived;
 }
 
-public function getHouse(): MPosition
+public function getHouse(): Mposition
 {
     return $this->house;
 }
@@ -174,7 +174,7 @@ public function setMoreInfo(string $info): void
     $this->moreinfo = $info;
 }
 
-public function setHouse(MPosition $house): void 
+public function setHouse(Mposition $house): void 
 {
     $this->house = $house;
 }

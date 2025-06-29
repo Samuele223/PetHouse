@@ -1,9 +1,9 @@
 <?php
 
-class CImage
+class Cimage
 {
     public static function showImage($id){
-        $img = FPersistentManager::retriveObj(Mphoto::getEntity(), $id);
+        $img = FpersistentManager::retriveObj(Mphoto::getEntity(), $id);
 
         if ($img) {
             // Clean output buffer to prevent accidental output
@@ -29,7 +29,7 @@ class CImage
             return;
         }
         
-        $photoId = FPosition::getFirstImageForPosition((int)$propertyId);
+        $photoId = Fposition::getFirstImageForPosition((int)$propertyId);
         
         if ($photoId) {
 

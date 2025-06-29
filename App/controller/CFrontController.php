@@ -1,6 +1,6 @@
 <?php
 
-class CFrontController {
+class CfrontController {
 
     /**
      * Main dispatcher: parses the request URI and calls the appropriate controller and method.

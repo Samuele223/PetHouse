@@ -1,16 +1,16 @@
 <?php
 
-class CReport {
+class Creport {
     /**
      * This method is called when a user reports a Post
      * @param int $idPost Refers to the id of a post 
      */
     public static function reportPost($idPost) {
-        if (CUser::isLogged()) {
+        if (Cuser::isLogged()) {
             $idUser = USession::getInstance()->getSessionElement('user');
-            $reporter = FPersistentManager::retriveObj(Muser::getEntity(), $idUser);
+            $reporter = FpersistentManager::retriveObj(Muser::getEntity(), $idUser);
 
-            $reportedPost = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+            $reportedPost = FpersistentManager::retriveObj(Mpost::getEntity(), $idPost);
             
             if ($reportedPost !== null) {
                 try {
@@ -19,12 +19,12 @@ class CReport {
                     $report = new Mreport($description, $reporter, $reportedPost);
                     
                     // Save the report
-                    FPersistentManager::saveObj($report);
+                    FpersistentManager::saveObj($report);
                     
                     // Increment the post's report counter
                     $currentReports = $reportedPost->getNumReport();
                     $reportedPost->setNumReport($currentReports !== null ? $currentReports + 1 : 1);
-                    FPersistentManager::saveObj($reportedPost);
+                    FpersistentManager::saveObj($reportedPost);
                     // Get the stored redirect URL or default to post view
                     $redirectUrl = USession::isSetSessionElement('report_redirect_url') ? 
                         USession::getSessionElement('report_redirect_url') : 
@@ -78,7 +78,7 @@ class CReport {
         // Simple check if user session exists
         if (isset($_SESSION['user'])) {
             // User is logged in, show report form
-            $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+            $post = FpersistentManager::retriveObj(Mpost::getEntity(), $idPost);
             
             if (!$post) {
         require_once __DIR__ . '/../view/Verror.php';
@@ -88,7 +88,7 @@ class CReport {
     }
             
             // Show report form
-            $view = new VReport();
+            $view = new Vreport();
             $view->showReportForm($post);
         } else {
             // User not logged in, redirect to login
@@ -105,7 +105,7 @@ class CReport {
         exit;
         }
         // Get the post
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $idPost);
+        $post = FpersistentManager::retriveObj(Mpost::getEntity(), $idPost);
         if (!$post) {
             require_once __DIR__ . '/../view/Verror.php';
             $viewErr = new Verror();
@@ -119,7 +119,7 @@ class CReport {
         }
         
         // Show the report form
-        $view = new VReport();
+        $view = new Vreport();
         $view->showReportForm($post);
     }
 }

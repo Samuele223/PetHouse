@@ -1,9 +1,9 @@
 <?php
-// filepath: c:\xampp\htdocs\PetHouse\App\view\VReport.php
+// filepath: c:\xampp\htdocs\PetHouse\App\view\Vreport.php
 
 require_once __DIR__ . '/../../config/startsmarty.php';
 
-class VReport {
+class Vreport {
     private $smarty;
 
     public function __construct() {

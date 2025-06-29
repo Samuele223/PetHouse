@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/autoloader.php';
-require_once __DIR__ . '/../services/foundation/FEntityManager.php';
+require_once __DIR__ . '/../services/foundation/FentityManager.php';
 
 // Script to create 4 users with image variables
 
@@ -22,7 +22,7 @@ $user1->setTel(randomTel());
 $user1Img = __DIR__ . '/img/user1.jpg';
 
 // User 1 houses
-$user1House1 = new MPosition(
+$user1House1 = new Mposition(
     'Via dei Laghi 12',
     'Ampia casa vicino al lago, ideale per famiglie.',
     'Milano',
@@ -33,7 +33,7 @@ $user1House1 = new MPosition(
 );
 $user1House1Img = __DIR__ . '/img/user1_house1.jpg';
 
-$user1House2 = new MPosition(
+$user1House2 = new Mposition(
     'Piazza Duomo 5',
     'Appartamento moderno in centro città.',
     'Milano',
@@ -75,7 +75,7 @@ $user2->setTel(randomTel());
 $user2Img = __DIR__ . '/img/user2.jpg';
 
 // User 2 houses
-$user2House1 = new MPosition(
+$user2House1 = new Mposition(
     'Via delle Rose 8',
     'Villa panoramica sulle colline.',
     'Firenze',
@@ -86,7 +86,7 @@ $user2House1 = new MPosition(
 );
 $user2House1Img = __DIR__ . '/img/user2_house1.jpg';
 
-$user2House2 = new MPosition(
+$user2House2 = new Mposition(
     'Viale Europa 22',
     'Loft moderno e luminoso.',
     'Empoli',
@@ -128,7 +128,7 @@ $user3->setTel(randomTel());
 $user3Img = __DIR__ . '/img/user3.png';
 
 // User 3 houses
-$user3House1 = new MPosition(
+$user3House1 = new Mposition(
     'Lungomare 10',
     'Casa fronte mare con terrazza.',
     'Avezzano',
@@ -139,7 +139,7 @@ $user3House1 = new MPosition(
 );
 $user3House1Img = __DIR__ . '/img/user3_house1.jpg';
 
-$user3House2 = new MPosition(
+$user3House2 = new Mposition(
     'Via Porto 3',
     'Attico con vista sul porto.',
     'Coppito',
@@ -181,7 +181,7 @@ $user4->setTel(randomTel());
 $user4Img = __DIR__ . '/img/user4.jpg';
 
 // User 4 houses
-$user4House1 = new MPosition(
+$user4House1 = new Mposition(
     'Via delle Alpi 1',
     'Chalet accogliente in montagna.',
     'Torino',
@@ -192,7 +192,7 @@ $user4House1 = new MPosition(
 );
 $user4House1Img = __DIR__ . '/img/user4_house1.jpg';
 
-$user4House2 = new MPosition(
+$user4House2 = new Mposition(
     'Corso Roma 15',
     'Casa storica nel centro di Torino.',
     'Villorba',
@@ -335,8 +335,8 @@ foreach ($reviewData as $data) {
 }
 
 // === PERSIST TO DATABASE ===
-FEntityManager::getInstance();
-$em = FEntityManager::getEntityManager();
+FentityManager::getInstance();
+$em = FentityManager::getEntityManager();
 
 // === CLEANUP EXISTING DEMO DATA ===
 // Remove reviews, offers, reports, posts, houses, users, admin (in this order to respect FKs)
@@ -345,8 +345,8 @@ $entities = [
     'Moffer',
     'Mreport',
     'Mpost',
-    'Mphoto', // must be before MPosition!
-    'MPosition',
+    'Mphoto', // must be before Mposition!
+    'Mposition',
     'Muser',
     'Madmin'
 ];

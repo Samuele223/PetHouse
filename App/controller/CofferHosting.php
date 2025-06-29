@@ -2,8 +2,8 @@
 // CofferHosting.php
 
 require_once __DIR__ . '/../../bootstrap.php';
-require_once __DIR__ . '/CUser.php';
-require_once __DIR__ . '/../view/VOfferHosting.php';
+require_once __DIR__ . '/Cuser.php';
+require_once __DIR__ . '/../view/VofferHosting.php';
 
 class CofferHosting {
 
@@ -12,10 +12,10 @@ class CofferHosting {
      * Display the form to create a new hosting offer (GET)
      */
     public static function showOfferForm() {
-        if (CUser::isLogged()) {
+        if (Cuser::isLogged()) {
             $userId = USession::getInstance()->getSessionElement('user');
             // load all positions (houses) for this user so they can choose where to host
-            $positions = FPersistentManager::getHousesFromUser($userId);
+            $positions = FpersistentManager::getHousesFromUser($userId);
             
             // Check if the user has any houses
             if (!$positions || count($positions) === 0) {
@@ -25,7 +25,7 @@ class CofferHosting {
                 return;
             }
             
-            $view = new VOfferHosting();
+            $view = new VofferHosting();
             $view->showPostForm($positions);
         }
         else {
@@ -40,7 +40,7 @@ class CofferHosting {
      * Collect form data, validate it, and create the hosting offer (POST)
      */
     public static function createOffer() {
-        if (CUser::isLogged()) {
+        if (Cuser::isLogged()) {
             
             $termsAccepted = UHTTPMethods::post('terms_accepted') ?? null;
             if (!$termsAccepted) {
@@ -79,7 +79,7 @@ class CofferHosting {
 
             // Verify ownership of the selected position
             $userId   = USession::getInstance()->getSessionElement('user');
-            $position = FPersistentManager::retriveObj(MPosition::getEntity(), (int)$idPosition);
+            $position = FpersistentManager::retriveObj(Mposition::getEntity(), (int)$idPosition);
             if (!$position || $position->getOwner()->getId() !== $userId) {
                 CofferHosting::showErrorAndForm('Posizione non valida o permessi insufficienti.', $idPosition);
                 return;
@@ -106,7 +106,7 @@ class CofferHosting {
                 $dateOut
             );
             $post->setBooked('open');
-            FPersistentManager::saveObj($post);
+            FpersistentManager::saveObj($post);
 
             // Redirect to success page
             header('Location: /PetHouse/user/profile');
@@ -119,8 +119,8 @@ class CofferHosting {
 
     private static function showErrorAndForm(string $error, ?int $positionId) {
         $userId    = USession::getInstance()->getSessionElement('user');
-        $positions = FPersistentManager::getHousesFromUser($userId);
-        $view = new VOfferHosting();
+        $positions = FpersistentManager::getHousesFromUser($userId);
+        $view = new VofferHosting();
         $view->showPostFormError($error, $positions);
     }
 }

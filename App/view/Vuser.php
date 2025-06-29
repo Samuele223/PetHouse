@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/../../config/startsmarty.php';
 
-// VUser.php
-class VUser {
+// Vuser.php
+class Vuser {
     private $smarty;
     public function __construct(){
         

@@ -40,7 +40,7 @@ class Fpost
  */
     public static function listOfPostFilterDate(DateTime $datein, DateTime $dateout)
     {
-        $q = FEntityManager::getInstance()::getEntityManager()->createQueryBuilder();
+        $q = FentityManager::getInstance()::getEntityManager()->createQueryBuilder();
         return $q
             ->select('p')
             ->from(Mpost::getEntity(),'p') //se il post è iniziato prima e finsice dopo o nella stessa data
@@ -54,7 +54,7 @@ class Fpost
     public static function listPostByCity(string $city,string $province)
     {
 
-    $q = FEntityManager::getInstance()::getEntityManager()->createQueryBuilder();
+    $q = FentityManager::getInstance()::getEntityManager()->createQueryBuilder();
 
     return $q
         ->select('p')
@@ -71,7 +71,7 @@ class Fpost
     }
 /*public static function findPostsByAcceptedPet(string $pet): array // da testare 
 {
-    $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
+    $conn = FentityManager::getInstance()::getEntityManager()->getConnection();
 
     $sql = 'SELECT * FROM post WHERE JSON_CONTAINS(accepted_pets, :pet_json)';
 
@@ -85,14 +85,14 @@ class Fpost
     $posts = [];
 
     foreach ($resultSet->fetchAllAssociative() as $row) {
-        $posts[] = FEntityManager::getEntityManager()->getRepository(MPost::class)->find($row['id']);
+        $posts[] = FentityManager::getEntityManager()->getRepository(Mpost::class)->find($row['id']);
     }
 
     return $posts;
 }*/
 public static function findPostsByAcceptedPet(string $pet): array  
 {
-    $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
+    $conn = FentityManager::getInstance()::getEntityManager()->getConnection();
 
     // Costruisce il percorso della chiave nell'oggetto JSON
     $sql = 'SELECT * FROM post WHERE JSON_CONTAINS_PATH(accepted_pets, \'one\', :json_path)';
@@ -105,7 +105,7 @@ public static function findPostsByAcceptedPet(string $pet): array
 
     $posts = [];
     foreach ($rows as $row) {
-        $posts[] = FEntityManager::getEntityManager()->getRepository(MPost::class)->find($row['id']);
+        $posts[] = FentityManager::getEntityManager()->getRepository(Mpost::class)->find($row['id']);
     }
 
     return $posts;
@@ -115,7 +115,7 @@ public static function findPostsByAcceptedPet(string $pet): array
 
 public static function getReportedPosts(): array
 {
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
     // Usa DQL per prendere tutti i post con numreport > 0
     $query = $em->createQuery(
         'SELECT p FROM ' . Mpost::getEntity() . ' p WHERE p.numreport > 0'
@@ -124,7 +124,7 @@ public static function getReportedPosts(): array
 }
 public static function findPostsByAcceptedPets(array $requiredPets): array  
 {
-    $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
+    $conn = FentityManager::getInstance()::getEntityManager()->getConnection();
 
     $conditions = [];
     $params = [];
@@ -148,7 +148,7 @@ public static function findPostsByAcceptedPets(array $requiredPets): array
 
     $posts = [];
     foreach ($rows as $row) {
-        $posts[] = FEntityManager::getEntityManager()->getRepository(MPost::class)->find($row['id']);
+        $posts[] = FentityManager::getEntityManager()->getRepository(Mpost::class)->find($row['id']);
     }
 
     return $posts;
@@ -160,7 +160,7 @@ public static function filterPost(
     ?string $startDate = null,
     ?string $endDate = null
 ): array {
-    $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
+    $conn = FentityManager::getInstance()::getEntityManager()->getConnection();
 
     $conditions = [];
     $params = [];
@@ -211,7 +211,7 @@ public static function filterPost(
     // Mappa i risultati agli oggetti Post
     $posts = [];
     foreach ($rows as $row) {
-        $posts[] = FEntityManager::getEntityManager()->getRepository(MPost::class)->find($row['id']);
+        $posts[] = FentityManager::getEntityManager()->getRepository(Mpost::class)->find($row['id']);
     }
 
     return $posts;

@@ -6,7 +6,7 @@ class Freview
 {
 
       public function returnReviewsTOUser($userId): array|null{
-        $result = FEntityManager::getInstance()->listOfObj(Mreview::getEntity(), 'ReviewToMe', $userId );
+        $result = FentityManager::getInstance()->listOfObj(Mreview::getEntity(), 'ReviewToMe', $userId );
 
         return $result;
     }

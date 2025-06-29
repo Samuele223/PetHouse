@@ -6,7 +6,7 @@ use App\Foundation\Exception\EntityNotFoundException;
 
 
 
-class FPersistentManager{
+class FpersistentManager{
 
     /**                                                    
      * Singleton Class
@@ -17,7 +17,7 @@ class FPersistentManager{
 
     private function __construct(){}
 
-    public static function getInstance(): FPersistentManager{
+    public static function getInstance(): FpersistentManager{
         if (!self::$instance) {
             self::$instance = new self();
         }
@@ -30,27 +30,27 @@ class FPersistentManager{
 
     public static function retriveObj($Mclass, $id): object|null 
     {
-        $result = FEntityManager::getInstance()::retrieveObj($Mclass,$id);
+        $result = FentityManager::getInstance()::retrieveObj($Mclass,$id);
         return $result;
     }
      
 
     public static function saveObj($obj): bool{
 
-        $result = FEntityManager::getInstance()->saveObject($obj);
+        $result = FentityManager::getInstance()->saveObject($obj);
 
         return $result;
     }
     
     public static function deleteObj($obj): bool
     {
-        $result = FEntityManager::getInstance()::deleteObj($obj);
+        $result = FentityManager::getInstance()::deleteObj($obj);
         return $result;
     }
     
     public static function getUserByUsername($username): object|null
     {
-        $result = FUser::getUserByUsername($username);
+        $result = Fuser::getUserByUsername($username);
         return $result;
     }
 
@@ -62,7 +62,7 @@ class FPersistentManager{
 
     public static function getVerificationsPending(): array|null
     {
-        $result = FVerification::getPendingVerifications();
+        $result = Fverification::getPendingVerifications();
         return $result;
     }
 
@@ -74,7 +74,7 @@ class FPersistentManager{
 
 public static function resetPostReports($postId)
 {
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
     $post = $em->getRepository(Mpost::getEntity())->find($postId);
     if ($post) {
         // Elimina tutti i report associati a questo post
@@ -89,7 +89,7 @@ public static function resetPostReports($postId)
 
 public static function deletePost($postId)
 {
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
     $post = $em->getRepository(Mpost::getEntity())->find($postId);
     if ($post) {
         // Elimina tutti i report associati a questo post
@@ -117,13 +117,13 @@ public static function deletePost($postId)
 
      /**
      * getHousesFromUser
-     * English: Delegate to FUser to fetch all houses owned by the given user.
+     * English: Delegate to Fuser to fetch all houses owned by the given user.
      *
      * @param int $userId  ID of the user whose houses we want
-     * @return MPosition[]|null  Array of MPosition or null if none
+     * @return Mposition[]|null  Array of Mposition or null if none
      */
     public static function getHousesFromUser(int $userId): ?array {
-        return FUser::getHousesFromUser($userId);
+        return Fuser::getHousesFromUser($userId);
     }
 
 
@@ -133,22 +133,22 @@ public static function deletePost($postId)
 
     public static function deleteImage($idImage){
         $image = self::retriveObj(Mphoto::getEntity(), $idImage);
-        $result = FEntityManager::getInstance()->deleteObj($image);
+        $result = FentityManager::getInstance()->deleteObj($image);
         return $result;
     }
 
     public static function deleteRelatedReports($id, $field = null): bool{
-        $result = FReport::deleteReports($id, $field);
+        $result = Freport::deleteReports($id, $field);
         return $result;
     }
 
     public static function DeleteObjFromId($Mclass, $id): void
     {  
-        $obj = FEntityManager::getInstance()->retrieveObj($Mclass,$id);
+        $obj = FentityManager::getInstance()->retrieveObj($Mclass,$id);
         if(!$obj){
             throw new EntityNotFoundException("Oggetto di tipo $Mclass con id $id non trovato."); 
         }
-        FEntityManager::getInstance()->deleteObj($obj);
+        FentityManager::getInstance()->deleteObj($obj);
     }
     /**
      * return only one object 
@@ -159,7 +159,7 @@ public static function deletePost($postId)
      */
     public static function findObjNOtId($class, $columnName, $attribute): object|null
     {
-        $obj = FEntityManager::getInstance()::retrieveObjNotOnId(class: $class, columnName: $columnName, attribute: $attribute);
+        $obj = FentityManager::getInstance()::retrieveObjNotOnId(class: $class, columnName: $columnName, attribute: $attribute);
         return $obj;
     }
     /**
@@ -171,7 +171,7 @@ public static function deletePost($postId)
      */
     public static function listOfObj($class, $columnName, $attribute): array|null
     {
-        $a = FEntityManager::getInstance()::listOfObj($class, $columnName, $attribute);
+        $a = FentityManager::getInstance()::listOfObj($class, $columnName, $attribute);
         return $a;
     }
 
@@ -197,7 +197,7 @@ public static function deletePost($postId)
  */
     public static function getObjbytwoattributes($class, $col1, $col2, $val1, $val2)
     {
-        $a = FEntityManager::getInstance()::getObjByTwoAttribute($class, $col1, $col2, $val1, $val2);
+        $a = FentityManager::getInstance()::getObjByTwoAttribute($class, $col1, $col2, $val1, $val2);
         return $a;
     }
     public static function listOfPostFilterDate(DateTime $datain, DateTime $dataout)
@@ -223,7 +223,7 @@ public static function deletePost($postId)
      * verify if exist a user with this email (also mod)
      */
     public static function verifyUserEmail($email){
-        $result = FUser::verify('email', $email);
+        $result = Fuser::verify('email', $email);
 
         return $result;
     }
@@ -232,7 +232,7 @@ public static function deletePost($postId)
      * verify if exist a user with this username (also mod)
     */ 
     public static function verifyUserUsername($username){
-        $result = FUser::verify('username', $username);
+        $result = Fuser::verify('username', $username);
 
         return $result;
     }
@@ -243,7 +243,7 @@ public static function deletePost($postId)
  */
 public static function filterPost($acceptedPets = [], $province = null, $city = null, $startDate = null, $endDate = null)
 {
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
     $qb = $em->createQueryBuilder();
     
     $qb->select('p')
@@ -316,7 +316,7 @@ public static function filterPost($acceptedPets = [], $province = null, $city = 
 
 public static function expireOldPosts()
 {
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
     $today = new DateTime('today');
 
     // Recupera tutti i post ancora "open" o "booked"
@@ -342,7 +342,7 @@ public static function expireOldPosts()
 
 public static function expireOldOffers()
 {
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
     $today = new DateTime('today');
 
     // Recupera tutte le offerte in stato pending o accepted

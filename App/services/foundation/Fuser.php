@@ -2,10 +2,10 @@
 
 require_once __DIR__ . '/../../model/Muser.php';  
 
-class FUser{
+class Fuser{
     public static function getUserByUsername($username): object|null{
 
-        $result = FEntityManager::getInstance()->retrieveObjNotOnId(Muser::getEntity(), 'username', $username);
+        $result = FentityManager::getInstance()->retrieveObjNotOnId(Muser::getEntity(), 'username', $username);
 
 
 
@@ -18,25 +18,25 @@ class FUser{
     public static function loadVerifiedUsers(): array|null{
 
 
-        $result = FEntityManager::getInstance()->listOfObj(Muser::getEntity(), 'verified', '1');
+        $result = FentityManager::getInstance()->listOfObj(Muser::getEntity(), 'verified', '1');
 
         return $result;
     }
 
       public static function verify($field, $value){
-        return FEntityManager::getInstance()->verifyAttributes(MUser::getEntity(), $field, $value);
+        return FentityManager::getInstance()->verifyAttributes(Muser::getEntity(), $field, $value);
     }
     /**
      * getHousesFromUser
      * English: Retrieve all Position (house) entities owned by the given user.
      *
      * @param int $userId  ID of the user whose houses we want to load
-     * @return MPosition[]|null  Array of MPosition objects, or null if none found
+     * @return Mposition[]|null  Array of Mposition objects, or null if none found
      */
     public static function getHousesFromUser(int $userId): ?array {
         // Adjust the field name 'owner_id' if your DB uses a different FK column 
-        $positions = FEntityManager::getInstance()
-            ->listOfObj(MPosition::getEntity(), 'owner', $userId);
+        $positions = FentityManager::getInstance()
+            ->listOfObj(Mposition::getEntity(), 'owner', $userId);
 
         return $positions;
     }

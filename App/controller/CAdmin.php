@@ -3,10 +3,10 @@
 require_once __DIR__ . '/../../bootstrap.php';
 require_once __DIR__ . '/../../config/autoloader.php';
 
-class CAdmin
+class Cadmin
 {
     public static function login() {
-        $view = new VAdmin();
+        $view = new Vadmin();
 
         // If admin is already logged in, redirect to home
         if (USession::isSetSessionElement('admin')) {
@@ -30,7 +30,7 @@ class CAdmin
                 return;
             }
 
-            $admin = FPersistentManager::getModByEmail($email);
+            $admin = FpersistentManager::getModByEmail($email);
 
             if (!$admin || !password_verify($password, $admin->getPassword())) {
                   $view->showInvalidCredentials();
@@ -76,8 +76,8 @@ public static function profile()
         header('Location: /PetHouse/Admin/login');
         exit;
     }
-    $admin = FPersistentManager::retriveObj(Madmin::getEntity(), $id);
-    $view = new VAdmin();
+    $admin = FpersistentManager::retriveObj(Madmin::getEntity(), $id);
+    $view = new Vadmin();
 
     $view->profile($admin);
 }
@@ -88,9 +88,9 @@ public static function listVerificationRequests()
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    $verifiche = FPersistentManager::getVerificationsPending(); 
+    $verifiche = FpersistentManager::getVerificationsPending(); 
 
-    $view = new VAdmin();
+    $view = new Vadmin();
     $view->showVerificationRequests($verifiche);
 }
 
@@ -101,7 +101,7 @@ public static function userProfile($userId)
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+    $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
     if (!$user) {
         require_once __DIR__ . '/../view/Verror.php';
         $view = new Verror();
@@ -109,7 +109,7 @@ public static function userProfile($userId)
         return;
     }
     $verification = Fverification::getUserVerification($userId);
-    $view = new VAdmin();
+    $view = new Vadmin();
     $view->showUserProfileWithVerification($user, $verification);
 }
 
@@ -120,7 +120,7 @@ public static function showuserProfile($userId)
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+    $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
     if (!$user) {
         require_once __DIR__ . '/../view/Verror.php';
         $view = new Verror();
@@ -128,7 +128,7 @@ public static function showuserProfile($userId)
         return;
     }
     $postId = isset($_GET['postId']) ? $_GET['postId'] : null;
-    $view = new VAdmin();
+    $view = new Vadmin();
     $view->showUserProfile($user, $postId);
 }
 
@@ -165,8 +165,8 @@ public static function listReportedPosts()
     exit;
 }
     
-    $posts = FPersistentManager::getReportedPosts();
-    $view = new VAdmin();
+    $posts = FpersistentManager::getReportedPosts();
+    $view = new Vadmin();
     $view->showReportedPosts($posts);
 }
 
@@ -177,14 +177,14 @@ public static function reportedPostDetail($postId)
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    $post = FPersistentManager::retriveObj(Mpost::getEntity(), $postId);
+    $post = FpersistentManager::retriveObj(Mpost::getEntity(), $postId);
     if (!$post) {
         require_once __DIR__ . '/../view/Verror.php';
         $view = new Verror();
         $view->show404();
         return;
     }
-    $view = new VAdmin();
+    $view = new Vadmin();
     $view->showReportedPostDetail($post);
 }
 
@@ -195,7 +195,7 @@ public static function approveReportedPost($postId)
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    FPersistentManager::resetPostReports($postId); 
+    FpersistentManager::resetPostReports($postId); 
     header('Location: /PetHouse/Admin/listReportedPosts');
     exit;
 }
@@ -207,7 +207,7 @@ public static function deleteReportedPost($postId)
     header('Location: /PetHouse/Admin/login');
     exit;
 }
-    FPersistentManager::deletePost($postId); 
+    FpersistentManager::deletePost($postId); 
     header('Location: /PetHouse/Admin/listReportedPosts');
     exit;
 }

@@ -1,5 +1,5 @@
 <?php
-class CFindhosting{
+class Cfindhosting{
 //________________________________cerca ospitalità______________________________________________________________________
     public static function startResearch()
     {
@@ -77,7 +77,7 @@ class CFindhosting{
             // Call the search function with our parameters
             $startDate = $datain ? $datain->format('Y-m-d') : null;
             $endDate = $dataout ? $dataout->format('Y-m-d') : null;
-            $result = FPersistentManager::filterPost( //call to the persistent manager
+            $result = FpersistentManager::filterPost( //call to the persistent manager
                 $acceptedPets,
                 $province, 
                 $city,
@@ -105,7 +105,7 @@ class CFindhosting{
     }
     public static function selectPost(int $id)
     {
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id); //so that I get the id of the post from the query string of the url
+        $post = FpersistentManager::retriveObj(Mpost::getEntity(),$id); //so that I get the id of the post from the query string of the url
          if (!$post) {
              require_once __DIR__ . '/../view/Verror.php';
             $view = new Verror(); //shows error 404 post not found
@@ -124,11 +124,11 @@ class CFindhosting{
 
     public static function bookPost(int $id) //shows a form to create an offer related to a post
  {  
-    if (!CUser::isLogged()) { //only works if user is logged in, if not it's redirected to the login page
+    if (!Cuser::isLogged()) { //only works if user is logged in, if not it's redirected to the login page
         header('Location: /PetHouse/user/login');
         exit;
     }
-    $post = FPersistentManager::retriveObj(Mpost::getEntity(),$id);
+    $post = FpersistentManager::retriveObj(Mpost::getEntity(),$id);
     if (!$post) {
         require_once __DIR__ . '/../view/Verror.php';
         $view = new Verror(); //if user delets the post while another user is trying to book it, shows post not found error
@@ -140,7 +140,7 @@ class CFindhosting{
 }
     public static function createOffer($id_post) //function to actually create an offer related to a post, after the form is shown
     {   
-        if(CUser::isLogged()) //additional check to ensure user is logged in
+        if(Cuser::isLogged()) //additional check to ensure user is logged in
         {
             try {
                 Usession::getInstance();
@@ -162,8 +162,8 @@ class CFindhosting{
 
                 $requiredPets = array_combine($requiredPetss, $countPets);
 
-                $client = FPersistentManager::retriveObj(Muser::getEntity(), $id_user); //fetch the user who is creating the offer
-                $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post); //fetch the post related to the offer
+                $client = FpersistentManager::retriveObj(Muser::getEntity(), $id_user); //fetch the user who is creating the offer
+                $post = FpersistentManager::retriveObj(Mpost::getEntity(), $id_post); //fetch the post related to the offer
                 
                 // Validate dates against post availability, so tht the offer dates are within the post's available period
                 if ($datein < $post->getDateIn() || $dateout > $post->getDateOut()) {
@@ -183,7 +183,7 @@ class CFindhosting{
                 }
                 
                 $offer = new Moffer($datein,$dateout,$post,$requiredPets, $client);
-                FPersistentManager::saveObj($offer);
+                FpersistentManager::saveObj($offer);
                 
                 // Set success message and redirects to review/deals
                
@@ -204,7 +204,7 @@ class CFindhosting{
     }
     public static function viewprofile($id_user) //shows the profile of a user, given the id_user, whothout having the costraint of being logged in
     {
-        $user = FPersistentManager::retriveObj(Muser::getEntity(),$id_user);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(),$id_user);
         if (!$user) {
             require_once __DIR__ . '/../view/Verror.php';
             $view = new Verror();

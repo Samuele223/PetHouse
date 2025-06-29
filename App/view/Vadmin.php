@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/startsmarty.php';
 
-class VAdmin {
+class Vadmin {
     public $smarty;
 
     public function __construct() {

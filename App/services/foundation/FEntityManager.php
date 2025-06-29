@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../../../bootstrap.php');
 
-class FEntityManager
+class FentityManager
 {
 private static $instance;
 private static $entityManager;
@@ -12,7 +12,7 @@ private function __construct()
 {
     self::$entityManager = getEntityManager();
 }
-public static function getInstance(): FEntityManager
+public static function getInstance(): FentityManager
 { 
     if (!self::$instance) 
     {

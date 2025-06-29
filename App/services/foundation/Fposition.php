@@ -9,7 +9,7 @@ class Fposition{
  */
 public static function filterPositionByCity(string $city,string $province): array|null
 {
-    $resultList = FEntityManager::getInstance()::getObjByTwoAttribute('Mposition', 'city', 'province', $city, $province);
+    $resultList = FentityManager::getInstance()::getObjByTwoAttribute('Mposition', 'city', 'province', $city, $province);
     return $resultList;
 }
 
@@ -20,7 +20,7 @@ public static function filterPositionByCity(string $city,string $province): arra
  */
 public static function getFirstImageForPosition(int $positionId): ?int {
     // Cerca direttamente nel database la prima foto associata alla posizione
-    $conn = FEntityManager::getInstance()::getEntityManager()->getConnection();
+    $conn = FentityManager::getInstance()::getEntityManager()->getConnection();
     $sql = "SELECT id FROM photo WHERE id_Position = :positionId LIMIT 1";
     
     $stmt = $conn->prepare($sql);

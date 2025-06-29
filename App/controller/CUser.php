@@ -3,13 +3,13 @@
 require_once __DIR__ . '/../../bootstrap.php';
 require_once __DIR__ . '/../../config/autoloader.php';
 
-class CUser {
+class Cuser {
 
     /**
      * Show registration form on GET, process registration on POST.
      */
     public static function registration() {
-        $view = new VUser();
+        $view = new Vuser();
 
         // If GET, show registration form
         if (UServer::getRequestMethod() === 'GET') {
@@ -35,8 +35,8 @@ class CUser {
 
             
             // Check email and username uniqueness
-            $existingUserByUsername = FPersistentManager::verifyUserUsername($username);
-            $existingUserByEmail = FPersistentManager::verifyUserEmail($email);
+            $existingUserByUsername = FpersistentManager::verifyUserUsername($username);
+            $existingUserByEmail = FpersistentManager::verifyUserEmail($email);
 
             if ($existingUserByUsername !== null && $existingUserByEmail !== null) {
                 $view->showRegisterForm('Both username and email are already in use.');
@@ -56,7 +56,7 @@ class CUser {
             }
 
             // Create and hash password
-            $user = new MUser($name, $surname, $username, $email);
+            $user = new Muser($name, $surname, $username, $email);
             if ($phone) {
                 $user->setTel($phone);
             }
@@ -70,7 +70,7 @@ class CUser {
                 $foto = new Mphoto( $dati,$mimeType );
 
                 
-                FPersistentManager::saveObj($foto); 
+                FpersistentManager::saveObj($foto); 
                 $user->setProfilePicture($foto); 
 
                 
@@ -78,7 +78,7 @@ class CUser {
                 // No profile picture uploaded, do nothing
             }
 
-            $check = FPersistentManager::saveObj($user);
+            $check = FpersistentManager::saveObj($user);
             
 
             if ($check) {
@@ -93,7 +93,7 @@ class CUser {
      * Show login form on GET, process login on POST.
      */
     public static function login() {
-        $view = new VUser();
+        $view = new Vuser();
 
         // If user is already logged in, redirect to home
         if (USession::isSetSessionElement('user')) {
@@ -117,7 +117,7 @@ class CUser {
                 return;
             }
 
-            $user = FPersistentManager::getUserByUsername($username);
+            $user = FpersistentManager::getUserByUsername($username);
 
             if (!$user || !password_verify($password, $user->getPassword())) {
                   $view->showInvalidCredentials();
@@ -170,15 +170,15 @@ class CUser {
     }
     public static function home()
     {   
-        FPersistentManager::expireOldOffers(); // Call to expire old offers
-        FPersistentManager::expireOldPosts(); // Call to expire old posts
+        FpersistentManager::expireOldOffers(); // Call to expire old offers
+        FpersistentManager::expireOldPosts(); // Call to expire old posts
         if (USession::getSessionStatus() == PHP_SESSION_NONE) {
         USession::getInstance();
     } 
         $id = USession::getSessionElement('user');
-        $view = new VUser();
+        $view = new Vuser();
         if ($id){
-            $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+            $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
             $username = $user->getUsername();
             $view->home($username);
         }
@@ -197,8 +197,8 @@ public static function profile()
         exit;
     }
     $id = USession::getSessionElement('user');
-    $view = new VUser();
-    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $view = new Vuser();
+    $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
     if (!$user) {
         require_once __DIR__ . '/../view/Verror.php';
         $viewErr = new Verror();
@@ -223,7 +223,7 @@ if (USession::getSessionStatus() == PHP_SESSION_NONE) {
     USession::getInstance();
 }
 $id = USession::getSessionElement('user');
-$view = new VUser();
+$view = new Vuser();
 if ($id) {
     $view->showHomeForm();
 } else {
@@ -238,9 +238,9 @@ public static function createHouse()
         USession::getInstance();
     }
     $id = USession::getSessionElement('user');
-    $view = new VUser();
+    $view = new Vuser();
     if ($id) {
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
         $title = UHTTPMethods::post('title') ?? null;
         $city = UHTTPMethods::post('city') ?? null;
         $description = UHTTPMethods::post('description') ?? null;
@@ -252,8 +252,8 @@ public static function createHouse()
             $view->showHomeForm('House name, description and address are required.');
             return;
         }
-        $position = new MPosition($address, $description, $city, $province, $country, $user, $title);
-        $check = FPersistentManager::saveObj($position);
+        $position = new Mposition($address, $description, $city, $province, $country, $user, $title);
+        $check = FpersistentManager::saveObj($position);
         if (isset($_FILES['img']) && is_array($_FILES['img']['error'])) {
             $uploaded = false;
             for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
@@ -265,7 +265,7 @@ public static function createHouse()
 
                     $pic = new Mphoto($data, $mime);
                     $pic->setLocation($position);
-                    FPersistentManager::saveObj($pic);
+                    FpersistentManager::saveObj($pic);
                 }
             }
             if (!$uploaded) {
@@ -305,22 +305,22 @@ public static function myPost() {
 
     try {
         // Get the user entity
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
 
         
-        $em = FEntityManager::getInstance()::getEntityManager();
+        $em = FentityManager::getInstance()::getEntityManager();
         $posts = $em->getRepository(Mpost::getEntity())
             ->findBy(['seller' => $user, 'booked' => 'open']);
 
         error_log("Found " . count($posts) . " posts for user " . $user->getUsername());
 
         // Display posts
-        $view = new VUser();
+        $view = new Vuser();
         $view->showUserPosts($posts);
 
     } catch (Exception $e) {
         error_log("Error fetching posts: " . $e->getMessage());
-        $view = new VUser();
+        $view = new Vuser();
         $view->showUserPosts([]);
     }
 }
@@ -338,7 +338,7 @@ public static function myHouses() {
     // Get current user ID from session
     $userId = USession::getSessionElement('user');
 
-    $em = FEntityManager::getInstance()::getEntityManager();
+    $em = FentityManager::getInstance()::getEntityManager();
 
     $houses = $em->getRepository(Mposition::getEntity())->findBy(['owner' => $userId]);
 
@@ -364,7 +364,7 @@ public static function viewMyHousesDetails(int $id) {
     $userId = USession::getSessionElement('user');
 
     // Retrieve the house
-    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+    $house = FpersistentManager::retriveObj(Mposition::getEntity(),$id);
         if (!$house) {
         require_once __DIR__ . '/../view/Verror.php';
         $viewErr = new Verror();
@@ -393,7 +393,7 @@ public static function editHouse(int $id) {
 
 
     // Retrieve the house
-    $house = FPersistentManager::retriveObj(Mposition::getEntity(),$id);
+    $house = FpersistentManager::retriveObj(Mposition::getEntity(),$id);
     if (!$house) {
     require_once __DIR__ . '/../view/Verror.php';
     $viewErr = new Verror();
@@ -421,7 +421,7 @@ public static function updateHouse(int $id): void {
     $userId = USession::getSessionElement('user');
 
     // Retrieve the house
-    $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+    $house = FpersistentManager::retriveObj(Mposition::getEntity(), $id);
     if (!$house) {
     require_once __DIR__ . '/../view/Verror.php';
     $viewErr = new Verror();
@@ -472,7 +472,7 @@ public static function updateHouse(int $id): void {
         $oldPhotos = $house->getPhotos();
         if ($oldPhotos) {
             foreach ($oldPhotos as $photo) {
-                FPersistentManager::deleteObj($photo);
+                FpersistentManager::deleteObj($photo);
             }
         }
 
@@ -485,7 +485,7 @@ public static function updateHouse(int $id): void {
 
                 $pic = new Mphoto($data, $mime);
                 $pic->setLocation($house);
-                FPersistentManager::saveObj($pic);
+                FpersistentManager::saveObj($pic);
                 $house->addPhoto($pic); // Update the relationship on the object side
             }
         }
@@ -493,7 +493,7 @@ public static function updateHouse(int $id): void {
     // If there are no new photos, do not touch the old ones
 
     // Save changes to the house
-    FPersistentManager::saveObj($house);
+    FpersistentManager::saveObj($house);
 
     header('Location: /PetHouse/user/myHouses');
     exit;
@@ -515,7 +515,7 @@ public static function deleteHouse(int $id) {
 
     try {
         // Retrieve the house
-        $house = FPersistentManager::retriveObj(Mposition::getEntity(), $id);
+        $house = FpersistentManager::retriveObj(Mposition::getEntity(), $id);
         
         if (!$house) {
             
@@ -530,24 +530,24 @@ public static function deleteHouse(int $id) {
         }
         
         // First, check for and delete any posts associated with this house
-        $em = FEntityManager::getInstance()::getEntityManager();
+        $em = FentityManager::getInstance()::getEntityManager();
         $posts = $em->getRepository(Mpost::getEntity())->findBy(['house' => $house->getId()]);
         
         foreach ($posts as $post) {
             // Delete post-related entities first if any
-            FPersistentManager::deleteObj($post);
+            FpersistentManager::deleteObj($post);
         }
         
         // Delete related photos
         $photos = $house->getPhotos();
         if ($photos) {
             foreach ($photos as $photo) {
-                FPersistentManager::deleteObj($photo);
+                FpersistentManager::deleteObj($photo);
             }
         }
         
         // Now delete the house
-        $result = FPersistentManager::deleteObj($house);
+        $result = FpersistentManager::deleteObj($house);
         
         if ($result) {
             
@@ -583,7 +583,7 @@ public static function deleteHouse(int $id) {
         $userId = USession::getSessionElement('user');
         
         // Get user object
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
         
         // Check if user is already verified
         if ($user->getVerified()) {
@@ -593,7 +593,7 @@ public static function deleteHouse(int $id) {
         }
         
         // Show verification form
-        $view = new VUser();
+        $view = new Vuser();
         $view->showVerificationForm($user);
     }
     /**
@@ -615,7 +615,7 @@ public static function deleteHouse(int $id) {
         $userId = USession::getSessionElement('user');
         
         // Get user object
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $userId);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $userId);
         
         // Check if terms were accepted
         if (!isset($_POST['terms_accepted'])) {
@@ -642,17 +642,17 @@ public static function deleteHouse(int $id) {
             $document->setName($_FILES['id_document']['name'] ?? 'verification_doc_' . uniqid());
             
             // First save the document
-            FPersistentManager::saveObj($document);
+            FpersistentManager::saveObj($document);
             
             // Associate document with verification
             $verification->addDocument($document);
             
             // Save the verification
-            FPersistentManager::saveObj($verification);
+            FpersistentManager::saveObj($verification);
             
             // Set user's verification status (the entity relation will be maintained)
             $user->setVerification($verification);
-            FPersistentManager::saveObj($user);
+            FpersistentManager::saveObj($user);
             
             // Redirect 
             header('Location: /PetHouse/user/profile');
@@ -669,7 +669,7 @@ public static function deleteHouse(int $id) {
         header('Location: /PetHouse/User/login');
         exit;
         }
-        FPersistentManager::deleteObj(FPersistentManager::retriveObj(Mpost::getEntity(), $id_post));
+        FpersistentManager::deleteObj(FpersistentManager::retriveObj(Mpost::getEntity(), $id_post));
         header('Location: /PetHouse/User/myPost');
         exit;
     }
@@ -680,8 +680,8 @@ public static function deleteHouse(int $id) {
         header('Location: /PetHouse/User/login');
         exit;
 }
-        $view = new VUser();
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+        $view = new Vuser();
+        $post = FpersistentManager::retriveObj(Mpost::getEntity(), $id_post);
         if (!$post) {
             require_once __DIR__ . '/../view/Verror.php';
              $viewErr = new Verror();
@@ -690,7 +690,7 @@ public static function deleteHouse(int $id) {
 }
         USession::getInstance();
         $id = USession::getSessionElement('user');
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
         $houses = $user->getHouses();
         $view->showeditform($post, $houses);
         
@@ -712,14 +712,14 @@ public static function deleteHouse(int $id) {
             $acceptedPets = UHTTPMethods::post('accepted_pets') ?? []; 
             $petCounts    = UHTTPMethods::post('accepted_pet_counts') ?? [];
             $id_post = UHTTPMethods::post('post_id') ?? null;
-            $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id_post);
+            $post = FpersistentManager::retriveObj(Mpost::getEntity(), $id_post);
             $post->setMoreInfo($moreInfo);
             $post->setPrice($price);
             $post->setDateIn(new DateTime($dateInStr));
             $post->setDateOut(new DateTime($dateOutStr));
             $post->addAcceptedPets(array_combine($acceptedPets, $petCounts));
-            $post->setHouse(FPersistentManager::retriveObj(Mposition::getEntity(), $idPosition));
-            $check = FPersistentManager::saveObj($post);
+            $post->setHouse(FpersistentManager::retriveObj(Mposition::getEntity(), $idPosition));
+            $check = FpersistentManager::saveObj($post);
             header('Location: /PetHouse/User/myPost');
             
             
@@ -734,7 +734,7 @@ public static function deleteHouse(int $id) {
     // Ensure session is started
     Usession::getInstance();
     $id = Usession::getSessionElement('user');
-    $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+    $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
     $reviews = $user->getReviewToMe();
         // Calculate average rating
     $reviewsArray = $reviews->toArray();
@@ -749,8 +749,8 @@ public static function deleteHouse(int $id) {
     }
     $average = $count > 0 ? $total / $count : 0;
     $user->setRating($average);
-    FPersistentManager::saveObj($user); 
-    $view = new VUser();
+    FpersistentManager::saveObj($user); 
+    $view = new Vuser();
     $view->showReviews($reviewsArray, $average);
     
     }
@@ -762,14 +762,14 @@ public static function deleteHouse(int $id) {
         exit;
         }
         Usession::getInstance();
-        $post = FPersistentManager::retriveObj(Mpost::getEntity(), $id);
+        $post = FpersistentManager::retriveObj(Mpost::getEntity(), $id);
         if (!$post) {
             require_once __DIR__ . '/../view/Verror.php';
             $viewErr = new Verror();
             $viewErr->show404();
             return;
         }
-        $view = new VUser();
+        $view = new Vuser();
         $view->showPost($post);
     }
     public static function activeoffers()   
@@ -780,12 +780,12 @@ public static function deleteHouse(int $id) {
         }
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
         $offers = $user->getListOfOffers()->toArray();
         $offers = array_filter($offers, function($offer) {
             return $offer->getState() == stateoffer::ACCEPTED;
         });
-        $view = new VUser();
+        $view = new Vuser();
         $view->showActiveOffers($offers);
     }
     public static function activeposts()
@@ -797,12 +797,12 @@ public static function deleteHouse(int $id) {
 }
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
         $post = $user->getMyPost();
         $post = array_filter($post->toArray(), callback: function($p) {
             return $p->getBooked() == 'booked';
         });
-        $view = new VUser();
+        $view = new Vuser();
         $view->showActivePosts($post); 
     }
     public static function editprofile()
@@ -814,8 +814,8 @@ public static function deleteHouse(int $id) {
 }
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
-        $view = new VUser();
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
+        $view = new Vuser();
         $view->showEditProfile($user);
     }
     public static function updateProfile()
@@ -827,7 +827,7 @@ public static function deleteHouse(int $id) {
 }
         Usession::getInstance();
         $id = Usession::getSessionElement('user');
-        $user = FPersistentManager::retriveObj(Muser::getEntity(), $id);
+        $user = FpersistentManager::retriveObj(Muser::getEntity(), $id);
         $name = UHTTPMethods::post('name') ?? null;
         $surname = UHTTPMethods::post('surname') ?? null;
         $username = UHTTPMethods::post('username') ?? null;
@@ -858,11 +858,11 @@ public static function deleteHouse(int $id) {
             $foto = new Mphoto( $dati,$mimeType );
 
             
-            FPersistentManager::saveObj($foto); 
+            FpersistentManager::saveObj($foto); 
             $user->setProfilePicture($foto);
              // Associate the photo with the user
         }
-        FPersistentManager::saveObj($user);
+        FpersistentManager::saveObj($user);
         header('Location: /PetHouse/user/profile');
     
 }
