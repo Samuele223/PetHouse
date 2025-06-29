@@ -145,7 +145,7 @@
                     <div class="wizard-container"> 
 
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form id="houseForm" action="/PetHouse/user/createHouse" method="post" enctype="multipart/form-data">                        
+                            <form id="houseform" action="/PetHouse/user/createHouse" method="post" enctype="multipart/form-data">                        
                                 <div class="wizard-header">
                                     <h3>
                                         <b>Submit</b> YOUR PROPERTY <br>
@@ -435,8 +435,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add form submit validation
-    const houseForm = document.getElementById('houseForm');
-    houseForm.addEventListener('submit', function(e) {
+    const houseform = document.getElementById('houseform');
+    houseform.addEventListener('submit', function(e) {
         let isValid = true;
         
         // Validate each location field

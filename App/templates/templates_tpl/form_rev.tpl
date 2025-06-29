@@ -155,7 +155,7 @@
                     <div class="wizard-container"> 
 
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
-                            <form id="houseForm" action="/PetHouse/Review/savereview/{$user_id}" method="post" enctype="multipart/form-data">                        
+                            <form id="houseform" action="/PetHouse/Review/savereview/{$user_id}" method="post" enctype="multipart/form-data">                        
                                 <div class="wizard-header">
                                     <h3>
                                         <b>Leave a review</b>

@@ -136,7 +136,7 @@ class Cfindhosting{
         return;
     }
     $view = new Vfindhosting();
-    $view->showFormOffer($post);  //finally shows the form to create an offer related to the post
+    $view->showformOffer($post);  //finally shows the form to create an offer related to the post
 }
     public static function createOffer($id_post) //function to actually create an offer related to a post, after the form is shown
     {   

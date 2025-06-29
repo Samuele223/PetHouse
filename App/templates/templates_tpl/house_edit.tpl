@@ -174,7 +174,7 @@
                         <div class="wizard-card ct-wizard-orange" id="wizardProperty">
                         
 
-                            <form id="houseForm" action="/PetHouse/user/updateHouse/{$house->getId()}" method="post" enctype="multipart/form-data">             
+                            <form id="houseform" action="/PetHouse/user/updateHouse/{$house->getId()}" method="post" enctype="multipart/form-data">             
                                 <div class="wizard-header">
                                     <h3>
                                         <b>EDIT</b> YOUR HOUSE <br>
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Ensure the form always submits province and city values
-    document.getElementById('houseForm').addEventListener('submit', function(e) {
+    document.getElementById('houseform').addEventListener('submit', function(e) {
         // Only if both province and city have values and are marked as selected
         if (provinceInput && provinceInput.value && cityInput && cityInput.value) {
             // No need to prevent default, just let the form submit with the existing values
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const finishBtn = document.querySelector('.btn-finish');
     const termsCheckbox = document.getElementById('terms_checkbox');
-    const form = document.getElementById('houseForm');
+    const form = document.getElementById('houseform');
     if (finishBtn && termsCheckbox && form) {
         finishBtn.addEventListener('click', function(e) {
             if (!termsCheckbox.checked) {

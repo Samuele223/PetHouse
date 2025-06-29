@@ -34,7 +34,7 @@ public function showPost($post, $backUrl = '/PetHouse/')
 
     $this->smarty->display('post_detail.tpl');
 }
-    public function showFormOffer($post)
+    public function showformOffer($post)
     {
         $this->smarty->assign('post', $post);
         

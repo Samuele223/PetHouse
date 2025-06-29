@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Identify which form we're working with
     const isSearchForm = document.getElementById('customSearchForm') !== null;
-    const isHouseForm = document.getElementById('houseForm') !== null;
+    const ishouseform = document.getElementById('houseForm') !== null;
     const isEditForm = document.querySelector('form[action*="editHouse"]') !== null;
     
     // Set selectors based on the form type
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup form validation
     const form = isSearchForm ? document.getElementById('customSearchForm') : 
-                 isHouseForm ? document.getElementById('houseForm') : 
+                 ishouseform ? document.getElementById('houseform') : 
                  document.querySelector('form');
                  
     if (form && !isSearchForm) { // Only apply strict validation to non-search forms
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!provinceField || !cityField) return;
             
             // For house forms, both province and city are required
-            if (isHouseForm || isEditForm) {
+            if (ishouseform || isEditForm) {
                 // Validate province selection
                 if (!provinceField.value || !provinceField.dataset.selected || provinceField.dataset.selected !== "true") {
                     e.preventDefault();
